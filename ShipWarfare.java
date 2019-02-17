@@ -1,23 +1,44 @@
+//AYYYYYYYYYY
 package TeamProject;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class ShipWarfare {
 
-    private int money = 0;
+    private int money = 100000000;
     private int guns = 3;
     private int hp = 100;
     private int numOfPeasantShips= 0;
 
+
+
     public void peasantFleetAttack() throws Exception{
         Scanner userResponse = new Scanner(System.in);
-        numOfPeasantShips=numOfShips();
-        System.out.printf("By Golly! You have $%,d \nYou are being attacked by %d ships\n", getMoney(), getNumOfPeasantShips());
-        System.out.println("What do you want to do?");
-        System.out.println("Ohh, fight ehh?");
-        fightShips(getNumOfPeasantShips());
+        setNumOfPeasantShips(numOfShips());
+        System.out.printf("By Golly! We have $%,d \nwe are being attacked by %d ships\n", getMoney(), getNumOfPeasantShips());
+        System.out.println("What do you want to do? Press \"f\" to fight, and \"r\" to run ");
+        while(true) {
+            try {
+                String response = userResponse.nextLine();
+                if (response.equalsIgnoreCase("f")) {
+                    System.out.println("Ohh, fight ehh?");
+                    fightShips(getNumOfPeasantShips());
+                }
+                else if(response.equalsIgnoreCase("r")){
+
+                }
+
+            } catch (InputMismatchException e) {
+                String response;
+                System.out.println("Sorry, that is not an acceptable input please try again");
+                response = userResponse.nextLine();
+                if (response.equalsIgnoreCase("f") || response.equalsIgnoreCase("r"))
+                break;
+            }
+        }
 
     }
 
@@ -35,6 +56,22 @@ public class ShipWarfare {
 
     public int getNumOfPeasantShips() {
         return numOfPeasantShips;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public void setGuns(int guns) {
+        this.guns = guns;
+    }
+    public void setNumOfPeasantShips(int numOfPeasantShips) {
+        this.numOfPeasantShips = numOfPeasantShips;
     }
 
     public void delayForASecond() throws Exception {
@@ -75,6 +112,9 @@ public class ShipWarfare {
 
     }
 
+
+
+
     public void fightShips(int typeOfShip)  throws Exception {
 
         Random randomValue = new Random();
@@ -112,12 +152,12 @@ public class ShipWarfare {
                     System.out.println("Oh no, they are taking the offensive!");
                     delayForASecond();
                     //Computer volley
-                    hp -= randomValue.nextInt(10);
+                    setHp(getHp() - randomValue.nextInt(10));
                     if(getHp()<=0){
                         exitValue=2;
                         break;
                     }
-                    System.out.printf("EEk, you have %d health left\n", getHp());
+                    System.out.printf("EEK, we have %d health left\n", getHp());
                     delayForASecond();
 
                 }
