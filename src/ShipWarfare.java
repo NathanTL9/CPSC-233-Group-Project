@@ -67,6 +67,7 @@ public class ShipWarfare {
     public void setGuns(int guns) {
         this.guns = guns;
     }
+
     public void setNumOfPeasantShips(int numOfPeasantShips) {
         this.numOfPeasantShips = numOfPeasantShips;
     }
