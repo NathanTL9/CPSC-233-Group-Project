@@ -1,5 +1,3 @@
-//AYYYYYYYYYY
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
@@ -162,7 +160,7 @@ public class ShipWarfare {
                 }
             }
             if(exitValue==1) {
-                System.out.printf("Got eem!\nIt appears we have defeated the enemy fleet and made it out at %d health", hp);
+                System.out.printf("Got eem!\nIt appears we have defeated the enemy fleet and made it out at %d health\n", hp);
             }
             else if(exitValue==2){
                 gameOver();
