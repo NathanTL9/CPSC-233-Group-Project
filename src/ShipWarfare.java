@@ -25,7 +25,7 @@ public class ShipWarfare {
                     fightShips(getNumOfPeasantShips());
                 }
                 else if(response.equalsIgnoreCase("r")){
-
+                    System.out.println("Harkey G is dumb boiiiiiiiii");
                 }
 
             } catch (InputMismatchException e) {
