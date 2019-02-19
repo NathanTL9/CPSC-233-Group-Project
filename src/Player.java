@@ -7,7 +7,7 @@ public class Player {
     private int silkHeld = 0;
     private int generalHeld = 0;
     private int armsHeld = 0;
-    private int location = 2;
+    private int location = 1;
     private int guns = 0;
     private int Hp = 100;
 
@@ -23,8 +23,10 @@ public class Player {
         return Hp;
     }
 
-    public void setHp(int hp) {
-        Hp = hp;
+    public void setHp(int Hp) {
+        if(Hp>= 0){
+            this.Hp = Hp;
+        }
     }
 
     public int getBank() {
@@ -32,7 +34,9 @@ public class Player {
     }
 
     public void setBank(int bank) {
-        this.bank = bank;
+        if(bank>= 0) {
+            this.bank = bank;
+        }
     }
 
     public int getMoney() {
@@ -40,7 +44,9 @@ public class Player {
     }
 
     public void setMoney(int money) {
-        this.money = money;
+        if(money>= 0) {
+            this.money = money;
+        }
     }
 
     public int getOpiumHeld() {
@@ -48,7 +54,9 @@ public class Player {
     }
 
     public void setOpiumHeld(int opiumHeld) {
-        this.opiumHeld = opiumHeld;
+        if(opiumHeld>= 0) {
+            this.opiumHeld = opiumHeld;
+        }
     }
 
     public int getSilkHeld() {
@@ -56,7 +64,9 @@ public class Player {
     }
 
     public void setSilkHeld(int silkHeld) {
-        this.silkHeld = silkHeld;
+        if(silkHeld>= 0) {
+            this.silkHeld = silkHeld;
+        }
     }
 
     public int getGeneralHeld() {
@@ -64,7 +74,9 @@ public class Player {
     }
 
     public void setGeneralHeld(int generalHeld) {
-        this.generalHeld = generalHeld;
+        if(generalHeld>= 0) {
+            this.generalHeld = generalHeld;
+        }
     }
 
     public int getArmsHeld() {
@@ -72,7 +84,9 @@ public class Player {
     }
 
     public void setArmsHeld(int armsHeld) {
-        this.armsHeld = armsHeld;
+        if(armsHeld>= 0) {
+            this.armsHeld = armsHeld;
+        }
     }
 
     public int getLocation() {
@@ -80,7 +94,9 @@ public class Player {
     }
 
     public void setLocation(int location) {
-        this.location = location;
+        if(location>= 0) {
+            this.location = location;
+        }
     }
 
     public int getGuns() {
@@ -88,6 +104,8 @@ public class Player {
     }
 
     public void setGuns(int guns) {
-        this.guns = guns;
+        if(guns>= 0) {
+            this.guns = guns;
+        }
     }
 }
