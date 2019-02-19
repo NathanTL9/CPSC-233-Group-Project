@@ -11,20 +11,20 @@ public class Player {
     private int guns = 0;
     private int Hp = 100;
 
-    public int getHp() {
-        return Hp;
-    }
-
-    public void setHp(int hp) {
-        Hp = hp;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getHp() {
+        return Hp;
+    }
+
+    public void setHp(int hp) {
+        Hp = hp;
     }
 
     public int getBank() {
