@@ -1,4 +1,4 @@
-public class Core {
+public class Player {
 
     private String name = "Taipan";
     private int bank = 0;
@@ -9,6 +9,15 @@ public class Core {
     private int armsHeld = 0;
     private int location = 2;
     private int guns = 0;
+    private int Hp = 100;
+
+    public int getHp() {
+        return Hp;
+    }
+
+    public void setHp(int hp) {
+        Hp = hp;
+    }
 
     public String getName() {
         return name;
