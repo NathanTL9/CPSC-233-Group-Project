@@ -37,13 +37,9 @@ public class ShipWarfare extends Player {
     }
 
 
-
-
     public int getNumOfPeasantShips() {
         return numOfPeasantShips;
     }
-
-
 
     public void setNumOfPeasantShips(int numOfPeasantShips) {
         this.numOfPeasantShips = numOfPeasantShips;
@@ -132,12 +128,12 @@ public class ShipWarfare extends Player {
                     System.out.println("Oh no, they are taking the offensive!");
                     delayForASecond();
                     //Computer volley
-                    setHp(getHp() - randomValue.nextInt(10));
-                    if (getHp() <= 0) {
+                    setHP(getHP() - randomValue.nextInt(10));
+                    if (getHP() <= 0) {
                         exitValue = 2;
                         break;
                     }
-                    System.out.printf("EEK, we have %d health left\n", getHp());
+                    System.out.printf("EEK, we have %d health left\n", getHP());
                     delayForASecond();
 
                     System.out.println("Shall we continue the offensive? Enter \"f\" to fight, and \"r\" to run");
@@ -160,7 +156,7 @@ public class ShipWarfare extends Player {
                 }
             }
             if (exitValue == 1) {
-                System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d health\n", getHp());
+                System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d health\n", getHP());
                 return true;
             } else if (exitValue == 2) {
                 gameOver();
