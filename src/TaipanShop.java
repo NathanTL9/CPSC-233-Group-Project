@@ -15,7 +15,7 @@ public class TaipanShop {
     private int silkPrice = 1600;
     private int armsPrice = 160;
     private int generalPrice = 8;
-    private int location = 2;
+    private int location = 1;
     private int guns = 0;
 
     public void updatePrices(){
@@ -300,11 +300,11 @@ public class TaipanShop {
 
                 } else if (response.equalsIgnoreCase("S")) {
                     boolean notDone2 = true;
-                    System.out.println("What do you wish me to sell, " + name + "? (You have " + opiumHeld + ")");
+                    System.out.println("What do you wish me to sell, " + name + "?");
                     while (notDone2) {
                         response = input.nextLine();
                         if (response.equalsIgnoreCase("O")) {
-                            System.out.println("\nHow much Opium shall I sell, " + name + "?");
+                            System.out.println("\nHow much Opium shall I sell, " + name + "? (You have " + opiumHeld + ")");
                             while (notDone2) {
                                 int num = input.nextInt();
                                 if (num <= opiumHeld && num >= 0) {
@@ -374,3 +374,4 @@ public class TaipanShop {
         shop.shop();
     }
 }
+
