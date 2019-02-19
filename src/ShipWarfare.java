@@ -49,10 +49,6 @@ public class ShipWarfare extends Player {
         TimeUnit.SECONDS.sleep(1);
     }
 
-    public void gameOver() {
-        System.out.flush();
-        System.out.println("Game over");
-    }
 
     public int numOfShips() {
 

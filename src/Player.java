@@ -108,4 +108,9 @@ public class Player {
             this.guns = guns;
         }
     }
+
+    public void gameOver() {
+        System.out.flush();
+        System.out.println("Game over");
+    }
 }
