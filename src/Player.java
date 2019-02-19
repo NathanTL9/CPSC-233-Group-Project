@@ -9,7 +9,7 @@ public class Player {
     private int armsHeld = 0;
     private int location = 1;
     private int guns = 3;
-    private int Hp = 100;
+    private int HP = 100;
 
     public String getName() {
         return name;
@@ -19,13 +19,13 @@ public class Player {
         this.name = name;
     }
 
-    public int getHp() {
-        return Hp;
+    public int getHP() {
+        return HP;
     }
 
-    public void setHp(int Hp) {
-        if(Hp>= 0){
-            this.Hp = Hp;
+    public void setHP(int HP) {
+        if(HP>= 0){
+            this.HP = HP;
         }
     }
 
