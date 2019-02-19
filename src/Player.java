@@ -8,7 +8,7 @@ public class Player {
     private int generalHeld = 0;
     private int armsHeld = 0;
     private int location = 1;
-    private int guns = 0;
+    private int guns = 3;
     private int Hp = 100;
 
     public String getName() {

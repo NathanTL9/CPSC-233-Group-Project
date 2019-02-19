@@ -2,11 +2,8 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class ShipWarfare {
+public class ShipWarfare extends Player {
 
-    private int money = 0;
-    private int guns = 3;
-    private int hp = 100;
     private int numOfPeasantShips = 0;
 
 
@@ -40,34 +37,13 @@ public class ShipWarfare {
     }
 
 
-    public int getMoney() {
-        return money;
-    }
 
-    public int getGuns() {
-        return guns;
-    }
-
-    public int getHp() {
-        return hp;
-    }
 
     public int getNumOfPeasantShips() {
         return numOfPeasantShips;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
 
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
-    }
-
-    public void setGuns(int guns) {
-        this.guns = guns;
-    }
 
     public void setNumOfPeasantShips(int numOfPeasantShips) {
         this.numOfPeasantShips = numOfPeasantShips;
@@ -184,7 +160,7 @@ public class ShipWarfare {
                 }
             }
             if (exitValue == 1) {
-                System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d health\n", hp);
+                System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d health\n", getHp());
                 return true;
             } else if (exitValue == 2) {
                 gameOver();
