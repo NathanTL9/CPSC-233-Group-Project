@@ -1,8 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 public class TaipanShop extends Player {
-
-    private Player player = new Player();
+    
     private int cargoSpace = 60;
     private int currentCargo = 0;
     private int opiumPrice = 16000;
@@ -10,12 +9,24 @@ public class TaipanShop extends Player {
     private int armsPrice = 160;
     private int generalPrice = 8;
 
+    public int getCargoSpace() {
+        return cargoSpace;
+    }
+
+    public void setCargoSpace(int cargoSpace) {
+        if(cargoSpace > 0){
+            this.cargoSpace = cargoSpace;
+        }
+    }
+
     public int getOpiumPrice() {
         return opiumPrice;
     }
 
     public void setOpiumPrice(int opiumPrice) {
-        this.opiumPrice = opiumPrice;
+        if(opiumPrice > 0){
+            this.opiumPrice = opiumPrice;
+        }
     }
 
     public int getSilkPrice() {
@@ -23,7 +34,9 @@ public class TaipanShop extends Player {
     }
 
     public void setSilkPrice(int silkPrice) {
-        this.silkPrice = silkPrice;
+        if(silkPrice > 0){
+            this.silkPrice = silkPrice;
+        }
     }
 
     public int getArmsPrice() {
@@ -31,7 +44,9 @@ public class TaipanShop extends Player {
     }
 
     public void setArmsPrice(int armsPrice) {
-        this.armsPrice = armsPrice;
+        if(armsPrice > 0){
+            this.armsPrice = armsPrice;
+        }
     }
 
     public int getGeneralPrice() {
@@ -39,29 +54,28 @@ public class TaipanShop extends Player {
     }
 
     public void setGeneralPrice(int generalPrice) {
-        this.generalPrice = generalPrice;
+        if(generalPrice > 0){
+            this.generalPrice = generalPrice;
+        }
     }
 
     private void updatePrices(){
         String s = "\n" + getName() + ", the price of ";
         double value = 80*Math.random();
         Random rand = new Random();
-
-        setOpiumPrice((rand.nextInt(201) + 60)*100);
-        setSilkPrice((rand.nextInt(201) + 60)*10);
-        setArmsPrice((rand.nextInt(21) + 6)*10);
-        setGeneralPrice(rand.nextInt(17) + 4);
-
+        opiumPrice = (rand.nextInt(201) + 60)*100;
+        silkPrice = (rand.nextInt(201) + 60)*10;
+        armsPrice = (rand.nextInt(21) + 6)*10;
+        generalPrice = rand.nextInt(17) + 4;
         if(value < 8){
             if(value < 2){
                 if(value < 1){
-                    setOpiumPrice(getOpiumPrice()/5);
-                    System.out.println(s + "Opium has dropped to " + getOpiumPrice() +"!!!\n");
+                    opiumPrice /= 5;
+                    System.out.println(s + "Opium has dropped to " + opiumPrice +"!!!\n");
                 }else{
-                    setOpiumPrice(getOpiumPrice()*5);
-                    System.out.println(s + "Opium has risen to " + getOpiumPrice() +"!!!\n");
+                    opiumPrice *= 5;
+                    System.out.println(s + "Opium has risen to " + opiumPrice +"!!!\n");
                 }
-
             }else if(value < 4){
                 if(value < 3){
                     silkPrice /= 5;
@@ -396,12 +410,8 @@ public class TaipanShop extends Player {
 
         }
     }
-
-
-
     public static void main(String[] args){
         TaipanShop shop = new TaipanShop();
         shop.shop();
     }
 }
-
