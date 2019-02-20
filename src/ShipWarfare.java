@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 public class ShipWarfare extends Player {
 
     private int numOfPeasantShips = 0;
+    private boolean userAttacks= true;
+
 
 
     public void peasantFleetAttack() throws Exception {
@@ -15,6 +17,7 @@ public class ShipWarfare extends Player {
         while (true) {
             String response = userResponse.nextLine();
             if (response.equalsIgnoreCase("f")) {
+                userAttacks=true;
                 System.out.println("Ohh, fight ehh?");
                 boolean winOrLose= destroyShipsOrEscape(getNumOfPeasantShips());
                 if(winOrLose==true){
@@ -25,7 +28,11 @@ public class ShipWarfare extends Player {
 
             } else if (response.equalsIgnoreCase("r")) {
                 runFromShips();
-                if(runFromShips()==true){
+                if(runFromShips()==false) {
+                    System.out.println("Couldn't run away!");
+                    destroyShipsOrEscape(getNumOfPeasantShips());
+                }
+                else{
                     break;
                 }
 
@@ -74,12 +81,12 @@ public class ShipWarfare extends Player {
     }
 
     public boolean runFromShips() {
+        userAttacks=false;
         Random randomValue = new Random();
         int runSuccessChance = randomValue.nextInt(2) + 1;
         if (runSuccessChance == 2) {
             return true;
         } else if (runSuccessChance == 1) {
-            System.out.println("Couldn't run away");
             return false;
         }
         return false;
@@ -90,18 +97,19 @@ public class ShipWarfare extends Player {
         Random randomValue = new Random();
         int shipsRemaining = typeOfShip;
         int exitValue=0;
+        int counter=0;
 
-        if (exitValue == 0) {
             //Player volley
             while (exitValue == 0) {
+                counter++;
                 for (int i = 0; i < shipsRemaining; i++) {
-                    if (exitValue == 0) {
+                    if (userAttacks==true) {
                         for (int j = 0; j < getGuns(); j++) {
                             int hitOrMiss = randomValue.nextInt(2) + 1;
                             if (hitOrMiss == 2) {
                                 shipsRemaining--;
                                 if (shipsRemaining <= 0) {
-                                    exitValue = 1;
+                                    exitValue= 1;
                                     break;
                                 }
                                 System.out.println("Got eem");
@@ -138,7 +146,7 @@ public class ShipWarfare extends Player {
                     if (response.equalsIgnoreCase("r")) {
                         runFromShips();
                         if (runFromShips() == false) {
-                            exitValue = 6;
+                            System.out.println("Couldn't run away");
                         } else {
                             exitValue = 3;
                             break;
@@ -167,11 +175,7 @@ public class ShipWarfare extends Player {
         }
         //Type of ship implied to be Liu Yen fleet
 
-        else {
 
-        }
-        return false;
-    }
 
     public static void main(String[] args) throws Exception {
         ShipWarfare littyObject = new ShipWarfare();
