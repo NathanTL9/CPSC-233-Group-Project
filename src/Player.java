@@ -2,13 +2,13 @@ public class Player {
 
     private String name = "Taipan";
     private int bank = 0;
-    private int money = 1000;
+    private int money = 100000000;
     private int opiumHeld = 0;
     private int silkHeld = 0;
     private int generalHeld = 0;
     private int armsHeld = 0;
     private int location = 1;
-    private int guns = 3;
+    private int guns = 6;
     private int HP = 100;
 
 
@@ -25,9 +25,9 @@ public class Player {
     }
 
     public void setHP(int HP) {
-        if(HP>= 0){
-            this.HP = HP;
-        }
+
+        this.HP = HP;
+
     }
 
     public int getBank() {
@@ -35,7 +35,7 @@ public class Player {
     }
 
     public void setBank(int bank) {
-        if(bank>= 0) {
+        if (bank >= 0) {
             this.bank = bank;
         }
     }
@@ -45,7 +45,7 @@ public class Player {
     }
 
     public void setMoney(int money) {
-        if(money>= 0) {
+        if (money >= 0) {
             this.money = money;
         }
     }
@@ -55,7 +55,7 @@ public class Player {
     }
 
     public void setOpiumHeld(int opiumHeld) {
-        if(opiumHeld>= 0) {
+        if (opiumHeld >= 0) {
             this.opiumHeld = opiumHeld;
         }
     }
@@ -65,7 +65,7 @@ public class Player {
     }
 
     public void setSilkHeld(int silkHeld) {
-        if(silkHeld>= 0) {
+        if (silkHeld >= 0) {
             this.silkHeld = silkHeld;
         }
     }
@@ -75,7 +75,7 @@ public class Player {
     }
 
     public void setGeneralHeld(int generalHeld) {
-        if(generalHeld>= 0) {
+        if (generalHeld >= 0) {
             this.generalHeld = generalHeld;
         }
     }
@@ -85,7 +85,7 @@ public class Player {
     }
 
     public void setArmsHeld(int armsHeld) {
-        if(armsHeld>= 0) {
+        if (armsHeld >= 0) {
             this.armsHeld = armsHeld;
         }
     }
@@ -95,7 +95,7 @@ public class Player {
     }
 
     public void setLocation(int location) {
-        if(location>= 0) {
+        if (location >= 0) {
             this.location = location;
         }
     }
@@ -105,7 +105,7 @@ public class Player {
     }
 
     public void setGuns(int guns) {
-        if(guns>= 0) {
+        if (guns >= 0) {
             this.guns = guns;
         }
     }
@@ -115,7 +115,7 @@ public class Player {
         System.out.println("Game over");
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ShipWarfare littyboi = new ShipWarfare();
         TaipanShop littyShop = new TaipanShop();
         littyShop.shop();
