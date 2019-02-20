@@ -11,7 +11,7 @@ public class ShipWarfare extends Player {
     public void peasantFleetAttack() throws Exception {
         Scanner userResponse = new Scanner(System.in);
         setNumOfPeasantShips(numOfShips());
-        System.out.printf("By Golly! We have $%,d \nwe are being attacked by %d ships\n", getMoney(), getNumOfPeasantShips());
+        System.out.printf("By Golly! We have $%,d and are being attacked by %d ships\nCurrently our ship status is %d%%\n", getMoney(), getNumOfPeasantShips(),getHP());
         fightOrRunMessage();
         while (true) {
             String response = userResponse.nextLine();
@@ -25,11 +25,12 @@ public class ShipWarfare extends Player {
 
 
             } else if (response.equalsIgnoreCase("r")) {
-                runFromShips();
                 if (runFromShips() == false) {
                     System.out.println("Couldn't run away!");
-                    destroyShipsOrEscape(getNumOfPeasantShips());
+                    if(destroyShipsOrEscape(getNumOfPeasantShips()))
+                        break;
                 } else {
+                    System.out.println("Phew! Got away safely");
                     break;
                 }
 
@@ -101,87 +102,80 @@ public class ShipWarfare extends Player {
         int exitValue = 0;
 
         //Player volley
-        if (exitValue == 0) {
-            while (exitValue == 0) {
-                for (int i = 0; i < numOfPeasantShips; i++) {
-
-                    for (int j = 0; j < getGuns(); j++) {
-                        if (userAttacks == true) {
-                            int hitOrMiss = randomValue.nextInt(2) + 1;
-                            if (hitOrMiss == 2) {
-                                numOfPeasantShips--;
-                                if (numOfPeasantShips <= 0) {
-                                    exitValue = 1;
-                                    break;
-                                }
-                                System.out.println("Got eem");
-                                delayForASecond();
-                            } else {
-                                System.out.println("ARRG! We missed captain");
-                                delayForASecond();
-                            }
-
-
-                        } else {
-                            continue;
-                        }
-                    }
-
-
-                    if (numOfPeasantShips <= 0) {
-                        exitValue = 1;
-                        break;
-                    }
-
-                    System.out.printf("%d ships remaining\n", getNumOfPeasantShips());
-                    System.out.println("Oh no, they are taking the offensive!");
-                    delayForASecond();
-                    //Computer volley
-                    int takeGunChance = randomValue.nextInt(4) + 1;
-                    if (takeGunChance == 1 && getGuns() > 0) {
-                        setGuns(getGuns() - 1);
-                        System.out.println("Dang it! They destroyed one of our guns");
-                    } else {
-                        setHP(getHP() - (1 + randomValue.nextInt(10)));
-                    }
-                    if (getHP() <= 0) {
-                        exitValue = 2;
-                        break;
-                    }
-                    System.out.printf("EEK, we have %d health left\n", getHP());
-                    delayForASecond();
-                    if (userAttacks == false) {
-                        userAttacks = true;
-                    }
-
-                    System.out.printf("Shall we continue to fight? Enter \"f\" to fight, and \"r\" to run (We have %d guns left)", getGuns());
-
-                    String response = userInput.nextLine();
-                    if (response.equalsIgnoreCase("r")) {
-                        runFromShips();
-                        if (runFromShips() == false) {
-                            System.out.println("Couldn't run away");
-                        } else {
-                            exitValue = 3;
+        while (exitValue == 0) {
+            for (int j = 0; j < getGuns(); j++) {
+                if (userAttacks == true) {
+                    int hitOrMiss = randomValue.nextInt(2) + 1;
+                    if (hitOrMiss == 2) {
+                        numOfPeasantShips--;
+                        if (numOfPeasantShips <= 0) {
+                            exitValue = 1;
                             break;
                         }
+                        System.out.println("Got eem");
+                        delayForASecond();
+                    } else {
+                        System.out.println("ARRG! We missed captain");
+                        delayForASecond();
                     }
 
 
+                } else {
+                    continue;
                 }
-                if (runFromShips() == true) {
+            }
+
+
+            if (numOfPeasantShips <= 0) {
+                exitValue = 1;
+                break;
+            }
+
+            System.out.printf("%d ships remaining\n", getNumOfPeasantShips());
+            System.out.println("Oh no, they are taking the offensive!");
+            delayForASecond();
+            //Computer volley
+            int takeGunChance = randomValue.nextInt(4) + 1;
+            if (takeGunChance == 1 && getGuns() > 0) {
+                setGuns(getGuns() - 1);
+                System.out.println("Dang it! They destroyed one of our guns");
+            } else {
+                setHP(getHP() - (1 + randomValue.nextInt(10)));
+            }
+            if (getHP() <= 0) {
+                exitValue = 2;
+                break;
+            }
+            System.out.printf("EEK, our current ship status is %d%% \n", getHP());
+            delayForASecond();
+            if (userAttacks == false) {
+                userAttacks = true;
+            }
+
+            System.out.printf("Shall we continue to fight? Enter \"f\" to fight, and \"r\" to run (We have %d gun(s) left)", getGuns());
+
+            String response = userInput.nextLine();
+            if (response.equalsIgnoreCase("r")) {
+                if (runFromShips() == false) {
+                    System.out.println("Couldn't run away");
+                } else {
+                    exitValue = 3;
                     break;
                 }
             }
+
+
         }
+
+
         if (exitValue == 1) {
-            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d health\n", getHP());
+            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", getHP());
             return true;
         } else if (exitValue == 2) {
             gameOver();
             return true;
         } else if (exitValue == 3) {
-            System.out.printf("We made it out at %d health!\n", getHP());
+            System.out.printf("We made it out at %d%% ship status!\n", getHP());
             return true;
         }
         return false;
@@ -197,5 +191,4 @@ public class ShipWarfare extends Player {
     }
 
 }
-
 

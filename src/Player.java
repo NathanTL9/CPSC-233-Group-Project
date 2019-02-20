@@ -2,13 +2,13 @@ public class Player {
 
     private String name = "Taipan";
     private int bank = 0;
-    private int money = 100000000;
+    private int money = 1000;
     private int opiumHeld = 0;
     private int silkHeld = 0;
     private int generalHeld = 0;
     private int armsHeld = 0;
     private int location = 1;
-    private int guns = 6;
+    private int guns = 3;
     private int HP = 100;
 
 
@@ -116,8 +116,13 @@ public class Player {
     }
 
     public static void main(String[] args) throws Exception {
-        ShipWarfare littyboi = new ShipWarfare();
+        ShipWarfare littyWarfare = new ShipWarfare();
         TaipanShop littyShop = new TaipanShop();
+
+        littyShop.shop();
+
+        littyWarfare.peasantFleetAttack();
+
         littyShop.shop();
     }
 
