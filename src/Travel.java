@@ -4,28 +4,34 @@ import java.util.Scanner;
 public class Travel extends Player {
 
     private void seaAtlas(int locationOfTravel){
-        setLocation(locationOfTravel);
         switch (locationOfTravel) {
             case 1:
                 System.out.println("\nArriving at Hong Kong");
+                setLocation(1);
                 break;
             case 2:
                 System.out.println("\nArriving at Shanghai");
+                setLocation(2);
                 break;
             case 3:
                 System.out.println("\nArriving at Nagasaki");
+                setLocation(3);
                 break;
             case 4:
                 System.out.println("\nArriving at Saigon");
+                setLocation(4);
                 break;
             case 5:
                 System.out.println("\nArriving at Manila");
+                setLocation(5);
                 break;
             case 6:
                 System.out.println("\nArriving at Singapore");
+                setLocation(6);
                 break;
             case 7:
                 System.out.println("\nArriving at Batavia");
+                setLocation(7);
                 break;
         }
     }
@@ -75,6 +81,7 @@ public class Travel extends Player {
             response = keyboard.nextLine();
             try {
                 tempInt = Integer.parseInt(response);
+                System.out.println(tempInt + " " + getLocation());
                 if(tempInt != getLocation()){
                     randomEventSea(tempInt);
                     seaAtlas(tempInt);
