@@ -3,6 +3,65 @@ import java.util.Scanner;
 
 public class Travel extends Player {
 
+    private void seaAtlas(int locationOfTravel){
+        setLocation(locationOfTravel);
+        switch (locationOfTravel) {
+            case 1:
+                System.out.println("\nArriving at Hong Kong");
+                break;
+            case 2:
+                System.out.println("\nArriving at Shanghai");
+                break;
+            case 3:
+                System.out.println("\nArriving at Nagasaki");
+                break;
+            case 4:
+                System.out.println("\nArriving at Saigon");
+                break;
+            case 5:
+                System.out.println("\nArriving at Manila");
+                break;
+            case 6:
+                System.out.println("\nArriving at Singapore");
+                break;
+            case 7:
+                System.out.println("\nArriving at Batavia");
+                break;
+        }
+    }
+
+    private void randomEventSea(int locationOfTravel) throws Exception {
+        ShipWarfare attackShip = new ShipWarfare();
+        Random rand = new Random();
+        int randGenNum = rand.nextInt(3) + 1;
+        if(randGenNum == 1){
+            attackShip.peasantFleetAttack();
+        }
+        else if(randGenNum == 2){
+            disaster(locationOfTravel);
+        }
+        System.out.println("We made it!");
+    }
+
+    private void disaster(int locationOfTravel){
+        System.out.print("Storm "+getName()+"! ");
+        Random rand = new Random();
+        int randGenNum = rand.nextInt(5) + 1;
+
+        if(randGenNum <= 2){
+            System.out.println(" We made it through!");
+        }
+        else{
+            while(randGenNum == locationOfTravel){
+                randGenNum = rand.nextInt(7) + 1;
+                if (randGenNum != locationOfTravel) {
+                    System.out.println("We've been blown off course!");
+                    seaAtlas(randGenNum);
+                }
+            }
+        }
+    }
+
     public void travelTo(){
         Scanner keyboard = new Scanner(System.in);
         String response;
@@ -17,79 +76,17 @@ public class Travel extends Player {
             try {
                 tempInt = Integer.parseInt(response);
                 if(tempInt != getLocation()){
-                    switch (tempInt) {
-                        case 1:
-                            randomEventSea();
-                            System.out.println("\nArriving at Hong Kong");
-                            setLocation(1);
-                            hasTraveled = true;
-                            break;
-                        case 2:
-                            randomEventSea();
-                            System.out.println("\nArriving at Shanghai");
-                            setLocation(2);
-                            hasTraveled = true;
-                            break;
-                        case 3:
-                            randomEventSea();
-                            System.out.println("\nArriving at Nagasaki");
-                            setLocation(3);
-                            hasTraveled = true;
-                            break;
-                        case 4:
-                            randomEventSea();
-                            System.out.println("\nArriving at Saigon");
-                            setLocation(4);
-                            hasTraveled = true;
-                            break;
-                        case 5:
-                            randomEventSea();
-                            System.out.println("\nArriving at Manila");
-                            setLocation(5);
-                            hasTraveled = true;
-                            break;
-                        case 6:
-                            randomEventSea();
-                            System.out.println("\nArriving at Singapore");
-                            setLocation(6);
-                            hasTraveled = true;
-                            break;
-                        case 7:
-                            randomEventSea();
-                            System.out.println("\nArriving at Batavia");
-                            setLocation(7);
-                            hasTraveled = true;
-                            break;
-                    }
+                    randomEventSea(tempInt);
+                    seaAtlas(tempInt);
+                    hasTraveled = true;
                 }
-                else System.out.println("\nYou're already here Taipan.");
+                else System.out.println("\nYou're already here " + getName() + ".");
             }
             catch (Exception e){
-                System.out.print("\nSorry, Taipan could you say that again?");
+                System.out.print("\nSorry, " + getName() + " could you say that again?");
             }
             if(hasTraveled){break;}
         }
-    }
-
-    private void randomEventSea() throws Exception {
-        ShipWarfare attackShip = new ShipWarfare();
-        Random rand = new Random();
-        int randGenNum = rand.nextInt(2) + 1;
-        System.out.println("\n");
-
-        if(randGenNum == 1){
-            attackShip.peasantFleetAttack();
-            System.out.println("We made it " + getName());
-        }
-        else if(randGenNum == 2){
-            disaster();
-            System.out.println("We made it " + getName());
-        }
-    }
-
-    private void disaster(){
-        System.out.println("Storm Taipan!");
-
     }
 
     public static void main(String[] args){

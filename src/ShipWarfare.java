@@ -24,7 +24,6 @@ public class ShipWarfare extends Player {
 
 
             } else if (response.equalsIgnoreCase("r")) {
-                runFromShips();
                 if(runFromShips()==true){
                     break;
                 }
