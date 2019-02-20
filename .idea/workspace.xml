@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Vikram, these are the types of changes Harkey and I meant for you to establish.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TaipanClone/ShipWarfare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TaipanClone/ShipWarfare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipWarfare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TaipanShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaipanShop.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,17 +16,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-673">
-              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            <state relative-caret-position="1042">
+              <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1150#1151#0" expanded="true" />
-                <element signature="e#1190#1191#0" expanded="true" />
-                <element signature="e#1253#1254#0" expanded="true" />
-                <element signature="e#1311#1312#0" expanded="true" />
+                <element signature="e#1434#1435#0" expanded="true" />
+                <element signature="e#1555#1556#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -35,25 +33,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding>
-                <element signature="e#350#351#0" expanded="true" />
-                <element signature="e#377#378#0" expanded="true" />
-                <element signature="e#417#418#0" expanded="true" />
-                <element signature="e#449#450#0" expanded="true" />
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1350">
+              <caret line="112" column="28" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TaipanShop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+            <state relative-caret-position="5985">
+              <caret line="400" selection-start-line="400" selection-end-line="400" />
               <folding>
                 <element signature="e#371#372#0" expanded="true" />
                 <element signature="e#404#405#0" expanded="true" />
@@ -96,6 +86,7 @@
       <find>opiumHeld</find>
       <find>hp</find>
       <find>player.</find>
+      <find>exitValue</find>
     </findStrings>
     <replaceStrings>
       <replace>player.getName()</replace>
@@ -111,12 +102,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
         <option value="$PROJECT_DIR$/src/TaipanShop.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="709" />
@@ -127,8 +119,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550552776844" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550671761630" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -180,6 +172,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Player" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Player" />
+      <module name="TaipanClone" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShipWarfare" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShipWarfare" />
       <module name="TaipanClone" />
@@ -198,10 +197,12 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.ShipWarfare" />
       <item itemvalue="Application.TaipanShop" />
+      <item itemvalue="Application.Player" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ShipWarfare" />
+        <item itemvalue="Application.Player" />
         <item itemvalue="Application.TaipanShop" />
         <item itemvalue="Application.Main" />
       </list>
@@ -221,7 +222,8 @@
       <workItem from="1550454902781" duration="459000" />
       <workItem from="1550550806467" duration="577000" />
       <workItem from="1550552635138" duration="118000" />
-      <workItem from="1550553016386" duration="1451000" />
+      <workItem from="1550553016386" duration="7671000" />
+      <workItem from="1550672213804" duration="1589000" />
     </task>
     <task id="LOCAL-00001" summary="Added troll comments">
       <created>1550458807806</created>
@@ -244,16 +246,38 @@
       <option name="project" value="LOCAL" />
       <updated>1550544805794</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Vikram, these are the types of changes Harkey and I meant for you to establish.">
+      <created>1550554529721</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1550554529721</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added GameOver() Method to Player class, btw System.out.flush just straight up Thanos's the terminal at the time (clears it).">
+      <created>1550555424630</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1550555424631</updated>
+    </task>
+    <task id="LOCAL-00006" summary="I think I got the basic battling system down. Would appreciate i some of you guys beta tested it though and let me know the errors if there are any.">
+      <created>1550673099893</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1550673099893</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2605000" />
+    <option name="totallyTimeSpent" value="10414000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27786753" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2819063" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -262,7 +286,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3273906" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3273906" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -294,7 +318,10 @@
     <MESSAGE value="This should fix the project repository once and for all." />
     <MESSAGE value="Added troll comments" />
     <MESSAGE value="the shop now uses the player class as a parent class." />
-    <option name="LAST_COMMIT_MESSAGE" value="the shop now uses the player class as a parent class." />
+    <MESSAGE value="Vikram, these are the types of changes Harkey and I meant for you to establish." />
+    <MESSAGE value="Added GameOver() Method to Player class, btw System.out.flush just straight up Thanos's the terminal at the time (clears it)." />
+    <MESSAGE value="I think I got the basic battling system down. Would appreciate i some of you guys beta tested it though and let me know the errors if there are any." />
+    <option name="LAST_COMMIT_MESSAGE" value="I think I got the basic battling system down. Would appreciate i some of you guys beta tested it though and let me know the errors if there are any." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TaipanClone.iml">
@@ -310,39 +337,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="1042">
+          <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
           <folding>
-            <element signature="e#350#351#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-673">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1190#1191#0" expanded="true" />
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1350">
+          <caret line="112" column="28" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TaipanShop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+        <state relative-caret-position="5985">
+          <caret line="400" selection-start-line="400" selection-end-line="400" />
           <folding>
             <element signature="e#371#372#0" expanded="true" />
             <element signature="e#404#405#0" expanded="true" />

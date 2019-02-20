@@ -11,6 +11,7 @@ public class Player {
     private int guns = 3;
     private int HP = 100;
 
+
     public String getName() {
         return name;
     }
@@ -113,4 +114,11 @@ public class Player {
         System.out.flush();
         System.out.println("Game over");
     }
+
+    public static void main(String[] args) throws Exception{
+        ShipWarfare littyboi = new ShipWarfare();
+        TaipanShop littyShop = new TaipanShop();
+        littyShop.shop();
+    }
+
 }

@@ -2,6 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 public class TaipanShop extends Player {
 
+    private Player player = new Player();
     private int cargoSpace = 60;
     private int currentCargo = 0;
     private int opiumPrice = 16000;
@@ -395,6 +396,9 @@ public class TaipanShop extends Player {
 
         }
     }
+
+
+
     public static void main(String[] args){
         TaipanShop shop = new TaipanShop();
         shop.shop();

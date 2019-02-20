@@ -132,15 +132,18 @@ public class ShipWarfare extends Player {
                     System.out.println("Oh no, they are taking the offensive!");
                     delayForASecond();
                     //Computer volley
-                    setHP(getHP() - randomValue.nextInt(10));
+                    setHP(getHP() - (1+ randomValue.nextInt(10)));
                     if (getHP() <= 0) {
                         exitValue = 2;
                         break;
                     }
                     System.out.printf("EEK, we have %d health left\n", getHP());
                     delayForASecond();
+                    if(userAttacks==false){
+                        userAttacks=true;
+                    }
 
-                    System.out.println("Shall we continue the offensive? Enter \"f\" to fight, and \"r\" to run");
+                    System.out.println("Shall we continue to fight? Enter \"f\" to fight, and \"r\" to run");
 
                     String response = userInput.nextLine();
                     if (response.equalsIgnoreCase("r")) {
@@ -166,7 +169,7 @@ public class ShipWarfare extends Player {
                 gameOver();
                 return true;
             } else if (exitValue == 3) {
-                System.out.println("We made it");
+                System.out.printf("We made it out at %d health!\n", getHP());
                 return true;
             }
             return false;
