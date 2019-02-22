@@ -17,7 +17,7 @@ public class ShipWarfare extends Player {
         Scanner userResponse = new Scanner(System.in);
         setNumOfPeasantShips(numOfShips());
 
-        System.out.printf("By Golly! We have $%,d and are being attacked by %d Merchant ships\nCurrently our ship status is %d%%\n", getMoney(), numOfLittyShips, getHP());
+        System.out.printf("By Golly! We have $%,d and are being attacked by %d Merchant ships\nCurrently our ship status is %d%%\n", getMoney(), numOfPeasantShips, getHP());
 
         fightOrRunMessage();
         while (true) {
@@ -239,7 +239,7 @@ public class ShipWarfare extends Player {
 
         if (exitValue == 1) {
             System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", getHP());
-            calculateLoot = (randomValue.nextInt(startingPeasantShips) + startingPeasantShips) * 100;
+            calculateLoot = (randomValue.nextInt(startingLittyShips) + startingLittyShips) * 300;
             setMoney(getMoney() + calculateLoot);
             System.out.printf("We got $%,d!\n", calculateLoot);
             return true;
