@@ -135,8 +135,9 @@ public class Player {
         if (debt >= 0) {
             this.debt = debt;
         }
+    }
 
-    public void gameOver() {
+    public void gameOver(){
         System.out.flush();
         System.out.println("Game over");
     }
