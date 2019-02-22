@@ -10,6 +10,7 @@ public class Player {
     private int location = 1;
     private int guns = 3;
     private int HP = 100;
+    private int debt = 0;
 
     public Player(){
 
@@ -25,6 +26,7 @@ public class Player {
         this.location = player.location;
         this.guns = player.guns;
         this.HP = player.HP;
+        this.debt = player.debt;
     }
 
     public String getName() {
@@ -123,11 +125,19 @@ public class Player {
         if (guns >= 0) {
             this.guns = guns;
         }
+        
     }
+    public int getDebt() {
+        return debt;
+    }
+        
+    public void setDebt(int debt) {
+        if (debt >= 0) {
+            this.debt = debt;
+        }
 
     public void gameOver() {
         System.out.flush();
         System.out.println("Game over");
     }
-
 }
