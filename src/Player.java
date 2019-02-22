@@ -2,13 +2,13 @@ public class Player {
 
     private String name = "Taipan";
     private int bank = 0;
-    private int money = 1000;
+    private int money = 1000000000;
     private int opiumHeld = 0;
     private int silkHeld = 0;
     private int generalHeld = 0;
     private int armsHeld = 0;
     private int location = 1;
-    private int guns = 3;
+    private int guns = 1000;
     private int HP = 100;
 
 

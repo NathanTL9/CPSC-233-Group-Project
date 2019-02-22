@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 public class ShipWarfare extends Player {
 
     private int numOfPeasantShips = 0;
+    private int numOfLittyShips=0;
     private boolean userAttacks = true;
+    private int startingShips=0;
 
 
     public void peasantFleetAttack() throws Exception {
@@ -49,10 +51,13 @@ public class ShipWarfare extends Player {
 
     public int getNumOfPeasantShips() {
         return numOfPeasantShips;
+
     }
 
     public void setNumOfPeasantShips(int numOfPeasantShips) {
         this.numOfPeasantShips = numOfPeasantShips;
+        startingShips = numOfPeasantShips;
+
     }
 
     public void delayForASecond() throws Exception {
@@ -96,6 +101,8 @@ public class ShipWarfare extends Player {
     }
 
     public boolean destroyShipsOrEscape(int typeOfShip) throws Exception {
+        int calculateLoot=0;
+
         Scanner userInput = new Scanner(System.in);
         Random randomValue = new Random();
         numOfPeasantShips = typeOfShip;
@@ -170,6 +177,9 @@ public class ShipWarfare extends Player {
 
         if (exitValue == 1) {
             System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", getHP());
+            calculateLoot= (randomValue.nextInt(startingShips) + startingShips) *100;
+            setMoney(getMoney()+calculateLoot);
+            System.out.printf("We got $%,d!",calculateLoot);
             return true;
         } else if (exitValue == 2) {
             gameOver();
