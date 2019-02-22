@@ -1,13 +1,29 @@
 import java.util.Random;
 import java.util.Scanner;
-public class TaipanShop extends Player {
-    
+public class TaipanShop {
+
+    private Player player;
     private int cargoSpace = 60;
     private int currentCargo = 0;
     private int opiumPrice = 16000;
     private int silkPrice = 1600;
     private int armsPrice = 160;
     private int generalPrice = 8;
+
+    public void setPlayer(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
+
+    public Player getPlayer(){
+        Player playerDummy = new Player(player);
+        return playerDummy;
+    }
+
+    public TaipanShop(Player player){
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
 
     public int getCargoSpace() {
         return cargoSpace;
@@ -60,7 +76,7 @@ public class TaipanShop extends Player {
     }
 
     private void updatePrices(){
-        String s = "\n" + getName() + ", the price of ";
+        String s = "\n" + player.getName() + ", the price of ";
         double value = 80*Math.random();
         Random rand = new Random();
         opiumPrice = (rand.nextInt(201) + 60)*100;
@@ -105,18 +121,18 @@ public class TaipanShop extends Player {
     }
 
     private void printShop(){
-        currentCargo = getOpiumHeld()+getGuns()*10+getSilkHeld()+getArmsHeld()+getGeneralHeld();
+        currentCargo = player.getOpiumHeld()+player.getGuns()*10+player.getSilkHeld()+player.getArmsHeld()+player.getGeneralHeld();
         if(cargoSpace - currentCargo < 0){
-            System.out.println("Hold: Overloaded" + "          Guns: " + getGuns());
+            System.out.println("Hold: Overloaded" + "          Guns: " + player.getGuns());
         }else{
-            System.out.println("Hold: " + (cargoSpace-currentCargo) + "          Guns: " + getGuns());
+            System.out.println("Hold: " + (cargoSpace-currentCargo) + "          Guns: " + player.getGuns());
         }
         System.out.println("-------------------------------------------------------------");
-        System.out.println("     Opium: " + getOpiumHeld() + "      Silk: " + getSilkHeld());
-        System.out.println("     Arms: " + getArmsHeld() + "       General: " + getGeneralHeld());
+        System.out.println("     Opium: " + player.getOpiumHeld() + "      Silk: " + player.getSilkHeld());
+        System.out.println("     Arms: " + player.getArmsHeld() + "       General: " + player.getGeneralHeld());
         System.out.println("-------------------------------------------------------------");
-        System.out.println("Cash: " + getMoney() + "           Bank: " + getBank()+"\n");
-        System.out.println(getName() + ", present prices per unit here are:");
+        System.out.println("Cash: " + player.getMoney() + "           Bank: " + player.getBank()+"\n");
+        System.out.println(player.getName() + ", present prices per unit here are:");
         System.out.println("     Opium: " + opiumPrice + "    Silk: " + silkPrice);
         System.out.println("     Arms: " + armsPrice + "       General: " + generalPrice);
     }
@@ -125,16 +141,140 @@ public class TaipanShop extends Player {
         updatePrices();
         Scanner input = new Scanner(System.in);
         boolean notDone = true;
-        if (getLocation() == 1) {
+        if (player.getLocation() == 1) {
             while (notDone) {
                 printShop();
                 System.out.println("\nShall I Buy, Sell, Visit Bank, Transfer Cargo, or Quit Trading?");
                 String response = input.next();
                 if (response.equalsIgnoreCase("B")) {
-                    ayyy(input);
+                    boolean notDone2 = true;
+                    System.out.println("What do you wish me to buy, " + player.getName() + "?");
+                    while (notDone2) {
+                        response = input.nextLine();
+                        if (response.equalsIgnoreCase("O")) {
+                            System.out.println("\nHow much Opium shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / opiumPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / opiumPrice && num >= 0) {
+                                    player.setOpiumHeld(player.getOpiumHeld()+num);
+                                    player.setMoney(player.getMoney()-num * opiumPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Opium?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("S")) {
+                            System.out.println("\nHow much Silk shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / silkPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / silkPrice && num >= 0) {
+                                    player.setSilkHeld(player.getSilkHeld()+num);
+                                    player.setMoney(player.getMoney()-num * silkPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Silk?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("A")) {
+                            System.out.println("\nHow many Arms shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / armsPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / armsPrice && num >= 0) {
+                                    player.setArmsHeld(player.getArmsHeld()+num);
+                                    player.setMoney(player.getMoney() - num*armsPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Arms?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("G")) {
+                            System.out.println("\nHow much General Cargo shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / generalPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / generalPrice && num >= 0) {
+                                    player.setGeneralHeld(player.getGeneralHeld()+num);
+                                    player.setMoney(player.getMoney() - num*generalPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " General Cargo?");
+                                }
+                            }
+                        }
+
+                    }
 
                 } else if (response.equalsIgnoreCase("S")) {
-                    duplicateLittiness(input);
+                    boolean notDone2 = true;
+                    System.out.println("What do you wish me to sell, " + player.getName() + "?");
+                    while (notDone2) {
+                        response = input.nextLine();
+                        if (response.equalsIgnoreCase("O")) {
+                            System.out.println("\nHow much Opium shall I sell, " + player.getName() + "? (You have " + player.getOpiumHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getOpiumHeld() && num >= 0) {
+                                    player.setOpiumHeld(player.getOpiumHeld()-num);
+                                    player.setMoney(player.getMoney() + num*opiumPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " Opium?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("S")) {
+                            System.out.println("\nHow much Silk shall I sell, " + player.getName() + "? (You have " + player.getSilkHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getSilkHeld() && num >= 0) {
+                                    player.setSilkHeld(player.getSilkHeld()-num);
+                                    player.setMoney(player.getMoney() + num*silkPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " Silk?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("A")) {
+                            System.out.println("\nHow many Arms shall I sell, " + player.getName() + "? (You have " + player.getArmsHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getArmsHeld() && num >= 0) {
+                                    player.setArmsHeld(player.getArmsHeld()-num);
+                                    player.setMoney(player.getMoney() + num*armsPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " Arms?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("G")) {
+                            System.out.println("\nHow much General Cargo shall I sell, " + player.getName() + "? (You have " + player.getGeneralHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getGeneralHeld() && num >= 0) {
+                                    player.setGeneralHeld(player.getGeneralHeld()-num);
+                                    player.setMoney(player.getMoney() + num*generalPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " General Cargo?");
+                                }
+                            }
+                        }
+
+                    }
 
                 } else if (response.equalsIgnoreCase("V")) {
                     System.out.println("\n*** PLACEHOLDER FOR BANK ***\n");
@@ -151,10 +291,133 @@ public class TaipanShop extends Player {
                 System.out.println("\nShall I Buy, Sell, or Quit Trading?");
                 String response = input.next();
                 if (response.equalsIgnoreCase("B")) {
-                    ayyy(input);
+                    boolean notDone2 = true;
+                    System.out.println("What do you wish me to buy, " + player.getName() + "?");
+                    while (notDone2) {
+                        response = input.nextLine();
+                        if (response.equalsIgnoreCase("O")) {
+                            System.out.println("\nHow much Opium shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / opiumPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / opiumPrice && num >= 0) {
+                                    player.setOpiumHeld(player.getOpiumHeld()+num);
+                                    player.setMoney(player.getMoney() - num*opiumPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Opium?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("S")) {
+                            System.out.println("\nHow much Silk shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / silkPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / silkPrice && num >= 0) {
+                                    player.setSilkHeld(player.getSilkHeld()+num);
+                                    player.setMoney(player.getMoney() - num*silkPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Silk?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("A")) {
+                            System.out.println("\nHow many Arms shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / armsPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / armsPrice && num >= 0) {
+                                    player.setArmsHeld(player.getArmsHeld()+num);
+                                    player.setMoney(player.getMoney() - num*armsPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Arms?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("G")) {
+                            System.out.println("\nHow much General Cargo shall I buy, " + player.getName() + "? (You can afford " + player.getMoney() / generalPrice + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getMoney() / generalPrice && num >= 0) {
+                                    player.setGeneralHeld(player.getGeneralHeld()+num);
+                                    player.setMoney(player.getMoney() - num*generalPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you can't afford that!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " General Cargo?");
+                                }
+                            }
+                        }
+
+                    }
 
                 } else if (response.equalsIgnoreCase("S")) {
-                    duplicateLittiness(input);
+                    boolean notDone2 = true;
+                    System.out.println("What do you wish me to sell, " + player.getName() + "?");
+                    while (notDone2) {
+                        response = input.nextLine();
+                        if (response.equalsIgnoreCase("O")) {
+                            System.out.println("\nHow much Opium shall I sell, " + player.getName() + "? (You have " + player.getOpiumHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getOpiumHeld() && num >= 0) {
+                                    player.setOpiumHeld(player.getOpiumHeld()-num);
+                                    player.setMoney(player.getMoney() + num*opiumPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " Opium?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("S")) {
+                            System.out.println("\nHow much Silk shall I sell, " + player.getName() + "? (You have " + player.getSilkHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getSilkHeld() && num >= 0) {
+                                    player.setSilkHeld(player.getSilkHeld()-num);
+                                    player.setMoney(player.getMoney() + num*silkPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " Silk?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("A")) {
+                            System.out.println("\nHow many Arms shall I sell, " + player.getName() + "? (You have " + player.getArmsHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getArmsHeld() && num >= 0) {
+                                    player.setArmsHeld(player.getArmsHeld()-num);
+                                    player.setMoney(player.getMoney() + num*armsPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " Arms?");
+                                }
+                            }
+                        } else if (response.equalsIgnoreCase("G")) {
+                            System.out.println("\nHow much General Cargo shall I sell, " + player.getName() + "? (You have " + player.getGeneralHeld() + ")");
+                            while (notDone2) {
+                                int num = input.nextInt();
+                                if (num <= player.getGeneralHeld() && num >= 0) {
+                                    player.setGeneralHeld(player.getGeneralHeld()-num);
+                                    player.setMoney(player.getMoney() + num*generalPrice);
+                                    notDone2 = false;
+                                } else if (num >= 0) {
+                                    System.out.println(player.getName() + ", you don't have that many to sell!");
+                                } else {
+                                    System.out.println(player.getName() + ", how am I supposed to sell " + "'" + num + "'" + " General Cargo?");
+                                }
+                            }
+                        }
+                    }
                 } else if (response.equalsIgnoreCase("Q")) {
                     System.out.println("\n*** PLACEHOLDER FOR TRAVEL ***\n");
                     notDone = false;
@@ -162,144 +425,5 @@ public class TaipanShop extends Player {
             }
 
         }
-    }
-
-    public void duplicateLittiness(Scanner input) {
-        String response;
-        boolean notDone2 = true;
-        System.out.println("What do you wish me to sell, " + getName() + "?");
-        while (notDone2) {
-            response = input.nextLine();
-            if (response.equalsIgnoreCase("O")) {
-                System.out.println("\nHow much Opium shall I sell, " + getName() + "? (You have " + getOpiumHeld() + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getOpiumHeld() && num >= 0) {
-                        setOpiumHeld(getOpiumHeld()-num);
-                        setMoney(getMoney() + num*opiumPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you don't have that many to sell!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to sell " + "'" + num + "'" + " Opium?");
-                    }
-                }
-            } else if (response.equalsIgnoreCase("S")) {
-                System.out.println("\nHow much Silk shall I sell, " + getName() + "? (You have " + getSilkHeld() + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getSilkHeld() && num >= 0) {
-                        setSilkHeld(getSilkHeld()-num);
-                        setMoney(getMoney() + num*silkPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you don't have that many to sell!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to sell " + "'" + num + "'" + " Silk?");
-                    }
-                }
-            } else if (response.equalsIgnoreCase("A")) {
-                System.out.println("\nHow many Arms shall I sell, " + getName() + "? (You have " + getArmsHeld() + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getArmsHeld() && num >= 0) {
-                        setArmsHeld(getArmsHeld()-num);
-                        setMoney(getMoney() + num*armsPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you don't have that many to sell!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to sell " + "'" + num + "'" + " Arms?");
-                    }
-                }
-            } else if (response.equalsIgnoreCase("G")) {
-                System.out.println("\nHow much General Cargo shall I sell, " + getName() + "? (You have " + getGeneralHeld() + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getGeneralHeld() && num >= 0) {
-                        setGeneralHeld(getGeneralHeld()-num);
-                        setMoney(getMoney() + num*generalPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you don't have that many to sell!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to sell " + "'" + num + "'" + " General Cargo?");
-                    }
-                }
-            }
-
-        }
-    }
-
-    public void ayyy(Scanner input) {
-        String response;
-        boolean notDone2 = true;
-        System.out.println("What do you wish me to buy, " + getName() + "?");
-        while (notDone2) {
-            response = input.nextLine();
-            if (response.equalsIgnoreCase("O")) {
-                System.out.println("\nHow much Opium shall I buy, " + getName() + "? (You can afford " + getMoney() / opiumPrice + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getMoney() / opiumPrice && num >= 0) {
-                        setOpiumHeld(getOpiumHeld()+num);
-                        setMoney(getMoney() - num*opiumPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you can't afford that!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to buy " + "'" + num + "'" + " Opium?");
-                    }
-                }
-            } else if (response.equalsIgnoreCase("S")) {
-                System.out.println("\nHow much Silk shall I buy, " + getName() + "? (You can afford " + getMoney() / silkPrice + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getMoney() / silkPrice && num >= 0) {
-                        setSilkHeld(getSilkHeld()+num);
-                        setMoney(getMoney() - num*silkPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you can't afford that!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to buy " + "'" + num + "'" + " Silk?");
-                    }
-                }
-            } else if (response.equalsIgnoreCase("A")) {
-                System.out.println("\nHow many Arms shall I buy, " + getName() + "? (You can afford " + getMoney() / armsPrice + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getMoney() / armsPrice && num >= 0) {
-                        setArmsHeld(getArmsHeld()+num);
-                        setMoney(getMoney() - num*armsPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you can't afford that!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to buy " + "'" + num + "'" + " Arms?");
-                    }
-                }
-            } else if (response.equalsIgnoreCase("G")) {
-                System.out.println("\nHow much General Cargo shall I buy, " + getName() + "? (You can afford " + getMoney() / generalPrice + ")");
-                while (notDone2) {
-                    int num = input.nextInt();
-                    if (num <= getMoney() / generalPrice && num >= 0) {
-                        setGeneralHeld(getGeneralHeld()+num);
-                        setMoney(getMoney() - num*generalPrice);
-                        notDone2 = false;
-                    } else if (num >= 0) {
-                        System.out.println(getName() + ", you can't afford that!");
-                    } else {
-                        System.out.println(getName() + ", how am I supposed to buy " + "'" + num + "'" + " General Cargo?");
-                    }
-                }
-            }
-
-        }
-    }
-
-    public static void main(String[] args){
-        TaipanShop shop = new TaipanShop();
-        shop.shop();
     }
 }
