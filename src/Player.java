@@ -29,6 +29,22 @@ public class Player {
         this.debt = player.debt;
     }
 
+    public Player(){
+
+    }
+
+    public Player(Player player){
+        this.bank = player.bank;
+        this.money = player.money;
+        this.opiumHeld = player.opiumHeld;
+        this.silkHeld = player.silkHeld;
+        this.generalHeld = player.generalHeld;
+        this.armsHeld = player.armsHeld;
+        this.location = player.location;
+        this.guns = player.guns;
+        this.HP = player.HP;
+    }
+
     public String getName() {
         return name;
     }
@@ -141,4 +157,5 @@ public class Player {
         System.out.flush();
         System.out.println("Game over");
     }
+
 }
