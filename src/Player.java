@@ -10,8 +10,15 @@ public class Player {
     private int location = 1;
     private int guns = 3;
     private int HP = 100;
+    
+    public int getDebt() {
+		return debt;
+	}
 
-
+	public void setDebt(int debt) {
+		this.debt = debt;
+	}
+    
     public String getName() {
         return name;
     }
