@@ -4,7 +4,7 @@ public class Start extends Player
     @Override
     public void setName(String name) {
         System.out.println("Taipan, \nWhat will you name your \nFirm: ");
-        if (name.length() == 22) {
+        if (name.length() <= 22) {
             super.setName(name);
         }
     }
