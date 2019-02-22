@@ -10,15 +10,23 @@ public class Player {
     private int location = 1;
     private int guns = 3;
     private int HP = 100;
-    
-    public int getDebt() {
-		return debt;
-	}
 
-	public void setDebt(int debt) {
-		this.debt = debt;
-	}
-    
+    public Player(){
+
+    }
+
+    public Player(Player player){
+        this.bank = player.bank;
+        this.money = player.money;
+        this.opiumHeld = player.opiumHeld;
+        this.silkHeld = player.silkHeld;
+        this.generalHeld = player.generalHeld;
+        this.armsHeld = player.armsHeld;
+        this.location = player.location;
+        this.guns = player.guns;
+        this.HP = player.HP;
+    }
+
     public String getName() {
         return name;
     }
@@ -120,17 +128,6 @@ public class Player {
     public void gameOver() {
         System.out.flush();
         System.out.println("Game over");
-    }
-
-    public static void main(String[] args) throws Exception {
-        ShipWarfare littyWarfare = new ShipWarfare();
-        TaipanShop littyShop = new TaipanShop();
-
-        littyShop.shop();
-
-        littyWarfare.peasantFleetAttack();
-
-        littyShop.shop();
     }
 
 }
