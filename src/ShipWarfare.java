@@ -28,7 +28,7 @@ public class ShipWarfare extends Player {
         return playerDummy;
     }
     
-    
+    //This fleet is easy to defeat as a maximum of 15 ships can run away each volley, they can not tank hits
     public void peasantFleetAttack() throws Exception {
         Scanner userResponse = new Scanner(System.in);
         setNumOfPeasantShips(numOfShips());
@@ -63,7 +63,7 @@ public class ShipWarfare extends Player {
 
 
     }
-
+    //This fleet is difficult to defeat as a maximum of 10 ships can run away each volley, they can tank hits
     public void littyFleetAttack() throws Exception {
         Scanner userResponse = new Scanner(System.in);
         setNumOfLittyShips(numOfShips());
@@ -124,7 +124,7 @@ public class ShipWarfare extends Player {
         TimeUnit.SECONDS.sleep(1);
     }
 
-
+    //The number of ships which attack is based on the amount of money one has on hand
     public int numOfShips() {
 
         int numOfShipsAttacking = 0;
@@ -148,6 +148,7 @@ public class ShipWarfare extends Player {
 
     }
 
+    //One in two chance of running away
     public boolean runFromShips() {
         userAttacks = false;
         Random randomValue = new Random();
@@ -160,6 +161,7 @@ public class ShipWarfare extends Player {
         return false;
     }
 
+    //The loot for defeating a litty fleet is much higher than that of a peasant one
     public boolean destroyLittyShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
