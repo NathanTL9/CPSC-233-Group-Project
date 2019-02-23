@@ -1,6 +1,11 @@
 public class main {
 
-    private static Player player = new Player();
+    private Player player = new Player();
+
+    public Player getPlayer(){
+        Player copy = new Player(player);
+        return copy;
+    }
 
     public void shop(TaipanShop shop){
         shop.setPlayer(player);
@@ -16,8 +21,8 @@ public class main {
 
     public static void main(String[] args) throws Exception {
         main main = new main();
-        ShipWarfare littyWarfare = new ShipWarfare(player);
-        TaipanShop littyShop = new TaipanShop(player);
+        ShipWarfare littyWarfare = new ShipWarfare(main.getPlayer());
+        TaipanShop littyShop = new TaipanShop(main.getPlayer());
 
         main.shop(littyShop);
 
