@@ -2,15 +2,16 @@ public class Player {
 
     private String name = "Taipan";
     private int bank = 0;
-    private int money = 1000000000;
+    private int money = 0;
     private int opiumHeld = 0;
     private int silkHeld = 0;
     private int generalHeld = 0;
     private int armsHeld = 0;
     private int location = 1;
-    private int guns = 3;
+    private int guns = 0;
     private int HP = 100;
     private int debt = 0;
+    private boolean retire = false;
 
     public Player(){
 
@@ -27,6 +28,16 @@ public class Player {
         this.guns = player.guns;
         this.HP = player.HP;
         this.debt = player.debt;
+    }
+
+    public boolean getRetire(){
+        return retire;
+    }
+
+    public void setRetire(boolean retire){
+        if(retire){
+            this.retire = retire;
+        }
     }
 
     public String getName() {

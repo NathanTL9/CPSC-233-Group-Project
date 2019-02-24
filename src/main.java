@@ -25,23 +25,20 @@ public class main {
         player = warehouse.getPlayer();
     }
 
-    public void peasantFleet(ShipWarfare warfare) throws Exception {
-        warfare.setPlayer(player);
-        warfare.peasantFleetAttack();
-        player = warfare.getPlayer();
+    public void bank(Bank bank){
+        bank.setPlayer(player);
+        //warehouse.intialize();
+        player = bank.getPlayer();
     }
 
     public static void main(String[] args) throws Exception {
         main main = new main();
-        ShipWarfare littyWarfare = new ShipWarfare(main.getPlayer());
         TaipanShop littyShop = new TaipanShop(main.getPlayer());
         Start start = new Start(main.getPlayer());
 
-
-        main.shop(littyShop);
-
-        main.peasantFleet(littyWarfare);
-
-        main.shop(littyShop);
+        main.start(start);
+        while(!main.getPlayer().getRetire()){
+            main.shop(littyShop);
+        }
     }
 }

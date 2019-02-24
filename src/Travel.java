@@ -5,7 +5,7 @@ public class Travel {
 
     private Player player;
 
-    public void Player(Player player) {
+    public void setPlayer(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
@@ -54,11 +54,10 @@ public class Travel {
     }
 
     private void randomEventSea(int locationOfTravel) throws Exception {
-        ShipWarfare attackShip = new ShipWarfare(player);
         Random rand = new Random();
         int randGenNum = rand.nextInt(3) + 1;
         if (randGenNum == 1) {
-            attackShip.peasantFleetAttack();
+            peasantFleet();
         } else if (randGenNum == 2) {
             disaster(locationOfTravel);
         }
@@ -81,6 +80,12 @@ public class Travel {
                 }
             }
         }
+    }
+
+    public void peasantFleet() throws Exception {
+        ShipWarfare attackShip = new ShipWarfare(player);
+        attackShip.peasantFleetAttack();
+        player = attackShip.getPlayer();
     }
 
     public void travelTo() {

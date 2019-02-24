@@ -21,17 +21,18 @@ public class Start
     public void intialize()
     {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Taipan, \nWhat will you name your \nFirm: ");
+        System.out.println("Taipan, \nWhat will you name your firm:");
         setFirm(userInput.nextLine());
-        System.out.println("Do you want to start . . .\n1) With cash (and a debt)\n>> or <<\n" +
-                "With five guns and no cash (But no debt!)\n? ");
-        if (userInput.nextInt() == 1)
+        System.out.println("Do you want to start . . .\n\t1) With cash (and a debt)\n\t\t\t>> or <<\n\t" +
+                "2) With five guns and no cash (But no debt!)?\n ");
+        int input = userInput.nextInt();
+        if (input == 1)
         {
             player.setMoney(400);
             player.setDebt(5000);
 
         }
-        if (userInput.nextInt() == 2)
+        if (input == 2)
         {
             player.setGuns(5);
         }
