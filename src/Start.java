@@ -14,16 +14,17 @@ public class Start
     }
 
     public void setFirm (String name) {
-        System.out.println("Taipan, \nWhat will you name your \nFirm: ");
         if (name.length() <= 22) {
             player.setName(name);
         }
     }
-    public void main(String[] args)
+    public void intialize()
     {
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Taipan, \nWhat will you name your \nFirm: ");
+        setFirm(userInput.nextLine());
         System.out.println("Do you want to start . . .\n1) With cash (and a debt)\n>> or <<\n" +
                 "With five guns and no cash (But no debt!)\n? ");
-        Scanner userInput = new Scanner(System.in);
         if (userInput.nextInt() == 1)
         {
             player.setMoney(400);

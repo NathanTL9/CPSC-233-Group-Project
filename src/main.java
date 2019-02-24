@@ -13,6 +13,18 @@ public class main {
         player = shop.getPlayer();
     }
 
+    public void start(Start start){
+        start.setPlayer(player);
+        start.intialize();
+        player = start.getPlayer();
+    }
+
+    public void warehouse(Warehouse warehouse){
+        warehouse.setPlayer(player);
+        //warehouse.intialize();
+        player = warehouse.getPlayer();
+    }
+
     public void peasantFleet(ShipWarfare warfare) throws Exception {
         warfare.setPlayer(player);
         warfare.peasantFleetAttack();
@@ -23,6 +35,8 @@ public class main {
         main main = new main();
         ShipWarfare littyWarfare = new ShipWarfare(main.getPlayer());
         TaipanShop littyShop = new TaipanShop(main.getPlayer());
+        Start start = new Start(main.getPlayer());
+
 
         main.shop(littyShop);
 

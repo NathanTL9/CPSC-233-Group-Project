@@ -47,6 +47,6 @@ public class Bank{
 	}
 	
 	public void addInterest() {
-		setBank((int)((player.getBank() * 1.05)));
+		player.setBank((int)((player.getBank() * 1.01)));
 	}
 }

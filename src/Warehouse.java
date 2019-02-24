@@ -142,7 +142,7 @@ public class Warehouse {
 
 	}
 	public static void main(String[] args){
-		Warehouse hi = new Warehouse();
+		Warehouse hi = new Warehouse(new Player());
 		hi.showWarehouse();
 		hi.askRemoveAmount();
 		hi.removeAmount(hi.good, hi.finalAmount);
