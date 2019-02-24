@@ -1,11 +1,22 @@
 import java.util.Scanner;
-public class Start extends Player
+public class Start
 {
-    @Override
-    public void setName(String name) {
+    private Player player;
+
+    public Player getPlayer() {
+        Player playerTemp = new Player(player);
+        return playerTemp;
+    }
+
+    public void setPlayer(Player player) {
+        Player playerTemp = new Player(player);
+        this.player = playerTemp;
+    }
+
+    public void setFirm (String name) {
         System.out.println("Taipan, \nWhat will you name your \nFirm: ");
         if (name.length() <= 22) {
-            super.setName(name);
+            player.setName(name);
         }
     }
     public void main(String[] args)
@@ -15,14 +26,20 @@ public class Start extends Player
         Scanner userInput = new Scanner(System.in);
         if (userInput.nextInt() == 1)
         {
-            setMoney(400);
-            setDebt(5000);
+            player.setMoney(400);
+            player.setDebt(5000);
 
         }
         if (userInput.nextInt() == 2)
         {
-            setGuns(5);
+            player.setGuns(5);
         }
     }
 
+
+    public Start(Player player)
+    {
+        Player playerTemp = new Player(player);
+        this.player = playerTemp;
+    }
 }
