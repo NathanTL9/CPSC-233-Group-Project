@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Bank extends Player {
+	private Player player;
 	
 	public int promtMoney() {
 		int addVal = 0;
@@ -13,6 +14,20 @@ public class Bank extends Player {
 		}
 		return retVal;
 	}
+	public void setPlayer(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
+
+    public Player getPlayer(){
+        Player playerDummy = new Player(player);
+        return playerDummy;
+    }
+
+    public TaipanShop(Player player){
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
 	
 	public void addMoney() {
 		int addMon = promtMoney();
