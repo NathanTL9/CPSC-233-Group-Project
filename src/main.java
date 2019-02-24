@@ -31,7 +31,7 @@ public class main {
         player = bank.getPlayer();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         main main = new main();
         TaipanShop littyShop = new TaipanShop(main.getPlayer());
         Start start = new Start(main.getPlayer());

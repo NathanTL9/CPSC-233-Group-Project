@@ -28,6 +28,6 @@ public class loanShark {
 			}
 	}
 	public void addInterest() {
-		player.setDebt((int)(player.getDebt() * 1.05));
+		player.setDebt((int)(player.getDebt() * 1.01));
 	}
 }
