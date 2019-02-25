@@ -56,6 +56,7 @@ public class Bank{
 				while(notDone3){
 					System.out.println("Would you like to continue? Y/N");
 					response = input.nextLine();
+					response = input.nextLine();
 					if(response.equalsIgnoreCase("Y")){
 						notDone3 = false;
 					}else if(response.equalsIgnoreCase("N")){
