@@ -29,7 +29,7 @@ public class Bank{
 			if(response.equalsIgnoreCase("W")){
 				boolean notDone2 = true;
 				while(notDone2){
-					System.out.println("How much do you wish to Withdraw");
+					System.out.println("How much do you wish to Withdraw?");
 					int withdraw = input.nextInt();
 					if(withdraw <= player.getBank()){
 						player.setMoney(withdraw + player.getMoney());
@@ -41,7 +41,7 @@ public class Bank{
 			}else if(response.equalsIgnoreCase("D")){
 				boolean notDone2 = true;
 				while(notDone2){
-					System.out.println("How much do you wish to Deposit");
+					System.out.println("How much do you wish to Deposit?");
 					int deposit = input.nextInt();
 					if(deposit <= player.getMoney()){
 						player.setBank(deposit + player.getBank());
