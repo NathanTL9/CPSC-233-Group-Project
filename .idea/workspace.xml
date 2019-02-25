@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Warehouse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+            <state relative-caret-position="260">
+              <caret line="154" column="82" selection-start-line="154" selection-start-column="82" selection-end-line="154" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -88,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/loanShark.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+            <state relative-caret-position="-5">
+              <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -105,7 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setg</find>
       <find>guns</find>
       <find>duplic</find>
       <find>chanceOfRun</find>
@@ -135,6 +134,7 @@
       <find>player.</find>
       <find>System.out.println(&quot;\n*** PLACEHOLDER FOR LOAN SHARK ***\n&quot;);</find>
       <find>keep</find>
+      <find>showWa</find>
     </findStrings>
     <replaceStrings>
       <replace>player.getName()</replace>
@@ -206,7 +206,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551065365646" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551065866043" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -436,17 +436,24 @@
       <option name="project" value="LOCAL" />
       <updated>1551065166040</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Small thing, changed an output of warehouse a bit, shows user its the warehosue they are concerned with.">
+      <created>1551065447444</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1551065447444</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45199000" />
+    <option name="totallyTimeSpent" value="45820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3101777" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3101777" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -455,7 +462,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.3241491" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.3241491" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -501,7 +508,8 @@
     <MESSAGE value="linked all the classes together. The project is functional." />
     <MESSAGE value="Worked On Sid's class a bit" />
     <MESSAGE value="Think I fixed Sid's code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Think I fixed Sid's code" />
+    <MESSAGE value="Small thing, changed an output of warehouse a bit, shows user its the warehosue they are concerned with." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small thing, changed an output of warehouse a bit, shows user its the warehosue they are concerned with." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TaipanClone.iml">
@@ -556,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/loanShark.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2290">
@@ -573,10 +574,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/loanShark.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Warehouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+        <state relative-caret-position="260">
+          <caret line="154" column="82" selection-start-line="154" selection-start-column="82" selection-end-line="154" selection-end-column="82" />
         </state>
       </provider>
     </entry>

@@ -97,61 +97,62 @@ public class Warehouse {
         System.out.println("Please enter the amount of the good you would like to REMOVE");
         Scanner keyboard = new Scanner(System.in);
         amount = keyboard.nextLine();
-        if (Integer.parseInt(amount) <= wOpium || Integer.parseInt(amount) <=wSilk || Integer.parseInt(amount) <= wGeneral || Integer.parseInt(amount) <= wArms) {
-            finalAmount = Integer.parseInt(amount);
-            askGood = true;
-        } else {
-            System.out.println("Nice try but you don't have any items of that quantity in the warehouse!");
-            askGood = false;
-        }
-
-        if (askGood == true) {
-            String good;
-            System.out.println("Please enter a good to transfer O, S, G, A :");
-            good = keyboard.nextLine();
-            int held = 0;
-            if (Integer.parseInt(amount) > 0) {
-                if (good.equalsIgnoreCase("O")) {
-                    if (this.wOpium >= Integer.parseInt(amount)) {
-                        this.wOpium -= Integer.parseInt(amount);
-                        held = player.getOpiumHeld();
-                        player.setOpiumHeld(held + finalAmount);
-                    } else {
-                        System.out.println("You don't have that much opium stored in the warehouse!");
-                    }
-                } else if (good.equalsIgnoreCase("S")) {
-                    if (this.wSilk >= Integer.parseInt(amount)) {
-                        this.wSilk -= Integer.parseInt(amount);
-                        held = player.getSilkHeld();
-                        player.setSilkHeld(held + finalAmount);
-                    }
-                    else{
-                        System.out.println("You don't have that much silk stored in the warehouse!");
-                    }
-                } else if (good.equalsIgnoreCase("G")) {
-                    if (this.wGeneral >= Integer.parseInt(amount)) {
-                        this.wGeneral -= Integer.parseInt(amount);
-                        held = player.getGeneralHeld();
-                        player.setGeneralHeld(held + finalAmount);
-                    }
-                    else{
-                        System.out.println("You don't have that much general cargo stored in the warehouse!");
-
-                    }
-                } else if (good.equalsIgnoreCase("A")) {
-                    if (this.wArms >= Integer.parseInt(amount)) {
-                        this.wArms -= Integer.parseInt(amount);
-                        held = player.getArmsHeld();
-                        player.setArmsHeld(held + finalAmount);
-                    }
-                    else{
-                        System.out.println("You don't have that much arms stored in the warehouse!");
-
-                    }
-                }
+        try {
+            if (Integer.parseInt(amount) <= wOpium || Integer.parseInt(amount) <= wSilk || Integer.parseInt(amount) <= wGeneral || Integer.parseInt(amount) <= wArms) {
+                finalAmount = Integer.parseInt(amount);
+                askGood = true;
             } else {
-                System.out.println("Sorry this transfer cannot be made");
+                System.out.println("Nice try but you don't have any items of that quantity in the warehouse!");
+                askGood = false;
             }
+
+            if (askGood == true) {
+                String good;
+                System.out.println("Please enter a good to transfer O, S, G, A :");
+                good = keyboard.nextLine();
+                int held = 0;
+                if (Integer.parseInt(amount) > 0) {
+                    if (good.equalsIgnoreCase("O")) {
+                        if (this.wOpium >= Integer.parseInt(amount)) {
+                            this.wOpium -= Integer.parseInt(amount);
+                            held = player.getOpiumHeld();
+                            player.setOpiumHeld(held + finalAmount);
+                        } else {
+                            System.out.println("You don't have that much opium stored in the warehouse!");
+                        }
+                    } else if (good.equalsIgnoreCase("S")) {
+                        if (this.wSilk >= Integer.parseInt(amount)) {
+                            this.wSilk -= Integer.parseInt(amount);
+                            held = player.getSilkHeld();
+                            player.setSilkHeld(held + finalAmount);
+                        } else {
+                            System.out.println("You don't have that much silk stored in the warehouse!");
+                        }
+                    } else if (good.equalsIgnoreCase("G")) {
+                        if (this.wGeneral >= Integer.parseInt(amount)) {
+                            this.wGeneral -= Integer.parseInt(amount);
+                            held = player.getGeneralHeld();
+                            player.setGeneralHeld(held + finalAmount);
+                        } else {
+                            System.out.println("You don't have that much general cargo stored in the warehouse!");
+
+                        }
+                    } else if (good.equalsIgnoreCase("A")) {
+                        if (this.wArms >= Integer.parseInt(amount)) {
+                            this.wArms -= Integer.parseInt(amount);
+                            held = player.getArmsHeld();
+                            player.setArmsHeld(held + finalAmount);
+                        } else {
+                            System.out.println("You don't have that much arms stored in the warehouse!");
+
+                        }
+                    }
+                } else {
+                    System.out.println("Sorry this transfer cannot be made");
+                }
+            }
+        }catch (Exception e){
+            System.out.println("Wait, that's not a valid input please try again");
         }
     }
 
