@@ -157,6 +157,7 @@ public class Warehouse {
 
 
     public void showWarehouse() {
+        System.out.println("--------------------\nWarehouse\n--------------------");
         System.out.println("Opium : " + this.wOpium);
         System.out.println("Silk : " + this.wSilk);
         System.out.println("General : " + this.wGeneral);

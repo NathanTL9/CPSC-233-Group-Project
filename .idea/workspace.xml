@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Warehouse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+            <state relative-caret-position="214">
+              <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -206,7 +206,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551065152391" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551065365646" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -429,11 +429,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551063376717</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Think I fixed Sid's code">
+      <created>1551065166040</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1551065166040</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45109000" />
+    <option name="totallyTimeSpent" value="45199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -448,7 +455,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.3241491" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.3241491" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -493,7 +500,8 @@
     <MESSAGE value="bunch of revisions, still in progress" />
     <MESSAGE value="linked all the classes together. The project is functional." />
     <MESSAGE value="Worked On Sid's class a bit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked On Sid's class a bit" />
+    <MESSAGE value="Think I fixed Sid's code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Think I fixed Sid's code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TaipanClone.iml">
@@ -567,8 +575,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Warehouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="214">
+          <caret line="159" column="51" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
         </state>
       </provider>
     </entry>
