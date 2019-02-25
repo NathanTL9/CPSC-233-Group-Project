@@ -30,6 +30,7 @@ public class loanShark {
 				player.setDebt(player.getDebt() + loanAsk);
 				player.setMoney(player.getMoney() + loanAsk);
 			}
+			//updated
 			else{
 				System.out.println("Sorry you cant be loaned that much");
 				break;
