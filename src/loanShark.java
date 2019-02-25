@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import static javafx.application.Platform.exit;
+
 public class loanShark {
 	private Player player;
 	public void setPlayer(Player player) {
@@ -28,8 +30,13 @@ public class loanShark {
 				player.setDebt(player.getDebt() + loanAsk);
 				player.setMoney(player.getMoney() + loanAsk);
 			}
+			else{
+				System.out.println("Sorry you cant be loaned that much");
+				break;
+			}
 			String check;
 			System.out.println("Would you like to do any other business? Y / N?");
+			check = keyboard.nextLine();
 			check = keyboard.nextLine();
 
 			if(check.equalsIgnoreCase("Y")) {
