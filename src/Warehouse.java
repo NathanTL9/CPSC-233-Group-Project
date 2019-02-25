@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Warehouse {
-    private int wOpium = 0;
+    /*private int wOpium = 0;
     private int wSilk = 0;
     private int wGeneral = 0;
-    private int wArms = 0;
+    private int wArms = 0;*/
     private Player player;
 
 
@@ -47,7 +47,7 @@ public class Warehouse {
                 if (Integer.parseInt(amount) > 0) {
                     if (good.equalsIgnoreCase("O")) {
                         if (player.getOpiumHeld() >= Integer.parseInt(amount)) {
-                            this.wOpium += finalAmount;
+                            player.setwOpium(player.getwOpium() + finalAmount);
                             held = player.getOpiumHeld();
                             player.setOpiumHeld(held - finalAmount);
                             System.out.println(player.getOpiumHeld());
@@ -56,7 +56,7 @@ public class Warehouse {
                         }
                     } else if (good.equalsIgnoreCase("S")) {
                         if (player.getSilkHeld() >= Integer.parseInt(amount)) {
-                            this.wSilk += finalAmount;
+							player.setwSilk(player.getwSilk() + finalAmount);
                             held = player.getSilkHeld();
                             player.setSilkHeld(held - finalAmount);
                         } else {
@@ -65,7 +65,7 @@ public class Warehouse {
                         }
                     } else if (good.equalsIgnoreCase("G")) {
                         if (player.getGeneralHeld() >= Integer.parseInt(amount)) {
-                            this.wGeneral += finalAmount;
+							player.setwGeneral(player.getwGeneral() + finalAmount);
                             held = player.getGeneralHeld();
                             player.setGeneralHeld(held - finalAmount);
                         } else {
@@ -74,7 +74,7 @@ public class Warehouse {
                         }
                     } else if (good.equalsIgnoreCase("A")) {
                         if (player.getArmsHeld() >= Integer.parseInt(amount)) {
-                            this.wArms += finalAmount;
+							player.setwArms(player.getwArms() + finalAmount);
                             held = player.getArmsHeld();
                             player.setArmsHeld(held - finalAmount);
                         } else {
@@ -98,7 +98,7 @@ public class Warehouse {
         Scanner keyboard = new Scanner(System.in);
         amount = keyboard.nextLine();
         try {
-            if (Integer.parseInt(amount) <= wOpium || Integer.parseInt(amount) <= wSilk || Integer.parseInt(amount) <= wGeneral || Integer.parseInt(amount) <= wArms) {
+            if (Integer.parseInt(amount) <= player.getwOpium() || Integer.parseInt(amount) <= player.getwSilk() || Integer.parseInt(amount) <= player.getwGeneral() || Integer.parseInt(amount) <= player.getwArms()) {
                 finalAmount = Integer.parseInt(amount);
                 askGood = true;
             } else {
@@ -113,24 +113,24 @@ public class Warehouse {
                 int held = 0;
                 if (Integer.parseInt(amount) > 0) {
                     if (good.equalsIgnoreCase("O")) {
-                        if (this.wOpium >= Integer.parseInt(amount)) {
-                            this.wOpium -= Integer.parseInt(amount);
+                        if (player.getwOpium() >= Integer.parseInt(amount)) {
+                            player.setwOpium(player.getwOpium() - Integer.parseInt(amount));
                             held = player.getOpiumHeld();
                             player.setOpiumHeld(held + finalAmount);
                         } else {
                             System.out.println("You don't have that much opium stored in the warehouse!");
                         }
                     } else if (good.equalsIgnoreCase("S")) {
-                        if (this.wSilk >= Integer.parseInt(amount)) {
-                            this.wSilk -= Integer.parseInt(amount);
+                        if (player.getwSilk() >= Integer.parseInt(amount)) {
+							player.setwSilk(player.getwSilk() - Integer.parseInt(amount));
                             held = player.getSilkHeld();
                             player.setSilkHeld(held + finalAmount);
                         } else {
                             System.out.println("You don't have that much silk stored in the warehouse!");
                         }
                     } else if (good.equalsIgnoreCase("G")) {
-                        if (this.wGeneral >= Integer.parseInt(amount)) {
-                            this.wGeneral -= Integer.parseInt(amount);
+                        if (player.getwGeneral() >= Integer.parseInt(amount)) {
+							player.setwGeneral(player.getwGeneral() - Integer.parseInt(amount));
                             held = player.getGeneralHeld();
                             player.setGeneralHeld(held + finalAmount);
                         } else {
@@ -138,8 +138,8 @@ public class Warehouse {
 
                         }
                     } else if (good.equalsIgnoreCase("A")) {
-                        if (this.wArms >= Integer.parseInt(amount)) {
-                            this.wArms -= Integer.parseInt(amount);
+                        if (player.getwArms() >= Integer.parseInt(amount)) {
+							player.setwArms(player.getwArms() - Integer.parseInt(amount));
                             held = player.getArmsHeld();
                             player.setArmsHeld(held + finalAmount);
                         } else {
@@ -159,10 +159,10 @@ public class Warehouse {
 
     public void showWarehouse() {
         System.out.println("--------------------\nWarehouse\n--------------------");
-        System.out.println("Opium : " + this.wOpium);
-        System.out.println("Silk : " + this.wSilk);
-        System.out.println("General : " + this.wGeneral);
-        System.out.println("Arms : " + this.wArms);
+        System.out.println("Opium : " + player.getwOpium());
+        System.out.println("Silk : " + player.getwSilk());
+        System.out.println("General : " + player.getwGeneral());
+        System.out.println("Arms : " + player.getwArms());
     }
 
 
@@ -185,7 +185,7 @@ public class Warehouse {
             String check;
             System.out.println("Would you like to do any other business? Y / N?");
             check = keyboard.nextLine();
-            check = keyboard.nextLine();
+			check = keyboard.nextLine();
 
             if (check.equalsIgnoreCase("Y")) {
                 keepGoing = true;

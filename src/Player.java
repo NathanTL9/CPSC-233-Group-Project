@@ -11,6 +11,10 @@ public class Player {
     private int guns = 0;
     private int HP = 100;
     private int debt = 0;
+    private int wOpium = 0;
+    private int wSilk = 0;
+    private int wGeneral = 0;
+    private int wArms = 0;
     private boolean retire = false;
 
     public Player(){
@@ -28,6 +32,11 @@ public class Player {
         this.guns = player.guns;
         this.HP = player.HP;
         this.debt = player.debt;
+        this.wOpium = player.wOpium;
+        this.wSilk = player.wSilk;
+        this.wGeneral = player.wGeneral;
+        this.wArms = player.wArms;
+
     }
 
     public boolean getRetire(){
@@ -145,6 +154,38 @@ public class Player {
     public void setDebt(int debt) {
         if (debt >= 0) {
             this.debt = debt;
+        }
+    }
+
+    public int getwOpium(){ return wOpium; }
+
+    public void setwOpium(int wOpium) {
+        if (wOpium >= 0){
+            this.wOpium = wOpium;
+        }
+    }
+
+    public int getwSilk(){return wSilk;}
+
+    public void setwSilk(int wSilk) {
+        if (wSilk >= 0){
+            this.wSilk = wSilk;
+        }
+    }
+
+    public int getwGeneral(){return wGeneral;}
+
+    public void setwGeneral(int wGeneral) {
+        if (wGeneral >= 0){
+            this.wGeneral = wGeneral;
+        }
+    }
+
+    public int getwArms(){return wArms;}
+
+    public void setwArms(int wArms) {
+        if (wArms >= 0){
+            this.wArms = wArms;
         }
     }
 
