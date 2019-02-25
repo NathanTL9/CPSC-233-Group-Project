@@ -32,7 +32,7 @@ public class loanShark {
 			}
 			//updated
 			else{
-				System.out.println("Sorry you cant be loaned that much");
+				System.out.println("Sorry you can't be loaned that much");
 				break;
 			}
 			String check;
