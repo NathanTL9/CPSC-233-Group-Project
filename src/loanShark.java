@@ -28,8 +28,14 @@ public class loanShark {
 				player.setDebt(player.getDebt() + loanAsk);
 				player.setMoney(player.getMoney() + loanAsk);
 			}
+			//updated
+			else{
+				System.out.println("Sorry you can't be loaned that much");
+				break;
+			}
 			String check;
 			System.out.println("Would you like to do any other business? Y / N?");
+			check = keyboard.nextLine();
 			check = keyboard.nextLine();
 
 			if(check.equalsIgnoreCase("Y")) {
