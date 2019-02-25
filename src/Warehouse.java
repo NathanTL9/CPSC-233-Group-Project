@@ -180,6 +180,10 @@ public class Warehouse {
             } else if (input.equalsIgnoreCase("A")) {
                 this.addAmount();
                 this.showWarehouse();
+
+            }
+            else{
+                System.out.println("Don't waste the warehouse's time, try again later with a valid input");
             }
 
             String check;
