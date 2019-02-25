@@ -15,12 +15,12 @@ public class ShipWarfare extends Player {
     private int numOfLittyShips = 0;
     private boolean userAttacks = true;
     private int startingPeasantShips = 0;
-    private int startingLittyShips =0;
+    private int startingLittyShips = 0;
     private int howMuchRun = 0;
     private String pirateName = "Liu Yen";
     private Player player;
 
-    public ShipWarfare(Player player){
+    public ShipWarfare(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
@@ -30,11 +30,11 @@ public class ShipWarfare extends Player {
         this.player = playerDummy;
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         Player playerDummy = new Player(player);
         return playerDummy;
     }
-    
+
     //This fleet is easy to defeat as a maximum of 15 ships can run away each volley, they can not tank hits
     public void peasantFleetAttack() throws Exception {
         Scanner userResponse = new Scanner(System.in);
@@ -70,6 +70,7 @@ public class ShipWarfare extends Player {
 
 
     }
+
     //This fleet is difficult to defeat as a maximum of 10 ships can run away each volley, they can tank hits
     public void littyFleetAttack() throws Exception {
         Scanner userResponse = new Scanner(System.in);
@@ -180,29 +181,33 @@ public class ShipWarfare extends Player {
 
         //Player volley
         while (exitValue == 0) {
-            for (int j = 0; j < player.getGuns(); j++) {
-                if (userAttacks == true) {
-                    int hitOrMiss = randomValue.nextInt(3) + 1;
-                    if (hitOrMiss == 1) {
-                        numOfLittyShips--;
-                        if (numOfLittyShips <= 0) {
-                            exitValue = 1;
-                            break;
+            if (player.getGuns() > 0) {
+                for (int j = 0; j < player.getGuns(); j++) {
+                    if (userAttacks == true) {
+                        int hitOrMiss = randomValue.nextInt(3) + 1;
+                        if (hitOrMiss == 1) {
+                            numOfLittyShips--;
+                            if (numOfLittyShips <= 0) {
+                                exitValue = 1;
+                                break;
+                            }
+                            System.out.println("Got eem");
+                            delayForASecond();
+                        } else if (hitOrMiss == 2) {
+                            System.out.printf("ARRG! We missed %s\n", getName());
+                            delayForASecond();
+                        } else {
+                            System.out.println("Darn! Their fleet tanked our attack");
+                            delayForASecond();
                         }
-                        System.out.println("Got eem");
-                        delayForASecond();
-                    } else if (hitOrMiss == 2) {
-                        System.out.printf("ARRG! We missed %s\n", getName());
-                        delayForASecond();
+
+
                     } else {
-                        System.out.println("Darn! Their fleet tanked our attack");
-                        delayForASecond();
+                        continue;
                     }
-
-
-                } else {
-                    continue;
                 }
+            } else {
+                System.out.println("Captain! We don't have any GUNS!!!!");
             }
 
 
@@ -210,17 +215,19 @@ public class ShipWarfare extends Player {
                 exitValue = 1;
                 break;
             }
-            chanceOfEnemyRun = randomValue.nextInt(2) + 1;
-            if (chanceOfEnemyRun == 2) {
-                howMuchRun = randomValue.nextInt(10) + 1;
-                if (howMuchRun != 0 && howMuchRun < numOfLittyShips) {
+            if (player.getGuns() > 0) {
+                if (chanceOfEnemyRun == 2) {
+                    chanceOfEnemyRun = randomValue.nextInt(2) + 1;
+                    howMuchRun = randomValue.nextInt(10) + 1;
+                    if (howMuchRun != 0 && howMuchRun < numOfLittyShips) {
 
 
-                    setNumOfLittyShips(numOfLittyShips - howMuchRun);
-                    if (userAttacks == true) {
-                        System.out.printf("Cowards! %d ships ran away %s!\n", howMuchRun, getName());
-                    } else {
-                        System.out.printf("Escaped %d of them!\n", howMuchRun);
+                        setNumOfLittyShips(numOfLittyShips - howMuchRun);
+                        if (userAttacks == true) {
+                            System.out.printf("Cowards! %d ships ran away %s!\n", howMuchRun, getName());
+                        } else {
+                            System.out.printf("Escaped %d of them!\n", howMuchRun);
+                        }
                     }
                 }
             }
@@ -292,26 +299,33 @@ public class ShipWarfare extends Player {
 
         //Player volley
         while (exitValue == 0) {
-            for (int j = 0; j < player.getGuns(); j++) {
-                if (userAttacks == true) {
-                    int hitOrMiss = randomValue.nextInt(2) + 1;
-                    if (hitOrMiss == 2) {
-                        numOfPeasantShips--;
-                        if (numOfPeasantShips <= 0) {
-                            exitValue = 1;
-                            break;
+            if (player.getGuns() > 0) {
+
+                for (int j = 0; j < player.getGuns(); j++) {
+                    if (userAttacks == true) {
+                        int hitOrMiss = randomValue.nextInt(2) + 1;
+                        if (hitOrMiss == 2) {
+                            numOfPeasantShips--;
+                            if (numOfPeasantShips <= 0) {
+                                exitValue = 1;
+                                break;
+                            }
+                            System.out.println("Got eem");
+                            delayForASecond();
+                        } else {
+                            System.out.printf("ARRG! We missed %s\n", getName());
+                            delayForASecond();
                         }
-                        System.out.println("Got eem");
-                        delayForASecond();
+
+
                     } else {
-                        System.out.printf("ARRG! We missed %s\n", getName());
-                        delayForASecond();
+                        continue;
                     }
-
-
-                } else {
-                    continue;
                 }
+            }
+            else{
+                System.out.println("Captain! We don't have any GUNS!!!!");
+
             }
 
 
@@ -319,17 +333,19 @@ public class ShipWarfare extends Player {
                 exitValue = 1;
                 break;
             }
-            chanceOfEnemyRun = randomValue.nextInt(2) + 1;
-            if (chanceOfEnemyRun == 2) {
-                howMuchRun = randomValue.nextInt(15) + 1;
-                if (howMuchRun != 0 && howMuchRun < numOfPeasantShips) {
+            if (player.getGuns() > 0) {
+                chanceOfEnemyRun = randomValue.nextInt(2) + 1;
+                if (chanceOfEnemyRun == 2) {
+                    howMuchRun = randomValue.nextInt(15) + 1;
+                    if (howMuchRun != 0 && howMuchRun < numOfPeasantShips) {
 
 
-                    setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
-                    if (userAttacks == true) {
-                        System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
-                    } else {
-                        System.out.printf("Escaped %d of them!\n", howMuchRun);
+                        setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
+                        if (userAttacks == true) {
+                            System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
+                        } else {
+                            System.out.printf("Escaped %d of them!\n", howMuchRun);
+                        }
                     }
                 }
             }
