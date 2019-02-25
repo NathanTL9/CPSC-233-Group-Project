@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 Learned how to use the Time Unit Class from the following source:
 Slim, and Lalith Verma. “How to Use TimeUnit in Java.” Stack Overflow, 8 Dec. 2017, stackoverflow.com/questions/47717633/how-to-use-timeunit-in-java.
 
- */
+*/
 
 public class ShipWarfare extends Player {
 
