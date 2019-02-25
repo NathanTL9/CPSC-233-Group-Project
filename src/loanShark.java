@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import static javafx.application.Platform.exit;
-
 public class loanShark {
 	private Player player;
 	public void setPlayer(Player player) {
