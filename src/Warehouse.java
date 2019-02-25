@@ -44,7 +44,6 @@ public class Warehouse {
 			}
 		String good;
 		System.out.println("Please enter a good to transfer O, S, G, A :");
-		Scanner keyboard = new Scanner(System.in);
 		good = keyboard.nextLine();
 		int held = 0;
 		if (amount > 0) {
@@ -96,7 +95,6 @@ public class Warehouse {
 	
 		String good;
 		System.out.println("Please enter a good to transfer O, S, G, A :");
-		Scanner keyboard = new Scanner(System.in);
 		good = keyboard.nextLine();
 		int held = 0;
 		if (amount > 0) {
@@ -155,7 +153,6 @@ public class Warehouse {
 			
 			String check;
 			System.out.println("Would you like to do any other business? Y / N?");
-			Scanner keyboard = new Scanner(System.in);
 			check = keyboard.nextLine();
 			
 			if(check.equalsIgnoreCase("Y")) {

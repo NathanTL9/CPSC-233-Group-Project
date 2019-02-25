@@ -36,6 +36,13 @@ public class Start
         {
             player.setGuns(5);
         }
+        // purely for testing purposes.
+        if(player.getName().equalsIgnoreCase("Vikram")){
+            player.setMoney(999999999);
+            player.setBank(999999999);
+            player.setGuns(999);
+            player.setHP(99999999);
+        }
     }
 
 

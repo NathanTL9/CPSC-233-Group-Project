@@ -86,6 +86,24 @@ public class TaipanShop {
         player = travel.getPlayer();
     }
 
+    public void warehouse(){
+        Warehouse warehouse = new Warehouse(player);
+        warehouse.changeWarehouse();
+        player = warehouse.getPlayer();
+    }
+
+    public void bank(){
+        Bank bank = new Bank(player);
+        bank.bank();
+        player = bank.getPlayer();
+    }
+
+    public void loan(){
+        loanShark loan = new loanShark(player);
+        loan.loanMoney();
+        player = loan.getPlayer();
+    }
+    
     private void updatePrices(){
         String s = "\n" + player.getName() + ", the price of ";
         double value = 80*Math.random();
@@ -134,15 +152,15 @@ public class TaipanShop {
     private void printShop(){
         currentCargo = player.getOpiumHeld()+player.getGuns()*10+player.getSilkHeld()+player.getArmsHeld()+player.getGeneralHeld();
         if(cargoSpace - currentCargo < 0){
-            System.out.println("Hold: Overloaded" + "          Guns: " + player.getGuns());
+            System.out.println("Hold: Overloaded" + "          Guns: " + player.getGuns() + "          HP: " + player.getHP() +"%");
         }else{
-            System.out.println("Hold: " + (cargoSpace-currentCargo) + "          Guns: " + player.getGuns());
+            System.out.println("Hold: " + (cargoSpace-currentCargo) + "          Guns: " + player.getGuns() + "          HP: " + player.getHP() +"%");
         }
         System.out.println("-------------------------------------------------------------");
         System.out.println("     Opium: " + player.getOpiumHeld() + "      Silk: " + player.getSilkHeld());
         System.out.println("     Arms: " + player.getArmsHeld() + "       General: " + player.getGeneralHeld());
         System.out.println("-------------------------------------------------------------");
-        System.out.println("Cash: " + player.getMoney() + "           Bank: " + player.getBank()+"\n");
+        System.out.println("Cash: " + player.getMoney() + "         Bank: " + player.getBank()+ "          Debt: " + player.getDebt()+"\n");
         System.out.println(player.getName() + ", present prices per unit here are:");
         System.out.println("     Opium: " + opiumPrice + "    Silk: " + silkPrice);
         System.out.println("     Arms: " + armsPrice + "       General: " + generalPrice);
@@ -151,7 +169,7 @@ public class TaipanShop {
     public void atLocationOne(boolean notDone, Scanner input){
         while(notDone){
             printShop();
-            System.out.println("\nShall I Buy, Sell, Visit Bank, Transfer Cargo, or Quit Trading?");
+            System.out.println("\nShall I Buy, Sell, Visit Bank, Get Loans, Transfer Cargo, or Quit Trading?");
             String response = input.next();
             if (response.equalsIgnoreCase("B")) {
                 boolean notDone2 = true;
@@ -284,10 +302,12 @@ public class TaipanShop {
                 }
 
             } else if (response.equalsIgnoreCase("V")) {
-                System.out.println("\n*** PLACEHOLDER FOR BANK ***\n");
+                bank();
             } else if (response.equalsIgnoreCase("T")) {
-                System.out.println("\n*** PLACEHOLDER FOR WAREHOUSE ***\n");
-            } else if (response.equalsIgnoreCase("Q")) {
+                warehouse();
+            }else if (response.equalsIgnoreCase("G")||response.equalsIgnoreCase("L")) {
+                loan();
+            }else if (response.equalsIgnoreCase("Q")) {
                 travel();
                 notDone = false;
             }
@@ -437,7 +457,7 @@ public class TaipanShop {
     public void retireAndLocationOne(boolean notDone, Scanner input){
         while(notDone){
             printShop();
-            System.out.println("\nShall I Buy, Sell, Visit Bank, Transfer Cargo, Retire, or Quit Trading?");
+            System.out.println("\nShall I Buy, Sell, Visit Bank, Transfer Cargo, Get Loans, Retire, or Quit Trading?");
             String response = input.next();
             if (response.equalsIgnoreCase("B")) {
                 boolean notDone2 = true;
@@ -569,10 +589,12 @@ public class TaipanShop {
                 }
 
             } else if (response.equalsIgnoreCase("V")) {
-                System.out.println("\n*** PLACEHOLDER FOR BANK ***\n");
+                bank();
             } else if (response.equalsIgnoreCase("T")) {
-                System.out.println("\n*** PLACEHOLDER FOR WAREHOUSE ***\n");
-            } else if (response.equalsIgnoreCase("Q")) {
+                warehouse();
+            }else if (response.equalsIgnoreCase("G")||response.equalsIgnoreCase("L")) {
+                loan();
+            }else if (response.equalsIgnoreCase("Q")) {
                 travel();
                 notDone = false;
             } else if (response.equalsIgnoreCase("R")) {

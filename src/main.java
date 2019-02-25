@@ -19,18 +19,6 @@ public class main {
         player = start.getPlayer();
     }
 
-    public void warehouse(Warehouse warehouse){
-        warehouse.setPlayer(player);
-        //warehouse.intialize();
-        player = warehouse.getPlayer();
-    }
-
-    public void bank(Bank bank){
-        bank.setPlayer(player);
-        //warehouse.intialize();
-        player = bank.getPlayer();
-    }
-
     public static void main(String[] args) {
         main main = new main();
         TaipanShop littyShop = new TaipanShop(main.getPlayer());

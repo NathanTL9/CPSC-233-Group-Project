@@ -106,6 +106,8 @@ public class Travel {
                     randomEventSea(tempInt);
                     seaAtlas(tempInt);
                     hasTraveled = true;
+                    player.setBank((int)(player.getBank() * 1.01));
+                    player.setDebt((int)(player.getDebt() * 1.01));
                 } else System.out.println("\nYou're already here " + player.getName() + ".");
             } catch (Exception e) {
                 System.out.print("\nSorry, " + player.getName() + " could you say that again?");
