@@ -18,7 +18,7 @@ public class Start
             player.setName(name);
         }
     }
-    public void intialize()
+    public void initialize()
     {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Taipan, \nWhat will you name your firm:");
