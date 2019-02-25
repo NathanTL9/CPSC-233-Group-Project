@@ -1,11 +1,10 @@
- import java.util.Scanner;
+import java.util.Scanner;
 
 public class Warehouse {
 	private int wOpium = 25;
 	private int wSilk = 0;
 	private int wGeneral = 0;
 	private int wArms = 0;
-	private String good = "";
 	private int finalAmount = 0;
 	private Player player;
 
@@ -26,26 +25,30 @@ public class Warehouse {
 	    }
 
 	
-	public void addAmount(String good, int amount) {
+	public void addAmount(int amount) {
+		String good;
+		System.out.println("Please enter a good to transfer O, S, G, A :");
+		Scanner keyboard = new Scanner(System.in);
+		good = keyboard.nextLine();
 		int held = 0;
 		if (amount > 0) {
-			if (this.good.equalsIgnoreCase("O")) {
+			if (good.equalsIgnoreCase("O")) {
 				this.wOpium += amount;
 				held = player.getOpiumHeld();
 				player.setOpiumHeld(held - amount);
 				System.out.println(player.getOpiumHeld());
 			}
-			else if(this.good.equalsIgnoreCase("S")) {
+			else if(good.equalsIgnoreCase("S")) {
 				this.wSilk += amount;
 				held = player.getSilkHeld();
 				player.setSilkHeld(held - amount);
 			}
-			else if(this.good.equalsIgnoreCase("G")) {
+			else if(good.equalsIgnoreCase("G")) {
 				this.wGeneral += amount;
 				held = player.getGeneralHeld();
 				player.setGeneralHeld(held - amount);
 			}
-			else if(this.good.equalsIgnoreCase("A")) {
+			else if(good.equalsIgnoreCase("A")) {
 				this.wArms += amount;
 				held = player.getArmsHeld();
 				player.setArmsHeld(held - amount);
@@ -55,25 +58,29 @@ public class Warehouse {
 			System.out.println("Sorry this transfer cannot be made");
 		}
 	}
-	public void removeAmount(String good, int amount) {
+	public void removeAmount(int amount) {
+		String good;
+		System.out.println("Please enter a good to transfer O, S, G, A :");
+		Scanner keyboard = new Scanner(System.in);
+		good = keyboard.nextLine();
 		int held = 0;
 		if (amount > 0) {
-			if (this.good.equalsIgnoreCase("O")) {
+			if (good.equalsIgnoreCase("O")) {
 				this.wOpium -= amount;
 				held = player.getOpiumHeld();
 				player.setOpiumHeld(held + amount);
 			}
-			else if(this.good.equalsIgnoreCase("S")) {
+			else if(good.equalsIgnoreCase("S")) {
 				this.wSilk -= amount;
 				held = player.getSilkHeld();
 				player.setSilkHeld(held + amount);
 			}
-			else if(this.good.equalsIgnoreCase("G")) {
+			else if(good.equalsIgnoreCase("G")) {
 				this.wGeneral -= amount;
 				held = player.getGeneralHeld();
 				player.setGeneralHeld(held + amount);
 			}
-			else if(this.good.equalsIgnoreCase("A")) {
+			else if(good.equalsIgnoreCase("A")) {
 				this.wArms -= amount;
 				held = player.getArmsHeld();
 				player.setArmsHeld(held + amount);
@@ -92,19 +99,9 @@ public class Warehouse {
 		System.out.println("Arms : " + this.wArms);
 	}
 
-	private void askGood() {
-		String aGood = "k";
-		System.out.println("Please enter a good to transfer O, S, G, A :");
-		Scanner keyboard = new Scanner(System.in);
-		aGood = keyboard.nextLine();
-		aGood = aGood.toUpperCase();
-		this.good = aGood;
-		}
-
 	public void askAddAmount() {
-		askGood();
 		int amount = 0;
-			System.out.println("Please enter the amount of the good you would like to transfer, put negative amount to remove");
+			System.out.println("Please enter the amount of the good you would like to ADD.");
 			Scanner keyboard = new Scanner(System.in);
 			amount = keyboard.nextInt();
 				if(this.good.equalsIgnoreCase("O") && amount <= player.getOpiumHeld()) {
@@ -122,9 +119,8 @@ public class Warehouse {
 	}
 
 	public void askRemoveAmount() {
-		askGood();
 		int amount = 0;
-		System.out.println("Please enter the amount of the good you would like to remove");
+		System.out.println("Please enter the amount of the good you would like to REMOVE");
 		Scanner keyboard = new Scanner(System.in);
 		amount = keyboard.nextInt();
 		if(this.good.equalsIgnoreCase("O") && amount <= this.wOpium) {
@@ -141,14 +137,22 @@ public class Warehouse {
 		}
 
 	}
-	public static void main(String[] args){
-		Warehouse hi = new Warehouse(new Player());
-		hi.showWarehouse();
-		hi.askRemoveAmount();
-		hi.removeAmount(hi.good, hi.finalAmount);
-		hi.showWarehouse();
-		hi.askAddAmount();
-		hi.addAmount(hi.good, hi.finalAmount);
-		hi.showWarehouse();
-    }
+	
+	public void changeWarehouse() {
+		this.showWarehouse();
+		String input = " ";
+		System.out.println("Would you like to add(A) or remove(R) resources? ");
+		Scanner keyboard = new Scanner(System.in);
+		input = keyboard.next();
+		if(input.equalsIgnoreCase("R")) {
+			this.askRemoveAmount();
+			this.removeAmount(this.good, this.finalAmount);
+			this.showWarehouse();
+		}
+		else if(input.equalsIgnoreCase("A")) {
+			this.askAddAmount();
+			this.addAmount(this.good, this.finalAmount);
+			this.showWarehouse();
+		}
+	}
 }
