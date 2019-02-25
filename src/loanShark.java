@@ -18,6 +18,8 @@ public class loanShark {
     }
 	
 	public void loanMoney() {
+		boolean keepGoing = true;
+		while(keepGoing) {
 		int loanAsk = 0;
 		System.out.println("Please enter how much you would like to borrow");
 		Scanner keyboard = new Scanner(System.in);
@@ -26,8 +28,20 @@ public class loanShark {
 				player.setDebt(player.getDebt() + loanAsk);
 				player.setMoney(player.getMoney() + loanAsk);
 			}
+			String check;
+			System.out.println("Would you like to do any other business? Y / N?");
+			Scanner keyboard = new Scanner(System.in);
+			check = keyboard.nextLine();
+			
+			if(check.equalsIgnoreCase("Y")) {
+				keepGoing = true;
+		}
+			else if(check.equalsIgnoreCase("N")) {
+				keepGoing = false;
+			}	
+		}
 	}
-	public void addInterest() {
-		player.setDebt((int)(player.getDebt() * 1.01));
+	public void removeInterest() {
+		player.setDebt((int)(player.getDebt() * 1.05));
 	}
 }
