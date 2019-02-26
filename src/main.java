@@ -25,8 +25,11 @@ public class main {
         Start start = new Start(main.getPlayer());
 
         main.start(start);
-        while(!main.getPlayer().getRetire()){
-            main.shop(littyShop);
+        while(true){
+            while(!main.getPlayer().getRetire()){
+                main.shop(littyShop);
+            }
+            main.start(start);
         }
     }
 }
