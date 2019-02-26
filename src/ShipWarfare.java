@@ -321,7 +321,10 @@ public class ShipWarfare extends Player {
             delayForSeconds(2);
             return true;
         } else if (exitValue == 2) {
-            gameOver();
+            player.gameOver();
+            if(player.playAgain()){
+            setPlayer(new Player());
+            }
             return true;
         } else if (exitValue == 3) {
             System.out.printf("We made it out at %d%% ship status!\n", player.getHP());
