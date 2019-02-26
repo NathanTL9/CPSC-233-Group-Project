@@ -48,16 +48,18 @@ public class TaipanShop {
     }
 
     /**
+     * getter for opiumPrice instance variable.
      *
-     * @return
+     * @return opiumPrice -- the price of opium in the shop
      */
     public int getOpiumPrice() {
         return opiumPrice;
     }
 
     /**
+     * setter for the opiumPrice instance variable. Runs so long as the parameter is greater than 0.
      *
-     * @param opiumPrice
+     * @param opiumPrice -- what the instance variable opiumPrice should be changed to.
      */
     public void setOpiumPrice(int opiumPrice) {
         if(opiumPrice > 0){
@@ -66,16 +68,18 @@ public class TaipanShop {
     }
 
     /**
+     * getter for silkPrice instance variable.
      *
-     * @return
+     * @return silkPrice -- the price of silk in the shop.
      */
     public int getSilkPrice() {
         return silkPrice;
     }
 
     /**
+     * setter for the opiumPrice instance variable.
      *
-     * @param silkPrice
+     * @param silkPrice -- what the instance variable silkPrice should be changed to.
      */
     public void setSilkPrice(int silkPrice) {
         if(silkPrice > 0){
