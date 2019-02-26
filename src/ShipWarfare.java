@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 
-public class ShipWarfare extends Player {
+public class ShipWarfare {
 
     private int numOfPeasantShips = 0;
     private int numOfLittyShips = 0;
@@ -234,7 +234,7 @@ public class ShipWarfare extends Player {
                             System.out.println("Got eem");
                             delayForSeconds(1);
                         } else if (hitOrMiss == 2) {
-                            System.out.printf("ARRG! We missed %s\n", getName());
+                            System.out.printf("ARRG! We missed %s\n", player.getName());
                             delayForSeconds(1);
                         } else {
                             System.out.println("Darn! Their fleet tanked our attack");
@@ -247,7 +247,7 @@ public class ShipWarfare extends Player {
                     }
                 }
             } else {
-                System.out.printf("%s! We don't have any GUNS!!!!\n",player.getName());
+                System.out.printf("%s! We don't have any GUNS!!!!\n",player.player.getName());
                 delayForSeconds(1);
             }
 
@@ -265,7 +265,7 @@ public class ShipWarfare extends Player {
 
                         setNumOfLittyShips(numOfLittyShips - howMuchRun);
                         if (userAttacks == true) {
-                            System.out.printf("Cowards! %d ships ran away %s!\n", howMuchRun, getName());
+                            System.out.printf("Cowards! %d ships ran away %s!\n", howMuchRun, player.getName());
                         } else {
                             System.out.printf("Escaped %d of them!\n", howMuchRun);
                         }
@@ -367,7 +367,7 @@ public class ShipWarfare extends Player {
                             System.out.println("Got eem");
                             delayForSeconds(1);
                         } else {
-                            System.out.printf("ARRG! We missed %s\n", getName());
+                            System.out.printf("ARRG! We missed %s\n", player.getName());
                             delayForSeconds(1);
                         }
 
@@ -397,7 +397,7 @@ public class ShipWarfare extends Player {
 
                         setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
                         if (userAttacks == true) {
-                            System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
+                            System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, player.getName());
                         } else {
                             System.out.printf("Escaped %d of them!\n", howMuchRun);
                         }
@@ -452,7 +452,10 @@ public class ShipWarfare extends Player {
             delayForSeconds(2);
             return true;
         } else if (exitValue == 2) {
-            gameOver();
+            player.gameOver();
+            if(player.playAgain()){
+                setPlayer(new Player());
+            }
             return true;
         } else if (exitValue == 3) {
             System.out.printf("We made it out at %d%% ship status!\n", player.getHP());
