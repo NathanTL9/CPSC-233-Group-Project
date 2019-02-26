@@ -62,6 +62,7 @@ public class Start
             player.setBank(999999999);
             player.setGuns(999);
             player.setHP(99999999);
+            player.setCargoSpace(99999999);
         }
     }
 
