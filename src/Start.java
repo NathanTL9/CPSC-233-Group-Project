@@ -16,7 +16,7 @@ public class Start
     /**
      * setter method that takes in a Player object as an argument.
      *
-     * @param player returns object of the class Player
+     * @param player takes object of the class Player as an argument
      */
     public void setPlayer(Player player) {
         Player playerTemp = new Player(player);
