@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TaipanClone/ShipWarfare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TaipanClone/ShipWarfare.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfare.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="325">
               <caret line="222" column="47" lean-forward="true" selection-start-line="222" selection-start-column="47" selection-end-line="222" selection-end-column="47" />
               <folding>
                 <element signature="e#1280#1281#0" expanded="true" />
@@ -89,8 +88,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="89" column="45" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+            <state relative-caret-position="2923">
+              <caret line="199" column="24" lean-forward="true" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,7 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>chanceOfRun</find>
       <find>chance</find>
       <find>get</find>
       <find>Peasant</find>
@@ -139,6 +137,7 @@
       <find>guns&gt;0</find>
       <find>setPla</find>
       <find>setPlayer</find>
+      <find>player.game</find>
     </findStrings>
     <replaceStrings>
       <replace>player.getName()</replace>
@@ -174,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Start.java" />
         <option value="$PROJECT_DIR$/src/TaipanShop.java" />
-        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
       </list>
     </option>
   </component>
@@ -464,11 +463,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551148939938</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Test this Vikram">
+      <created>1551150035612</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1551150035612</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Aight fixed some stuff">
+      <created>1551150382078</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1551150382078</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44589000" />
+    <option name="totallyTimeSpent" value="45004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -567,7 +580,9 @@
     <MESSAGE value="minor changes. Still in progress." />
     <MESSAGE value="Java Docs BOIZ for ShipWarafare" />
     <MESSAGE value="Small change to javadocs for shipwarfare" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small change to javadocs for shipwarfare" />
+    <MESSAGE value="Test this Vikram" />
+    <MESSAGE value="Aight fixed some stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aight fixed some stuff" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TaipanClone.iml">
@@ -639,7 +654,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="325">
           <caret line="222" column="47" lean-forward="true" selection-start-line="222" selection-start-column="47" selection-end-line="222" selection-end-column="47" />
           <folding>
             <element signature="e#1280#1281#0" expanded="true" />
@@ -676,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="89" column="45" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+        <state relative-caret-position="2923">
+          <caret line="199" column="24" lean-forward="true" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -247,7 +247,7 @@ public class ShipWarfare {
                     }
                 }
             } else {
-                System.out.printf("%s! We don't have any GUNS!!!!\n",player.player.getName());
+                System.out.printf("%s! We don't have any GUNS!!!!\n",player.getName());
                 delayForSeconds(1);
             }
 
