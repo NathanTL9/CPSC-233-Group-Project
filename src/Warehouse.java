@@ -50,7 +50,7 @@ public class Warehouse {
      * add followed by the good they would like to add to the warehouse.
      * the method checks if the player has sufficient goods to transfer, and if the player does
      * then the method executes the transfer
-     * @exception e ensures the code does not fail due to an invalid input
+     *
      */
     public void addAmount() {
         boolean askGood = false;
@@ -135,7 +135,6 @@ public class Warehouse {
      * remove followed by the good they would like to remove from the warehouse.
      * the method checks if the player has sufficient goods to transfer, and if the player does
      * then the method executes the transfer
-     * @exception e Ensures the code does not fail due to invalid response.
      *
      */
 
@@ -149,19 +148,26 @@ public class Warehouse {
         amount = keyboard.nextLine();
         //The if statement checks that you have enough resources to make the transfer
         try {
+            //The if statement checks that you have enough resources to make the transfer
             if (Integer.parseInt(amount) <= player.getwOpium() || Integer.parseInt(amount) <= player.getwSilk() || Integer.parseInt(amount) <= player.getwGeneral() || Integer.parseInt(amount) <= player.getwArms()) {
                 finalAmount = Integer.parseInt(amount);
                 askGood = true;
-            } else {
+            }
+            //Else statement lets the user know that they do not hav enough goods to make the requested transfer
+            else {
                 System.out.println("Nice try but you don't have any items of that quantity in the warehouse!");
                 askGood = false;
             }
+
+            //Ensures that goods are only transferred if they have the specified amount
+            //The user is prompted to enter which good they want to transfer
 
             if (askGood == true) {
                 String good;
                 System.out.println("Please enter a good to transfer O, S, G, A :");
                 good = keyboard.nextLine();
                 int held = 0;
+                //The following set of loops check to see which good the user has selected and makes the transfer and amount > 0
                 if (Integer.parseInt(amount) > 0) {
                     if (good.equalsIgnoreCase("O")) {
                         if (player.getwOpium() >= Integer.parseInt(amount)) {
@@ -173,7 +179,7 @@ public class Warehouse {
                         }
                     } else if (good.equalsIgnoreCase("S")) {
                         if (player.getwSilk() >= Integer.parseInt(amount)) {
-							player.setwSilk(player.getwSilk() - Integer.parseInt(amount));
+                            player.setwSilk(player.getwSilk() - Integer.parseInt(amount));
                             held = player.getSilkHeld();
                             player.setSilkHeld(held + finalAmount);
                         } else {
@@ -181,7 +187,7 @@ public class Warehouse {
                         }
                     } else if (good.equalsIgnoreCase("G")) {
                         if (player.getwGeneral() >= Integer.parseInt(amount)) {
-							player.setwGeneral(player.getwGeneral() - Integer.parseInt(amount));
+                            player.setwGeneral(player.getwGeneral() - Integer.parseInt(amount));
                             held = player.getGeneralHeld();
                             player.setGeneralHeld(held + finalAmount);
                         } else {
@@ -190,7 +196,7 @@ public class Warehouse {
                         }
                     } else if (good.equalsIgnoreCase("A")) {
                         if (player.getwArms() >= Integer.parseInt(amount)) {
-							player.setwArms(player.getwArms() - Integer.parseInt(amount));
+                            player.setwArms(player.getwArms() - Integer.parseInt(amount));
                             held = player.getArmsHeld();
                             player.setArmsHeld(held + finalAmount);
                         } else {
@@ -198,16 +204,24 @@ public class Warehouse {
 
                         }
                     }
-                } else {
+                }
+                //Ensures the value entered is positive
+                else {
                     System.out.println("Sorry this transfer cannot be made");
                 }
             }
-        }catch (Exception e){
+        }
+        //If the program errors out this is the message displayed and the method is re-run, so that the game does not end.
+        catch (Exception e){
             System.out.println("Wait, that's not a valid input please try again");
         }
     }
 
-
+    /**
+     * This method prints the stock that is in the warehouse currently using the get and set
+     * methods from the player class. This is to allow the user to be able to know how much they have
+     * stored in the warehouse
+     */
     public void showWarehouse() {
         System.out.println("--------------------\nWarehouse\n--------------------");
         System.out.println("Opium : " + player.getwOpium());
@@ -216,7 +230,11 @@ public class Warehouse {
         System.out.println("Arms : " + player.getwArms());
     }
 
-
+    /**
+     * This method combines the add and remove methods and prompts the user to
+     * enter what they would like to do. Add or remove and accordingly invokes
+     * the required methods
+     */
     public void changeWarehouse() {
         boolean keepGoing = true;
         while (keepGoing) {
@@ -238,6 +256,7 @@ public class Warehouse {
             }
 
             String check;
+            //Check to see if the player wants to continue in the warehouse or they are done
             System.out.println("Would you like to do any other business? Y / N?");
             check = keyboard.nextLine();
 			check = keyboard.nextLine();
@@ -250,7 +269,4 @@ public class Warehouse {
         }
     }
 
-    public static void main(String[] args) {
-
-    }
 }
