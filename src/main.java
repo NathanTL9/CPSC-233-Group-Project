@@ -15,7 +15,7 @@ public class main {
 
     public void start(Start start){
         start.setPlayer(player);
-        start.intialize();
+        start.initialize();
         player = start.getPlayer();
     }
 
