@@ -192,6 +192,7 @@ public class Player {
     public void gameOver(){
         System.out.flush();
         System.out.println("Game over");
+        System.exit(0);
     }
 
 }
