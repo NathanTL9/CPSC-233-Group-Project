@@ -419,9 +419,10 @@ public class Player {
     }
 
     /**
-    * Method to indicate that you have lost the game
-    *
-    */
+     * Method to indicate that you have lost the game. If the player has lost, console will be cleared and will only
+     * show the statement "Game Over". After showing the message the game closes.
+     *
+     **/
     
     public void gameOver(){
         System.out.flush();

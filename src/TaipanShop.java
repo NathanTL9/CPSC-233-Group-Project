@@ -14,9 +14,7 @@ public class TaipanShop {
     public void retire(){
         player.setRetire(true);
         System.out.println("You win!");
-        if(player.playAgain()){
-            setPlayer(new Player());
-        }
+        System.exit(0);
     }
 
     /**

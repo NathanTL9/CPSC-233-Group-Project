@@ -4,9 +4,9 @@ public class Start
     private Player player;
 
     /**
-     * getter method for obtaining a player object.
+     * gets the player instance variable. The method returns a copy of the instance variable for encapsulation purposes.
      *
-     * @return returns object of the class Player
+     * @return playerDummy -- playerDummy is a copy of the player instance variable.
      */
     public Player getPlayer() {
         Player playerTemp = new Player(player);
@@ -14,9 +14,9 @@ public class Start
     }
 
     /**
-     * setter method that takes in a Player object as an argument.
+     * sets the player instance variable equal to a copy of the parameter -- a copy is used for encapsulation purposes.
      *
-     * @param player takes object of the class Player as an argument
+     * @param player is a Player object that will replace the current instance of the player instance variable.
      */
     public void setPlayer(Player player) {
         Player playerTemp = new Player(player);

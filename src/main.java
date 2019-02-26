@@ -40,9 +40,7 @@ public class main {
     /**
     * Updates main class with player data and starts the game.
     * The game will only run as long as the player has not retired or has been destroyed.
-    *
     */
-    
     public static void main(String[] args) {
         main main = new main();
         TaipanShop littyShop = new TaipanShop(main.getPlayer());
