@@ -124,7 +124,7 @@ public class Travel {
     /**
      * To use the peasant fleet class while still maintaining encapsulation we have to create a ShipWarefare object and
      * run the method from there. After the method has been run we can update the player object in this class.
-     *
+     * @throws Exception throws Exception so that we can use the time library to make the player if we want to.
      **/
     public void peasantFleet() throws Exception {
         ShipWarfare attackShip = new ShipWarfare(player);
@@ -135,7 +135,7 @@ public class Travel {
     /**
      * To use the litty fleet class while still maintaining encapsulation we have to create a ShipWarefare object and
      * run the method from there. After the method has been run we can update the player object in this class.
-     *
+     * @throws Exception throws Exception so that we can use the time library to make the player if we want to.
      **/
     public void littyFleet() throws Exception {
         ShipWarfare attackShip = new ShipWarfare(player);
