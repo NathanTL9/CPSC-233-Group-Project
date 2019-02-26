@@ -6,7 +6,7 @@ public class Start
     /**
      * getter method for obtaining a player object.
      *
-     * @return returns player object
+     * @return returns object of the class Player
      */
     public Player getPlayer() {
         Player playerTemp = new Player(player);
@@ -16,7 +16,7 @@ public class Start
     /**
      * setter method that takes in a Player object as an argument.
      *
-     * @param player object of the class Player
+     * @param player returns object of the class Player
      */
     public void setPlayer(Player player) {
         Player playerTemp = new Player(player);
