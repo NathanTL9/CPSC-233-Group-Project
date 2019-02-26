@@ -14,7 +14,9 @@ public class TaipanShop {
     public void retire(){
         player.setRetire(true);
         System.out.println("You win!");
-        System.exit(0);
+        if(player.playAgain()){
+            setPlayer(new Player());
+        }
     }
 
     /**
@@ -57,7 +59,7 @@ public class TaipanShop {
     }
 
     /**
-     * setter for the opiumPrice instance variable. Runs so long as the parameter is greater than 0.
+     * setter for the opiumPrice instance variable. Runs as long as the parameter is greater than 0.
      *
      * @param opiumPrice -- what the instance variable opiumPrice should be changed to.
      */
@@ -77,7 +79,7 @@ public class TaipanShop {
     }
 
     /**
-     * setter for the opiumPrice instance variable.
+     * setter for the silkPrice instance variable. Runs as long as the parameter is greater than 0.
      *
      * @param silkPrice -- what the instance variable silkPrice should be changed to.
      */
@@ -88,16 +90,18 @@ public class TaipanShop {
     }
 
     /**
+     * getter for armsPrice instance variable.
      *
-     * @return
+     * @return armsPrice -- the price of arms in the shop.
      */
     public int getArmsPrice() {
         return armsPrice;
     }
 
     /**
+     * setter for the armsPrice instance variable. Runs as long as the parameter is greater than 0.
      *
-     * @param armsPrice
+     * @param armsPrice -- what the instance variable armsPrice should be changed to.
      */
     public void setArmsPrice(int armsPrice) {
         if(armsPrice > 0){
@@ -106,16 +110,18 @@ public class TaipanShop {
     }
 
     /**
+     * getter for generalPrice instance variable.
      *
-     * @return
+     * @return generalPrice -- the price of general cargo in the shop.
      */
     public int getGeneralPrice() {
         return generalPrice;
     }
 
     /**
+     * setter for the generalPrice instance variable. Runs as long as the parameter is greater than 0.
      *
-     * @param generalPrice
+     * @param generalPrice -- what the instance variable generalPrice should be changed to.
      */
     public void setGeneralPrice(int generalPrice) {
         if(generalPrice > 0){
@@ -124,7 +130,7 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * this method is evoked if the user has decided to travel elsewhere.
      */
     public void travel(){
         Travel travel = new Travel(player);
@@ -133,7 +139,7 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * this method is evoked if the user wants to use the warehouse to store items or take items out.
      */
     public void warehouse(){
         Warehouse warehouse = new Warehouse(player);
@@ -142,7 +148,7 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * this method is evoked if the user wants to use the bank to deposit or withdraw money.
      */
     public void bank(){
         Bank bank = new Bank(player);
@@ -151,7 +157,7 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * this method is evoked if the user wants to use get a loan or pay a loan off.
      */
     public void loan(){
         loanShark loan = new loanShark(player);
@@ -160,9 +166,9 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * this method is when the shop is accessed, randomizing the prices of all the items.
      */
-    private void updatePrices(){
+    public void updatePrices(){
         String s = "\n" + player.getName() + ", the price of ";
         double value = 80*Math.random();
         Random rand = new Random();
@@ -170,6 +176,8 @@ public class TaipanShop {
         silkPrice = (rand.nextInt(201) + 60)*10;
         armsPrice = (rand.nextInt(21) + 6)*10;
         generalPrice = rand.nextInt(17) + 4;
+
+        // there is a 10% chance that the price of an item is increased/decreased beyond its regular range.
         if(value < 8){
             if(value < 2){
                 if(value < 1){
@@ -208,9 +216,9 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * this method prints the shop UI and the player's inventory and status.
      */
-    private void printShop(){
+    public void printShop(){
         int currentCargo = player.getOpiumHeld()+player.getGuns()*10+player.getSilkHeld()+player.getArmsHeld()+player.getGeneralHeld();
         if(player.getCargoSpace() - currentCargo < 0){
             System.out.println("Hold: Overloaded" + "          Guns: " + player.getGuns() + "          HP: " + player.getHP() +"%");
@@ -228,11 +236,13 @@ public class TaipanShop {
     }
 
     /**
-     *
-     * @param notDone
-     * @param input
+     * This method is evoked if the user is at the location one port.
      */
-    public void atLocationOne(boolean notDone, Scanner input){
+    public void atLocationOne(){
+        boolean notDone = true;
+        Scanner input = new Scanner(System.in);
+
+        // as long as the user does not enter a valid input, the code will run in a loop forever.
         while(notDone){
             printShop();
             System.out.println("\nShall I Buy, Sell, Visit Bank, Get Loans, Transfer Cargo, or Quit Trading?");
@@ -240,6 +250,8 @@ public class TaipanShop {
             if (response.equalsIgnoreCase("B")) {
                 boolean notDone2 = true;
                 System.out.println("What do you wish me to buy, " + player.getName() + "?");
+
+                // when buying an item, the user must have the right amount of money, and buy non-negative amounts.
                 while (notDone2) {
                     response = input.nextLine();
                     if (response.equalsIgnoreCase("O")) {
@@ -302,7 +314,8 @@ public class TaipanShop {
 
                 }
 
-            } else if (response.equalsIgnoreCase("S")) {
+            } // when selling, the user must enter a non-negative amount of items, and not more than what they have.
+            else if (response.equalsIgnoreCase("S")) {
                 boolean notDone2 = true;
                 System.out.println("What do you wish me to sell, " + player.getName() + "?");
                 while (notDone2) {
@@ -373,7 +386,8 @@ public class TaipanShop {
                 warehouse();
             }else if (response.equalsIgnoreCase("G")||response.equalsIgnoreCase("L")) {
                 loan();
-            }else if (response.equalsIgnoreCase("Q")) {
+            } // if the user wishes to quit trading, they may do so. Doing this breaks them out of the loop.
+            else if (response.equalsIgnoreCase("Q")) {
                 travel();
                 notDone = false;
             }
@@ -381,11 +395,13 @@ public class TaipanShop {
     }
 
     /**
-     *
-     * @param notDone
-     * @param input
+     * This method is evoked when the user is at any port other than location one.
      */
-    public void notAtLocationOne(boolean notDone, Scanner input){
+    public void notAtLocationOne(){
+        boolean notDone = true;
+        Scanner input = new Scanner(System.in);
+
+        // as long as the user does not enter a valid input, the code will run in a loop forever.
         while(notDone){
             printShop();
             System.out.println("\nShall I Buy, Sell, or Quit Trading?");
@@ -393,6 +409,8 @@ public class TaipanShop {
             if (response.equalsIgnoreCase("B")) {
                 boolean notDone2 = true;
                 System.out.println("What do you wish me to buy, " + player.getName() + "?");
+
+                // when buying an item, the user must have the right amount of money, and buy non-negative amounts.
                 while (notDone2) {
                     response = input.nextLine();
                     if (response.equalsIgnoreCase("O")) {
@@ -455,7 +473,8 @@ public class TaipanShop {
 
                 }
 
-            } else if (response.equalsIgnoreCase("S")) {
+            } // when selling, the user must enter a non-negative amount of items, and not more than what they have.
+            else if (response.equalsIgnoreCase("S")) {
                 boolean notDone2 = true;
                 System.out.println("What do you wish me to sell, " + player.getName() + "?");
                 while (notDone2) {
@@ -518,7 +537,8 @@ public class TaipanShop {
                         }
                     }
                 }
-            } else if (response.equalsIgnoreCase("Q")) {
+            } // if the user wishes to quit trading, they may do so. Doing this breaks them out of the loop.
+            else if (response.equalsIgnoreCase("Q")) {
                 travel();
                 notDone = false;
             }
@@ -526,11 +546,13 @@ public class TaipanShop {
     }
 
     /**
-     *
-     * @param notDone
-     * @param input
+     * this method is run if the user is eligible to win, and is at location one.
      */
-    public void retireAndLocationOne(boolean notDone, Scanner input){
+    public void retireAndLocationOne(){
+        boolean notDone = true;
+        Scanner input = new Scanner(System.in);
+
+        // as long as the user does not enter a valid input, the code will run in a loop forever.
         while(notDone){
             printShop();
             System.out.println("\nShall I Buy, Sell, Visit Bank, Transfer Cargo, Get Loans, Retire, or Quit Trading?");
@@ -538,6 +560,8 @@ public class TaipanShop {
             if (response.equalsIgnoreCase("B")) {
                 boolean notDone2 = true;
                 System.out.println("What do you wish me to buy, " + player.getName() + "?");
+
+                // when buying an item, the user must have the right amount of money, and buy non-negative amounts.
                 while (notDone2) {
                     response = input.nextLine();
                     if (response.equalsIgnoreCase("O")) {
@@ -599,7 +623,8 @@ public class TaipanShop {
                     }
                 }
 
-            } else if (response.equalsIgnoreCase("S")) {
+            } // when selling, the user must enter a non-negative amount of items, and not more than what they have.
+            else if (response.equalsIgnoreCase("S")) {
                 boolean notDone2 = true;
                 System.out.println("What do you wish me to sell, " + player.getName() + "?");
                 while (notDone2) {
@@ -668,12 +693,14 @@ public class TaipanShop {
                 bank();
             } else if (response.equalsIgnoreCase("T")) {
                 warehouse();
-            }else if (response.equalsIgnoreCase("G")||response.equalsIgnoreCase("L")) {
+            } else if (response.equalsIgnoreCase("G")||response.equalsIgnoreCase("L")) {
                 loan();
-            }else if (response.equalsIgnoreCase("Q")) {
+            } // if the user wishes to quit trading, they may do so. Doing this breaks them out of the loop.
+            else if (response.equalsIgnoreCase("Q")) {
                 travel();
                 notDone = false;
-            } else if (response.equalsIgnoreCase("R")) {
+            } // if the user wishes to retire and win the game, they may do so. Doing this breaks them out of the loop.
+            else if (response.equalsIgnoreCase("R")) {
                 retire();
                 notDone = false;
             }
@@ -681,18 +708,21 @@ public class TaipanShop {
     }
 
     /**
-     *
+     * the general method that utilizes all the other methods to form a fully functioning shop.
      */
     public void shop() {
         updatePrices();
-        Scanner input = new Scanner(System.in);
-        boolean notDone = true;
+
+        // first case is triggered if the user is at location one, and has less than $1 million net worth
         if (player.getLocation() == 1 && player.getBank()+player.getMoney()-player.getDebt() < 1000000) {
-            atLocationOne(notDone, input);
-        }else if(player.getLocation() != 1) {
-            notAtLocationOne(notDone, input);
-        }else{
-            retireAndLocationOne(notDone, input);
+            atLocationOne();
+        } // the second case is triggered if the user is at a location other than location one.
+        else if(player.getLocation() != 1) {
+            notAtLocationOne();
+        } // the last case is triggered when the other conditions are not met; it is triggered when the user has a net
+        // worth that is greater than or equal to $1 million and is at location one.
+        else{
+            retireAndLocationOne();
         }
     }
 }
