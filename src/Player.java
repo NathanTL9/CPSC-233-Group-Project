@@ -16,6 +16,7 @@ public class Player {
     private int wGeneral = 0;
     private int wArms = 0;
     private boolean retire = false;
+    private int cargoSpace = 60;
 
     public Player(){
 
@@ -37,6 +38,24 @@ public class Player {
         this.wGeneral = player.wGeneral;
         this.wArms = player.wArms;
 
+    }
+
+    /**
+     * getter method for the instance variable cargoSpace.
+     * @return cargoSpace
+     */
+    public int getCargoSpace() {
+        return cargoSpace;
+    }
+
+    /**
+     * setter method for cargoSpace.
+     * @param cargoSpace
+     */
+    public void setCargoSpace(int cargoSpace) {
+        if(cargoSpace > 0){
+            this.cargoSpace = cargoSpace;
+        }
     }
 
     public boolean getRetire(){

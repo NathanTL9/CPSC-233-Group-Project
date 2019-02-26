@@ -3,107 +3,161 @@ import java.util.Scanner;
 public class TaipanShop {
 
     private Player player;
-    private int cargoSpace = 60;
-    private int currentCargo = 0;
     private int opiumPrice = 16000;
     private int silkPrice = 1600;
     private int armsPrice = 160;
     private int generalPrice = 8;
 
+    /**
+     * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
+     */
     public void retire(){
         player.setRetire(true);
         System.out.println("You win!");
+        System.exit(0);
     }
 
+    /**
+     * sets the player instance variable equal to a copy of the parameter -- a copy is used for encapsulation purposes.
+     *
+     * @param player is a Player object that will replace the current instance of the player instance variable.
+     */
     public void setPlayer(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
 
+    /**
+     * gets the player instance variable. The method returns a copy of the instance variable for encapsulation purposes.
+     *
+     * @return playerDummy -- playerDummy is a copy of the player instance variable.
+     */
     public Player getPlayer(){
         Player playerDummy = new Player(player);
         return playerDummy;
     }
 
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
     public TaipanShop(Player player){
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
 
-    public int getCargoSpace() {
-        return cargoSpace;
-    }
-
-    public void setCargoSpace(int cargoSpace) {
-        if(cargoSpace > 0){
-            this.cargoSpace = cargoSpace;
-        }
-    }
-
+    /**
+     *
+     * @return
+     */
     public int getOpiumPrice() {
         return opiumPrice;
     }
 
+    /**
+     *
+     * @param opiumPrice
+     */
     public void setOpiumPrice(int opiumPrice) {
         if(opiumPrice > 0){
             this.opiumPrice = opiumPrice;
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSilkPrice() {
         return silkPrice;
     }
 
+    /**
+     *
+     * @param silkPrice
+     */
     public void setSilkPrice(int silkPrice) {
         if(silkPrice > 0){
             this.silkPrice = silkPrice;
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getArmsPrice() {
         return armsPrice;
     }
 
+    /**
+     *
+     * @param armsPrice
+     */
     public void setArmsPrice(int armsPrice) {
         if(armsPrice > 0){
             this.armsPrice = armsPrice;
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getGeneralPrice() {
         return generalPrice;
     }
 
+    /**
+     *
+     * @param generalPrice
+     */
     public void setGeneralPrice(int generalPrice) {
         if(generalPrice > 0){
             this.generalPrice = generalPrice;
         }
     }
 
+    /**
+     *
+     */
     public void travel(){
         Travel travel = new Travel(player);
         travel.travelTo();
         player = travel.getPlayer();
     }
 
+    /**
+     *
+     */
     public void warehouse(){
         Warehouse warehouse = new Warehouse(player);
         warehouse.changeWarehouse();
         player = warehouse.getPlayer();
     }
 
+    /**
+     *
+     */
     public void bank(){
         Bank bank = new Bank(player);
         bank.bank();
         player = bank.getPlayer();
     }
 
+    /**
+     *
+     */
     public void loan(){
         loanShark loan = new loanShark(player);
         loan.loanMoney();
         player = loan.getPlayer();
     }
-    
+
+    /**
+     *
+     */
     private void updatePrices(){
         String s = "\n" + player.getName() + ", the price of ";
         double value = 80*Math.random();
@@ -149,12 +203,15 @@ public class TaipanShop {
         }
     }
 
+    /**
+     *
+     */
     private void printShop(){
-        currentCargo = player.getOpiumHeld()+player.getGuns()*10+player.getSilkHeld()+player.getArmsHeld()+player.getGeneralHeld();
-        if(cargoSpace - currentCargo < 0){
+        int currentCargo = player.getOpiumHeld()+player.getGuns()*10+player.getSilkHeld()+player.getArmsHeld()+player.getGeneralHeld();
+        if(player.getCargoSpace() - currentCargo < 0){
             System.out.println("Hold: Overloaded" + "          Guns: " + player.getGuns() + "          HP: " + player.getHP() +"%");
         }else{
-            System.out.println("Hold: " + (cargoSpace-currentCargo) + "          Guns: " + player.getGuns() + "          HP: " + player.getHP() +"%");
+            System.out.println("Hold: " + (player.getCargoSpace()-currentCargo) + "          Guns: " + player.getGuns() + "          HP: " + player.getHP() +"%");
         }
         System.out.println("-------------------------------------------------------------");
         System.out.println("     Opium: " + player.getOpiumHeld() + "      Silk: " + player.getSilkHeld());
@@ -166,6 +223,11 @@ public class TaipanShop {
         System.out.println("     Arms: " + armsPrice + "       General: " + generalPrice);
     }
 
+    /**
+     *
+     * @param notDone
+     * @param input
+     */
     public void atLocationOne(boolean notDone, Scanner input){
         while(notDone){
             printShop();
@@ -314,6 +376,11 @@ public class TaipanShop {
         }
     }
 
+    /**
+     *
+     * @param notDone
+     * @param input
+     */
     public void notAtLocationOne(boolean notDone, Scanner input){
         while(notDone){
             printShop();
@@ -454,6 +521,11 @@ public class TaipanShop {
         }
     }
 
+    /**
+     *
+     * @param notDone
+     * @param input
+     */
     public void retireAndLocationOne(boolean notDone, Scanner input){
         while(notDone){
             printShop();
@@ -604,6 +676,9 @@ public class TaipanShop {
         }
     }
 
+    /**
+     *
+     */
     public void shop() {
         updatePrices();
         Scanner input = new Scanner(System.in);
