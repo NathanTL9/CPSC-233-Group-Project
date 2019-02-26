@@ -14,6 +14,10 @@ public class ShipWarfare extends Player {
     private String pirateName = "Liu Yen";
     private Player player;
 
+    /**
+     * Class Constructor that takes in a type player as a parameter
+     * @param player object of the class Player
+     */
     public ShipWarfare(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
@@ -23,7 +27,6 @@ public class ShipWarfare extends Player {
      * setter method for player
      * @param player object of the class Player
      */
-
     public void setPlayer(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
@@ -33,7 +36,6 @@ public class ShipWarfare extends Player {
      * getter method for obtaining a player object.
      * @return returns player object
      */
-
     public Player getPlayer() {
         Player playerDummy = new Player(player);
         return playerDummy;
@@ -204,10 +206,10 @@ public class ShipWarfare extends Player {
 
     /**
      * The user faces off against the litty ships and either prevails, dies, or runs away
+     * The loot for defeating a litty fleet is much higher than that of a peasant one
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
-    //The loot for defeating a litty fleet is much higher than that of a peasant one
     public boolean destroyLittyShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
