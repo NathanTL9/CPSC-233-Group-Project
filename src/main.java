@@ -23,13 +23,10 @@ public class main {
         main main = new main();
         TaipanShop littyShop = new TaipanShop(main.getPlayer());
         Start start = new Start(main.getPlayer());
-
+        
         main.start(start);
-        while(true){
-            while(!main.getPlayer().getRetire()){
-                main.shop(littyShop);
-            }
-            main.start(start);
+        while(!main.getPlayer().getRetire()){
+            main.shop(littyShop); 
         }
     }
 }
