@@ -162,7 +162,7 @@ public class ShopGUI extends Application {
         Label label6 = new Label();
         label6.setPrefHeight(108.0);
         label6.setPrefWidth(212.0);
-        label6.setText(String.format("Guns %d", player.getGuns()));
+        label6.setText(String.format("Guns %d\n\n\n\n ", player.getGuns()));
         label6.setAlignment(Pos.CENTER_LEFT);
         label6.setFont(size14);
 
