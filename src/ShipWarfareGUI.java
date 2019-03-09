@@ -27,6 +27,7 @@ public class ShipWarfareGUI extends Application {
     private HBox hBox1;
     private Button button1;
     private Button button2;
+    private int counter = 0;
 
     public int numOfShips() {
 
@@ -117,12 +118,18 @@ public class ShipWarfareGUI extends Application {
         button1.setOnAction(new EventHandler<ActionEvent>(){
                @Override
                public void handle(ActionEvent event){
-                   label1.setText("Balance: ");
-                   System.out.println("You pressed the button.");
-                   button1.setVisible(false);
-                   button2.setVisible(false);
-                   button1.setDisable(true);
-                   button2.setDisable(true);
+                   counter++;
+                   if(counter == 1){
+                       label1.setText("Ohh, fight ehh?");
+
+                   }
+                   if(player.getHP() <= 0){
+                       System.out.println("You pressed the button.");
+                       button1.setVisible(false);
+                       button2.setVisible(false);
+                       button1.setDisable(true);
+                       button2.setDisable(true);
+                   }
                }
            });
 
