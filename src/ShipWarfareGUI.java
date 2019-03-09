@@ -41,10 +41,7 @@ public class ShipWarfareGUI extends Application {
         launch(args);
     }
 
-    private Label label1;
-    private HBox hBox1;
-    private Button button1;
-    private Button button2;
+
     private int counter = 0;
 
 
@@ -119,29 +116,54 @@ public class ShipWarfareGUI extends Application {
 
         BorderPane.setPrefHeight(400.0);
         BorderPane.setPrefWidth(600.0);
-
-        BorderPane.setAlignment(label1, javafx.geometry.Pos.CENTER);
-        label1.setText("Would you like to fight or Run?");
-        BorderPane.setCenter(label1);
-
-        BorderPane.setAlignment(hBox1, javafx.geometry.Pos.CENTER);
-        hBox1.setAlignment(javafx.geometry.Pos.CENTER);
-        hBox1.setPrefHeight(100.0);
-        hBox1.setPrefWidth(200.0);
-        hBox1.setSpacing(10.0);
+        hBox.setAlignment(javafx.geometry.Pos.CENTER);
+        hBox.setPrefHeight(100.0);
+        hBox.setPrefWidth(200.0);
+        hBox.setSpacing(10.0);
 
         button1.setAlignment(javafx.geometry.Pos.CENTER);
         button1.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        button1.setId("Button1");
         button1.setMnemonicParsing(false);
         button1.setText("Fight");
 
         button2.setAlignment(javafx.geometry.Pos.CENTER);
+        button2.setId("Button2");
         button2.setMnemonicParsing(false);
         button2.setText("Run");
-        BorderPane.setBottom(hBox1);
+        BorderPane.setBottom(hBox);
 
-        hBox1.getChildren().add(button1);
-        hBox1.getChildren().add(button2);
+        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
+        vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        vBox.setPrefHeight(200.0);
+        vBox.setPrefWidth(100.0);
+        vBox.setSpacing(20.0);
+
+        label1.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        label1.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        label1.setId("Label1");
+        label1.setText("Would you like to Fight or Run?");
+        label1.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
+
+        label.setText("Ohh, Fight ehh?");
+
+        vBox0.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        vBox0.setPrefHeight(200.0);
+        vBox0.setPrefWidth(100.0);
+        vBox0.setSpacing(5.0);
+
+        label0.setText("Got eem");
+        vBox.setPadding(new Insets(0.0, 0.0, 10.0, 0.0));
+        BorderPane.setTop(vBox);
+        BorderPane.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
+
+        hBox.getChildren().add(button1);
+        hBox.getChildren().add(button2);
+        vBox.getChildren().add(label1);
+        vBox.getChildren().add(label);
+        vBox0.getChildren().add(label0);
+        vBox.getChildren().add(vBox0);
+
 
         ShipWarfareGUI ship = new ShipWarfareGUI();
         label1.setText(ship.numOfShips() + " Merchant Ships are attacking you.");
