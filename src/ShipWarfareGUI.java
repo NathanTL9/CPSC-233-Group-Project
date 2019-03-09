@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import static javafx.application.Application.launch;
 
@@ -19,7 +20,8 @@ public class ShipWarfareGUI extends Application {
 
 
     private Player player = new Player();
-    public static void main(String args[]){
+
+    public static void main(String args[]) {
         launch(args);
     }
 
@@ -28,6 +30,14 @@ public class ShipWarfareGUI extends Application {
     private Button button1;
     private Button button2;
     private int counter = 0;
+
+    public void delayForSeconds(int num)  {
+        try {
+            TimeUnit.SECONDS.sleep(num);
+        }catch(Exception e){
+
+        }
+    }
 
     public int numOfShips() {
 
@@ -71,8 +81,7 @@ public class ShipWarfareGUI extends Application {
     }
     */
 
-    public void start(Stage stage){
-
+    public void start(Stage stage) throws Exception {
 
 
         BorderPane BorderPane = new BorderPane();
@@ -115,25 +124,49 @@ public class ShipWarfareGUI extends Application {
         ShipWarfareGUI ship = new ShipWarfareGUI();
         label1.setText(ship.numOfShips() + " Merchant Ships are attacking you.");
 
-        button1.setOnAction(new EventHandler<ActionEvent>(){
-               @Override
-               public void handle(ActionEvent event){
-                   counter++;
-                   if(counter == 1){
-                       label1.setText("Ohh, fight ehh?");
+        //Fight
+        button1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                counter++;
+                if (counter == 1) {
+                    label1.setText("Ohh, fight ehh?");
+                    delayForSeconds(10);
+                    label1.setText("Tis been 10 seconds");
 
-                   }
-                   if(player.getHP() <= 0){
-                       System.out.println("You pressed the button.");
-                       button1.setVisible(false);
-                       button2.setVisible(false);
-                       button1.setDisable(true);
-                       button2.setDisable(true);
-                   }
-               }
-           });
 
-        Scene root = new Scene(BorderPane,600,480);
+                }
+                if (counter == 2) {
+                    System.out.println("You pressed the button.");
+                    button1.setVisible(false);
+                    button2.setVisible(false);
+                    button1.setDisable(true);
+                    button2.setDisable(true);
+                }
+            }
+        });
+
+        //Flee
+        button2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                counter++;
+                if (counter == 1) {
+                    label1.setText("Ohh, Run ehh?");
+
+                }
+                if (counter == 2) {
+                    System.out.println("You pressed the button.");
+                    button1.setVisible(false);
+                    button2.setVisible(false);
+                    button1.setDisable(true);
+                    button2.setDisable(true);
+                }
+            }
+        });
+
+
+        Scene root = new Scene(BorderPane, 600, 480);
 
         stage.setTitle("Ship");
         stage.setResizable(false);
