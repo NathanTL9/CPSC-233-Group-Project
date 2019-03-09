@@ -1,4 +1,6 @@
 
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,7 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+import javafx.animation.AnimationTimer;
+
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +27,15 @@ public class ShipWarfareGUI extends Application {
 
 
     private Player player = new Player();
+    private  HBox hBox;
+    private  Button button1;
+    private  Button button2;
+    private  VBox vBox;
+    private  Label label1;
+    private  Label label;
+    private  VBox vBox0;
+    private  Label label0;
+
 
     public static void main(String args[]) {
         launch(args);
@@ -31,10 +47,12 @@ public class ShipWarfareGUI extends Application {
     private Button button2;
     private int counter = 0;
 
-    public void delayForSeconds(int num)  {
+
+
+    public void delayForSeconds(int num) {
         try {
             TimeUnit.SECONDS.sleep(num);
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -90,10 +108,14 @@ public class ShipWarfareGUI extends Application {
         gridPane.setPadding(new Insets(10.0, 10.0, 10.0, 10.0));
         gridPane.setVgap(5.0);
 
-        label1 = new Label();
-        hBox1 = new HBox();
+        hBox = new HBox();
         button1 = new Button();
         button2 = new Button();
+        vBox = new VBox();
+        label1 = new Label();
+        label = new Label();
+        vBox0 = new VBox();
+        label0 = new Label();
 
         BorderPane.setPrefHeight(400.0);
         BorderPane.setPrefWidth(600.0);
@@ -131,9 +153,7 @@ public class ShipWarfareGUI extends Application {
                 counter++;
                 if (counter == 1) {
                     label1.setText("Ohh, fight ehh?");
-                    delayForSeconds(10);
-                    label1.setText("Tis been 10 seconds");
-
+                    label1.setText("Tis been 5 seconds");
 
                 }
                 if (counter == 2) {
