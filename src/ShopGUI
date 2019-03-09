@@ -1,14 +1,20 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+
+import java.util.Random;
 
 public class ShopGUI extends Application {
     private Player player = new Player();
@@ -23,15 +29,341 @@ public class ShopGUI extends Application {
     private Label cashText = new Label();
     private Label bankText = new Label();
     private Label textOut = new Label();
+    private Button quitButton = new Button();
+    private Button retireButton = new Button();
+    private Button bankButton = new Button();
+    private Button sellButton = new Button();
+    private Button buyButton = new Button();
+    private Button loanButton = new Button();
+    private Button cargoButton = new Button();
+    private Button opiumButton = new Button();
+    private Button silkButton = new Button();
+    private Button armsButton  = new Button();
+    private Button generalButton = new Button();
+    private TextField numberInput = new TextField();
+    private int opiumPrice = 16000;
+    private int silkPrice = 1600;
+    private int armsPrice = 160;
+    private int generalPrice = 8;
 
     public static void main(String args[]){
         launch(args);
     }
     public void start(Stage stage){
-        stage = intialize(stage);
+        stage = initialize(stage);
+        updateStage();
+        updatePrices();
         stage.show();
     }
-    public Stage intialize(Stage stage){
+
+    /**
+     * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
+     */
+    public void retire(){
+        player.setRetire(true);
+        System.out.println("You win!");
+        System.exit(0);
+    }
+
+    /**
+     * sets the player instance variable equal to a copy of the parameter -- a copy is used for encapsulation purposes.
+     *
+     * @param player is a Player object that will replace the current instance of the player instance variable.
+     */
+    public void setPlayer(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
+
+    /**
+     * gets the player instance variable. The method returns a copy of the instance variable for encapsulation purposes.
+     *
+     * @return playerDummy -- playerDummy is a copy of the player instance variable.
+     */
+    public Player getPlayer(){
+        Player playerDummy = new Player(player);
+        return playerDummy;
+    }
+
+    /**
+     * getter for opiumPrice instance variable.
+     *
+     * @return opiumPrice -- the price of opium in the shop
+     */
+    public int getOpiumPrice() {
+        return opiumPrice;
+    }
+
+    /**
+     * setter for the opiumPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param opiumPrice -- what the instance variable opiumPrice should be changed to.
+     */
+    public void setOpiumPrice(int opiumPrice) {
+        if(opiumPrice > 0){
+            this.opiumPrice = opiumPrice;
+        }
+    }
+
+    /**
+     * getter for silkPrice instance variable.
+     *
+     * @return silkPrice -- the price of silk in the shop.
+     */
+    public int getSilkPrice() {
+        return silkPrice;
+    }
+
+    /**
+     * setter for the silkPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param silkPrice -- what the instance variable silkPrice should be changed to.
+     */
+    public void setSilkPrice(int silkPrice) {
+        if(silkPrice > 0){
+            this.silkPrice = silkPrice;
+        }
+    }
+
+    /**
+     * getter for armsPrice instance variable.
+     *
+     * @return armsPrice -- the price of arms in the shop.
+     */
+    public int getArmsPrice() {
+        return armsPrice;
+    }
+
+    /**
+     * setter for the armsPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param armsPrice -- what the instance variable armsPrice should be changed to.
+     */
+    public void setArmsPrice(int armsPrice) {
+        if(armsPrice > 0){
+            this.armsPrice = armsPrice;
+        }
+    }
+
+    /**
+     * getter for generalPrice instance variable.
+     *
+     * @return generalPrice -- the price of general cargo in the shop.
+     */
+    public int getGeneralPrice() {
+        return generalPrice;
+    }
+
+    /**
+     * setter for the generalPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param generalPrice -- what the instance variable generalPrice should be changed to.
+     */
+    public void setGeneralPrice(int generalPrice) {
+        if(generalPrice > 0){
+            this.generalPrice = generalPrice;
+        }
+    }
+
+    /**
+     * this method is when the shop is accessed, randomizing the prices of all the items.
+     */
+    public void updatePrices(){
+        String s = "\t" + player.getName() + ", the price of ";
+        double value = 80*Math.random();
+        Random rand = new Random();
+        opiumPrice = (rand.nextInt(201) + 60)*100;
+        silkPrice = (rand.nextInt(201) + 60)*10;
+        armsPrice = (rand.nextInt(21) + 6)*10;
+        generalPrice = rand.nextInt(17) + 4;
+
+        // there is a 10% chance that the price of an item is increased/decreased beyond its regular range.
+        if(value < 8){
+            if(value < 2){
+                if(value < 1){
+                    opiumPrice /= 5;
+                    textOut.setText(s + "Opium has dropped to " + opiumPrice +"!!!\n"+textOut.getText());
+                }else{
+                    opiumPrice *= 5;
+                    textOut.setText(s + "Opium has risen to " + opiumPrice +"!!!\n"+textOut.getText());
+                }
+            }else if(value < 4){
+                if(value < 3){
+                    silkPrice /= 5;
+                    textOut.setText(s + "Silk has dropped to " + silkPrice +"!!!\n"+textOut.getText());
+                }else{
+                    silkPrice *= 5;
+                    textOut.setText(s + "Silk has risen to " + silkPrice +"!!!\n"+textOut.getText());
+                }
+            }else if(value < 6){
+                if(value < 3){
+                    armsPrice /= 5;
+                    textOut.setText(s + "Arms has dropped to " + armsPrice +"!!!\n"+textOut.getText());
+                }else{
+                    armsPrice *= 5;
+                    textOut.setText(s + "Arms has risen to " + armsPrice +"!!!\n"+textOut.getText());
+                }
+            }else{
+                if(value < 7){
+                    generalPrice = 1;
+                    textOut.setText(s + "General Cargo has dropped to 1!!!\n"+textOut.getText());
+                }else{
+                    generalPrice *= 5;
+                    textOut.setText(s + "General Cargo has risen to " + generalPrice + "!!!\n"+textOut.getText());
+                }
+            }
+        }
+    }
+
+    public void defaultTextOut(){
+        textOut.setText(String.format("\t%s, present prices per unit here are:\n\n\t\tOpium: %d\t\t\tSilk: %d\n\t\tArms: %d\t\t\tGeneral: %d", player.getName(), getOpiumPrice(), getSilkPrice(), getArmsPrice(), getGeneralPrice()));
+
+    }
+
+    public void buttonSetup(String state) {
+        if (state.equals("shop")) {
+            buyButton.setVisible(false);
+            sellButton.setVisible(false);
+            bankButton.setVisible(false);
+            numberInput.setVisible(false);
+            cargoButton.setVisible(false);
+            loanButton.setVisible(false);
+            armsButton.setVisible(true);
+            quitButton.setVisible(false);
+            opiumButton.setVisible(true);
+            silkButton.setVisible(true);
+            generalButton.setVisible(true);
+            retireButton.setVisible(false);
+        } else if (state.equals("reset")) {
+            buyButton.setText("Buy");
+            sellButton.setText("Sell");
+            opiumButton.setText("Opium");
+            silkButton.setText("Silk");
+            armsButton.setText("Arms");
+            generalButton.setText("General");
+            if (player.getLocation() != 1 && player.getBank() + player.getMoney() - player.getDebt() < 1000000) {
+                buyButton.setVisible(true);
+                sellButton.setVisible(true);
+                bankButton.setVisible(false);
+                cargoButton.setVisible(false);
+                loanButton.setVisible(false);
+                armsButton.setVisible(false);
+                quitButton.setVisible(true);
+                opiumButton.setVisible(false);
+                silkButton.setVisible(false);
+                numberInput.setVisible(false);
+                generalButton.setVisible(false);
+                retireButton.setVisible(false);
+            }else if(player.getBank() + player.getMoney() - player.getDebt() < 1000000){
+                buyButton.setVisible(true);
+                sellButton.setVisible(true);
+                bankButton.setVisible(true);
+                cargoButton.setVisible(true);
+                loanButton.setVisible(true);
+                quitButton.setVisible(true);
+                opiumButton.setVisible(false);
+                silkButton.setVisible(false);
+                numberInput.setVisible(false);
+                generalButton.setVisible(false);
+                armsButton.setVisible(false);
+                retireButton.setVisible(false);
+            }else{
+                buyButton.setVisible(true);
+                sellButton.setVisible(true);
+                bankButton.setVisible(true);
+                cargoButton.setVisible(true);
+                loanButton.setVisible(true);
+                numberInput.setVisible(false);
+                quitButton.setVisible(true);
+                opiumButton.setVisible(false);
+                silkButton.setVisible(false);
+                generalButton.setVisible(false);
+                armsButton.setVisible(false);
+                retireButton.setVisible(true);
+            }
+        } else if(state.equals("input")){
+            buyButton.setVisible(false);
+            sellButton.setVisible(false);
+            bankButton.setVisible(false);
+            cargoButton.setVisible(false);
+            loanButton.setVisible(false);
+            numberInput.setVisible(true);
+            quitButton.setVisible(false);
+            opiumButton.setVisible(false);
+            silkButton.setVisible(false);
+            generalButton.setVisible(false);
+            armsButton.setVisible(false);
+            retireButton.setVisible(false);
+        }
+    }
+
+    public void shop(){
+        String originalDialogue = textOut.getText();
+        int num = Integer.parseInt(numberInput.getText().replace(" ", ""));
+        if(buyButton.getText().contains(".")){
+            if(opiumButton.getText().contains(".") && num <= player.getMoney() / opiumPrice && num >= 0){
+                player.setMoney(player.getMoney()-num*opiumPrice);
+                player.setOpiumHeld(player.getOpiumHeld()+num);
+            }else if (num >= 0 && opiumButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you can't afford that!");
+            }else if(opiumButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to buy " + "'" + num + "'" + " Opium?");
+            }else if(silkButton.getText().contains(".") && num <= player.getMoney() / silkPrice && num >= 0){
+                player.setSilkHeld(player.getSilkHeld()+num);
+                player.setMoney(player.getMoney()-num * silkPrice);
+            }else if (num >= 0 && silkButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you can't afford that!");
+            }else if(silkButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to buy " + "'" + num + "'" + " Silk?");
+            }else if(armsButton.getText().contains(".") && num <= player.getMoney() / armsPrice && num >= 0){
+                player.setArmsHeld(player.getArmsHeld()+num);
+                player.setMoney(player.getMoney() - num*armsPrice);
+            }else if(num >= 0 && armsButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you can't afford that!");
+            }else if(armsButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to buy " + "'" + num + "'" + " Arms?");
+            }else if(generalButton.getText().contains(".") && num <= player.getMoney() / generalPrice && num >= 0){
+                player.setArmsHeld(player.getArmsHeld()+num);
+                player.setMoney(player.getMoney() - num*generalPrice);
+            }else if(num >= 0 && generalButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you can't afford that!");
+            }else if(generalButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to buy " + "'" + num + "'" + " General Cargo?");
+            }
+        }else if(sellButton.getText().contains(".")){
+            if(opiumButton.getText().contains(".") && num <= player.getOpiumHeld() && num >= 0){
+                player.setOpiumHeld(player.getOpiumHeld()-num);
+                player.setMoney(player.getMoney() + num*opiumPrice);
+            }else if (num >= 0 && opiumButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you don't have that many to sell!");
+            }else if(opiumButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to sell " + "'" + num + "'" + " Opium?");
+            }else if(silkButton.getText().contains(".") && num <= player.getSilkHeld() && num >= 0){
+                player.setSilkHeld(player.getSilkHeld()-num);
+                player.setMoney(player.getMoney() + num*silkPrice);
+            }else if (num >= 0 && silkButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you don't have that many to sell!");
+            }else if(silkButton.getText().contains(".")) {
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to sell " + "'" + num + "'" + " Silk?");
+            }else if(armsButton.getText().contains(".") && num <= player.getArmsHeld() && num >= 0){
+                player.setArmsHeld(player.getArmsHeld()-num);
+                player.setMoney(player.getMoney() + num*armsPrice);
+            }else if(num >= 0 && armsButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you don't have that many to sell!");
+            }else if(armsButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to sell " + "'" + num + "'" + " Arms?");
+            }else if(generalButton.getText().contains(".") && num <= player.getGeneralHeld() && num >= 0){
+                player.setGeneralHeld(player.getGeneralHeld()-num);
+                player.setMoney(player.getMoney() + num*generalPrice);
+            }else if(num >= 0 && generalButton.getText().contains(".")){
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() + ", you don't have that many to sell!");
+            }else{
+                textOut.setText(originalDialogue+"\n\t"+ player.getName() +", how am I supposed to sell " + "'" + num + "'" + " General Cargo?");
+            }
+        }
+    }
+
+    public Stage initialize(Stage stage){
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
@@ -121,86 +453,208 @@ public class ShopGUI extends Application {
         flowPane.setPrefHeight(200.0);
         flowPane.setPrefWidth(200.0);
 
-        Button buyButton = new Button();
         buyButton.setMnemonicParsing(false);
         buyButton.setPrefHeight(25.0);
         buyButton.setPrefWidth(45.0);
         buyButton.setText("Buy");
+        buyButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                buttonSetup("shop");
+                buyButton.setText("Buy.");
+                defaultTextOut();
+                textOut.setText(textOut.getText()+"\n\tWhich good would you like to purchase?");
+            }
+        });
 
-        Button sellButton = new Button();
-        sellButton.setMnemonicParsing(false);
         sellButton.setPrefHeight(25.0);
-        sellButton.setPrefWidth(45.0);
         sellButton.setText("Sell");
+        sellButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                buttonSetup("shop");
+                sellButton.setText("Sell.");
+                defaultTextOut();
+                textOut.setText(textOut.getText()+"\n\tWhich good would you like to sell?");
+            }
+        });
+        sellButton.setPrefWidth(45.0);
+        sellButton.setMnemonicParsing(false);
 
-        Button bankButton = new Button();
-        bankButton.setMnemonicParsing(false);
         bankButton.setPrefHeight(25.0);
+        bankButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("PLACEHOLDER FOR BANK");
+            }
+        });
+        bankButton.setMnemonicParsing(false);
         bankButton.setPrefWidth(74.0);
         bankButton.setText("Visit Bank");
 
-        Button cargoButton = new Button();
-        cargoButton.setMnemonicParsing(false);
         cargoButton.setPrefHeight(25.0);
-        cargoButton.setPrefWidth(94.0);
         cargoButton.setText("Transfer Cargo");
+        cargoButton.setMnemonicParsing(false);
+        cargoButton.setPrefWidth(94.0);
+        cargoButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("PLACEHOLDER FOR WAREHOUSE");
+            }
+        });
 
-        Button loanButton = new Button();
+
         loanButton.setMnemonicParsing(false);
         loanButton.setPrefHeight(25.0);
         loanButton.setPrefWidth(73.0);
+        loanButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("PLACEHOLDER FOR LOAN SHARK");
+            }
+        });
         loanButton.setText("Get Loans");
 
-        Button quitButton = new Button();
-        quitButton.setMnemonicParsing(false);
         quitButton.setPrefHeight(25.0);
+        quitButton.setMnemonicParsing(false);
         quitButton.setPrefWidth(90.0);
         quitButton.setText("Quit Trading");
+        quitButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("PLACEHOLDER FOR TRAVEL");
+            }
+        });
 
-        Button retireButton = new Button();
-        retireButton.setMnemonicParsing(false);
         retireButton.setPrefHeight(25.0);
         retireButton.setPrefWidth(49.0);
         retireButton.setText("Retire");
         retireButton.setVisible(false);
+        retireButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                retire();
+            }
+        });
+        retireButton.setMnemonicParsing(false);
 
-        Button opiumButton = new Button();
         opiumButton.setMnemonicParsing(false);
         opiumButton.setPrefWidth(86.0);
         opiumButton.setPrefHeight(25.0);
         opiumButton.setText("Opium");
         opiumButton.setVisible(false);
+        opiumButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                buttonSetup("input");
+                opiumButton.setText("Opium.");
+                defaultTextOut();
+                String extraText;
+                if(buyButton.getText().contains(".")){
+                    extraText = String.format(" (You can afford %d)", player.getMoney()/opiumPrice);
+                }else{
+                    extraText = String.format(" (You have %d)", player.getOpiumHeld());
+                }
+                textOut.setText(textOut.getText()+"\n\tWhat quantity of Opium?" + extraText);
+            }
+        });
 
-        Button silkButton = new Button();
         silkButton.setPrefHeight(25.0);
         silkButton.setPrefWidth(86.0);
         silkButton.setMnemonicParsing(false);
         silkButton.setText("Silk");
         silkButton.setVisible(false);
+        silkButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                buttonSetup("input");
+                silkButton.setText("Silk.");
+                defaultTextOut();
+                String extraText;
+                if(buyButton.getText().contains(".")){
+                    extraText = String.format(" (You can afford %d)", player.getMoney()/silkPrice);
+                }else{
+                    extraText = String.format(" (You have %d)", player.getSilkHeld());
+                }
+                textOut.setText(textOut.getText()+"\n\tWhat quantity of Silk?" + extraText);
+            }
+        });
 
-        Button armsButton = new Button();
-        armsButton.setPrefHeight(25.0);
-        armsButton.setMnemonicParsing(false);
         armsButton.setPrefWidth(86.0);
-        armsButton.setText("Arms");
+        armsButton.setMnemonicParsing(false);
         armsButton.setVisible(false);
+        armsButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                buttonSetup("input");
+                armsButton.setText("Arms.");
+                defaultTextOut();
+                String extraText;
+                if(buyButton.getText().contains(".")){
+                    extraText = String.format(" (You can afford %d)", player.getMoney()/armsPrice);
+                }else{
+                    extraText = String.format(" (You have %d)", player.getArmsHeld());
+                }
+                textOut.setText(textOut.getText()+"\n\tWhat quantity of Arms?" + extraText);
+            }
+        });
+        armsButton.setText("Arms");
+        armsButton.setPrefHeight(25.0);
 
-        Button generalButton = new Button();
         generalButton.setMnemonicParsing(false);
         generalButton.setPrefHeight(25.0);
         generalButton.setPrefWidth(86.0);
         generalButton.setText("General");
         generalButton.setVisible(false);
+        generalButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                buttonSetup("input");
+                generalButton.setText("General.");
+                defaultTextOut();
+                String extraText;
+                if(buyButton.getText().contains(".")){
+                    extraText = String.format(" (You can afford %d)", player.getMoney()/generalPrice);
+                }else{
+                    extraText = String.format(" (You have %d)", player.getGeneralHeld());
+                }
+                textOut.setText(textOut.getText()+"\n\tWhat quantity of General Cargo?" + extraText);
+            }
+        });
 
-        TextField numberInput = new TextField();
         numberInput.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         numberInput.setText("Enter amount here...");
         numberInput.setVisible(false);
+        numberInput.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                boolean exit = true;
+                defaultTextOut();
+                if(event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)) {
+                    while(true){
+                        if(!textOut.getText().contains("You entered an invalid input!")&& !exit){
+                            textOut.setText(textOut.getText()+"\n\n\tYou entered an invalid input! Please try again.");
+                            break;
+                        }
+                        try{
+                            shop();
+                        }catch(Exception e){
+                            exit = false;
+                        }
+                        if(exit){
+                            break;
+                        }
+                    }
+                    updateStage();
+                    
+                    buttonSetup("reset");
+                }
+            }
+        });
 
         firm.setAlignment(Pos.CENTER);
         firm.setPrefHeight(27.0);
         firm.setPrefWidth(632.0);
-        firm.setText(String.format("Firm: %s, %s", player.getName(), getStringLocation()));
         firm.setFont(new Font(18.0));
 
         Label warehouseText = new Label();
@@ -213,40 +667,28 @@ public class ShopGUI extends Application {
         wItemsText.setAlignment(Pos.CENTER);
         wItemsText.setPrefWidth(100.0);
         wItemsText.setPrefHeight(108.0);
-        wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", player.getwOpium(), player.getwSilk(), player.getwArms(), player.getwGeneral()));
         wItemsText.setFont(size14);
 
         wItemSpaceText.setPrefHeight(108.0);
         wItemSpaceText.setPrefWidth(215.0);
-        int itemsInWarehouse = player.getwOpium()+player.getwGeneral()+player.getwArms()+player.getwSilk();
-        wItemSpaceText.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000-itemsInWarehouse)));
         wItemSpaceText.setFont(size14);
         
         locationText.setAlignment(Pos.BOTTOM_CENTER);
         locationText.setPrefHeight(106.0);
         locationText.setPrefWidth(175.0);
-        locationText.setText(String.format("Location\n%s", getStringLocation()));
         locationText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         locationText.setFont(size14);
         
         inventoryText.setAlignment(Pos.CENTER);
-        int itemsInInventory = player.getCargoSpace()-player.getSilkHeld()-player.getOpiumHeld()-player.getGeneralHeld()-player.getArmsHeld();
-        if(itemsInInventory < 0){
-            inventoryText.setText("   Hold Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
-        }else{
-            inventoryText.setText(String.format("   Hold %d\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General", itemsInInventory));
-        }
         inventoryText.setFont(size14);
 
         inventoryHeldText.setAlignment(Pos.CENTER);
         inventoryHeldText.setPrefHeight(108.0);
         inventoryHeldText.setPrefWidth(100.0);
-        inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", player.getOpiumHeld(), player.getSilkHeld(), player.getArmsHeld(), player.getGeneralHeld()));
         inventoryHeldText.setFont(size14);
 
         gunsText.setPrefHeight(108.0);
         gunsText.setPrefWidth(212.0);
-        gunsText.setText(String.format("Guns %d\n\n\n\n ", player.getGuns()));
         gunsText.setAlignment(Pos.CENTER_LEFT);
         gunsText.setFont(size14);
         
@@ -254,14 +696,12 @@ public class ShopGUI extends Application {
         shipStatusText.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         shipStatusText.setPrefHeight(110.0);
         shipStatusText.setPrefWidth(180.0);
-        shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", player.getDebt(), shipStatusString(), player.getHP()));
         shipStatusText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         shipStatusText.setFont(size14);
         
         GridPane.setRowIndex(cashText, 3);
         cashText.setPrefHeight(17.0);
         cashText.setPrefWidth(209.0);
-        cashText.setText(String.format("  Cash: %d", player.getMoney()));
         cashText.setFont(size14);
 
         GridPane.setHalignment(bankText, javafx.geometry.HPos.CENTER);
@@ -269,7 +709,6 @@ public class ShopGUI extends Application {
         bankText.setAlignment(Pos.CENTER);
         bankText.setPrefHeight(20.0);
         bankText.setPrefWidth(264.0);
-        bankText.setText(String.format("Bank: %d", player.getBank()));
         bankText.setFont(size14);
 
         GridPane.setRowIndex(textOut, 4);
@@ -277,7 +716,7 @@ public class ShopGUI extends Application {
         textOut.setContentDisplay(javafx.scene.control.ContentDisplay.TOP);
         textOut.setPrefHeight(163.0);
         textOut.setPrefWidth(583.0);
-        textOut.setText("\tDefault text");
+        defaultTextOut();
         textOut.setFont(size14);
 
         anchorPane.getChildren().addAll(dialogueRectangle, inventoryRectangle, warehouseRectangle);
@@ -339,6 +778,13 @@ public class ShopGUI extends Application {
         int itemsInWarehouse = player.getwOpium()+player.getwGeneral()+player.getwArms()+player.getwSilk();
         wItemSpaceText.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000-itemsInWarehouse)));
         locationText.setText(String.format("Location\n%s", getStringLocation()));
+        int itemsInInventory = player.getCargoSpace()-player.getSilkHeld()-player.getOpiumHeld()-player.getGeneralHeld()-player.getArmsHeld()-10*player.getGuns();
+        if(itemsInInventory < 0){
+            inventoryText.setText("   Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
+        }else{
+            inventoryText.setText(String.format("   Hold %d\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General", itemsInInventory));
+        }
+        gunsText.setText(String.format("Guns %d\n\n\n\n ", player.getGuns()));
         inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", player.getOpiumHeld(), player.getSilkHeld(), player.getArmsHeld(), player.getGeneralHeld()));
         shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", player.getDebt(), shipStatusString(), player.getHP()));
         cashText.setText(String.format("  Cash: %d", player.getMoney()));
