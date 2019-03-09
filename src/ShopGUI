@@ -1,10 +1,16 @@
 import javafx.application.Application;
-import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
+import javafx.scene.layout.RowConstraints;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 
 public class ShopGUI extends Application {
     private Player player = new Player();
@@ -12,31 +18,76 @@ public class ShopGUI extends Application {
         launch(args);
     }
     public void start(Stage stage){
-        stage.setTitle("Shop");
+        AnchorPane anchorPane = new AnchorPane();
 
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10,10,10,10));
-        grid.setVgap(20);
-        grid.setHgap(20);
+        GridPane gridPane = new GridPane();
+        gridPane.setPadding(new Insets(10.0, 10.0, 10.0, 10.0));
+        gridPane.setVgap(5.0);
 
-        grid.add(new Label("Firm: "+ player.getName()), 2, 0);
+        String message = "Default message";
+        Font size14 = new Font(14.0);
+        Rectangle rectangle = new Rectangle();
+        rectangle.setArcHeight(5.0);
+        rectangle.setArcWidth(5.0);
+        rectangle.setFill(javafx.scene.paint.Color.WHITE);
+        rectangle.setHeight(180.0);
+        rectangle.setLayoutX(8.0);
+        rectangle.setLayoutY(294.0);
+        rectangle.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle.setWidth(582.0);
 
-        HBox warehouse = new HBox();
-        warehouse.setSpacing(20);
-        int itemsInWarehouse = player.getwOpium()+player.getwGeneral()+player.getwArms()+player.getwSilk();
-        Label ware1 = new Label("Warehouse\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
-        Label ware2 = new Label("\n"+player.getwOpium()+"\n"+player.getwSilk()+"\n"+player.getwArms()+"\n"+player.getwGeneral());
-        Label ware3 = new Label("\nIn use:\n " + itemsInWarehouse + "\nVacant:\n " + (10000 - itemsInWarehouse));
-        warehouse.getChildren().addAll(ware1, ware2, new Label(), ware3);
+        Rectangle rectangle0 = new Rectangle();
+        rectangle0.setArcHeight(5.0);
+        rectangle0.setArcWidth(5.0);
+        rectangle0.setFill(javafx.scene.paint.Color.WHITE);
+        rectangle0.setHeight(108.0);
+        rectangle0.setLayoutX(8.0);
+        rectangle0.setLayoutY(147.0);
+        rectangle0.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle0.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle0.setWidth(405.0);
 
-        HBox inventory = new HBox();
-        inventory.setSpacing(20);
-        int itemsInInventory = player.getCargoSpace()-player.getSilkHeld()-player.getOpiumHeld()-player.getGeneralHeld()-player.getArmsHeld();
-        Label inv1 = new Label("Hold "+itemsInInventory+"\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
-        Label inv2 = new Label("\n"+player.getOpiumHeld()+"\n"+player.getSilkHeld()+"\n"+player.getArmsHeld()+"\n"+player.getGeneralHeld());
-        Label inv3 = new Label("Guns "+player.getGuns());
-        inventory.getChildren().addAll(inv1, inv2, new Label(), inv3);
+        Rectangle rectangle1 = new Rectangle();
+        rectangle1.setArcHeight(5.0);
+        rectangle1.setArcWidth(5.0);
+        rectangle1.setFill(javafx.scene.paint.Color.WHITE);
+        rectangle1.setHeight(108.0);
+        rectangle1.setLayoutX(8.0);
+        rectangle1.setLayoutY(33.0);
+        rectangle1.setStroke(javafx.scene.paint.Color.BLACK);
+        rectangle1.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        rectangle1.setWidth(405.0);
 
+        ColumnConstraints columnConstraints = new ColumnConstraints();
+        columnConstraints.setPrefWidth(631.0);
+
+
+        RowConstraints rowConstraints = new RowConstraints();
+        rowConstraints.setPrefHeight(20.0);
+
+        RowConstraints rowConstraints0 = new RowConstraints();
+        rowConstraints0.setMaxHeight(115.0);
+        rowConstraints0.setMinHeight(10.0);
+        rowConstraints0.setPrefHeight(107.0);
+
+        RowConstraints rowConstraints1 = new RowConstraints();
+        rowConstraints1.setMaxHeight(115.0);
+        rowConstraints1.setMinHeight(10.0);
+        rowConstraints1.setPrefHeight(107.0);
+
+        RowConstraints rowConstraints2 = new RowConstraints();
+        rowConstraints2.setMaxHeight(78.0);
+
+        RowConstraints rowConstraints3 = new RowConstraints();
+        rowConstraints3.setMaxHeight(179.0);
+        rowConstraints3.setMinHeight(10.0);
+        rowConstraints3.setPrefHeight(179.0);
+
+        Label label = new Label();
+        label.setAlignment(Pos.CENTER);
+        label.setPrefHeight(27.0);
+        label.setPrefWidth(632.0);
         String location;
         switch(player.getLocation()){
             case 1: location = "Hong Kong"; break;
@@ -49,12 +100,131 @@ public class ShopGUI extends Application {
             default: location = "Error"; break;
         }
 
-        grid.add(warehouse, 1, 1);
-        grid.add(inventory, 1, 2);
-        grid.add(new Label("\n\n\n Location\n"+location),3, 1 );
-        grid.add(new Label("Debt\n"+player.getDebt()), 3, 2);
+        label.setText(String.format("Firm: %s, %s", player.getName(), location));
+        label.setFont(new Font(18.0));
 
-        Scene root = new Scene(grid, 600, 480);
+        HBox hBox = new HBox();
+        hBox.setPrefHeight(100.0);
+        hBox.setPrefWidth(200.0);
+        GridPane.setRowIndex(hBox, 1);
+
+        Label label0 = new Label();
+        label0.setAlignment(Pos.CENTER);
+        label0.setPrefHeight(108.0);
+        label0.setPrefWidth(100.0);
+        label0.setText("Warehouse\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
+        label0.setFont(size14);
+
+        Label label1 = new Label();
+        label1.setAlignment(Pos.CENTER);
+        label1.setPrefHeight(108.0);
+        label1.setPrefWidth(100.0);
+        label1.setText(String.format("\n %d\n %d\n %d\n %d", player.getwOpium(), player.getwSilk(), player.getwArms(), player.getwGeneral()));
+        label1.setFont(size14);
+
+        Label label2 = new Label();
+        label2.setPrefHeight(108.0);
+        label2.setPrefWidth(215.0);
+        int itemsInWarehouse = player.getwOpium()+player.getwGeneral()+player.getwArms()+player.getwSilk();
+        label2.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000-itemsInWarehouse)));
+        label2.setFont(size14);
+
+        Label label3 = new Label();
+        label3.setAlignment(Pos.BOTTOM_CENTER);
+        label3.setPrefHeight(106.0);
+        label3.setPrefWidth(175.0);
+        label3.setText(String.format("Location\n%s", location));
+        label3.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        label3.setFont(size14);
+
+        HBox hBox0 = new HBox();
+        GridPane.setRowIndex(hBox0, 2);
+        hBox0.setPrefHeight(100.0);
+        hBox0.setPrefWidth(200.0);
+
+        Label label4 = new Label();
+        label4.setAlignment(Pos.CENTER);
+        int itemsInInventory = player.getCargoSpace()-player.getSilkHeld()-player.getOpiumHeld()-player.getGeneralHeld()-player.getArmsHeld();
+        if(itemsInInventory < 0){
+            label4.setText("  Hold Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
+        }else{
+            label4.setText(String.format("  Hold %d\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General", itemsInInventory));
+        }
+        label4.setFont(size14);
+
+        Label label5 = new Label();
+        label5.setAlignment(Pos.CENTER);
+        label5.setPrefHeight(108.0);
+        label5.setPrefWidth(100.0);
+        label5.setText(String.format("\n %d\n %d\n %d\n %d", player.getOpiumHeld(), player.getSilkHeld(), player.getArmsHeld(), player.getGeneralHeld()));
+        label5.setFont(size14);
+
+        Label label6 = new Label();
+        label6.setPrefHeight(108.0);
+        label6.setPrefWidth(212.0);
+        label6.setText(String.format("Guns %d", player.getGuns()));
+        label6.setAlignment(Pos.CENTER_LEFT);
+        label6.setFont(size14);
+
+        Label label7 = new Label();
+        label7.setAlignment(Pos.TOP_CENTER);
+        label7.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        label7.setPrefHeight(110.0);
+        label7.setPrefWidth(180.0);
+        String shipStatus;
+        switch(player.getHP()){
+            case 100: shipStatus = "Mint Condition"; break;
+            case 80: shipStatus = "Great"; break;
+            case 70: shipStatus = "Good"; break;
+            case 60: shipStatus = "Acceptable"; break;
+            case 50: shipStatus = "Tolerable"; break;
+            case 30: shipStatus = "Damaged"; break;
+            case 10: shipStatus = "Poor"; break;
+            case 1: shipStatus = "Extremely Poor"; break;
+            default: shipStatus = "Sinking"; break;
+        }
+
+        label7.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", player.getDebt(), shipStatus, player.getHP()));
+        label7.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        label7.setFont(size14);
+
+        Label label8 = new Label();
+        GridPane.setRowIndex(label8, 3);
+        label8.setPrefHeight(17.0);
+        label8.setPrefWidth(209.0);
+        label8.setText(String.format("  Cash: %d", player.getMoney()));
+        label8.setFont(size14);
+
+        Label label9 = new Label();
+        GridPane.setHalignment(label9, javafx.geometry.HPos.CENTER);
+        GridPane.setRowIndex(label9, 3);
+        label9.setAlignment(Pos.CENTER);
+        label9.setPrefHeight(20.0);
+        label9.setPrefWidth(264.0);
+        label9.setText(String.format("Bank: %d", player.getBank()));
+        label9.setFont(size14);
+
+        Label textOut = new Label();
+        GridPane.setRowIndex(textOut, 4);
+        textOut.setAlignment(Pos.TOP_LEFT);
+        textOut.setContentDisplay(javafx.scene.control.ContentDisplay.TOP);
+        textOut.setPrefHeight(163.0);
+        textOut.setPrefWidth(583.0);
+        textOut.setText(String.format("\n     %s", message));
+        textOut.setFont(size14);
+
+        hBox.getChildren().addAll(label0, label1, label2, label3);
+
+        hBox0.getChildren().addAll(label4, label5, label6, label7);
+
+        gridPane.getColumnConstraints().add(columnConstraints);
+        gridPane.getRowConstraints().addAll(rowConstraints, rowConstraints0, rowConstraints1, rowConstraints2, rowConstraints3);
+        gridPane.getChildren().addAll(label, hBox, hBox0,label8, label9, textOut);
+        anchorPane.getChildren().addAll(rectangle, rectangle0, rectangle1, gridPane);
+
+        Scene root = new Scene(anchorPane, 600, 480);
+
+        stage.setTitle("Shop");
         stage.setResizable(false);
         stage.setScene(root);
         stage.show();
