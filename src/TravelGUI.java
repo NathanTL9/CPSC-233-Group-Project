@@ -17,8 +17,8 @@ import javafx.scene.text.Font;
 
 import java.util.Random;
 
-public class TravelGUI extends Application {
-    private Player player = new Player();
+public class TravelGUI{
+    private Player player;
     private Label firm = new Label();
     private Label wItemsText = new Label();
     private Label wItemSpaceText = new Label();
@@ -36,13 +36,10 @@ public class TravelGUI extends Application {
     private TextField numberInput = new TextField();
     private int nextScene = 0;
 
-    public static void main(String args[]){
-        launch(args);
-    }
-    public void start(Stage stage){
-        stage = initializeTravel(stage);
-        updateStage();
-        stage.show();
+
+    public TravelGUI(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
     }
 
     public void setPlayer(Player player) {
@@ -55,17 +52,9 @@ public class TravelGUI extends Application {
         return playerDummy;
     }
 
-    public int getUserResponse(){
-        try {
-            return 0;
-        }
-        catch (Exception e){
-            textOut.setText("   Sorry could you say that again?");
-        }
-        return 0;
-    }
-
     public Stage initializeTravel(Stage stage){
+        updateStage();
+
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
@@ -168,7 +157,9 @@ public class TravelGUI extends Application {
 
         //Goes back to shop
         quitButton.setOnAction(event -> {
-            textOut.setText("    " + "PLACEHOLDER FOR SHOP");
+            TaipanShopGUI taipanShopGUI = new TaipanShopGUI(player);
+            taipanShopGUI.initializeShop(stage);
+            stage.show();
         });
 
         //Continues on to either shop or shipwarefare
@@ -193,7 +184,7 @@ public class TravelGUI extends Application {
                         try {
                             //Makes sure you can't travel to your own location.
                             if (response != player.getLocation() && response != 0 && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
-                                randomEventSea(response);
+                                randomEventSea(response,stage);
                                 hasTraveled = seaAtlas(response);
                                 player.setBank((int) (player.getBank() * 1.01));
                                 player.setDebt((int) (player.getDebt() * 1.01));
@@ -205,10 +196,9 @@ public class TravelGUI extends Application {
                             textOut.setText("    " + "Sorry, " + player.getName() + " could you say that again?");
                         }
                         if (hasTraveled) {
-                            textOut.setText(textOut.getText() + "\n    " + "PLACEHOLDER FOR SHOP");
-                            numberInput.setVisible(false);
-                            quitButton.setVisible(false);
-                            continueButton.setVisible(true);
+                            TaipanShopGUI taipanShopGUI = new TaipanShopGUI(player);
+                            taipanShopGUI.initializeShop(stage);
+                            stage.show();
                         }
                     }
                 }
@@ -354,11 +344,14 @@ public class TravelGUI extends Application {
      * @param locationOfTravel is used to see where the player is going to travel, just in case their location is changed
      *                         by a typhoon.
      **/
-    private void randomEventSea(int locationOfTravel) throws Exception {
+    private void randomEventSea(int locationOfTravel, Stage stage) {
         Random rand = new Random();
         int randGenNum = rand.nextInt(3) + 1;
         if (randGenNum == 1) {
-            textOut.setText(textOut.getText() + "\n    " + "PLACEHOLDER FOR SHIPWARFARE");
+            ShipWarfareGUI ship = new ShipWarfareGUI(player);
+            ship.initializeShip(stage);
+            stage.show();
+            System.out.println(textOut.getText() + "\n    " + "PLACEHOLDER FOR SHIPWARFARE");
         }else if (randGenNum == 2) {
             disaster(locationOfTravel);
             textOut.setText(textOut.getText() + "\n    " + "We made it!");
@@ -443,4 +436,9 @@ public class TravelGUI extends Application {
         bankText.setText(String.format("Bank: %d", player.getBank()));
     }
 
+    public void start(Stage primaryStage) {
+        primaryStage = initializeTravel(primaryStage);
+        updateStage();
+        primaryStage.show();
+    }
 }

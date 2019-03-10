@@ -1,4 +1,6 @@
 
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,8 +13,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+import javafx.animation.AnimationTimer;
+
+
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import static javafx.application.Application.launch;
 
@@ -36,10 +45,20 @@ public class ShipWarfareGUI extends Application {
     private Label continueToFight;
     private int counter1;
 
-
-    public static void main(String args[]) {
-        launch(args);
+    /*
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
+    public ShipWarfareGUI(Player player){
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
     }
+
+    //public static void main(String args[]) {
+    //    launch(args);
+    //}
 
     private int numOfPeasantShips = 0;
     private int numOfLittyShips = 0;
@@ -176,7 +195,6 @@ public class ShipWarfareGUI extends Application {
 
     }
 
-
     /**
      * The number of ships that attack is based on the amount of money one has on hand
      * @return the number of ships which will attack
@@ -205,7 +223,7 @@ public class ShipWarfareGUI extends Application {
     }
 
     /**
-     * One in ten chance of running away
+     * One in two chance of running away
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
 
@@ -226,7 +244,8 @@ public class ShipWarfareGUI extends Application {
      * The loot for defeating a litty fleet is much higher than that of a peasant one
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the
-     */
+     *
+     * */
     public boolean destroyLittyShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
@@ -261,7 +280,7 @@ public class ShipWarfareGUI extends Application {
                     }
                 }
             } else {
-                System.out.printf("%s! We don't have any GUNS!!!!\n", player.getName());
+                System.out.printf("%s! We don't have any GUNS!!!!\n",player.getName());
             }
 
 
@@ -322,7 +341,7 @@ public class ShipWarfareGUI extends Application {
 
 
         if (exitValue == 1) {
-            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%%% ship status\n", player.getHP());
+            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", player.getHP());
             calculateLoot = (randomValue.nextInt(startingLittyShips) + startingLittyShips) * 300;
             player.setMoney(player.getMoney() + calculateLoot);
             System.out.printf("We got $%,d!\n", calculateLoot);
@@ -343,7 +362,8 @@ public class ShipWarfareGUI extends Application {
     /**
      * Sets most of the labels invisible except for the "fight or run" label
      */
-    public void wipe() {
+
+    public void wipe(){
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
         shipsRemaining.setVisible(false);
@@ -353,6 +373,7 @@ public class ShipWarfareGUI extends Application {
 
 
     }
+
     /**
      * Sets most of the  labels invisible including the fight or run label
      */
@@ -364,8 +385,6 @@ public class ShipWarfareGUI extends Application {
         HPLeft.setVisible(false);
         gunsLeftOrTaken.setVisible(false);
         continueToFight.setVisible(false);
-
-
     }
 
     /**
@@ -373,7 +392,6 @@ public class ShipWarfareGUI extends Application {
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
-
     public boolean destroyPeasantShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
@@ -478,8 +496,6 @@ public class ShipWarfareGUI extends Application {
 
         continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)", player.getGuns()));
 
-
-
         if (exitValue == 1) {
             wipe();
             chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", player.getHP()));
@@ -495,15 +511,13 @@ public class ShipWarfareGUI extends Application {
             return true;
         }
         return false;
-
-
     }
 
 
     private int counter = 0;
 
 
-    public void start(Stage stage) throws Exception {
+    public Stage initializeShip(Stage stage){
         setNumOfPeasantShips(numOfShips());
 
         BorderPane BorderPane = new BorderPane();
@@ -536,7 +550,7 @@ public class ShipWarfareGUI extends Application {
         title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         title.setId("Label1");
-        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfPeasantShips));
+        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?",numOfPeasantShips));
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
         fightButton.setAlignment(javafx.geometry.Pos.CENTER);
@@ -548,8 +562,8 @@ public class ShipWarfareGUI extends Application {
         runButton.setAlignment(javafx.geometry.Pos.CENTER);
         runButton.setId("Button2");
         runButton.setMnemonicParsing(false);
-        runButton.setText("Run");
-        BorderPane.setBottom(hBox);
+
+        BorderPane.setBottom(hBox);runButton.setText("Run");
 
         BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
         vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
@@ -575,10 +589,6 @@ public class ShipWarfareGUI extends Application {
         vBox.getChildren().add(HPLeft);
         vBox.getChildren().add(gunsLeftOrTaken);
         vBox.getChildren().add(continueToFight);
-
-
-        //report.setText(String.format("By Golly! We have $%,d and are being attacked by %d Merchant ships\nCurrently our ship status is %d%%\n", player.getMoney(), shipWarfare.getNumOfPeasantShips(), player.getHP()));
-
 
         //Fight
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -619,14 +629,9 @@ public class ShipWarfareGUI extends Application {
 
 
                 }
-
                 if (counter>=2){
                     title.setVisible(false);
                 }
-
-
-
-
             }
         });
 
@@ -636,7 +641,11 @@ public class ShipWarfareGUI extends Application {
         stage.setTitle("Ship");
         stage.setResizable(false);
         stage.setScene(root);
-        stage.show();
+        return stage;
+    }
 
+    public void start(Stage primaryStage){
+        primaryStage = initializeShip(primaryStage);
+        primaryStage.show();
     }
 }

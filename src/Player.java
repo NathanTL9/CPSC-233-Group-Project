@@ -21,7 +21,23 @@ public class Player {
     private int cargoSpace = 60;
 
     public Player(){
-
+        this.name = "Taipan";
+        this.bank = 0;
+        this.money = 0;
+        this.opiumHeld = 0;
+        this.silkHeld = 0;
+        this.generalHeld = 0;
+        this.armsHeld = 0;
+        this.location = 1;
+        this.guns = 0;
+        this.HP = 100;
+        this.debt = 0;
+        this.wOpium = 0;
+        this.wSilk = 0;
+        this.wGeneral = 0;
+        this.wArms = 0;
+        this.retire = false;
+        this.cargoSpace = 60;
     }
 
     /**
@@ -30,6 +46,7 @@ public class Player {
     * @param player object of the class Player
     */
     public Player(Player player){
+        this.name = player.name;
         this.bank = player.bank;
         this.money = player.money;
         this.opiumHeld = player.opiumHeld;

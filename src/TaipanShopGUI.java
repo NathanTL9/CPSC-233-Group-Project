@@ -15,8 +15,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import java.util.Random;
 
-public class ShopGUI extends Application {
-    private Player player = new Player();
+public class TaipanShopGUI {
+    private Player player;
     private Label firm = new Label();
     private Label wItemsText = new Label();
     private Label wItemSpaceText = new Label();
@@ -45,10 +45,17 @@ public class ShopGUI extends Application {
     private int armsPrice = 160;
     private int generalPrice = 8;
 
-    public static void main(String args[]){
-        launch(args);
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
+    public TaipanShopGUI(Player player){
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
     }
-    public void start(Stage stage){
+
+    public void startTaipanShop(Stage stage){
         stage = initializeShop(stage);
         updateStage();
         updatePrices();
@@ -363,6 +370,7 @@ public class ShopGUI extends Application {
     }
 
     public Stage initializeShop(Stage stage){
+        updateStage();
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
@@ -521,7 +529,10 @@ public class ShopGUI extends Application {
         quitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("PLACEHOLDER FOR TRAVEL");
+                TravelGUI travelGUI = new TravelGUI(player);
+                travelGUI.initializeTravel(stage);
+                stage.show();
+                //System.out.println("PLACEHOLDER FOR TRAVEL");
             }
         });
 
