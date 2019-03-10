@@ -13,7 +13,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-
 import java.util.Random;
 
 public class ShopGUI extends Application {
@@ -50,7 +49,7 @@ public class ShopGUI extends Application {
         launch(args);
     }
     public void start(Stage stage){
-        stage = initialize(stage);
+        stage = initializeShop(stage);
         updateStage();
         updatePrices();
         stage.show();
@@ -363,7 +362,7 @@ public class ShopGUI extends Application {
         }
     }
 
-    public Stage initialize(Stage stage){
+    public Stage initializeShop(Stage stage){
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
