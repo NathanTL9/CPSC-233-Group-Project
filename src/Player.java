@@ -4,7 +4,7 @@ public class Player {
 
     private String name = "Taipan";
     private int bank = 0;
-    private int money = 1000;
+    private int money = 0;
     private int opiumHeld = 0;
     private int silkHeld = 0;
     private int generalHeld = 0;
