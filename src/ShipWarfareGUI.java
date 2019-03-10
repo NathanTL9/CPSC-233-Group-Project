@@ -1,3 +1,5 @@
+//Remember you deleted userAttacks = true, you might need it later
+
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -369,6 +371,17 @@ public class ShipWarfareGUI extends Application {
 
 
     }
+    public void completeWipe() {
+        title.setVisible(false);
+        chooseFightOrRun.setVisible(false);
+        runAwayOrLeft.setVisible(false);
+        shipsRemaining.setVisible(false);
+        HPLeft.setVisible(false);
+        gunsLeftOrTaken.setVisible(false);
+        continueToFight.setVisible(false);
+
+
+    }
 
     /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
@@ -382,11 +395,19 @@ public class ShipWarfareGUI extends Application {
         int chanceOfEnemyRun = 0;
         int hitCounter = 0;
         int missCounter = 0;
-        boolean gunFrustration = false;
-        //runAwayOrLeft.setVisible(false);
+        boolean gunFrustration = true;
+
+        title.setVisible(true);
+        chooseFightOrRun.setVisible(true);
+        report.setVisible(true);
+        runAwayOrLeft.setVisible(true);
+        shipsRemaining.setVisible(true);
+        HPLeft.setVisible(true);
+        gunsLeftOrTaken.setVisible(true);
+        continueToFight.setVisible(true);
+
         runAwayOrLeft.setText("No ships ran away");
 
-        Scanner userInput = new Scanner(System.in);
         Random randomValue = new Random();
         int exitValue = 0;
 
@@ -412,8 +433,9 @@ public class ShipWarfareGUI extends Application {
                 } else {
                     //continue;
                 }
+            }if(userAttacks==true) {
+                report.setText(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
             }
-            report.setText(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
         } else {
             report.setText("We don't have any guns!!!");
 
@@ -432,11 +454,18 @@ public class ShipWarfareGUI extends Application {
 
 
                     setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
-                    if (howMuchRun > 0) {
-                        runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, player.getName()));
-                        //runAwayOrLeft.setVisible(true);
+                    if (userAttacks == true) {
+                        if (howMuchRun > 0) {
+                            runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, player.getName()));
+                            //runAwayOrLeft.setVisible(true);
+                        }
+                        else{
+                            runAwayOrLeft.setText(String.format("Escaped %d of them %s! ", howMuchRun, player.getName()));
+
+                        }
+
                     } else {
-                        runAwayOrLeft.setText("None chose to flee!");
+                        report.setText((String.format("Escaped %d of them %s!", howMuchRun,player.getName())));
                     }
 
                 }
@@ -490,10 +519,10 @@ public class ShipWarfareGUI extends Application {
 
         if (exitValue == 1) {
             wipe();
-            chooseFightOrRun.setText(String.format("Ayy We won! We survived at %d%% ship status!", player.getHP()));
+            chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", player.getHP()));
             calculateLoot = (startingPeasantShips *100) + randomValue.nextInt(startingPeasantShips) *200;
             player.setMoney(player.getMoney() + calculateLoot);
-            report.setText(String.format("We got $%,d! ", calculateLoot));
+            report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             return true;
         } else if (exitValue == 2) {
             player.gameOver();
@@ -638,19 +667,27 @@ public class ShipWarfareGUI extends Application {
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                chooseFightOrRun.setText("Ayy captain we will try to run!");
                 counter++;
-                if (counter == 1) {
-                    chooseFightOrRun.setText("Ohh, Run ehh?");
+
+                if (runFromShips() == false) {
+                    title.setVisible(false);
+                    chooseFightOrRun.setVisible(false);
+                    report.setText(("Couldn't run away"));
+                    try {
+                        destroyPeasantShipsOrEscape();
+                    } catch (Exception e) {
+                    }
+                } else {
+                    completeWipe();
+                    report.setText("Phew! Got away safely");
 
 
                 }
-                if (counter == 2) {
-                    System.out.println("You pressed the button twice.");
-                    fightButton.setVisible(false);
-                    runButton.setVisible(false);
-                    fightButton.setDisable(true);
-                    runButton.setDisable(true);
-                }
+
+
+
+
             }
         });
 

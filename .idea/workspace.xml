@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="" />
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Harkamal Randhawa\IdeaProjects\TaipanClone\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -16,8 +18,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+            <state relative-caret-position="255">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="665" column="1" selection-start-line="665" selection-start-column="1" selection-end-line="665" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="120">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -116,9 +130,9 @@
         <option value="$PROJECT_DIR$/src/TaipanShop.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Travel.java" />
-        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
+        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
       </list>
     </option>
   </component>
@@ -134,6 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,7 +166,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -267,6 +281,8 @@
       <workItem from="1552199842131" duration="998000" />
       <workItem from="1552201459117" duration="275000" />
       <workItem from="1552203562938" duration="2174000" />
+      <workItem from="1552207404121" duration="54000" />
+      <workItem from="1552210170594" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -429,17 +445,31 @@
       <option name="project" value="LOCAL" />
       <updated>1552205678080</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed the loot system a bit">
+      <created>1552207442784</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1552207442785</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Completely ruined shipWarfare with a previous edit, fixed it and added a better loot feature for peasant ships">
+      <created>1552210228514</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1552210228514</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62514000" />
+    <option name="totallyTimeSpent" value="62640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1189" height="652" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24934612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2580645" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -536,7 +566,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="This should fix the project repository once and for all." />
     <MESSAGE value="This should fix the ShipWarfare file and bring it up to date with the rest of the file." />
     <MESSAGE value="Created Core class" />
     <MESSAGE value="Fixed the setters to be greater than 0" />
@@ -560,7 +589,9 @@
     <MESSAGE value="ShipWarfare fight button coming along nicely" />
     <MESSAGE value="Shipwarfare fight button GUI almost complete" />
     <MESSAGE value="Fixed numOfShips method for ShipWarfareGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed numOfShips method for ShipWarfareGUI" />
+    <MESSAGE value="Fixed the loot system a bit" />
+    <MESSAGE value="Completely ruined shipWarfare with a previous edit, fixed it and added a better loot feature for peasant ships" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completely ruined shipWarfare with a previous edit, fixed it and added a better loot feature for peasant ships" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -639,30 +670,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="120">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="206" column="28" selection-end-line="662" selection-end-column="1" />
+        <state relative-caret-position="483">
+          <caret line="665" column="1" selection-start-line="665" selection-start-column="1" selection-end-line="665" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#762#793#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#17505#17506#0" expanded="true" />
-            <element signature="e#17543#17544#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+        <state relative-caret-position="255">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
