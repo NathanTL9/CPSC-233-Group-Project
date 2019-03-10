@@ -55,7 +55,7 @@ public class ShipWarfare {
         while (true) {
             String response = userResponse.nextLine();
             if (response.equalsIgnoreCase("f")) {
-                userAttacks = true;
+                setUserAttacks(true);
                 System.out.println("Ohh, fight ehh?");
                 delayForSeconds(1);
                 boolean winOrLose = destroyPeasantShipsOrEscape();
