@@ -1,7 +1,4 @@
-//Remember you deleted userAttacks = true, you might need it later
 
-import javafx.animation.PathTransition;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,15 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.animation.PauseTransition;
-import javafx.util.Duration;
-import javafx.animation.AnimationTimer;
-
-
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 import static javafx.application.Application.launch;
 
@@ -62,7 +52,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * setter method for player
-     *
      * @param player object of the class Player
      */
     public void setPlayer(Player player) {
@@ -72,7 +61,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * getter method for obtaining a player object.
-     *
      * @return returns player object
      */
     public Player getPlayer() {
@@ -82,7 +70,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * This fleet is easy to defeat as a maximum of 15 ships can run away each volley, they can not tank hits
-     *
      * @throws Exception in case of errors due to the delay
      */
     public void peasantFleetAttack() throws Exception {
@@ -121,7 +108,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * This fleet is difficult to defeat as a maximum of 10 ships can run away each volley, they can tank hits
-     *
      * @throws Exception in case of errors due to the delay
      */
     public void littyFleetAttack() throws Exception {
@@ -219,7 +205,7 @@ public class ShipWarfareGUI extends Application {
     }
 
     /**
-     * One in 10 chance of running away
+     * One in ten chance of running away
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
 
@@ -355,7 +341,7 @@ public class ShipWarfareGUI extends Application {
     }
 
     /**
-     * sets most of the labels to false exceptf for he fight or run label
+     * Sets most of the labels invisible except for the "fight or run" label
      */
     public void wipe() {
         title.setVisible(false);
@@ -368,7 +354,7 @@ public class ShipWarfareGUI extends Application {
 
     }
     /**
-     * sets most of the labels to false including the fight or run label
+     * Sets most of the  labels invisible including the fight or run label
      */
     public void completeWipe() {
         title.setVisible(false);
@@ -492,23 +478,6 @@ public class ShipWarfareGUI extends Application {
 
         continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)", player.getGuns()));
 
-        if (runButton.isPressed()) {
-
-            if (runFromShips() == false) {
-                wipe();
-                chooseFightOrRun.setText("Couldn't run away");
-            } else {
-                exitValue = 3;
-                //break;
-            }
-        } else if (fightButton.isPressed()) {
-            title.setText("AYYYYYYYYYYY");
-        } else {
-
-        }
-
-
-        //}
 
 
         if (exitValue == 1) {
