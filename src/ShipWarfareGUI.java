@@ -393,7 +393,7 @@ public class ShipWarfareGUI extends Application {
                             }
                             hitCounter++;
                         } else {
-
+                            missCounter++;
                         }
 
 
@@ -621,11 +621,16 @@ public class ShipWarfareGUI extends Application {
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event)  {
-                    chooseFightOrRun.setText("Ohh, Fight ehh?");
+                counter++;
+                chooseFightOrRun.setText("Ohh, Fight ehh?");
                     try {
                         destroyPeasantShipsOrEscape();
                     }
                     catch(Exception e){}
+                if (counter == 2) {
+                    title.setVisible(false);
+
+                }
             }
         });
 
