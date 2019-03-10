@@ -58,7 +58,6 @@ public class ShipWarfareGUI extends Application {
     private int startingLittyShips = 0;
     private int howMuchRun = 0;
     private String pirateName = "Liu Yen";
-    private Boolean isScreenFull = false;
 
 
     /**
@@ -169,7 +168,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * setter method that takes in an integer as an argument
-     *
      * @param numOfLittyShips the number of ships to be used in the litty fleet attack
      */
     public void setNumOfLittyShips(int numOfLittyShips) {
@@ -180,7 +178,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * setter method that takes in an integer as an argument
-     *
      * @param numOfPeasantShips the number of ships to be used in the peasant fleet attack
      */
 
@@ -196,7 +193,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * The number of ships that attack is based on the amount of money one has on hand
-     *
      * @return the number of ships which will attack
      */
     public int numOfShips() {
@@ -224,7 +220,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * One in 10 chance of running away
-     *
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
 
@@ -243,7 +238,6 @@ public class ShipWarfareGUI extends Application {
     /**
      * The user faces off against the litty ships and either prevails, dies, or runs away
      * The loot for defeating a litty fleet is much higher than that of a peasant one
-     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the
      */
@@ -360,7 +354,9 @@ public class ShipWarfareGUI extends Application {
 
     }
 
-
+    /**
+     * sets most of the labels to false exceptf for he fight or run label
+     */
     public void wipe() {
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
@@ -371,6 +367,9 @@ public class ShipWarfareGUI extends Application {
 
 
     }
+    /**
+     * sets most of the labels to false including the fight or run label
+     */
     public void completeWipe() {
         title.setVisible(false);
         chooseFightOrRun.setVisible(false);
@@ -385,7 +384,6 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
-     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
@@ -395,7 +393,7 @@ public class ShipWarfareGUI extends Application {
         int chanceOfEnemyRun = 0;
         int hitCounter = 0;
         int missCounter = 0;
-        boolean gunFrustration = true;
+        boolean gunFrustration = false;
 
         title.setVisible(true);
         chooseFightOrRun.setVisible(true);
@@ -533,37 +531,8 @@ public class ShipWarfareGUI extends Application {
     }
 
 
-    //Main G
     private int counter = 0;
 
-
-    /**
-     * delays for a specific amount of seconds, takes an integer as an argument
-     *
-     * @param num the seconds to delay
-     * @throws Exception in case of errors due to the delay
-     */
-
-    public void delayForSeconds(int num) {
-        try {
-            TimeUnit.SECONDS.sleep(num);
-        } catch (Exception e) {
-
-        }
-    }
-
-
-    public void setLabel1(String sysOut) {
-        report.setText(sysOut);
-    }
-
-    /*
-    public void peasantFleet() throws Exception {
-        ShipWarfare attackShip = new ShipWarfare(player);
-        attackShip.peasantFleetAttack();
-        player = attackShip.getPlayer();
-    }
-    */
 
     public void start(Stage stage) throws Exception {
         setNumOfPeasantShips(numOfShips());
