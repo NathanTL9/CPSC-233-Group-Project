@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TaipanClone/ShipWarfare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TaipanClone/ShipWarfare.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,12 +31,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="399" column="97" selection-start-line="399" selection-start-column="92" selection-end-line="399" selection-end-column="97" />
+            <state relative-caret-position="608">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1208#1209#0" expanded="true" />
-                <element signature="e#1236#1237#0" expanded="true" />
+                <element signature="e#17426#17427#0" expanded="true" />
+                <element signature="e#17464#17465#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,9 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shop</find>
-      <find>being</find>
-      <find>label0</find>
       <find>hBox</find>
       <find>&lt;</find>
       <find>winO</find>
@@ -116,6 +112,9 @@
       <find>destr</find>
       <find>destro</find>
       <find>hitco</find>
+      <find>setNum</find>
+      <find>game</find>
+      <find>numOf</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -157,6 +156,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,15 +174,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552187991754" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552196488451" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
     <property name="project.structure.last.edited" value="Project" />
@@ -283,6 +282,8 @@
       <workItem from="1552183501892" duration="5000" />
       <workItem from="1552187010251" duration="1043000" />
       <workItem from="1552195875453" duration="55000" />
+      <workItem from="1552195941602" duration="33000" />
+      <workItem from="1552195980542" duration="513000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -410,17 +411,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552187032139</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Super broken but fight button is in progress for shipwarfare">
+      <created>1552195966566</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1552195966566</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58404000" />
+    <option name="totallyTimeSpent" value="58950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1189" height="652" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22319093" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23016565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -536,7 +544,8 @@
     <MESSAGE value="Missed one statement that I needed to encapsulate" />
     <MESSAGE value="Messed up player by setting money to 1000" />
     <MESSAGE value="Please find error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Please find error" />
+    <MESSAGE value="Super broken but fight button is in progress for shipwarfare" />
+    <option name="LAST_COMMIT_MESSAGE" value="Super broken but fight button is in progress for shipwarfare" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -634,12 +643,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="399" column="97" selection-start-line="399" selection-start-column="92" selection-end-line="399" selection-end-column="97" />
+        <state relative-caret-position="608">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1208#1209#0" expanded="true" />
-            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#17426#17427#0" expanded="true" />
+            <element signature="e#17464#17465#0" expanded="true" />
           </folding>
         </state>
       </provider>

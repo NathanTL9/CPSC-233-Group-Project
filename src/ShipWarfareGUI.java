@@ -422,15 +422,15 @@ public class ShipWarfareGUI extends Application {
 
                         setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
                         if (userAttacks == true) {
-                            runAwayOrLeft.setText(String.format("Ahhh, %d ships ran away %s!\n", howMuchRun, player.getName()));
+                            runAwayOrLeft.setText(String.format("Ahhh, %d ships ran away %s! ", howMuchRun, player.getName()));
                         } else {
-                            runAwayOrLeft.setText(String.format("Escaped %d of them!\n", howMuchRun));
+                            runAwayOrLeft.setText(String.format("Escaped %d of them! ", howMuchRun));
                         }
                     }
                 }
             }
 
-            shipsRemaining.setText(String.format("%d ships remaining and they look angry!\n", numOfPeasantShips));
+            shipsRemaining.setText(String.format("%d ships remaining and they look angry!", numOfPeasantShips));
             //Computer volley
             int takeGunChance = randomValue.nextInt(4) + 1;
             if (takeGunChance == 1 && player.getGuns() > 0) {
@@ -450,12 +450,12 @@ public class ShipWarfareGUI extends Application {
                 gunsLeftOrTaken.setText(String.format("We still have %d guns left", player.getGuns()));
             }
 
-            HPLeft.setText(String.format("EEK, our current ship status is %d%% \n", player.getHP()));
+            HPLeft.setText(String.format("EEK, our current ship status is %d%% ", player.getHP()));
             if (userAttacks == false) {
                 userAttacks = true;
             }
 
-            continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)\n", player.getGuns()));
+            continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)", player.getGuns()));
 
             if (runButton.isPressed()) {
 
@@ -480,10 +480,12 @@ public class ShipWarfareGUI extends Application {
 
 
         if (exitValue == 1) {
+            wipe();
+            chooseFightOrRun.setText(String.format("Ayy We won! We survived at %d ship status!", player.getHP()));
             System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", player.getHP());
             calculateLoot = (randomValue.nextInt(startingPeasantShips) + startingPeasantShips) * 100;
             player.setMoney(player.getMoney() + calculateLoot);
-            System.out.printf("We got $%,d!", calculateLoot);
+            report.setText(String.format("We got $%,d! ",calculateLoot));
             return true;
         } else if (exitValue == 2) {
             player.gameOver();
