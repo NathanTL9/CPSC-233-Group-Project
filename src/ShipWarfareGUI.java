@@ -1,4 +1,3 @@
-
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -204,13 +203,13 @@ public class ShipWarfareGUI extends Application {
             numOfShipsAttacking = randomValue.nextInt(20) + 1;
         } else if (player.getMoney() <= 200000) {
             //Minimum 30 Ships will attack, maximum 70
-            numOfShipsAttacking = randomValue.nextInt(40) + 30;
+            numOfShipsAttacking = randomValue.nextInt(40) + 31;
         } else if (player.getMoney() <= 500000) {
             //Minimum 50 ships will attack, maximum 140
-            numOfShipsAttacking = randomValue.nextInt(90) + 50;
-        } else if (player.getMoney() > 1000000) {
+            numOfShipsAttacking = randomValue.nextInt(90) + 51;
+        } else if (player.getMoney() >= 1000000) {
             //Minimum 100 ships will attack, maximum 300 ships
-            numOfShipsAttacking = randomValue.nextInt(3) + 100;
+            numOfShipsAttacking = randomValue.nextInt(200) + 101;
         }
 
         return numOfShipsAttacking;

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Shipwarfare fight button GUI almost complete">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5025">
-              <caret line="353" column="100" selection-end-line="503" />
+            <state relative-caret-position="199">
+              <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,12 +33,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="310">
+              <caret line="216" column="5" lean-forward="true" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#17426#17427#0" expanded="true" />
-                <element signature="e#17464#17465#0" expanded="true" />
+                <element signature="e#762#793#0" expanded="true" />
+                <element signature="e#1354#1355#0" expanded="true" />
+                <element signature="e#1382#1383#0" expanded="true" />
+                <element signature="e#17505#17506#0" expanded="true" />
+                <element signature="e#17543#17544#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,15 +66,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ShopGUI">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="89">
+              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -85,15 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hBox</find>
-      <find>&lt;</find>
-      <find>winO</find>
-      <find>destroy</find>
-      <find>get</find>
-      <find>user</find>
-      <find>setNumOfP</find>
-      <find>setUs</find>
-      <find>starting</find>
       <find>numOfpeasantShips</find>
       <find>startingPeasantShips</find>
       <find>startingLittyShips</find>
@@ -112,9 +103,18 @@
       <find>destr</find>
       <find>destro</find>
       <find>hitco</find>
-      <find>setNum</find>
       <find>game</find>
       <find>numOf</find>
+      <find>mis</find>
+      <find>exitValue</find>
+      <find>getGuns</find>
+      <find>frustRat</find>
+      <find>counter++</find>
+      <find>setMone</find>
+      <find>setNum</find>
+      <find>We survive</find>
+      <find>total of</find>
+      <find>int numOfShips</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -138,8 +138,8 @@
         <option value="$PROJECT_DIR$/src/TaipanShop.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Travel.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
       </list>
     </option>
@@ -156,8 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,13 +172,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552196488451" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552200809349" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
     <property name="project.structure.last.edited" value="Project" />
@@ -284,6 +284,11 @@
       <workItem from="1552195875453" duration="55000" />
       <workItem from="1552195941602" duration="33000" />
       <workItem from="1552195980542" duration="513000" />
+      <workItem from="1552197114688" duration="110000" />
+      <workItem from="1552198897279" duration="7000" />
+      <workItem from="1552199842131" duration="998000" />
+      <workItem from="1552201459117" duration="275000" />
+      <workItem from="1552203562938" duration="2064000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -418,17 +423,38 @@
       <option name="project" value="LOCAL" />
       <updated>1552195966566</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Forces you to fight in ShipWarfareGUI unfortunately">
+      <created>1552197150577</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1552197150577</updated>
+    </task>
+    <task id="LOCAL-00021" summary="ShipWarfare fight button coming along nicely">
+      <created>1552200771732</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1552200771732</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Shipwarfare fight button GUI almost complete">
+      <created>1552203599900</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1552203599900</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58950000" />
+    <option name="totallyTimeSpent" value="62404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1189" height="652" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23016565" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24934612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -545,7 +571,10 @@
     <MESSAGE value="Messed up player by setting money to 1000" />
     <MESSAGE value="Please find error" />
     <MESSAGE value="Super broken but fight button is in progress for shipwarfare" />
-    <option name="LAST_COMMIT_MESSAGE" value="Super broken but fight button is in progress for shipwarfare" />
+    <MESSAGE value="Forces you to fight in ShipWarfareGUI unfortunately" />
+    <MESSAGE value="ShipWarfare fight button coming along nicely" />
+    <MESSAGE value="Shipwarfare fight button GUI almost complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shipwarfare fight button GUI almost complete" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -607,16 +636,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5025">
-          <caret line="353" column="100" selection-end-line="503" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShopGUI" />
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -631,24 +651,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShopGUI">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="89">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="310">
+          <caret line="216" column="5" lean-forward="true" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#17426#17427#0" expanded="true" />
-            <element signature="e#17464#17465#0" expanded="true" />
+            <element signature="e#762#793#0" expanded="true" />
+            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#17505#17506#0" expanded="true" />
+            <element signature="e#17543#17544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -693,7 +723,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.8.0_201</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
