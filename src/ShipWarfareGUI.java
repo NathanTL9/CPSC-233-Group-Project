@@ -29,21 +29,20 @@ import static javafx.application.Application.launch;
 public class ShipWarfareGUI extends Application {
 
 
-    private  Player player = new Player();
-    private  ShipWarfare shipWarfare = new ShipWarfare(player);
-    private  HBox hBox;
-    private  Button fightButton;
-    private  Button runButton;
-    private  VBox vBox;
-    private  Label title;
-    private  Label chooseFightOrRun;
-    private  Label report;
-    private  Label runAwayOrLeft;
-    private  Label shipsRemaining;
-    private  Label HPLeft;
-    private  Label gunsLeftOrTaken;
-    private  Label continueToFight;
-
+    private Player player = new Player();
+    private ShipWarfare shipWarfare = new ShipWarfare(player);
+    private HBox hBox;
+    private Button fightButton;
+    private Button runButton;
+    private VBox vBox;
+    private Label title;
+    private Label chooseFightOrRun;
+    private Label report;
+    private Label runAwayOrLeft;
+    private Label shipsRemaining;
+    private Label HPLeft;
+    private Label gunsLeftOrTaken;
+    private Label continueToFight;
 
 
     public static void main(String args[]) {
@@ -62,6 +61,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * setter method for player
+     *
      * @param player object of the class Player
      */
     public void setPlayer(Player player) {
@@ -71,6 +71,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * getter method for obtaining a player object.
+     *
      * @return returns player object
      */
     public Player getPlayer() {
@@ -80,6 +81,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * This fleet is easy to defeat as a maximum of 15 ships can run away each volley, they can not tank hits
+     *
      * @throws Exception in case of errors due to the delay
      */
     public void peasantFleetAttack() throws Exception {
@@ -118,6 +120,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * This fleet is difficult to defeat as a maximum of 10 ships can run away each volley, they can tank hits
+     *
      * @throws Exception in case of errors due to the delay
      */
     public void littyFleetAttack() throws Exception {
@@ -164,6 +167,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * setter method that takes in an integer as an argument
+     *
      * @param numOfLittyShips the number of ships to be used in the litty fleet attack
      */
     public void setNumOfLittyShips(int numOfLittyShips) {
@@ -174,6 +178,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * setter method that takes in an integer as an argument
+     *
      * @param numOfPeasantShips the number of ships to be used in the peasant fleet attack
      */
 
@@ -184,9 +189,9 @@ public class ShipWarfareGUI extends Application {
     }
 
 
-
     /**
      * The number of ships that attack is based on the amount of money one has on hand
+     *
      * @return the number of ships which will attack
      */
     public int numOfShips() {
@@ -214,6 +219,7 @@ public class ShipWarfareGUI extends Application {
 
     /**
      * One in two chance of running away
+     *
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
 
@@ -232,10 +238,10 @@ public class ShipWarfareGUI extends Application {
     /**
      * The user faces off against the litty ships and either prevails, dies, or runs away
      * The loot for defeating a litty fleet is much higher than that of a peasant one
+     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the
-     *
-     * */
+     */
     public boolean destroyLittyShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
@@ -270,7 +276,7 @@ public class ShipWarfareGUI extends Application {
                     }
                 }
             } else {
-                System.out.printf("%s! We don't have any GUNS!!!!\n",player.getName());
+                System.out.printf("%s! We don't have any GUNS!!!!\n", player.getName());
             }
 
 
@@ -331,7 +337,7 @@ public class ShipWarfareGUI extends Application {
 
 
         if (exitValue == 1) {
-            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", player.getHP());
+            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%%% ship status\n", player.getHP());
             calculateLoot = (randomValue.nextInt(startingLittyShips) + startingLittyShips) * 300;
             player.setMoney(player.getMoney() + calculateLoot);
             System.out.printf("We got $%,d!\n", calculateLoot);
@@ -349,13 +355,8 @@ public class ShipWarfareGUI extends Application {
 
     }
 
-    /**
-     * The user faces off against the peasant ships and either prevails, dies, or runs away
-     * @return true if the user wins, loses, or flees, it returns false otherwise
-     * @throws Exception in case of errors due to the delay
-     */
 
-    public void wipe(){
+    public void wipe() {
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
         shipsRemaining.setVisible(false);
@@ -366,13 +367,21 @@ public class ShipWarfareGUI extends Application {
 
     }
 
+    /**
+     * The user faces off against the peasant ships and either prevails, dies, or runs away
+     *
+     * @return true if the user wins, loses, or flees, it returns false otherwise
+     * @throws Exception in case of errors due to the delay
+     */
+
     public boolean destroyPeasantShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
-        int hitCounter=0;
-        int missCounter=0;
-        boolean gunFrustration= false;
-
+        int hitCounter = 0;
+        int missCounter = 0;
+        boolean gunFrustration = false;
+        //runAwayOrLeft.setVisible(false);
+        runAwayOrLeft.setText("No ships ran away");
 
         Scanner userInput = new Scanner(System.in);
         Random randomValue = new Random();
@@ -380,100 +389,97 @@ public class ShipWarfareGUI extends Application {
 
         //Player volley
         //while (exitValue == 0) {
-            if (player.getGuns() > 0) {
+        if (player.getGuns() > 0) {
 
-                for (int j = 0; j < player.getGuns(); j++) {
-                    if (userAttacks == true) {
-                        int hitOrMiss = randomValue.nextInt(2) + 1;
-                        if (hitOrMiss == 2) {
-                            numOfPeasantShips--;
-                            if (numOfPeasantShips <= 0) {
-                                exitValue = 1;
-                                //break;
-                            }
-                            hitCounter++;
-                        } else {
-                            missCounter++;
+            for (int j = 0; j < player.getGuns(); j++) {
+                if (userAttacks == true) {
+                    int hitOrMiss = randomValue.nextInt(2) + 1;
+                    if (hitOrMiss == 2) {
+                        numOfPeasantShips--;
+                        if (numOfPeasantShips <= 0) {
+                            exitValue = 1;
+                            //break;
                         }
-
-
+                        hitCounter++;
                     } else {
-                        //continue;
+                        missCounter++;
                     }
-                }
-                report.setText(String.format("Report: Ships we hit: %d Shots missed: %d", hitCounter,missCounter));
-            }
-            else{
-                report.setText("We don't have any guns!!!");
-
-            }
 
 
-            if (numOfPeasantShips <= 0) {
-                exitValue = 1;
-                //break;
-            }
-            if (player.getGuns() > 0) {
-                chanceOfEnemyRun = randomValue.nextInt(2) + 1;
-                if (chanceOfEnemyRun == 2) {
-                    howMuchRun = randomValue.nextInt(15) + 1;
-                    if (howMuchRun != 0 && howMuchRun < numOfPeasantShips) {
-
-
-                        setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
-                        if (userAttacks == true) {
-                            runAwayOrLeft.setText(String.format("Ahhh, %d ships ran away %s! ", howMuchRun, player.getName()));
-                        } else {
-                            runAwayOrLeft.setText(String.format("Escaped %d of them! ", howMuchRun));
-                        }
-                    }
-                }
-            }
-
-            shipsRemaining.setText(String.format("%d ships remaining and they look angry!", numOfPeasantShips));
-            //Computer volley
-            int takeGunChance = randomValue.nextInt(4) + 1;
-            if (takeGunChance == 1 && player.getGuns() > 0) {
-                player.setGuns(player.getGuns() - 1);
-                gunFrustration=true;
-            } else {
-                player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
-            }
-            if (player.getHP() <= 0) {
-                exitValue = 2;
-                //break;
-            }
-            if(gunFrustration==true){
-                gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", player.getGuns()));
-            }
-            else{
-                gunsLeftOrTaken.setText(String.format("We still have %d guns left", player.getGuns()));
-            }
-
-            HPLeft.setText(String.format("EEK, our current ship status is %d%% ", player.getHP()));
-            if (userAttacks == false) {
-                userAttacks = true;
-            }
-
-            continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)", player.getGuns()));
-
-            if (runButton.isPressed()) {
-
-                if (runFromShips() == false) {
-                    wipe();
-                    chooseFightOrRun.setText("Couldn't run away");
                 } else {
-                    exitValue = 3;
-                    //break;
+                    //continue;
                 }
             }
+            report.setText(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
+        } else {
+            report.setText("We don't have any guns!!!");
 
-            else if(fightButton.isPressed()){
-                title.setText("AYYYYYYYYYYY");
-            }
-            else{
+        }
 
+
+        if (numOfPeasantShips <= 0) {
+            exitValue = 1;
+            //break;
+        }
+        if (player.getGuns() > 0) {
+            chanceOfEnemyRun = randomValue.nextInt(2) + 1;
+            if (chanceOfEnemyRun == 2) {
+                howMuchRun = randomValue.nextInt(15) + 1;
+                if (howMuchRun != 0 && howMuchRun < numOfPeasantShips) {
+
+
+                    setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
+                    if (howMuchRun > 0) {
+                        runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, player.getName()));
+                        //runAwayOrLeft.setVisible(true);
+                    } else {
+                        runAwayOrLeft.setText("None chose to flee!");
+                    }
+
+                }
             }
+        }
+
+        shipsRemaining.setText(String.format("%d ships remaining and they look angry!", numOfPeasantShips));
+        //Computer volley
+        int takeGunChance = randomValue.nextInt(4) + 1;
+        if (takeGunChance == 1 && player.getGuns() > 0) {
+            player.setGuns(player.getGuns() - 1);
+            gunFrustration = true;
+        } else {
+            player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
+        }
+        if (player.getHP() <= 0) {
+            exitValue = 2;
+            //break;
+        }
+        if (gunFrustration == true) {
+            gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", player.getGuns()));
+        } else {
+            gunsLeftOrTaken.setText(String.format("We still have %d guns left", player.getGuns()));
+        }
+
+        HPLeft.setText(String.format("EEK, our current ship status is %d%% ", player.getHP()));
+        if (userAttacks == false) {
+            userAttacks = true;
+        }
+
+        continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)", player.getGuns()));
+
+        if (runButton.isPressed()) {
+
+            if (runFromShips() == false) {
+                wipe();
+                chooseFightOrRun.setText("Couldn't run away");
+            } else {
+                exitValue = 3;
+                //break;
+            }
+        } else if (fightButton.isPressed()) {
+            title.setText("AYYYYYYYYYYY");
+        } else {
+
+        }
 
 
         //}
@@ -481,11 +487,11 @@ public class ShipWarfareGUI extends Application {
 
         if (exitValue == 1) {
             wipe();
-            chooseFightOrRun.setText(String.format("Ayy We won! We survived at %d ship status!", player.getHP()));
+            chooseFightOrRun.setText(String.format("Ayy We won! We survived at %d%% ship status!", player.getHP()));
             System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", player.getHP());
             calculateLoot = (randomValue.nextInt(startingPeasantShips) + startingPeasantShips) * 100;
             player.setMoney(player.getMoney() + calculateLoot);
-            report.setText(String.format("We got $%,d! ",calculateLoot));
+            report.setText(String.format("We got $%,d! ", calculateLoot));
             return true;
         } else if (exitValue == 2) {
             player.gameOver();
@@ -500,14 +506,13 @@ public class ShipWarfareGUI extends Application {
     }
 
 
-
-
     //Main G
     private int counter = 0;
 
 
     /**
      * delays for a specific amount of seconds, takes an integer as an argument
+     *
      * @param num the seconds to delay
      * @throws Exception in case of errors due to the delay
      */
@@ -519,8 +524,6 @@ public class ShipWarfareGUI extends Application {
 
         }
     }
-
-
 
 
     public void setLabel1(String sysOut) {
@@ -537,7 +540,6 @@ public class ShipWarfareGUI extends Application {
 
     public void start(Stage stage) throws Exception {
         setNumOfPeasantShips(numOfShips());
-        player.setGuns(5);
 
         BorderPane BorderPane = new BorderPane();
 
@@ -559,7 +561,6 @@ public class ShipWarfareGUI extends Application {
         continueToFight = new Label();
 
 
-
         BorderPane.setPrefHeight(400.0);
         BorderPane.setPrefWidth(600.0);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
@@ -570,7 +571,7 @@ public class ShipWarfareGUI extends Application {
         title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         title.setId("Label1");
-        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?",numOfPeasantShips));
+        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfPeasantShips));
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
         fightButton.setAlignment(javafx.geometry.Pos.CENTER);
@@ -611,22 +612,19 @@ public class ShipWarfareGUI extends Application {
         vBox.getChildren().add(continueToFight);
 
 
-
-
-
         //report.setText(String.format("By Golly! We have $%,d and are being attacked by %d Merchant ships\nCurrently our ship status is %d%%\n", player.getMoney(), shipWarfare.getNumOfPeasantShips(), player.getHP()));
 
 
         //Fight
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent event)  {
+            public void handle(ActionEvent event) {
                 counter++;
                 chooseFightOrRun.setText("Ohh, Fight ehh?");
-                    try {
-                        destroyPeasantShipsOrEscape();
-                    }
-                    catch(Exception e){}
+                try {
+                    destroyPeasantShipsOrEscape();
+                } catch (Exception e) {
+                }
                 if (counter == 2) {
                     title.setVisible(false);
 
