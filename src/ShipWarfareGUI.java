@@ -42,6 +42,7 @@ public class ShipWarfareGUI extends Application {
     private Label HPLeft;
     private Label gunsLeftOrTaken;
     private Label continueToFight;
+    private int counter1;
 
 
     public static void main(String args[]) {
@@ -181,9 +182,12 @@ public class ShipWarfareGUI extends Application {
      * @param numOfPeasantShips the number of ships to be used in the peasant fleet attack
      */
 
-    public void setNumOfPeasantShips(int numOfPeasantShips) {
+    public void setNumOfPeasantShips(int numOfPeasantShips){
+        counter1++;
         this.numOfPeasantShips = numOfPeasantShips;
-        startingPeasantShips = numOfPeasantShips;
+        if(counter1==1) {
+            startingPeasantShips = numOfPeasantShips;
+        }
 
     }
 
@@ -487,8 +491,7 @@ public class ShipWarfareGUI extends Application {
         if (exitValue == 1) {
             wipe();
             chooseFightOrRun.setText(String.format("Ayy We won! We survived at %d%% ship status!", player.getHP()));
-            System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", player.getHP());
-            calculateLoot = (randomValue.nextInt(startingPeasantShips) + startingPeasantShips) * 100;
+            calculateLoot = (startingPeasantShips *100) + randomValue.nextInt(startingPeasantShips) *200;
             player.setMoney(player.getMoney() + calculateLoot);
             report.setText(String.format("We got $%,d! ", calculateLoot));
             return true;
