@@ -223,7 +223,7 @@ public class ShipWarfareGUI extends Application {
     }
 
     /**
-     * One in two chance of running away
+     * One in 10 chance of running away
      *
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
@@ -231,7 +231,7 @@ public class ShipWarfareGUI extends Application {
     public boolean runFromShips() {
         userAttacks = false;
         Random randomValue = new Random();
-        int runSuccessChance = randomValue.nextInt(2) + 1;
+        int runSuccessChance = randomValue.nextInt(10) + 1;
         if (runSuccessChance == 2) {
             return true;
         } else if (runSuccessChance == 1) {
@@ -459,10 +459,6 @@ public class ShipWarfareGUI extends Application {
                             runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, player.getName()));
                             //runAwayOrLeft.setVisible(true);
                         }
-                        else{
-                            runAwayOrLeft.setText(String.format("Escaped %d of them %s! ", howMuchRun, player.getName()));
-
-                        }
 
                     } else {
                         report.setText((String.format("Escaped %d of them %s!", howMuchRun,player.getName())));
@@ -656,7 +652,8 @@ public class ShipWarfareGUI extends Application {
                     destroyPeasantShipsOrEscape();
                 } catch (Exception e) {
                 }
-                if (counter == 2) {
+
+                if (counter >= 2) {
                     title.setVisible(false);
 
                 }
@@ -683,6 +680,10 @@ public class ShipWarfareGUI extends Application {
                     report.setText("Phew! Got away safely");
 
 
+                }
+
+                if (counter>=2){
+                    title.setVisible(false);
                 }
 
 
