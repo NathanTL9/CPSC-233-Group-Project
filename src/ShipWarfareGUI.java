@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.util.Random;
 
 public class ShipWarfareGUI {
@@ -32,21 +33,15 @@ public class ShipWarfareGUI {
     private Button continueButton;
 
 
-
-    /*
-        /**
-         * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-         *
-         * @param player is a Player object that will be copied and the player instance variable is set to the copy.
-         */
-    public ShipWarfareGUI(Player player){
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
+    public ShipWarfareGUI(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
 
-    //public static void main(String args[]) {
-    //    launch(args);
-    //}
 
     private int numOfPeasantShips = 0;
     private int numOfLittyShips = 0;
@@ -59,6 +54,7 @@ public class ShipWarfareGUI {
 
     /**
      * setter method for player
+     *
      * @param player object of the class Player
      */
     public void setPlayer(Player player) {
@@ -68,6 +64,7 @@ public class ShipWarfareGUI {
 
     /**
      * getter method for obtaining a player object.
+     *
      * @return returns player object
      */
     public Player getPlayer() {
@@ -77,12 +74,13 @@ public class ShipWarfareGUI {
 
     /**
      * setter method that takes in an integer as an argument
+     *
      * @param numOfPeasantShips the number of ships to be used in the peasant fleet attack
      */
-    public void setNumOfPeasantShips(int numOfPeasantShips){
+    public void setNumOfPeasantShips(int numOfPeasantShips) {
         counter1++;
         this.numOfPeasantShips = numOfPeasantShips;
-        if(counter1==1) {
+        if (counter1 == 1) {
             startingPeasantShips = numOfPeasantShips;
         }
 
@@ -90,6 +88,7 @@ public class ShipWarfareGUI {
 
     /**
      * The number of ships that attack is based on the amount of money one has on hand
+     *
      * @return the number of ships which will attack
      */
     public int numOfShips() {
@@ -117,6 +116,7 @@ public class ShipWarfareGUI {
 
     /**
      * One in two chance of running away
+     *
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
     public boolean runFromShips() {
@@ -134,7 +134,7 @@ public class ShipWarfareGUI {
     /**
      * Sets most of the labels invisible except for the "fight or run" label
      */
-    public void wipe(){
+    public void wipe() {
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
         shipsRemaining.setVisible(false);
@@ -160,6 +160,7 @@ public class ShipWarfareGUI {
 
     /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
+     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
@@ -208,7 +209,8 @@ public class ShipWarfareGUI {
                 } else {
                     //continue;
                 }
-            }if(userAttacks==true) {
+            }
+            if (userAttacks == true) {
                 report.setText(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
             }
         } else {
@@ -236,7 +238,7 @@ public class ShipWarfareGUI {
                         }
 
                     } else {
-                        report.setText((String.format("Escaped %d of them %s!", howMuchRun,player.getName())));
+                        report.setText((String.format("Escaped %d of them %s!", howMuchRun, player.getName())));
                     }
 
                 }
@@ -250,7 +252,7 @@ public class ShipWarfareGUI {
             player.setGuns(player.getGuns() - 1);
             gunFrustration = true;
         } else {
-            if (numOfPeasantShips>0) {
+            if (numOfPeasantShips > 0) {
                 player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
 
             }
@@ -275,7 +277,7 @@ public class ShipWarfareGUI {
         if (exitValue == 1) {
             wipe();
             chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", player.getHP()));
-            calculateLoot = (startingPeasantShips *100) + randomValue.nextInt(startingPeasantShips) *200;
+            calculateLoot = (startingPeasantShips * 100) + randomValue.nextInt(startingPeasantShips) * 200;
             player.setMoney(player.getMoney() + calculateLoot);
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
@@ -295,11 +297,12 @@ public class ShipWarfareGUI {
 
     /**
      * Sets up the graphical part of ShipWarfare and includes all logic for the class
+     *
      * @param stage sets the stage to which we will execute the scene of the ShipWarfare class
      * @return stage so that another class can switch to the stage
      */
 
-    public Stage initializeShip(Stage stage){
+    public Stage initializeShip(Stage stage) {
         setNumOfPeasantShips(numOfShips());
 
         BorderPane BorderPane = new BorderPane();
@@ -325,7 +328,6 @@ public class ShipWarfareGUI {
         continueButton.setVisible(false);
 
 
-
         BorderPane.setPrefHeight(400.0);
         BorderPane.setPrefWidth(600.0);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
@@ -336,7 +338,7 @@ public class ShipWarfareGUI {
         title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         title.setId("Label1");
-        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?",numOfPeasantShips));
+        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfPeasantShips));
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
         continueButton.setMnemonicParsing(false);
@@ -352,7 +354,8 @@ public class ShipWarfareGUI {
         runButton.setId("Button2");
         runButton.setMnemonicParsing(false);
 
-        BorderPane.setBottom(hBox);runButton.setText("Run");
+        BorderPane.setBottom(hBox);
+        runButton.setText("Run");
 
         BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
         vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
@@ -392,7 +395,7 @@ public class ShipWarfareGUI {
                 counter++;
                 chooseFightOrRun.setText("Ohh, Fight ehh?");
                 try {
-                    if (destroyPeasantShipsOrEscape(stage)){
+                    if (destroyPeasantShipsOrEscape(stage)) {
                         completeWipe();
                         continueButton.setVisible(true);
                         fightButton.setVisible(false);
@@ -438,7 +441,7 @@ public class ShipWarfareGUI {
                     chooseFightOrRun.setVisible(false);
                     report.setText(("Couldn't run away"));
                     try {
-                        if(destroyPeasantShipsOrEscape(stage)==true){
+                        if (destroyPeasantShipsOrEscape(stage) == true) {
                             completeWipe();
                             continueButton.setVisible(true);
                             fightButton.setVisible(false);
@@ -468,7 +471,7 @@ public class ShipWarfareGUI {
 
 
                 }
-                if (counter>=2){
+                if (counter >= 2) {
                     title.setVisible(false);
                 }
             }
@@ -485,9 +488,10 @@ public class ShipWarfareGUI {
 
     /**
      * sets scene and runs stage
+     *
      * @param primaryStage the stage in which the scene may be run and switched to
      */
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         primaryStage = initializeShip(primaryStage);
         primaryStage.show();
     }
