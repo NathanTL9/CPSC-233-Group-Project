@@ -1,6 +1,6 @@
 /**
 * TaipanShopGUI deals with setting the stage for shop
-* Author: Vikram Bawa
+* Authors: Vikram Bawa, Harkamal Randhawa, Nathan Lum, Haris Muhammad, Siddhant Dewani
 */
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
