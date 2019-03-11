@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class bankGUI{
-    private Player player = new Player();
+    private Player player;
     /**
      * setter method that takes in a Player object as an argument.
      *
@@ -36,19 +36,19 @@ public class bankGUI{
      *
      //* @param player object of the class Player
      */
-    //public bankGUI(Player player){
-    //    Player playerDummy = new Player(player);
-    //    this.player = playerDummy;
-    //}
+    public bankGUI(Player player){
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
 
     public Stage initializeBank(Stage primaryStage) {
         primaryStage.setTitle("Bank");
 
         //Declaring each Layout
         BorderPane brdr1 = new BorderPane();
-        HBox hbx1 = new HBox(10);
-        HBox hbx2 = new HBox(10);
-        VBox vbx1 = new VBox(10);
+        HBox hbx1 = new HBox(30);
+        HBox hbx2 = new HBox(30);
+        VBox vbx1 = new VBox(30);
 
         //Declaring all Variables
         Label l1 = new Label("Player:  " + player.getName());
@@ -88,11 +88,11 @@ public class bankGUI{
         brdr1.setTop(vbx1);
 
         // Set the event handler when the deposit button is clicked
-        boolean keepGoing = true;
         b1.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
                                int withdraw = Integer.parseInt(txtField1.getText());
+                               System.out.println(withdraw);
                                if(withdraw <= player.getBank()){
                                    player.setMoney(withdraw + player.getMoney());
                                    player.setBank(player.getBank()-withdraw);
@@ -111,6 +111,7 @@ public class bankGUI{
                            @Override
                            public void handle(ActionEvent event) {
                                int deposit = Integer.parseInt(txtField1.getText());
+                               System.out.println(deposit);
                                if(deposit <= player.getMoney()){
                                    player.setBank(deposit + player.getBank());
                                    player.setMoney(player.getMoney()-deposit);
@@ -146,7 +147,7 @@ public class bankGUI{
 
 
     public void start(Stage primaryStage) {
-        bankGUI bank = new bankGUI();
+        bankGUI bank = new bankGUI(player);
         bank.initializeBank(primaryStage);
         primaryStage.show();
     }

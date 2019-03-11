@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class loanSharkGUI{
-        private Player player = new Player();
+        private Player player;
         /**
          * setter method that takes in a Player object as an argument.
          *
@@ -36,10 +36,10 @@ public class loanSharkGUI{
          *
          //* @param player object of the class Player
          */
-        //public loanSharkGUI(Player player){
-        //    Player playerDummy = new Player(player);
-        //    this.player = playerDummy;
-        //}
+        public loanSharkGUI(Player player){
+            Player playerDummy = new Player(player);
+            this.player = playerDummy;
+        }
 
     public Stage initializeLoanShark(Stage primaryStage) {
         primaryStage.setTitle("Loan Shark");
@@ -151,7 +151,7 @@ public class loanSharkGUI{
 
 
     public void start(Stage primaryStage) {
-        loanSharkGUI loan = new loanSharkGUI();
+        loanSharkGUI loan = new loanSharkGUI(player);
         loan.initializeLoanShark(primaryStage);
         primaryStage.show();
     }
