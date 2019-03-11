@@ -35,6 +35,7 @@ public class ShipWarfareGUI {
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
     public ShipWarfareGUI(Player player) {
@@ -272,7 +273,7 @@ public class ShipWarfareGUI {
             userAttacks = true;
         }
 
-        continueToFight.setText(String.format("Shall we continue to fight? (Click the fight button or the run button)", player.getGuns()));
+        continueToFight.setText(String.format("Captain, what are your orders? (Click the fight button or the run button)", player.getGuns()));
 
         if (exitValue == 1) {
             wipe();
