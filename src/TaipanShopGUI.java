@@ -65,10 +65,11 @@ public class TaipanShopGUI {
     /**
      * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
      */
-    public void retire(){
+    public void retire(Stage stage){
         player.setRetire(true);
-        System.out.println("You win!");
-        System.exit(0);
+        GameEndGUI gameEndGUI = new GameEndGUI(player);
+        gameEndGUI.initializeGameEndGUI(stage);
+        stage.show();
     }
 
     /**
@@ -548,7 +549,7 @@ public class TaipanShopGUI {
         retireButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                retire();
+                retire(stage);
             }
         });
         retireButton.setMnemonicParsing(false);

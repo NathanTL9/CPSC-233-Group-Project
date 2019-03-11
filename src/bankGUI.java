@@ -92,7 +92,6 @@ public class bankGUI{
                            @Override
                            public void handle(ActionEvent event) {
                                int withdraw = Integer.parseInt(txtField1.getText());
-                               System.out.println(withdraw);
                                if(withdraw <= player.getBank()){
                                    player.setMoney(withdraw + player.getMoney());
                                    player.setBank(player.getBank()-withdraw);
@@ -111,7 +110,6 @@ public class bankGUI{
                            @Override
                            public void handle(ActionEvent event) {
                                int deposit = Integer.parseInt(txtField1.getText());
-                               System.out.println(deposit);
                                if(deposit <= player.getMoney()){
                                    player.setBank(deposit + player.getBank());
                                    player.setMoney(player.getMoney()-deposit);
