@@ -250,7 +250,10 @@ public class ShipWarfareGUI {
             player.setGuns(player.getGuns() - 1);
             gunFrustration = true;
         } else {
-            player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
+            if (numOfPeasantShips>0) {
+                player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
+
+            }
         }
         if (player.getHP() <= 0) {
             exitValue = 2;
@@ -289,6 +292,12 @@ public class ShipWarfareGUI {
         }
         return false;
     }
+
+    /**
+     * Sets up the graphical part of ShipWarfare
+     * @param stage sets the stage to which we will execute the scene of the ShipWarfare class
+     * @return
+     */
 
     public Stage initializeShip(Stage stage){
         setNumOfPeasantShips(numOfShips());
