@@ -6,6 +6,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+* 2019-03-10
+* Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+* GameEndGUI class, Initializes and displays the graphical interface for when you lose
+*
+*/
 public class GameEndGUI {
 
     private Label title;
