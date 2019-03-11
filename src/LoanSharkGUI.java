@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class bankGUI {
+public class LoanSharkGUI {
     private Player player;
 
     /**
@@ -38,45 +38,36 @@ public class bankGUI {
      * <p>
      * //* @param player object of the class Player
      */
-    public bankGUI(Player player) {
+    public LoanSharkGUI(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
 
-    /**
-     * Initializes the GUI for the Bank in our game.
-     *
-     * @param primaryStage
-     * @return
-     */
-    public Stage initializeBank(Stage primaryStage) {
-        primaryStage.setTitle("Bank");
+    public Stage initializeLoanShark(Stage primaryStage) {
+        primaryStage.setTitle("Loan Shark");
 
-        /**
-         * Creating all the layouts, labels, buttons, and a textfield.
-         *
-         */
+        //Declaring each Layout
         BorderPane brdr1 = new BorderPane();
-        HBox hbx1 = new HBox(30);
-        HBox hbx2 = new HBox(30);
-        VBox vbx1 = new VBox(30);
+        HBox hbx1 = new HBox(10);
+        HBox hbx2 = new HBox(10);
+        VBox vbx1 = new VBox(10);
 
+        //Declaring all Variables
         Label l1 = new Label("Player:  " + player.getName());
-        Label l2 = new Label("Current Balance: " + player.getBank());
-        Label l3 = new Label("Enter Amount: ");
+        Label l2 = new Label("Current Debt " + player.getDebt());
         Label l4 = new Label("Current cash: " + player.getMoney());
+        Label l3 = new Label("Enter Amount: ");
         Label l5 = new Label(" ");
 
-        Button b1 = new Button("Withdraw");
-        Button b2 = new Button("Deposit");
+        //Declaring All Buttons
+        Button b1 = new Button("Borrow");
+        Button b2 = new Button("Repay");
         Button b3 = new Button("Go back");
 
+        //Declaring All TextFields
         TextField txtField1 = new TextField();
 
-        /**
-         * Adds the buttons so that they are at the bottom of the screen.
-         *
-         */
+        //Creating the buttons at the bottom of the screen
         hbx1.setAlignment(Pos.CENTER);
         hbx1.getChildren().add(b1);
         hbx1.getChildren().add(b2);
@@ -84,19 +75,13 @@ public class bankGUI {
 
         brdr1.setBottom(hbx1);
 
-        /**
-         * Adds the text field to the center of the screen.
-         *
-         */
+        //Creating the TextField at the center of the screen
         hbx2.setAlignment(Pos.CENTER);
         hbx2.getChildren().add(l3);
         hbx2.getChildren().add(txtField1);
         brdr1.setCenter(hbx2);
 
-        /**
-         * Adds the labels to the top of the screen.
-         *
-         */
+        //Creating the Labels at the top of the Screen
         vbx1.setAlignment(Pos.CENTER);
         vbx1.getChildren().add(l1);
         vbx1.getChildren().add(l2);
@@ -104,52 +89,45 @@ public class bankGUI {
         vbx1.getChildren().add(l5);
         brdr1.setTop(vbx1);
 
-        /**
-         * Adds function to button 1 which, when clicked, withdraws money from your bank to your person but, will not let you overdraw.
-         *
-         */
+        // Set the event handler when the deposit button is clicked
+        boolean keepGoing = true;
         b1.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
-                               int withdraw = Integer.parseInt(txtField1.getText());
-                               if (withdraw <= player.getBank()) {
-                                   player.setMoney(withdraw + player.getMoney());
-                                   player.setBank(player.getBank() - withdraw);
+                               int loanAsk = Integer.parseInt(txtField1.getText());
+                               if (loanAsk <= 2 * (player.getMoney() - player.getDebt()) && loanAsk >= 0) {
+                                   player.setDebt(player.getDebt() + loanAsk);
+                                   player.setMoney(player.getMoney() + loanAsk);
+                                   l4.setText("Current cash: " + player.getMoney());
                                } else {
-                                   l5.setText("Sorry you cannot withdraw that much");
+                                   l5.setText("Sorry you cannot be loaned that much");
                                }
-                               l2.setText("Current Balance: " + player.getBank());
-                               l4.setText("Current cash: " + player.getMoney());
+
+
+                               l2.setText("Debt: " + player.getDebt());
                            }
                        }
         );
 
-        /**
-         * Adds function to button 2 which, when clicked, deposits money into your bank but, will not let you overdraw.
-         *
-         */
         // Set the event handler when the withdraw button is clicked
         b2.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
-                               int deposit = Integer.parseInt(txtField1.getText());
-                               if (deposit <= player.getMoney()) {
-                                   player.setBank(deposit + player.getBank());
-                                   player.setMoney(player.getMoney() - deposit);
+                               int returnAsk = Integer.parseInt(txtField1.getText());
+                               if (returnAsk <= player.getDebt() && returnAsk >= 0) {
+                                   player.setDebt(player.getDebt() - returnAsk);
+                                   player.setMoney(player.getMoney() - returnAsk);
+                                   l4.setText("Current cash: " + player.getMoney());
+                               } else if (returnAsk > player.getDebt()) {
+                                   l5.setText("Sorry you cannot be loaned that much");
                                } else {
-                                   l5.setText("Sorry you cannot deposit that much");
+                                   l5.setText("Sorry you cannot return a negative amount");
                                }
-                               l2.setText("Current Balance: " + player.getBank());
-                               l4.setText("Current cash: " + player.getMoney());
-
+                               l2.setText("Debt: " + player.getDebt());
                            }
                        }
         );
 
-        /**
-         * Adds function to button 3 which, when clicked, brings you back to the Shop GUI.
-         *
-         */
         b3.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
@@ -161,23 +139,32 @@ public class bankGUI {
         );
 
 
-        /**
-         * Sets the window size to a width of 600 and height of 480 and displays the screen.
-         *
-         */
+        //Setting the Scene and displaying it
         Scene scene = new Scene(brdr1, 600, 480);
         primaryStage.setScene(scene);
+        //primaryStage.show();
         return primaryStage;
     }
 
-    /**
-     * sets scene and runs stage
-     *
-     * @param primaryStage the stage in which the scene may be run and switched to
-     */
+
     public void start(Stage primaryStage) {
-        bankGUI bank = new bankGUI(player);
-        bank.initializeBank(primaryStage);
+        LoanSharkGUI loan = new LoanSharkGUI(player);
+        loan.initializeLoanShark(primaryStage);
         primaryStage.show();
     }
+
+
+    /**
+     * This methods purpose is to loan the player the funds it wants
+     * or pay its outstanding debts. The method prompts the user if they
+     * would like to borrow money or repay. depending on what the player chooses
+     * the corresponding loop is evoked. The player can only be loaned 2 times the
+     * money they have minus the debt id their debt exceeds the cash balance, the loan
+     * cannot be given.
+     */
 }
+
+
+
+
+
