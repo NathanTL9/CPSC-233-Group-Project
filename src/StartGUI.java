@@ -1,5 +1,3 @@
-
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -60,7 +58,6 @@ public class StartGUI {
         }
     }
 
-
     /*
     **
      * Copy constructor.
@@ -79,6 +76,9 @@ public class StartGUI {
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
         hBox.setSpacing(10.0);
+
+        borderPane.setPrefHeight(480.0);
+        borderPane.setPrefWidth(600.0);
 
         nameField.setPromptText("Enter your name.");
         nameField.setText("Taipan");
