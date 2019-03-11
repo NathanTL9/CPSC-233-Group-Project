@@ -8,6 +8,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+* 2019-03-10
+* Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+* StartGUI class, Initializes and displays the start menu for Taipan
+*
+*/
+
+
 public class StartGUI {
 
     private Player player;
