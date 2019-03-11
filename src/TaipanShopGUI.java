@@ -704,7 +704,7 @@ public class TaipanShopGUI {
         warehouseText.setAlignment(Pos.CENTER);
         warehouseText.setPrefHeight(108.0);
         warehouseText.setPrefWidth(100.0);
-        warehouseText.setText("Warehouse\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
+        warehouseText.setText("  Warehouse\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
         warehouseText.setFont(size14);
 
         wItemsText.setAlignment(Pos.CENTER);
