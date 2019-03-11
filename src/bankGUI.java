@@ -126,11 +126,13 @@ public class bankGUI{
         );
 
         b3.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               System.out.println("PLACEHOLDER FOR SHOP");
-                           }
-                       }
+               @Override
+               public void handle(ActionEvent event) {
+                   TaipanShopGUI shopGUI = new TaipanShopGUI(player);
+                   shopGUI.initializeShop(primaryStage);
+                   primaryStage.show();
+               }
+           }
         );
 
 

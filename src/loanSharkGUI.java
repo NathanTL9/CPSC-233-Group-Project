@@ -133,7 +133,9 @@ public class loanSharkGUI{
         b3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("PLACEHOLDER FOR SHOP");
+                TaipanShopGUI shopGUI = new TaipanShopGUI(player);
+                shopGUI.initializeShop(primaryStage);
+                primaryStage.show();
             }
         }
         );
