@@ -491,7 +491,7 @@ public class TaipanShopGUI {
         bankButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                bankGUI bank = new bankGUI(player);
+                bankGUI bank = new bankGUI();
                 bank.initializeBank(stage);
                 stage.show();
             }
@@ -520,7 +520,7 @@ public class TaipanShopGUI {
         loanButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                loanSharkGUI loan = new loanSharkGUI(player);
+                loanSharkGUI loan = new loanSharkGUI();
                 loan.initializeLoanShark(stage);
                 stage.show();
             }
@@ -754,6 +754,7 @@ public class TaipanShopGUI {
         stage.setResizable(false);
         stage.setScene(root);
 
+        buttonSetup("reset");
         updatePrices();
         defaultTextOut();
         updateStage();
