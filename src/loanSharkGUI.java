@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class loanSharkGUI extends Application{
+public class loanSharkGUI{
         private Player player = new Player();
         /**
          * setter method that takes in a Player object as an argument.
@@ -152,10 +152,6 @@ public class loanSharkGUI extends Application{
         loanSharkGUI loan = new loanSharkGUI();
         loan.initializeLoanShark(primaryStage);
         primaryStage.show();
-    }
-    public static void main(String args[]) {
-        launch(args);
-
     }
 
 

@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class WarehouseGUI extends Application {
+public class WarehouseGUI {
 
     private Player player;
 

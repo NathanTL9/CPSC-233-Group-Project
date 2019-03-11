@@ -492,7 +492,9 @@ public class TaipanShopGUI {
         bankButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("PLACEHOLDER FOR BANK");
+                bankGUI bank = new bankGUI();
+                bank.initializeBank(stage);
+                stage.show();
             }
         });
         bankButton.setMnemonicParsing(false);
@@ -519,7 +521,9 @@ public class TaipanShopGUI {
         loanButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("PLACEHOLDER FOR LOAN SHARK");
+                loanSharkGUI loan = new loanSharkGUI();
+                loan.initializeLoanShark(stage);
+                stage.show();
             }
         });
         loanButton.setText("Get Loans");
