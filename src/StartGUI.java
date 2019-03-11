@@ -10,9 +10,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class StartGUI extends Application {
+public class StartGUI {
 
-    private Player player = new Player();
+    private Player player;
     private BorderPane borderPane = new BorderPane();
     private HBox hBox = new HBox();
     private TextField nameField = new TextField();
@@ -60,25 +60,17 @@ public class StartGUI extends Application {
         }
     }
 
-    public static void main(String args[]){
-        launch(args);
-    }
-    public void start(Stage stage){
-        stage = initializeStart(stage);
-        stage.show();
-    }
 
     /*
     **
      * Copy constructor.
      * @param player object of the class Player
-     *
+     */
     public StartGUI(Player player)
     {
         Player playerTemp = new Player(player);
         this.player = playerTemp;
     }
-    */
 
     public Stage initializeStart(Stage stage){
 
@@ -134,11 +126,9 @@ public class StartGUI extends Application {
         vBox0.getChildren().add(title);
         vBox0.getChildren().add(authors);
 
-        System.out.println("0");
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("a");
                 if (Start.getSelectedToggle() == cashChoice) {
                     player.setMoney(400);
                     player.setDebt(5000);
@@ -147,7 +137,6 @@ public class StartGUI extends Application {
                 if (Start.getSelectedToggle() == gunChoice) {
                     player.setGuns(5);
                 }
-                System.out.println("b");
 
                 String response = nameField.getText();
                 // purely for testing purposes.
@@ -162,8 +151,10 @@ public class StartGUI extends Application {
                     setFirm(response);
                 }
 
-                System.out.println("x");
-                title.setText("SHOP PLACEHOLDER");
+                TaipanShopGUI shop = new TaipanShopGUI(player);
+                shop.initializeShop(stage);
+                stage.show();
+                //title.setText("SHOP PLACEHOLDER");
             }
         });
 
