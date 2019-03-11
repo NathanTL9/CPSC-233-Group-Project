@@ -357,7 +357,7 @@ public class ShipWarfareGUI {
         BorderPane.setBottom(hBox);
         runButton.setText("Run");
 
-        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
+        javafx.scene.layout.BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
         vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         vBox.setPrefHeight(200.0);
         vBox.setPrefWidth(100.0);

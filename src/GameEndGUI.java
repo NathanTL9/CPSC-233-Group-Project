@@ -1,4 +1,3 @@
-
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -22,19 +21,15 @@ public class GameEndGUI {
         this.player = playerDummy;
     }
 
-    public void setPlayer(Player player) {
-        Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
+    /**
+     * Sets up the graphical part of GameEndGUI and includes all logic for the class
+     *
+     * @param stage sets the stage to which we will execute the scene of the GameEndGUI class
+     * @return stage so that another class can switch to the stage
+     */
+    public Stage initializeGameEndGUI(Stage stage) {
 
-    public Player getPlayer(){
-        Player playerDummy = new Player(player);
-        return playerDummy;
-    }
-
-
-    public Stage initializeGameEndGUI(Stage stage){
-
+        //Creating all the nodes
         title = new Label();
         vBox = new VBox();
         firmName = new Label();
@@ -46,6 +41,7 @@ public class GameEndGUI {
         borderPane.setPrefHeight(480.0);
         borderPane.setPrefWidth(600.0);
 
+        //Setting positions and names of all the nodes
         BorderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
         title.setText("Game Over!");
         title.setFont(new Font(43.0));
@@ -69,21 +65,29 @@ public class GameEndGUI {
         borderPane.setCenter(vBox);
 
 
+        //Adding the labels to the character's stats to the VBox which will show up on the screen
         vBox.getChildren().add(firmName);
         vBox.getChildren().add(gunsHeld);
         vBox.getChildren().add(netWorth);
 
-        if(player.getHP() <= 0){
+        /**
+         * If health is below or equal to 0 then the game will either show the gameOver screen or the win screen
+         * */
+        if (player.getHP() <= 0) {
             title.setText("Game Over!");
-        }
-        else{
+        } else {
             title.setText("Congratulations!");
         }
 
-        netWorthInt = player.getMoney() + (player.getOpiumHeld()*16000) + (player.getSilkHeld()*160) + (player.getArmsHeld()*160) + (player.getGeneralHeld()* 8);
-        netWorthInt += (player.getwOpium()*16000) + (player.getwSilk()*160) + (player.getwArms()*160) + (player.getwGeneral()* 8);
+        /**
+         * Calculates the networth of the player by the end of the game
+         * */
+        netWorthInt = player.getMoney() + (player.getOpiumHeld() * 16000) + (player.getSilkHeld() * 160) + (player.getArmsHeld() * 160) + (player.getGeneralHeld() * 8);
+        netWorthInt += (player.getwOpium() * 16000) + (player.getwSilk() * 160) + (player.getwArms() * 160) + (player.getwGeneral() * 8);
         netWorthInt -= player.getDebt();
 
+
+        //Updating the endgame stats of the player
         firmName.setText("Firm Name: " + player.getName());
         gunsHeld.setText("Guns Held: " + player.getGuns());
         netWorth.setText("Net Worth: " + netWorthInt);
@@ -97,7 +101,11 @@ public class GameEndGUI {
         return stage;
     }
 
-
+    /**
+     * sets scene and runs stage
+     *
+     * @param primaryStage the stage in which the scene may be run and switched to
+     */
     public void start(Stage primaryStage) {
         GameEndGUI gameEndGUI = new GameEndGUI(player);
         gameEndGUI.initializeGameEndGUI(primaryStage);

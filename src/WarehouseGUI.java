@@ -1,5 +1,3 @@
-
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -13,7 +11,6 @@ import javafx.stage.Stage;
 
 /**
  * A class that makes the GUI for the Warehouse class.
- *
  */
 public class WarehouseGUI {
 
@@ -48,6 +45,7 @@ public class WarehouseGUI {
     private CheckMenuItem arms;
     private CheckMenuItem silk;
     private CheckMenuItem opium;
+
     /**
      * A constructor that takes an object of type Player as an argument
      *
@@ -73,7 +71,7 @@ public class WarehouseGUI {
      *
      * @return returns a copy of the Player object, player
      */
-    public Player getPlayer(){
+    public Player getPlayer() {
         Player playerDummy = new Player(player);
         return playerDummy;
     }
@@ -129,7 +127,7 @@ public class WarehouseGUI {
          * Creates a label "Hong Kong Warehouse: at the top of the borderpane.
          *
          */
-        borderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
+        BorderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
 
         title.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         title.setStrokeWidth(0.0);
@@ -154,7 +152,7 @@ public class WarehouseGUI {
          * creates an HBox at the center of the borderpane with a width of 200 and height of 100.
          *
          */
-        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
@@ -168,49 +166,49 @@ public class WarehouseGUI {
         withdraw.setText("Withdraw");
         updateLabels();
         withdraw.setOnAction(new EventHandler<ActionEvent>() {
-        /**
-         * Creates a button with text "Deposit" which handles user events.
-         *
-         */
-               @Override
-               public void handle(ActionEvent event) {
+                                 /**
+                                  * Creates a button with text "Deposit" which handles user events.
+                                  *
+                                  */
+                                 @Override
+                                 public void handle(ActionEvent event) {
 
-                   int withdraw = Integer.parseInt(textIn.getText());
-                   updateLabels();
-                   if(opium.isSelected()){
-                       if (player.getwOpium() >= withdraw) {
-                           player.setwOpium(player.getwOpium() - withdraw);
-                           player.setOpiumHeld(player.getOpiumHeld() + withdraw);
-                       } else {
-                           title.setText("You don't have that much opium stored in the warehouse!");
-                       }
-                   }
-                   if(silk.isSelected()){
-                       if (player.getwSilk() >= withdraw) {
-                           player.setwSilk(player.getwSilk() - withdraw);
-                           player.setSilkHeld(player.getSilkHeld() + withdraw);
-                       } else {
-                           title.setText("You don't have that much silk stored in the warehouse!");
-                       }
-                   }
-                   if(arms.isSelected()){
-                       if (player.getwArms() >= withdraw) {
-                           player.setwArms(player.getwArms() - withdraw);
-                           player.setArmsHeld(player.getArmsHeld() + withdraw);
-                       } else {
-                           title.setText("You don't have that much arms stored in the warehouse!");
-                       }
-                   }
-                   if(general.isSelected()){
-                       if (player.getwGeneral() >= withdraw) {
-                           player.setwGeneral(player.getwGeneral() - withdraw);
-                           player.setGeneralHeld(player.getGeneralHeld() + withdraw);
-                       } else {
-                           title.setText("You don't have that much general stored in the warehouse!");
-                       }
-                   }
-               }
-           }
+                                     int withdraw = Integer.parseInt(textIn.getText());
+                                     updateLabels();
+                                     if (opium.isSelected()) {
+                                         if (player.getwOpium() >= withdraw) {
+                                             player.setwOpium(player.getwOpium() - withdraw);
+                                             player.setOpiumHeld(player.getOpiumHeld() + withdraw);
+                                         } else {
+                                             title.setText("You don't have that much opium stored in the warehouse!");
+                                         }
+                                     }
+                                     if (silk.isSelected()) {
+                                         if (player.getwSilk() >= withdraw) {
+                                             player.setwSilk(player.getwSilk() - withdraw);
+                                             player.setSilkHeld(player.getSilkHeld() + withdraw);
+                                         } else {
+                                             title.setText("You don't have that much silk stored in the warehouse!");
+                                         }
+                                     }
+                                     if (arms.isSelected()) {
+                                         if (player.getwArms() >= withdraw) {
+                                             player.setwArms(player.getwArms() - withdraw);
+                                             player.setArmsHeld(player.getArmsHeld() + withdraw);
+                                         } else {
+                                             title.setText("You don't have that much arms stored in the warehouse!");
+                                         }
+                                     }
+                                     if (general.isSelected()) {
+                                         if (player.getwGeneral() >= withdraw) {
+                                             player.setwGeneral(player.getwGeneral() - withdraw);
+                                             player.setGeneralHeld(player.getGeneralHeld() + withdraw);
+                                         } else {
+                                             title.setText("You don't have that much general stored in the warehouse!");
+                                         }
+                                     }
+                                 }
+                             }
         );
 
         deposit.setMnemonicParsing(false);
@@ -406,7 +404,7 @@ public class WarehouseGUI {
         borderPane.setRight(vBox1);
         borderPane.setTop(title);
 
-        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
@@ -435,7 +433,7 @@ public class WarehouseGUI {
         opium.setText("Opium");
         borderPane.setBottom(hBox);
 
-        borderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER_LEFT);
+        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER_LEFT);
         vBox.setPrefHeight(156.0);
         vBox.setPrefWidth(106.0);
 
@@ -476,7 +474,7 @@ public class WarehouseGUI {
         generalPlayer.setFont(new Font(18.0));
         borderPane.setLeft(vBox);
 
-        borderPane.setAlignment(vBox0, javafx.geometry.Pos.TOP_LEFT);
+        BorderPane.setAlignment(vBox0, javafx.geometry.Pos.TOP_LEFT);
         vBox0.setAlignment(javafx.geometry.Pos.CENTER);
         vBox0.setPrefHeight(343.0);
         vBox0.setPrefWidth(261.0);
@@ -551,7 +549,7 @@ public class WarehouseGUI {
          * Creates a VBox at the center of the borderpane with a width of 152 and a height of 48.
          *
          */
-        borderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
+        BorderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
         vBox1.setPrefHeight(48.0);
         vBox1.setPrefWidth(152.0);
 
@@ -626,7 +624,7 @@ public class WarehouseGUI {
      * The purpose of this class is to create a warehouse where the goods
      * can be safely stored without holing space on the ship!
      */
-    public void updateLabels(){
+    public void updateLabels() {
         generalPlayer.setText("General: " + player.getGeneralHeld());
         armsPlayer.setText("Arms: " + player.getArmsHeld());
         silkPlayer.setText("Silk: " + player.getSilkHeld());

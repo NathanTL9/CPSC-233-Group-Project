@@ -1,4 +1,3 @@
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,7 +10,7 @@ public class MainGUI extends Application {
      * @return returns a copy of the object player
      */
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         Player copy = new Player(player);
         return copy;
     }
@@ -22,7 +21,7 @@ public class MainGUI extends Application {
      * @param shop player object from the main class used to update the shop class
      */
 
-    public void shop(TaipanShopGUI shop){
+    public void shop(TaipanShopGUI shop) {
         shop.setPlayer(player);
         shop.shop();
         player = shop.getPlayer();
@@ -31,6 +30,7 @@ public class MainGUI extends Application {
     /**
      * Updates main class with player data and starts the game.
      * The game will only run as long as the player has not retired or has been destroyed.
+     *
      * @param args Just the console for the player to look at.
      */
     public static void main(String[] args) {

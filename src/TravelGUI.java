@@ -1,19 +1,14 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import javafx.geometry.Insets;
-import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 import java.util.Random;
 
@@ -41,22 +36,24 @@ public class TravelGUI{
     private Boolean stormScene = false;
 
 
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
     public TravelGUI(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
 
-    public void setPlayer(Player player) {
-        Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
-
-    public Player getPlayer(){
-        Player playerDummy = new Player(player);
-        return playerDummy;
-    }
-
+    /**
+     * Sets up the graphical part of TravelGUI and includes all logic for the class
+     *
+     * @param stage sets the stage to which we will execute the scene of the TravelGUI class
+     * @return stage so that another class can switch to the stage
+     */
     public Stage initializeTravel(Stage stage){
+        //Updates the stage for the first-time you read it
         updateStage();
 
         Font size14 = new Font(14.0);
@@ -148,6 +145,7 @@ public class TravelGUI{
         flowPane.setPrefHeight(200.0);
         flowPane.setPrefWidth(200.0);
 
+        //Creating the continue and quit buttons
         quitButton.setPrefHeight(25.0);
         quitButton.setMnemonicParsing(false);
         quitButton.setPrefWidth(90.0);
@@ -180,7 +178,7 @@ public class TravelGUI{
             }
         });
 
-        //Text input for where the player needs to go.
+        //Text input for where the player needs to go inside of the game world
         numberInput.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         numberInput.setText("Enter preferred location.");
         numberInput.setOnKeyPressed(event -> {
@@ -217,9 +215,6 @@ public class TravelGUI{
                             quitButton.setVisible(false);
                             numberInput.setVisible(false);
                             shopScene = true;
-                            //TaipanShopGUI taipanShopGUI = new TaipanShopGUI(player);
-                            //taipanShopGUI.initializeShop(stage);
-                            //stage.show();
                         }
                     }
                 }
@@ -295,6 +290,7 @@ public class TravelGUI{
         textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
         textOut.setFont(size14);
 
+        //Added all the nodes into a single scene
         anchorPane.getChildren().addAll(dialogueRectangle, inventoryRectangle, warehouseRectangle);
 
         hBox.getChildren().addAll(warehouseText, wItemsText, wItemSpaceText, locationText);
@@ -410,6 +406,11 @@ public class TravelGUI{
         }
     }
 
+    /**
+     * converts the user's location (an integer) to a String, and returns it.
+     *
+     * @return location -- the user's location as a string; the actual name of the location.
+     */
     public String getStringLocation(){
         String location;
         switch(player.getLocation()){
@@ -425,6 +426,11 @@ public class TravelGUI{
         return location;
     }
 
+    /**
+     * returns the user's condition based upon their current HP.
+     *
+     * @return shipStatus -- a representation of their ship's health in words.
+     */
     public String shipStatusString(){
         String shipStatus;
         switch(player.getHP()/10){
@@ -444,6 +450,9 @@ public class TravelGUI{
         return shipStatus;
     }
 
+    /**
+     * updates the text associated with the user's inventory.
+     */
     public void updateStage(){
         firm.setText(String.format("Firm: %s, %s", player.getName(), getStringLocation()));
         wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", player.getwOpium(), player.getwSilk(), player.getwArms(), player.getwGeneral()));
@@ -461,11 +470,5 @@ public class TravelGUI{
         shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", player.getDebt(), shipStatusString(), player.getHP()));
         cashText.setText(String.format("  Cash: $%,d", player.getMoney()));
         bankText.setText(String.format("Bank: %d", player.getBank()));
-    }
-
-    public void start(Stage primaryStage) {
-        primaryStage = initializeTravel(primaryStage);
-        updateStage();
-        primaryStage.show();
     }
 }

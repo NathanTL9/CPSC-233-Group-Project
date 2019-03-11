@@ -49,22 +49,20 @@ public class StartGUI {
      *
      * @param name the name that you would like to be called in the game
      */
-    public void setFirm (String name) {
+    public void setFirm(String name) {
         if (name.length() <= 22) {
             player.setName(name);
-        }
-        else{
+        } else {
             player.setName("Taipan");
         }
     }
 
     /*
-    **
+     **
      * Copy constructor.
      * @param player object of the class Player
      */
-    public StartGUI(Player player)
-    {
+    public StartGUI(Player player) {
         Player playerTemp = new Player(player);
         this.player = playerTemp;
     }
@@ -75,13 +73,13 @@ public class StartGUI {
      * @param stage object of type Stage
      * @return returns the stage of GUI
      */
-    public Stage initializeStart(Stage stage){
+    public Stage initializeStart(Stage stage) {
 
         /**
          * Creates an HBox at the center of the borderpane with a width of 200, height of 100 and spacing of 10.
          *
          */
-        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);

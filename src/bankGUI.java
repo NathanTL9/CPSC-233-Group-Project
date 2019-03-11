@@ -1,4 +1,3 @@
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,8 +10,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class bankGUI{
+public class bankGUI {
     private Player player;
+
     /**
      * setter method that takes in a Player object as an argument.
      *
@@ -22,21 +22,23 @@ public class bankGUI{
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
+
     /**
      * getter method for obtaining a player object.
      *
      * @return returns player object
      */
-    public Player getPlayer(){
+    public Player getPlayer() {
         Player playerDummy = new Player(player);
         return playerDummy;
     }
+
     /**
      * Class Constructor that takes in a type player as a parameter
-     *
-     //* @param player object of the class Player
+     * <p>
+     * //* @param player object of the class Player
      */
-    public bankGUI(Player player){
+    public bankGUI(Player player) {
         Player playerDummy = new Player(player);
         this.player = playerDummy;
     }
@@ -110,11 +112,10 @@ public class bankGUI{
                            @Override
                            public void handle(ActionEvent event) {
                                int withdraw = Integer.parseInt(txtField1.getText());
-                               if(withdraw <= player.getBank()){
+                               if (withdraw <= player.getBank()) {
                                    player.setMoney(withdraw + player.getMoney());
-                                   player.setBank(player.getBank()-withdraw);
-                               }
-                               else {
+                                   player.setBank(player.getBank() - withdraw);
+                               } else {
                                    l5.setText("Sorry you cannot withdraw that much");
                                }
                                l2.setText("Current Balance: " + player.getBank());
@@ -132,11 +133,10 @@ public class bankGUI{
                            @Override
                            public void handle(ActionEvent event) {
                                int deposit = Integer.parseInt(txtField1.getText());
-                               if(deposit <= player.getMoney()){
+                               if (deposit <= player.getMoney()) {
                                    player.setBank(deposit + player.getBank());
-                                   player.setMoney(player.getMoney()-deposit);
-                               }
-                               else{
+                                   player.setMoney(player.getMoney() - deposit);
+                               } else {
                                    l5.setText("Sorry you cannot deposit that much");
                                }
                                l2.setText("Current Balance: " + player.getBank());
@@ -151,13 +151,13 @@ public class bankGUI{
          *
          */
         b3.setOnAction(new EventHandler<ActionEvent>() {
-               @Override
-               public void handle(ActionEvent event) {
-                   TaipanShopGUI shopGUI = new TaipanShopGUI(player);
-                   shopGUI.initializeShop(primaryStage);
-                   primaryStage.show();
-               }
-           }
+                           @Override
+                           public void handle(ActionEvent event) {
+                               TaipanShopGUI shopGUI = new TaipanShopGUI(player);
+                               shopGUI.initializeShop(primaryStage);
+                               primaryStage.show();
+                           }
+                       }
         );
 
 
@@ -167,10 +167,14 @@ public class bankGUI{
          */
         Scene scene = new Scene(brdr1, 600, 480);
         primaryStage.setScene(scene);
-        //primaryStage.show();
         return primaryStage;
     }
-    
+
+    /**
+     * sets scene and runs stage
+     *
+     * @param primaryStage the stage in which the scene may be run and switched to
+     */
     public void start(Stage primaryStage) {
         bankGUI bank = new bankGUI(player);
         bank.initializeBank(primaryStage);

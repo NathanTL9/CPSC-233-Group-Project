@@ -1,4 +1,3 @@
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,35 +10,38 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class loanSharkGUI{
-        private Player player;
-        /**
-         * setter method that takes in a Player object as an argument.
-         *
-         * @param player object of the class Player
-         */
-        public void setPlayer(Player player) {
-            Player playerDummy = new Player(player);
-            this.player = playerDummy;
-        }
-        /**
-         * getter method for obtaining a player object.
-         *
-         * @return returns player object
-         */
-        public Player getPlayer(){
-            Player playerDummy = new Player(player);
-            return playerDummy;
-        }
-        /**
-         * Class Constructor that takes in a type player as a parameter
-         *
-         //* @param player object of the class Player
-         */
-        public loanSharkGUI(Player player){
-            Player playerDummy = new Player(player);
-            this.player = playerDummy;
-        }
+public class loanSharkGUI {
+    private Player player;
+
+    /**
+     * setter method that takes in a Player object as an argument.
+     *
+     * @param player object of the class Player
+     */
+    public void setPlayer(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
+
+    /**
+     * getter method for obtaining a player object.
+     *
+     * @return returns player object
+     */
+    public Player getPlayer() {
+        Player playerDummy = new Player(player);
+        return playerDummy;
+    }
+
+    /**
+     * Class Constructor that takes in a type player as a parameter
+     * <p>
+     * //* @param player object of the class Player
+     */
+    public loanSharkGUI(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
 
     public Stage initializeLoanShark(Stage primaryStage) {
         primaryStage.setTitle("Loan Shark");
@@ -90,56 +92,51 @@ public class loanSharkGUI{
         // Set the event handler when the deposit button is clicked
         boolean keepGoing = true;
         b1.setOnAction(new EventHandler<ActionEvent>() {
-               @Override
-               public void handle(ActionEvent event) {
-                   int loanAsk = Integer.parseInt(txtField1.getText());
-                   if (loanAsk <= 2 * (player.getMoney() - player.getDebt()) && loanAsk >= 0) {
-                       player.setDebt(player.getDebt() + loanAsk);
-                       player.setMoney(player.getMoney() + loanAsk);
-                       l4.setText("Current cash: " + player.getMoney());
-                   }
-                   else {
-                       l5.setText("Sorry you cannot be loaned that much");
-                   }
+                           @Override
+                           public void handle(ActionEvent event) {
+                               int loanAsk = Integer.parseInt(txtField1.getText());
+                               if (loanAsk <= 2 * (player.getMoney() - player.getDebt()) && loanAsk >= 0) {
+                                   player.setDebt(player.getDebt() + loanAsk);
+                                   player.setMoney(player.getMoney() + loanAsk);
+                                   l4.setText("Current cash: " + player.getMoney());
+                               } else {
+                                   l5.setText("Sorry you cannot be loaned that much");
+                               }
 
 
-                   l2.setText("Debt: " + player.getDebt());
-               }
-           }
+                               l2.setText("Debt: " + player.getDebt());
+                           }
+                       }
         );
 
         // Set the event handler when the withdraw button is clicked
         b2.setOnAction(new EventHandler<ActionEvent>() {
-                   @Override
-                   public void handle(ActionEvent event) {
-                       int returnAsk = Integer.parseInt(txtField1.getText());
-                       if(returnAsk <= player.getDebt() && returnAsk >= 0) {
-                           player.setDebt(player.getDebt() - returnAsk);
-                           player.setMoney(player.getMoney() - returnAsk);
-                           l4.setText("Current cash: " + player.getMoney());
+                           @Override
+                           public void handle(ActionEvent event) {
+                               int returnAsk = Integer.parseInt(txtField1.getText());
+                               if (returnAsk <= player.getDebt() && returnAsk >= 0) {
+                                   player.setDebt(player.getDebt() - returnAsk);
+                                   player.setMoney(player.getMoney() - returnAsk);
+                                   l4.setText("Current cash: " + player.getMoney());
+                               } else if (returnAsk > player.getDebt()) {
+                                   l5.setText("Sorry you cannot be loaned that much");
+                               } else {
+                                   l5.setText("Sorry you cannot return a negative amount");
+                               }
+                               l2.setText("Debt: " + player.getDebt());
+                           }
                        }
-
-                       else if(returnAsk > player.getDebt()){
-                           l5.setText("Sorry you cannot be loaned that much");
-                       }
-                       else{
-                           l5.setText("Sorry you cannot return a negative amount");
-                       }
-                       l2.setText("Debt: " + player.getDebt());
-                   }
-               }
         );
 
         b3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                TaipanShopGUI shopGUI = new TaipanShopGUI(player);
-                shopGUI.initializeShop(primaryStage);
-                primaryStage.show();
-            }
-        }
+                           @Override
+                           public void handle(ActionEvent event) {
+                               TaipanShopGUI shopGUI = new TaipanShopGUI(player);
+                               shopGUI.initializeShop(primaryStage);
+                               primaryStage.show();
+                           }
+                       }
         );
-
 
 
         //Setting the Scene and displaying it
@@ -158,14 +155,14 @@ public class loanSharkGUI{
 
 
     /**
-         * This methods purpose is to loan the player the funds it wants
-         * or pay its outstanding debts. The method prompts the user if they
-         * would like to borrow money or repay. depending on what the player chooses
-         * the corresponding loop is evoked. The player can only be loaned 2 times the
-         * money they have minus the debt id their debt exceeds the cash balance, the loan
-         * cannot be given.
-         */
-        }
+     * This methods purpose is to loan the player the funds it wants
+     * or pay its outstanding debts. The method prompts the user if they
+     * would like to borrow money or repay. depending on what the player chooses
+     * the corresponding loop is evoked. The player can only be loaned 2 times the
+     * money they have minus the debt id their debt exceeds the cash balance, the loan
+     * cannot be given.
+     */
+}
 
 
 
