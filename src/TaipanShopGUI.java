@@ -339,7 +339,7 @@ public class TaipanShopGUI {
             } else if (armsButton.getText().contains(".")) {
                 textOut.setText(originalDialogue + "\n\t" + player.getName() + ", how am I supposed to buy " + "'" + num + "'" + " Arms?");
             } else if (generalButton.getText().contains(".") && num <= player.getMoney() / generalPrice && num >= 0) {
-                player.setArmsHeld(player.getArmsHeld() + num);
+                player.setGeneralHeld(player.getGeneralHeld()+num);
                 player.setMoney(player.getMoney() - num * generalPrice);
             } else if (num >= 0 && generalButton.getText().contains(".")) {
                 textOut.setText(originalDialogue + "\n\t" + player.getName() + ", you can't afford that!");
