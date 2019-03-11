@@ -1,6 +1,65 @@
 import java.util.Random;
 import java.util.Scanner;
-public class TaipanShop {
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+public class TaipanShop extends Application {
+
+    public static void main(String args[]){
+        launch(args);
+    }
+    public void start(Stage stage){
+        stage.setTitle("Shop");
+
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setVgap(20);
+        grid.setHgap(20);
+
+        grid.add(new Label("Firm: "+ player.getName()), 2, 0);
+
+        HBox warehouse = new HBox();
+        warehouse.setSpacing(20);
+        int itemsInWarehouse = player.getwOpium()+player.getwGeneral()+player.getwArms()+player.getwSilk();
+        Label ware1 = new Label("Warehouse\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
+        Label ware2 = new Label("\n"+player.getwOpium()+"\n"+player.getwSilk()+"\n"+player.getwArms()+"\n"+player.getwGeneral());
+        Label ware3 = new Label("\nIn use:\n " + itemsInWarehouse + "\nVacant:\n " + (10000 - itemsInWarehouse));
+        warehouse.getChildren().addAll(ware1, ware2, new Label(), ware3);
+
+        HBox inventory = new HBox();
+        inventory.setSpacing(20);
+        int itemsInInventory = player.getCargoSpace()-player.getSilkHeld()-player.getOpiumHeld()-player.getGeneralHeld()-player.getArmsHeld();
+        Label inv1 = new Label("Hold "+itemsInInventory+"\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
+        Label inv2 = new Label("\n"+player.getOpiumHeld()+"\n"+player.getSilkHeld()+"\n"+player.getArmsHeld()+"\n"+player.getGeneralHeld());
+        Label inv3 = new Label("Guns "+player.getGuns());
+        inventory.getChildren().addAll(inv1, inv2, new Label(), inv3);
+
+        String location;
+        switch(player.getLocation()){
+            case 1: location = "Hong Kong"; break;
+            case 2: location = "Shanghai"; break;
+            case 3: location = "Nagasaki"; break;
+            case 4: location = "Saigon"; break;
+            case 5: location = "Manila"; break;
+            case 6: location = "Singapore"; break;
+            case 7: location = "Batavia"; break;
+            default: location = "Error"; break;
+        }
+
+        grid.add(warehouse, 1, 1);
+        grid.add(inventory, 1, 2);
+        grid.add(new Label("\n\n\n Location\n"+location),3, 1 );
+        grid.add(new Label("Debt\n"+player.getDebt()), 3, 2);
+
+        Scene root = new Scene(grid, 600, 480);
+        stage.setResizable(false);
+        stage.setScene(root);
+        stage.show();
+    }
 
     private Player player;
     private int opiumPrice = 16000;
