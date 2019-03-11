@@ -10,8 +10,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * A class that makes the GUI for the Warehouse class.
- */
+* 2019-03-10
+* Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+* WarehouseGUI class, Initializes and displays the graphical interface for the warehouse in Taipan
+*
+*/
 public class WarehouseGUI {
 
     private Player player;
