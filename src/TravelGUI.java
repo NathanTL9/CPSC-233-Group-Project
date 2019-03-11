@@ -38,6 +38,7 @@ public class TravelGUI{
     private Boolean peasantShipScene = false;
     private Boolean littyShipScene = false;
     private Boolean shopScene = false;
+    private Boolean stormScene = false;
 
 
     public TravelGUI(Player player) {
@@ -198,10 +199,11 @@ public class TravelGUI{
                                 hasTraveled = seaAtlas(response);
                                 player.setBank((int) (player.getBank() * 1.01));
                                 player.setDebt((int) (player.getDebt() * 1.01));
-                                shopScene = true;
+                                shopScene = false;
+                                stormScene = false;
                             } else{
                                 textOut.setText("    " + "You're already here " + player.getName());
-                                textOut.setText(textOut.getText() + ", do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4)Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
+                                textOut.setText(textOut.getText() + ", do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
                             }
                         } catch (Exception e) {
                             textOut.setText("    " + "Sorry, " + player.getName() + " could you say that again?");
@@ -286,7 +288,7 @@ public class TravelGUI{
         textOut.setContentDisplay(javafx.scene.control.ContentDisplay.TOP);
         textOut.setPrefHeight(163.0);
         textOut.setPrefWidth(583.0);
-        textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4)Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
+        textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
         textOut.setFont(size14);
 
         anchorPane.getChildren().addAll(dialogueRectangle, inventoryRectangle, warehouseRectangle);
@@ -320,31 +322,31 @@ public class TravelGUI{
     private Boolean seaAtlas(int locationOfTravel) {
         switch (locationOfTravel) {
             case 1:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Hong Kong");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Hong Kong");
                 player.setLocation(1);
                 return true;
             case 2:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Shanghai");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Shanghai");
                 player.setLocation(2);
                 return true;
             case 3:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Nagasaki");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Nagasaki");
                 player.setLocation(3);
                 return true;
             case 4:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Saigon");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Saigon");
                 player.setLocation(4);
                 return true;
             case 5:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Manila");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Manila");
                 player.setLocation(5);
                 return true;
             case 6:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Singapore");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Singapore");
                 player.setLocation(6);
                 return true;
             case 7:
-                if(!peasantShipScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Batavia");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Batavia");
                 player.setLocation(7);
                 return true;
             default:
@@ -370,6 +372,7 @@ public class TravelGUI{
             textOut.setText("    We see a ship on the horizon " + player.getName() + "; Prepare for combat!");
             //System.out.println(textOut.getText() + "\n    " + "PLACEHOLDER FOR SHIPWARFARE");
         }else if (randGenNum == 2) {
+            stormScene = true;
             disaster(locationOfTravel);
             textOut.setText(textOut.getText() + "\n    " + "We made it!");
         }
@@ -391,7 +394,7 @@ public class TravelGUI{
         //If the player lands within this range, nothing happens to them
         //Else they randomly get thrown into a location they weren't planning on going to(Anything but location of Travel).
         if (randGenNum <= 2) {
-            textOut.setText(textOut.getText() + "\n    " + "We made it through!");
+            textOut.setText(textOut.getText() + "\n    " + "We got through the storm " + player.getName() + "!");
         }else {
             while (randGenNum == locationOfTravel) {
                 randGenNum = rand.nextInt(7) + 1;
