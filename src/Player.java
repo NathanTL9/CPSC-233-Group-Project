@@ -1,3 +1,10 @@
+/**
+* 2019-03-10
+* Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+* Player class, stores all the information about the player such as inventory, health, etc
+*
+*/
+
 public class Player {
 
     private String name = "Taipan";
