@@ -370,7 +370,6 @@ public class TaipanShopGUI {
     }
 
     public Stage initializeShop(Stage stage){
-        updateStage();
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
@@ -754,6 +753,11 @@ public class TaipanShopGUI {
         stage.setTitle("Shop");
         stage.setResizable(false);
         stage.setScene(root);
+
+        updatePrices();
+        defaultTextOut();
+        updateStage();
+
         return stage;
     }
     
