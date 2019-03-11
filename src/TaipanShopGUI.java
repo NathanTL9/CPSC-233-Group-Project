@@ -1,3 +1,7 @@
+/**
+* TaipanShopGUI deals with setting the stage for shop
+* Author: Vikram Bawa
+*/
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -12,7 +16,6 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.util.Random;
 
 public class TaipanShopGUI {
