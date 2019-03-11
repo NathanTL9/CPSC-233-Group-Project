@@ -59,6 +59,7 @@ public class Player {
         this.wSilk = player.wSilk;
         this.wGeneral = player.wGeneral;
         this.wArms = player.wArms;
+        this.cargoSpace = player.cargoSpace;
     }
 
     /**
