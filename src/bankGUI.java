@@ -41,31 +41,40 @@ public class bankGUI{
         this.player = playerDummy;
     }
 
+    /**
+     * Initializes the GUI for the Bank in our game.
+     *
+     * @param primaryStage
+     * @return
+     */
     public Stage initializeBank(Stage primaryStage) {
         primaryStage.setTitle("Bank");
 
-        //Declaring each Layout
+        /**
+         * Creating all the layouts, labels, buttons, and a textfield.
+         *
+         */
         BorderPane brdr1 = new BorderPane();
         HBox hbx1 = new HBox(30);
         HBox hbx2 = new HBox(30);
         VBox vbx1 = new VBox(30);
 
-        //Declaring all Variables
         Label l1 = new Label("Player:  " + player.getName());
         Label l2 = new Label("Current Balance: " + player.getBank());
         Label l3 = new Label("Enter Amount: ");
         Label l4 = new Label("Current cash: " + player.getMoney());
         Label l5 = new Label(" ");
 
-        //Declaring All Buttons
         Button b1 = new Button("Withdraw");
         Button b2 = new Button("Deposit");
         Button b3 = new Button("Go back");
 
-        //Declaring All TextFields
         TextField txtField1 = new TextField();
 
-        //Creating the buttons at the bottom of the screen
+        /**
+         * Adds the buttons so that they are at the bottom of the screen.
+         *
+         */
         hbx1.setAlignment(Pos.CENTER);
         hbx1.getChildren().add(b1);
         hbx1.getChildren().add(b2);
@@ -73,13 +82,19 @@ public class bankGUI{
 
         brdr1.setBottom(hbx1);
 
-        //Creating the TextField at the center of the screen
+        /**
+         * Adds the text field to the center of the screen.
+         *
+         */
         hbx2.setAlignment(Pos.CENTER);
         hbx2.getChildren().add(l3);
         hbx2.getChildren().add(txtField1);
         brdr1.setCenter(hbx2);
 
-        //Creating the Labels at the top of the Screen
+        /**
+         * Adds the labels to the top of the screen.
+         *
+         */
         vbx1.setAlignment(Pos.CENTER);
         vbx1.getChildren().add(l1);
         vbx1.getChildren().add(l2);
@@ -87,7 +102,10 @@ public class bankGUI{
         vbx1.getChildren().add(l5);
         brdr1.setTop(vbx1);
 
-        // Set the event handler when the deposit button is clicked
+        /**
+         * Adds function to button 1 which, when clicked, withdraws money from your bank to your person but, will not let you overdraw.
+         *
+         */
         b1.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
@@ -106,6 +124,10 @@ public class bankGUI{
                        }
         );
 
+        /**
+         * Adds function to button 2 which, when clicked, deposits money into your bank but, will not let you overdraw.
+         *
+         */
         // Set the event handler when the withdraw button is clicked
         b2.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
@@ -126,6 +148,10 @@ public class bankGUI{
                        }
         );
 
+        /**
+         * Adds function to button 3 which, when clicked, brings you back to the Shop GUI.
+         *
+         */
         b3.setOnAction(new EventHandler<ActionEvent>() {
                @Override
                public void handle(ActionEvent event) {
@@ -137,15 +163,16 @@ public class bankGUI{
         );
 
 
-
-        //Setting the Scene and displaying it
+        /**
+         * Sets the window size to a width of 600 and height of 480 and displays the screen.
+         *
+         */
         Scene scene = new Scene(brdr1, 600, 480);
         primaryStage.setScene(scene);
         //primaryStage.show();
         return primaryStage;
     }
-
-
+    
     public void start(Stage primaryStage) {
         bankGUI bank = new bankGUI(player);
         bank.initializeBank(primaryStage);
