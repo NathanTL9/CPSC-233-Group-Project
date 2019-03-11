@@ -15,7 +15,6 @@ public class ShipWarfareGUI {
 
 
     private Player player = new Player();
-    private ShipWarfare shipWarfare = new ShipWarfare(player);
     private HBox hBox;
     private Button fightButton;
     private Button runButton;

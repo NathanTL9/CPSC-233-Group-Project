@@ -29,19 +29,6 @@ public class MainGUI extends Application {
     }
 
     /**
-     * Initializes the player object with 5 guns or $400 and $5000 debt.
-     *
-     * @param start player object from the main class used to update the start class
-     */
-
-    public void start(Start start){
-        start.setPlayer(player);
-        start.initialize();
-        player = start.getPlayer();
-    }
-
-
-    /**
      * Updates main class with player data and starts the game.
      * The game will only run as long as the player has not retired or has been destroyed.
      * @param args Just the console for the player to look at.

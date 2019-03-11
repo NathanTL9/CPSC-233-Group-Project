@@ -271,7 +271,7 @@ public class TaipanShopGUI {
                 buyButton.setVisible(true);
                 sellButton.setVisible(true);
                 bankButton.setVisible(true);
-                cargoButton.setVisible(true);
+                cargoButton.setVisible(false);
                 loanButton.setVisible(true);
                 quitButton.setVisible(true);
                 opiumButton.setVisible(false);
@@ -284,7 +284,7 @@ public class TaipanShopGUI {
                 buyButton.setVisible(true);
                 sellButton.setVisible(true);
                 bankButton.setVisible(true);
-                cargoButton.setVisible(true);
+                cargoButton.setVisible(false);
                 loanButton.setVisible(true);
                 numberInput.setVisible(false);
                 quitButton.setVisible(true);
