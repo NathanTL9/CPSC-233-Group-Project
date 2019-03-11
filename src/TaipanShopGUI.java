@@ -1,4 +1,3 @@
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -310,7 +309,7 @@ public class TaipanShopGUI {
     }
 
     /**
-     *
+     * this method is responsible for the actual purchasing/selling of items, and the text associated with the act.
      */
     public void shop(){
         String originalDialogue = textOut.getText();
@@ -378,6 +377,11 @@ public class TaipanShopGUI {
         }
     }
 
+    /**
+     * Initializes the shop on the given stage as a parameter.
+     *
+     * @param stage
+     */
     public void initializeShop(Stage stage){
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
@@ -472,6 +476,7 @@ public class TaipanShopGUI {
         buyButton.setPrefHeight(25.0);
         buyButton.setPrefWidth(45.0);
         buyButton.setText("Buy");
+        // if the buy button is clicked, the main utility buttons are set to be invisible and the buying process begins.
         buyButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -484,6 +489,7 @@ public class TaipanShopGUI {
 
         sellButton.setPrefHeight(25.0);
         sellButton.setText("Sell");
+        // if the sell button is clicked, the main utility buttons are set to be invisible and the selling process begins.
         sellButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -497,6 +503,7 @@ public class TaipanShopGUI {
         sellButton.setMnemonicParsing(false);
 
         bankButton.setPrefHeight(25.0);
+        // opens the bank if the bank button is clicked.
         bankButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -513,6 +520,7 @@ public class TaipanShopGUI {
         cargoButton.setText("Transfer Cargo");
         cargoButton.setMnemonicParsing(false);
         cargoButton.setPrefWidth(94.0);
+        // warehouse is entered when the warehouse button is clicked.
         cargoButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -526,6 +534,7 @@ public class TaipanShopGUI {
         loanButton.setMnemonicParsing(false);
         loanButton.setPrefHeight(25.0);
         loanButton.setPrefWidth(73.0);
+        // loan office is entered when the loan button is clicked.
         loanButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -540,6 +549,7 @@ public class TaipanShopGUI {
         quitButton.setMnemonicParsing(false);
         quitButton.setPrefWidth(90.0);
         quitButton.setText("Quit Trading");
+        // the user is free to travel once the quit button is clicked.
         quitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -554,6 +564,7 @@ public class TaipanShopGUI {
         retireButton.setPrefWidth(49.0);
         retireButton.setText("Retire");
         retireButton.setVisible(false);
+        // the user wins the game when the retire button is clicked.
         retireButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -567,6 +578,7 @@ public class TaipanShopGUI {
         opiumButton.setPrefHeight(25.0);
         opiumButton.setText("Opium");
         opiumButton.setVisible(false);
+        // the opium buying/selling process starts as soon as the user clicks the opium button.
         opiumButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -588,6 +600,7 @@ public class TaipanShopGUI {
         silkButton.setMnemonicParsing(false);
         silkButton.setText("Silk");
         silkButton.setVisible(false);
+        // the silk buying/selling process starts as soon as the user clicks the silk button.
         silkButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -607,6 +620,7 @@ public class TaipanShopGUI {
         armsButton.setPrefWidth(86.0);
         armsButton.setMnemonicParsing(false);
         armsButton.setVisible(false);
+        // the arms buying/selling process starts as soon as the user clicks the arms button.
         armsButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -630,6 +644,7 @@ public class TaipanShopGUI {
         generalButton.setPrefWidth(86.0);
         generalButton.setText("General");
         generalButton.setVisible(false);
+        // the general cargo buying/selling process starts as soon as the user clicks the general cargo button.
         generalButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -649,6 +664,8 @@ public class TaipanShopGUI {
         numberInput.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         numberInput.setText("Enter amount here...");
         numberInput.setVisible(false);
+        // after the user inputs a valid input into the text field and presses Z or ENTER, the buying/selling ends and
+        // the user is returned to the regular shop dialogue.
         numberInput.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -763,12 +780,18 @@ public class TaipanShopGUI {
         stage.setResizable(false);
         stage.setScene(root);
 
+        // general updates to the buttons, user stats/inventory, and text.
         buttonSetup("reset");
         updatePrices();
         defaultTextOut();
         updateStage();
     }
-    
+
+    /**
+     * converts the user's location (an integer) to a String, and returns it.
+     *
+     * @return location -- the user's location as a string; the actual name of the location.
+     */
     public String getStringLocation(){
         String location;
         switch(player.getLocation()){
@@ -783,7 +806,12 @@ public class TaipanShopGUI {
         }
         return location;
     }
-    
+
+    /**
+     * returns the user's condition based upon their current HP.
+     *
+     * @return shipStatus -- a representation of their ship's health in words.
+     */
     public String shipStatusString(){
         String shipStatus;
         switch(player.getHP()/10){
@@ -802,7 +830,10 @@ public class TaipanShopGUI {
         }
         return shipStatus;
     }
-    
+
+    /**
+     * updates the text associated with the user's inventory.
+     */
     public void updateStage(){
         firm.setText(String.format("Firm: %s, %s", player.getName(), getStringLocation()));
         wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", player.getwOpium(), player.getwSilk(), player.getwArms(), player.getwGeneral()));
