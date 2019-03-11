@@ -55,13 +55,6 @@ public class TaipanShopGUI {
         this.player = playerDummy;
     }
 
-    public void startTaipanShop(Stage stage){
-        stage = initializeShop(stage);
-        updateStage();
-        updatePrices();
-        stage.show();
-    }
-
     /**
      * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
      */
@@ -222,11 +215,23 @@ public class TaipanShopGUI {
         }
     }
 
+    /**
+     * Sets the default dialogue of simply stating the prices of the items.
+     */
     public void defaultTextOut(){
         textOut.setText(String.format("\t%s, present prices per unit here are:\n\n\t\tOpium: %d\t\t\tSilk: %d\n\t\tArms: %d\t\t\tGeneral: %d", player.getName(), getOpiumPrice(), getSilkPrice(), getArmsPrice(), getGeneralPrice()));
 
     }
 
+    /**
+     * Sets up buttons according to which "state" is inputted. When used in "shop", only the item buttons are visible.
+     * When used in "reset", all the item buttons are invisible; if the user is at location one and is eligible to win,
+     * then all utilities and the retire button are visible. If the user is not at location one, then the user can only
+     * buy, sell, or exit. If the user is at location one and is not eligible to win, then all utilities are visible but
+     * the retire button is not. When used in "input" everything near the bottom is invisible except for the text area.
+     *
+     * @param state -- the state determines which buttons are visible and which are not.
+     */
     public void buttonSetup(String state) {
         if (state.equals("shop")) {
             buyButton.setVisible(false);
@@ -248,7 +253,7 @@ public class TaipanShopGUI {
             silkButton.setText("Silk");
             armsButton.setText("Arms");
             generalButton.setText("General");
-            if (player.getLocation() != 1 && player.getBank() + player.getMoney() - player.getDebt() < 1000000) {
+            if (player.getLocation() != 1) {
                 buyButton.setVisible(true);
                 sellButton.setVisible(true);
                 bankButton.setVisible(false);
@@ -261,7 +266,8 @@ public class TaipanShopGUI {
                 numberInput.setVisible(false);
                 generalButton.setVisible(false);
                 retireButton.setVisible(false);
-            }else if(player.getBank() + player.getMoney() - player.getDebt() < 1000000){
+            }
+            if(player.getBank() + player.getMoney() - player.getDebt() < 1000000 && player.getLocation() == 1){
                 buyButton.setVisible(true);
                 sellButton.setVisible(true);
                 bankButton.setVisible(true);
@@ -274,7 +280,7 @@ public class TaipanShopGUI {
                 generalButton.setVisible(false);
                 armsButton.setVisible(false);
                 retireButton.setVisible(false);
-            }else{
+            }else if(player.getLocation() == 1){
                 buyButton.setVisible(true);
                 sellButton.setVisible(true);
                 bankButton.setVisible(true);
@@ -304,6 +310,9 @@ public class TaipanShopGUI {
         }
     }
 
+    /**
+     *
+     */
     public void shop(){
         String originalDialogue = textOut.getText();
         int num = Integer.parseInt(numberInput.getText().replace(" ", ""));
@@ -370,7 +379,7 @@ public class TaipanShopGUI {
         }
     }
 
-    public Stage initializeShop(Stage stage){
+    public void initializeShop(Stage stage){
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
@@ -759,8 +768,6 @@ public class TaipanShopGUI {
         updatePrices();
         defaultTextOut();
         updateStage();
-
-        return stage;
     }
     
     public String getStringLocation(){

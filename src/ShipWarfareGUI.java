@@ -250,7 +250,10 @@ public class ShipWarfareGUI {
             player.setGuns(player.getGuns() - 1);
             gunFrustration = true;
         } else {
-            player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
+            if (numOfPeasantShips>0) {
+                player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
+
+            }
         }
         if (player.getHP() <= 0) {
             exitValue = 2;
@@ -289,6 +292,12 @@ public class ShipWarfareGUI {
         }
         return false;
     }
+
+    /**
+     * Sets up the graphical part of ShipWarfare and includes all logic for the class
+     * @param stage sets the stage to which we will execute the scene of the ShipWarfare class
+     * @return stage so that another class can switch to the stage
+     */
 
     public Stage initializeShip(Stage stage){
         setNumOfPeasantShips(numOfShips());
@@ -375,6 +384,10 @@ public class ShipWarfareGUI {
         //Fight
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
+            /**
+             * Fight Button, engages in fight logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
             public void handle(ActionEvent event) {
                 counter++;
                 chooseFightOrRun.setText("Ohh, Fight ehh?");
@@ -386,6 +399,10 @@ public class ShipWarfareGUI {
                         runButton.setVisible(false);
                         continueButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
+                            /**
+                             * Switches to Taipan Shop scene
+                             * @param event, once button is clicked, executes graphical information
+                             */
                             public void handle(ActionEvent event) {
                                 TaipanShopGUI shop = new TaipanShopGUI(player);
                                 shop.initializeShop(stage);
@@ -408,6 +425,10 @@ public class ShipWarfareGUI {
         //Flee
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
+            /**
+             * Run Button, engages in run logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
             public void handle(ActionEvent event) {
                 chooseFightOrRun.setText("Ayy captain we will try to run!");
                 counter++;
@@ -424,6 +445,10 @@ public class ShipWarfareGUI {
                             runButton.setVisible(false);
                             continueButton.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
+                                /**
+                                 * Switches to Taipan Shop scene
+                                 * @param event, once button is clicked, executes graphical information
+                                 */
                                 public void handle(ActionEvent event) {
                                     TaipanShopGUI shop = new TaipanShopGUI(player);
                                     shop.initializeShop(stage);
@@ -458,6 +483,10 @@ public class ShipWarfareGUI {
         return stage;
     }
 
+    /**
+     * sets scene and runs stage
+     * @param primaryStage the stage in which the scene may be run and switched to
+     */
     public void start(Stage primaryStage){
         primaryStage = initializeShip(primaryStage);
         primaryStage.show();
