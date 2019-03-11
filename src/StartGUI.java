@@ -140,16 +140,14 @@ public class StartGUI {
 
                 String response = nameField.getText();
                 // purely for testing purposes.
-                if (player.getName().equalsIgnoreCase("Vikram")) {
+                if (response.equalsIgnoreCase("Vikram")) {
                     player.setMoney(999999999);
                     player.setBank(999999999);
-                    player.setGuns(999);
+                    player.setGuns(0);
                     player.setHP(99999999);
-                    player.setCargoSpace(99999999);
+                    player.setCargoSpace(Integer.MAX_VALUE);
                 }
-                else{
-                    setFirm(response);
-                }
+                setFirm(response);
 
                 TaipanShopGUI shop = new TaipanShopGUI(player);
                 shop.initializeShop(stage);

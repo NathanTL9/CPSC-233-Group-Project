@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Player {
 
     private String name = "Taipan";
@@ -444,20 +442,6 @@ public class Player {
     public void gameOver(){
         System.out.flush();
         System.out.println("Game over");
-    }
-
-    public boolean playAgain(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to play again? Y/N");
-        while(true){
-            String response = input.nextLine();
-            if(response.equalsIgnoreCase("Y")){
-                return true;
-            }else if(response.equalsIgnoreCase("N")){
-                System.exit(0);
-            }else{
-                System.out.println("That is not a valid input.");
-            }
-        }
+        System.exit(0);
     }
 }

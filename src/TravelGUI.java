@@ -423,16 +423,19 @@ public class TravelGUI{
 
     public String shipStatusString(){
         String shipStatus;
-        switch(player.getHP()){
-            case 100: shipStatus = "Mint Condition"; break;
-            case 80: shipStatus = "Great"; break;
-            case 70: shipStatus = "Good"; break;
-            case 60: shipStatus = "Acceptable"; break;
-            case 50: shipStatus = "Tolerable"; break;
-            case 30: shipStatus = "Damaged"; break;
-            case 10: shipStatus = "Poor"; break;
-            case 1: shipStatus = "Extremely Poor"; break;
-            default: shipStatus = "Sinking"; break;
+        switch(player.getHP()/10){
+            case 10: shipStatus = "Mint Condition"; break;
+            case 9: shipStatus = "Near Perfect"; break;
+            case 8: shipStatus = "Great"; break;
+            case 7: shipStatus = "Good"; break;
+            case 6: shipStatus = "Acceptable"; break;
+            case 5: shipStatus = "Tolerable"; break;
+            case 4: shipStatus = "Needs Repair"; break;
+            case 3: shipStatus = "Damaged"; break;
+            case 2: shipStatus = "Indangered"; break;
+            case 1: shipStatus = "Near Sinking"; break;
+            case 0: shipStatus = "Sinking"; break;
+            default: shipStatus = "Invincible"; break;
         }
         return shipStatus;
     }
