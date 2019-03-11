@@ -10,6 +10,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * 2019-03-10
+ * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+ * ShipWarfareGUI class, Generates and utilizes ships which the user can attack or run from
+ *
+ */
+
 import java.util.Random;
 
 public class ShipWarfareGUI {
