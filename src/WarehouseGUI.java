@@ -1,4 +1,8 @@
 
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -6,98 +10,167 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-public class WarehouseGUI extends BorderPane {
+public class WarehouseGUI extends Application {
 
-    private final Text text;
-    private final HBox hBox;
-    private final Button button;
-    private final Button button0;
-    private final VBox vBox;
-    private final Text text0;
-    private final Text text1;
-    private final Label label;
-    private final Label label0;
-    private final Label label1;
-    private final Label label2;
-    private final VBox vBox0;
-    private final Text text2;
-    private final Text text3;
-    private final Text text4;
-    private final Text text5;
-    private final Text text6;
-    private final Text text7;
-    private final VBox vBox1;
-    private final Text text8;
-    private final Text text9;
+    private Player player;
 
-    public WarehouseGUI() {
+    private Text title;
+    private HBox hBox;
+    private Button withdraw;
+    private Button deposit;
+    private VBox vBox;
+    private Text playerName;
+    private Text text;
+    private Label opiumPlayer;
+    private Label silkPlayer;
+    private Label armsPlayer;
+    private Label generalPlayer;
+    private VBox vBox0;
+    private Text text0;
+    private Text text1;
+    private Text opiumWarehouse;
+    private Text silkWarehouse;
+    private Text armsWarehouse;
+    private Text generalWarehouse;
+    private VBox vBox1;
+    private Text inUseWarehouse;
+    private Text vacantWarehouse;
+    private BorderPane borderPane;
 
-        text = new Text();
+    public WarehouseGUI(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
+
+    public void setPlayer(Player player) {
+        Player playerDummy = new Player(player);
+        this.player = playerDummy;
+    }
+
+    public Player getPlayer(){
+        Player playerDummy = new Player(player);
+        return playerDummy;
+    }
+
+    public Stage initializeWarehouse(Stage stage) {
+
+        title = new Text();
         hBox = new HBox();
-        button = new Button();
-        button0 = new Button();
+        withdraw = new Button();
+        deposit = new Button();
         vBox = new VBox();
+        playerName = new Text();
+        text = new Text();
+        opiumPlayer = new Label();
+        silkPlayer = new Label();
+        armsPlayer = new Label();
+        generalPlayer = new Label();
+        vBox0 = new VBox();
         text0 = new Text();
         text1 = new Text();
-        label = new Label();
-        label0 = new Label();
-        label1 = new Label();
-        label2 = new Label();
-        vBox0 = new VBox();
-        text2 = new Text();
-        text3 = new Text();
-        text4 = new Text();
-        text5 = new Text();
-        text6 = new Text();
-        text7 = new Text();
+        opiumWarehouse = new Text();
+        silkWarehouse = new Text();
+        armsWarehouse = new Text();
+        generalWarehouse = new Text();
         vBox1 = new VBox();
-        text8 = new Text();
-        text9 = new Text();
+        inUseWarehouse = new Text();
+        vacantWarehouse = new Text();
+        borderPane = new BorderPane();
 
-        setMaxHeight(USE_PREF_SIZE);
-        setMaxWidth(USE_PREF_SIZE);
-        setMinHeight(USE_PREF_SIZE);
-        setMinWidth(USE_PREF_SIZE);
-        setPrefHeight(480.0);
-        setPrefWidth(600.0);
+        borderPane.setPrefHeight(480.0);
+        borderPane.setPrefWidth(600.0);
 
-        BorderPane.setAlignment(text, javafx.geometry.Pos.CENTER);
-        text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text.setStrokeWidth(0.0);
-        text.setText("Hong Kong Warehouse");
-        text.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text.setWrappingWidth(393.63671875);
-        text.setFont(new Font(24.0));
-        setTop(text);
+        BorderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
+        title.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        title.setStrokeWidth(0.0);
+        title.setText("Hong Kong Warehouse");
+        title.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        title.setWrappingWidth(393.63671875);
+        title.setFont(new Font(24.0));
+        borderPane.setTop(title);
 
         BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
 
-        button.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        button.setMnemonicParsing(false);
-        button.setPrefWidth(250.0);
-        button.setText("Withdraw");
+        withdraw.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        withdraw.setMnemonicParsing(false);
+        withdraw.setPrefWidth(250.0);
+        withdraw.setText("Withdraw");
 
-        button0.setMnemonicParsing(false);
-        button0.setPrefWidth(250.0);
-        button0.setText("Deposit");
-        button0.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        setBottom(hBox);
+        withdraw.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //NATHAN WRITE CODE HERE
+            }
+        });
 
-        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER_LEFT);
-        vBox.setMaxHeight(USE_PREF_SIZE);
-        vBox.setMaxWidth(USE_PREF_SIZE);
-        vBox.setMinHeight(USE_PREF_SIZE);
-        vBox.setMinWidth(USE_PREF_SIZE);
+
+        deposit.setMnemonicParsing(false);
+        deposit.setPrefWidth(250.0);
+        deposit.setText("Deposit");
+        deposit.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        borderPane.setBottom(hBox);
+
+        deposit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //NATHAN WRITE CODE HERE
+            }
+        });
+
+        borderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER_LEFT);
         vBox.setPrefHeight(156.0);
         vBox.setPrefWidth(106.0);
 
+        playerName.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        playerName.setStrokeWidth(0.0);
+        playerName.setText("Player");
+        playerName.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        playerName.setWrappingWidth(103.47265625);
+        playerName.setFont(new Font(18.0));
+
+        text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text.setStrokeWidth(0.0);
+        text.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        text.setWrappingWidth(103.47265625);
+        text.setFont(new Font(18.0));
+
+        opiumPlayer.setAlignment(javafx.geometry.Pos.CENTER);
+        opiumPlayer.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        opiumPlayer.setPrefWidth(100.0);
+        opiumPlayer.setText("Opium");
+        opiumPlayer.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        opiumPlayer.setFont(new Font(18.0));
+
+        silkPlayer.setAlignment(javafx.geometry.Pos.CENTER);
+        silkPlayer.setPrefWidth(100.0);
+        silkPlayer.setText("Silk");
+        silkPlayer.setFont(new Font(18.0));
+
+        armsPlayer.setAlignment(javafx.geometry.Pos.CENTER);
+        armsPlayer.setPrefWidth(100.0);
+        armsPlayer.setText("Arms");
+        armsPlayer.setFont(new Font(18.0));
+
+        generalPlayer.setAlignment(javafx.geometry.Pos.CENTER);
+        generalPlayer.setPrefWidth(100.0);
+        generalPlayer.setText("General");
+        generalPlayer.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        generalPlayer.setFont(new Font(18.0));
+        borderPane.setLeft(vBox);
+
+        BorderPane.setAlignment(vBox0, javafx.geometry.Pos.TOP_LEFT);
+        vBox0.setAlignment(javafx.geometry.Pos.CENTER);
+        vBox0.setPrefHeight(343.0);
+        vBox0.setPrefWidth(261.0);
+
         text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text0.setStrokeWidth(0.0);
-        text0.setText("Player");
+        text0.setText("Warehouse");
         text0.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         text0.setWrappingWidth(103.47265625);
         text0.setFont(new Font(18.0));
@@ -108,114 +181,78 @@ public class WarehouseGUI extends BorderPane {
         text1.setWrappingWidth(103.47265625);
         text1.setFont(new Font(18.0));
 
-        label.setAlignment(javafx.geometry.Pos.CENTER);
-        label.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        label.setPrefWidth(100.0);
-        label.setText("Opium");
-        label.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        label.setFont(new Font(18.0));
+        opiumWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        opiumWarehouse.setStrokeWidth(0.0);
+        opiumWarehouse.setText("Opium");
+        opiumWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        opiumWarehouse.setWrappingWidth(103.47265625);
+        opiumWarehouse.setFont(new Font(18.0));
 
-        label0.setAlignment(javafx.geometry.Pos.CENTER);
-        label0.setPrefWidth(100.0);
-        label0.setText("Silk");
-        label0.setFont(new Font(18.0));
+        silkWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        silkWarehouse.setStrokeWidth(0.0);
+        silkWarehouse.setText("Silk");
+        silkWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        silkWarehouse.setWrappingWidth(103.47265625);
+        silkWarehouse.setFont(new Font(18.0));
 
-        label1.setAlignment(javafx.geometry.Pos.CENTER);
-        label1.setPrefWidth(100.0);
-        label1.setText("Arms");
-        label1.setFont(new Font(18.0));
+        armsWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        armsWarehouse.setStrokeWidth(0.0);
+        armsWarehouse.setText("Arms");
+        armsWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        armsWarehouse.setWrappingWidth(103.47265625);
+        armsWarehouse.setFont(new Font(18.0));
 
-        label2.setAlignment(javafx.geometry.Pos.CENTER);
-        label2.setPrefWidth(100.0);
-        label2.setText("General");
-        label2.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        label2.setFont(new Font(18.0));
-        setLeft(vBox);
-
-        BorderPane.setAlignment(vBox0, javafx.geometry.Pos.TOP_LEFT);
-        vBox0.setAlignment(javafx.geometry.Pos.CENTER);
-        vBox0.setMaxHeight(USE_PREF_SIZE);
-        vBox0.setMaxWidth(USE_PREF_SIZE);
-        vBox0.setMinHeight(USE_PREF_SIZE);
-        vBox0.setMinWidth(USE_PREF_SIZE);
-        vBox0.setPrefHeight(343.0);
-        vBox0.setPrefWidth(261.0);
-
-        text2.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text2.setStrokeWidth(0.0);
-        text2.setText("Warehouse");
-        text2.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text2.setWrappingWidth(103.47265625);
-        text2.setFont(new Font(18.0));
-
-        text3.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text3.setStrokeWidth(0.0);
-        text3.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text3.setWrappingWidth(103.47265625);
-        text3.setFont(new Font(18.0));
-
-        text4.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text4.setStrokeWidth(0.0);
-        text4.setText("Opium");
-        text4.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text4.setWrappingWidth(103.47265625);
-        text4.setFont(new Font(18.0));
-
-        text5.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text5.setStrokeWidth(0.0);
-        text5.setText("Silk");
-        text5.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text5.setWrappingWidth(103.47265625);
-        text5.setFont(new Font(18.0));
-
-        text6.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text6.setStrokeWidth(0.0);
-        text6.setText("Arms");
-        text6.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text6.setWrappingWidth(103.47265625);
-        text6.setFont(new Font(18.0));
-
-        text7.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text7.setStrokeWidth(0.0);
-        text7.setText("General");
-        text7.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text7.setWrappingWidth(103.47265625);
-        text7.setFont(new Font(18.0));
-        setCenter(vBox0);
+        generalWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        generalWarehouse.setStrokeWidth(0.0);
+        generalWarehouse.setText("General");
+        generalWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        generalWarehouse.setWrappingWidth(103.47265625);
+        generalWarehouse.setFont(new Font(18.0));
+        borderPane.setCenter(vBox0);
 
         BorderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
-        vBox1.setMaxHeight(USE_PREF_SIZE);
-        vBox1.setMaxWidth(USE_PREF_SIZE);
         vBox1.setPrefHeight(48.0);
         vBox1.setPrefWidth(152.0);
 
-        text8.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text8.setStrokeWidth(0.0);
-        text8.setText("In use:");
-        text8.setFont(new Font(18.0));
+        inUseWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        inUseWarehouse.setStrokeWidth(0.0);
+        inUseWarehouse.setText("In use:");
+        inUseWarehouse.setFont(new Font(18.0));
 
-        text9.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text9.setStrokeWidth(0.0);
-        text9.setText("Vacant:");
-        text9.setFont(new Font(18.0));
-        setRight(vBox1);
+        vacantWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        vacantWarehouse.setStrokeWidth(0.0);
+        vacantWarehouse.setText("Vacant:");
+        vacantWarehouse.setFont(new Font(18.0));
+        borderPane.setRight(vBox1);
 
-        hBox.getChildren().add(button);
-        hBox.getChildren().add(button0);
-        vBox.getChildren().add(text0);
-        vBox.getChildren().add(text1);
-        vBox.getChildren().add(label);
-        vBox.getChildren().add(label0);
-        vBox.getChildren().add(label1);
-        vBox.getChildren().add(label2);
-        vBox0.getChildren().add(text2);
-        vBox0.getChildren().add(text3);
-        vBox0.getChildren().add(text4);
-        vBox0.getChildren().add(text5);
-        vBox0.getChildren().add(text6);
-        vBox0.getChildren().add(text7);
-        vBox1.getChildren().add(text8);
-        vBox1.getChildren().add(text9);
+        hBox.getChildren().add(withdraw);
+        hBox.getChildren().add(deposit);
+        vBox.getChildren().add(playerName);
+        vBox.getChildren().add(text);
+        vBox.getChildren().add(opiumPlayer);
+        vBox.getChildren().add(silkPlayer);
+        vBox.getChildren().add(armsPlayer);
+        vBox.getChildren().add(generalPlayer);
+        vBox0.getChildren().add(text0);
+        vBox0.getChildren().add(text1);
+        vBox0.getChildren().add(opiumWarehouse);
+        vBox0.getChildren().add(silkWarehouse);
+        vBox0.getChildren().add(armsWarehouse);
+        vBox0.getChildren().add(generalWarehouse);
+        vBox1.getChildren().add(inUseWarehouse);
+        vBox1.getChildren().add(vacantWarehouse);
 
+        Scene root = new Scene(borderPane, 600, 480);
+
+        stage.setTitle("Warehouse");
+        stage.setResizable(false);
+        stage.setScene(root);
+        return stage;
+    }
+
+    public void start(Stage primaryStage) {
+        WarehouseGUI warehouseGUI = new WarehouseGUI(player);
+        warehouseGUI.initializeWarehouse(primaryStage);
+        primaryStage.show();
     }
 }

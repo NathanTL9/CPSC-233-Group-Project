@@ -506,7 +506,9 @@ public class TaipanShopGUI {
         cargoButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("PLACEHOLDER FOR WAREHOUSE");
+                WarehouseGUI warehouseGUI = new WarehouseGUI(player);
+                warehouseGUI.initializeWarehouse(stage);
+                stage.show();
             }
         });
 
