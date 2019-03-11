@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaipanShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaipanShopGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TravelGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TravelGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Harkamal Randhawa\IdeaProjects\TaipanClone\.idea\shelf/" />
@@ -17,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="384" column="53" lean-forward="true" selection-start-line="384" selection-start-column="53" selection-end-line="384" selection-end-column="53" />
+            <state relative-caret-position="218">
+              <caret line="386" column="35" selection-start-line="386" selection-start-column="35" selection-end-line="386" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="189" column="22" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="22" />
+            <state relative-caret-position="320">
+              <caret line="805" column="49" lean-forward="true" selection-start-line="805" selection-end-line="806" />
             </state>
           </provider>
         </entry>
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="36" />
+            <state relative-caret-position="6570">
+              <caret line="455" column="42" selection-start-line="455" selection-start-column="42" selection-end-line="455" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -67,8 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>litty</find>
-      <find>userAttacks</find>
       <find>numOfLittyShips</find>
       <find>delay</find>
       <find>Hp</find>
@@ -94,9 +91,11 @@
       <find>dang it</find>
       <find>destroy</find>
       <find>destroyPeas</find>
-      <find>continue</find>
       <find>cash</find>
       <find>op</find>
+      <find>continue</find>
+      <find>cashTex</find>
+      <find>cashTe</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -124,6 +123,7 @@
         <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
         <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
+        <option value="$PROJECT_DIR$/src/TravelGUI.java" />
       </list>
     </option>
   </component>
@@ -163,7 +163,7 @@
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552269668343" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552270131392" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
     <property name="project.structure.last.edited" value="Project" />
@@ -277,7 +277,7 @@
       <workItem from="1552238757321" duration="742000" />
       <workItem from="1552240770629" duration="40000" />
       <workItem from="1552241394045" duration="178000" />
-      <workItem from="1552254283748" duration="6697000" />
+      <workItem from="1552254283748" duration="7208000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -489,11 +489,25 @@
       <option name="project" value="LOCAL" />
       <updated>1552268490741</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Completed SHipWarfareGUI">
+      <created>1552269636545</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1552269636545</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Completed ShipWarfareGUI">
+      <created>1552269681200</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1552269681200</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70297000" />
+    <option name="totallyTimeSpent" value="70808000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1189" height="652" extended-state="0" />
@@ -596,8 +610,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Fixed a bunch of stuff inside of Travel, but also discovered a MASSIVE problem with our code" />
-    <MESSAGE value="Fixed stupid problem where you can't access methods above yours" />
     <MESSAGE value="Brought back Vikram's changes" />
     <MESSAGE value="Fixed the commenting on a lot of the code. Also added some stuff to Travel, fixed some bugs." />
     <MESSAGE value="Added time stuff to Shipwarfare GUI" />
@@ -621,7 +633,9 @@
     <MESSAGE value="Fined minor bugs in shipwarfareGUI including the &quot;gun frustration&quot; variable" />
     <MESSAGE value="Just checking" />
     <MESSAGE value="A lot of errors but easily fixable SHipwarfareGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="A lot of errors but easily fixable SHipwarfareGUI" />
+    <MESSAGE value="Completed SHipWarfareGUI" />
+    <MESSAGE value="Completed ShipWarfareGUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed ShipWarfareGUI" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -715,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -729,20 +736,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="189" column="22" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="384" column="53" lean-forward="true" selection-start-line="384" selection-start-column="53" selection-end-line="384" selection-end-column="53" />
+        <state relative-caret-position="218">
+          <caret line="386" column="35" selection-start-line="386" selection-start-column="35" selection-end-line="386" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="805" column="49" lean-forward="true" selection-start-line="805" selection-end-line="806" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6570">
+          <caret line="455" column="42" selection-start-line="455" selection-start-column="42" selection-end-line="455" selection-end-column="42" />
         </state>
       </provider>
     </entry>
