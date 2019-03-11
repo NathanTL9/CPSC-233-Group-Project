@@ -82,7 +82,7 @@ public class WarehouseGUI {
         borderPane.setPrefHeight(480.0);
         borderPane.setPrefWidth(600.0);
 
-        BorderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
+        borderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
         title.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         title.setStrokeWidth(0.0);
         title.setText("Hong Kong Warehouse");
@@ -91,7 +91,7 @@ public class WarehouseGUI {
         title.setFont(new Font(24.0));
         borderPane.setTop(title);
 
-        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
@@ -210,7 +210,7 @@ public class WarehouseGUI {
         generalWarehouse.setFont(new Font(18.0));
         borderPane.setCenter(vBox0);
 
-        BorderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
+        borderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
         vBox1.setPrefHeight(48.0);
         vBox1.setPrefWidth(152.0);
 
