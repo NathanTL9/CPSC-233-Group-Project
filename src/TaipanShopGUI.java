@@ -1,6 +1,8 @@
 /**
-* TaipanShopGUI deals with setting the stage for shop
-* Authors: Vikram Bawa, Harkamal Randhawa, Nathan Lum, Haris Muhammad, Siddhant Dewani
+* TaipanShopGUI deals with setting the stage for shop; the shop shows much of the user's inventory 
+* and features the buying and selling aspect of the game.
+*
+* Author: Vikram Bawa
 */
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
