@@ -186,9 +186,13 @@ public class TravelGUI{
         numberInput.setOnKeyPressed(event -> {
             if(event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)) {
                 int response;
-                response = Integer.parseInt(numberInput.getText().replace(" ", ""));
+                try {
+                    response = Integer.parseInt(numberInput.getText().replace(" ", ""));
+                }
+                catch (Exception e){
+                    response = 0;
+                }
                 boolean hasTraveled = false;
-
                 //Only lets the player leave the port if their inventory is greater than or equal to the sum of the items in the inventory.
                 if(player.getCargoSpace() >= (player.getOpiumHeld()+ (player.getGuns()*10)+player.getSilkHeld() + player.getArmsHeld() + player.getGeneralHeld())){
                         //Just in case the player types something that was not intended. It will refresh the question and ask it again

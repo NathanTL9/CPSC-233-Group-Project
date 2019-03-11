@@ -163,7 +163,7 @@ public class ShipWarfareGUI {
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
-    public boolean destroyPeasantShipsOrEscape() throws Exception {
+    public boolean destroyPeasantShipsOrEscape(Stage stage) throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
         int hitCounter = 0;
@@ -278,7 +278,9 @@ public class ShipWarfareGUI {
             continueButton.setVisible(true);
             return true;
         } else if (exitValue == 2) {
-            player.gameOver();
+            GameEndGUI gameEndGUI = new GameEndGUI(player);
+            gameEndGUI.initializeGameEndGUI(stage);
+            stage.show();
             return true;
         } else if (exitValue == 3) {
             System.out.printf("We made it out at %d%% ship status!\n", player.getHP());
@@ -377,7 +379,7 @@ public class ShipWarfareGUI {
                 counter++;
                 chooseFightOrRun.setText("Ohh, Fight ehh?");
                 try {
-                    if (destroyPeasantShipsOrEscape()){
+                    if (destroyPeasantShipsOrEscape(stage)){
                         completeWipe();
                         continueButton.setVisible(true);
                         fightButton.setVisible(false);
@@ -415,7 +417,7 @@ public class ShipWarfareGUI {
                     chooseFightOrRun.setVisible(false);
                     report.setText(("Couldn't run away"));
                     try {
-                        if(destroyPeasantShipsOrEscape()==true){
+                        if(destroyPeasantShipsOrEscape(stage)==true){
                             completeWipe();
                             continueButton.setVisible(true);
                             fightButton.setVisible(false);
