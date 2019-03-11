@@ -90,40 +90,61 @@ public class LoanSharkGUI {
         brdr1.setTop(vbx1);
 
         // Set the event handler when the deposit button is clicked
-        boolean keepGoing = true;
         b1.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
-                               int loanAsk = Integer.parseInt(txtField1.getText());
-                               if (loanAsk <= 2 * (player.getMoney() - player.getDebt()) && loanAsk >= 0) {
-                                   player.setDebt(player.getDebt() + loanAsk);
-                                   player.setMoney(player.getMoney() + loanAsk);
-                                   l4.setText("Current cash: " + player.getMoney());
-                               } else {
-                                   l5.setText("Sorry you cannot be loaned that much");
+                               try {
+
+                                   int loanAsk = Integer.parseInt(txtField1.getText());
+                                   if (loanAsk <= 2 * (player.getMoney() - player.getDebt()) && loanAsk >= 0) {
+                                       player.setDebt(player.getDebt() + loanAsk);
+                                       player.setMoney(player.getMoney() + loanAsk);
+                                       l4.setText("Current cash: " + player.getMoney());
+                                   } else if (loanAsk < 0) {
+                                       l5.setText("Sorry you cannot enter negative numbers");
+                                   }
+                                   else{
+                                       l5.setText("Sorry you cannot get the loan requested");
+                                   }
+
+
+                                   l2.setText("Debt: " + player.getDebt());
+                               } catch (Exception e) {
+                                   l5.setText("Please enter a valid value");
                                }
 
-
-                               l2.setText("Debt: " + player.getDebt());
                            }
                        }
+
         );
 
         // Set the event handler when the withdraw button is clicked
         b2.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
-                           public void handle(ActionEvent event) {
-                               int returnAsk = Integer.parseInt(txtField1.getText());
-                               if (returnAsk <= player.getDebt() && returnAsk >= 0) {
-                                   player.setDebt(player.getDebt() - returnAsk);
-                                   player.setMoney(player.getMoney() - returnAsk);
-                                   l4.setText("Current cash: " + player.getMoney());
-                               } else if (returnAsk > player.getDebt()) {
-                                   l5.setText("Sorry you cannot be loaned that much");
-                               } else {
-                                   l5.setText("Sorry you cannot return a negative amount");
+                   public void handle(ActionEvent event) {
+                               try {
+
+
+                                   int returnAsk = Integer.parseInt(txtField1.getText());
+                                   if (returnAsk > player.getDebt()) {
+                                       l5.setText("You dont need to return that much");
+                                   }
+                                   else if (returnAsk <= player.getDebt() && returnAsk >= 0 && player.getMoney() >= returnAsk) {
+                                       player.setDebt(player.getDebt() - returnAsk);
+                                       player.setMoney(player.getMoney() - returnAsk);
+                                       l4.setText("Current cash: " + player.getMoney());
+                                   }
+                                   else if(player.getMoney() < returnAsk)  {
+                                       l5.setText("Look " + player.getName() + ", you are being cheap!");
+                                   }
+                                   else  {
+                                       l5.setText("Sorry you cannot return a negative amount");
+                                   }
+                                   l2.setText("Debt: " + player.getDebt());
                                }
-                               l2.setText("Debt: " + player.getDebt());
+                               catch (Exception e) {
+                                   l5.setText("Please enter a valid value");
+                               }
                            }
                        }
         );

@@ -111,15 +111,24 @@ public class BankGUI {
         b1.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
-                               int withdraw = Integer.parseInt(txtField1.getText());
-                               if (withdraw <= player.getBank()) {
-                                   player.setMoney(withdraw + player.getMoney());
-                                   player.setBank(player.getBank() - withdraw);
-                               } else {
-                                   l5.setText("Sorry you cannot withdraw that much");
+                               try {
+                                   int withdraw = Integer.parseInt(txtField1.getText());
+                                   if(withdraw < 0){
+                                       l5.setText("Come on " + player.getName() + " are you trying to fool me??? \n No negative Numbers Please");
+                                   }
+                                   else if (withdraw <= player.getBank()) {
+                                       player.setMoney(withdraw + player.getMoney());
+                                       player.setBank(player.getBank() - withdraw);
+                                   }
+                                   else {
+                                       l5.setText("Sorry you cannot withdraw that much");
+                                   }
+                                   l2.setText("Current Balance: " + player.getBank());
+                                   l4.setText("Current cash: " + player.getMoney());
                                }
-                               l2.setText("Current Balance: " + player.getBank());
-                               l4.setText("Current cash: " + player.getMoney());
+                               catch (Exception e) {
+                                   l5.setText("Please enter a valid value");
+                               }
                            }
                        }
         );
@@ -132,16 +141,24 @@ public class BankGUI {
         b2.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
-                               int deposit = Integer.parseInt(txtField1.getText());
-                               if (deposit <= player.getMoney()) {
-                                   player.setBank(deposit + player.getBank());
-                                   player.setMoney(player.getMoney() - deposit);
-                               } else {
-                                   l5.setText("Sorry you cannot deposit that much");
-                               }
-                               l2.setText("Current Balance: " + player.getBank());
-                               l4.setText("Current cash: " + player.getMoney());
+                               try {
+                                   int deposit = Integer.parseInt(txtField1.getText());
+                                   if(deposit < 0){
+                                       l5.setText("Nice Try!!! No negative Numbers Please");
+                                   }
+                                   else if (deposit <= player.getMoney()) {
+                                       player.setBank(deposit + player.getBank());
+                                       player.setMoney(player.getMoney() - deposit);
+                                   } else {
+                                       l5.setText("Sorry you cannot deposit that much.$");
+                                   }
+                                   l2.setText("Current Balance: " + player.getBank());
+                                   l4.setText("Current cash: " + player.getMoney());
 
+                               }
+                               catch (Exception e) {
+                                   l5.setText("Please enter a valid value");
+                               }
                            }
                        }
         );
