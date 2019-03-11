@@ -160,7 +160,7 @@ public class StartGUI {
          */
         authors.setPrefHeight(80.0);
         authors.setPrefWidth(499.0);
-        authors.setText("By Vikram Bawa, Haris Muhammad, Siddhant Dewani, Nathan Lum and Harkamal Randhawa");
+        authors.setText("By Vikram Bawa, Haris Muhammad, Siddhant Dewani, Nathan Lum \nand Harkamal Randhawa");
 
         /**
          * Puts Vbox0 in the center of the borderpane.

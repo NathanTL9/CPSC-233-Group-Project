@@ -516,10 +516,10 @@ public class TaipanShopGUI {
         });
         bankButton.setMnemonicParsing(false);
         bankButton.setPrefWidth(74.0);
-        bankButton.setText("Visit Bank");
+        bankButton.setText("Bank");
 
         cargoButton.setPrefHeight(25.0);
-        cargoButton.setText("Transfer Cargo");
+        cargoButton.setText("Transfer");
         cargoButton.setMnemonicParsing(false);
         cargoButton.setPrefWidth(94.0);
         // warehouse is entered when the warehouse button is clicked.
@@ -545,12 +545,12 @@ public class TaipanShopGUI {
                 stage.show();
             }
         });
-        loanButton.setText("Get Loans");
+        loanButton.setText("Loans");
 
         quitButton.setPrefHeight(25.0);
         quitButton.setMnemonicParsing(false);
         quitButton.setPrefWidth(90.0);
-        quitButton.setText("Quit Trading");
+        quitButton.setText("Quit");
         // the user is free to travel once the quit button is clicked.
         quitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
