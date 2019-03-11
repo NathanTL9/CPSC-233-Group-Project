@@ -29,13 +29,16 @@ public class ShipWarfareGUI {
     private Label gunsLeftOrTaken;
     private Label continueToFight;
     private int counter1;
+    private Button continueButton;
+
+
 
     /*
-    /**
-     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-     *
-     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
-     */
+        /**
+         * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+         *
+         * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+         */
     public ShipWarfareGUI(Player player){
         Player playerDummy = new Player(player);
         this.player = playerDummy;
@@ -175,6 +178,8 @@ public class ShipWarfareGUI {
         HPLeft.setVisible(true);
         gunsLeftOrTaken.setVisible(true);
         continueToFight.setVisible(true);
+        continueButton.setVisible(false);
+
 
         runAwayOrLeft.setText("No ships ran away");
 
@@ -270,12 +275,14 @@ public class ShipWarfareGUI {
             calculateLoot = (startingPeasantShips *100) + randomValue.nextInt(startingPeasantShips) *200;
             player.setMoney(player.getMoney() + calculateLoot);
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
+            continueButton.setVisible(true);
             return true;
         } else if (exitValue == 2) {
             player.gameOver();
             return true;
         } else if (exitValue == 3) {
             System.out.printf("We made it out at %d%% ship status!\n", player.getHP());
+            continueButton.setVisible(true);
             return true;
         }
         return false;
@@ -302,6 +309,10 @@ public class ShipWarfareGUI {
         HPLeft = new Label();
         gunsLeftOrTaken = new Label();
         continueToFight = new Label();
+        continueButton = new Button();
+
+        continueButton.setVisible(false);
+
 
 
         BorderPane.setPrefHeight(400.0);
@@ -316,6 +327,9 @@ public class ShipWarfareGUI {
         title.setId("Label1");
         title.setText(String.format("%d ships attacking. Would you like to Fight or Run?",numOfPeasantShips));
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
+
+        continueButton.setMnemonicParsing(false);
+        continueButton.setText("Continue?");
 
         fightButton.setAlignment(javafx.geometry.Pos.CENTER);
         fightButton.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
@@ -353,6 +367,8 @@ public class ShipWarfareGUI {
         vBox.getChildren().add(HPLeft);
         vBox.getChildren().add(gunsLeftOrTaken);
         vBox.getChildren().add(continueToFight);
+        vBox.getChildren().add(continueButton);
+
 
         //Fight
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -361,7 +377,22 @@ public class ShipWarfareGUI {
                 counter++;
                 chooseFightOrRun.setText("Ohh, Fight ehh?");
                 try {
-                    destroyPeasantShipsOrEscape();
+                    if (destroyPeasantShipsOrEscape()){
+                        completeWipe();
+                        continueButton.setVisible(true);
+                        fightButton.setVisible(false);
+                        runButton.setVisible(false);
+                        continueButton.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                TaipanShopGUI shop = new TaipanShopGUI(player);
+                                shop.initializeShop(stage);
+                                stage.show();
+                            }
+                        });
+
+
+                    }
                 } catch (Exception e) {
                 }
 
@@ -384,12 +415,29 @@ public class ShipWarfareGUI {
                     chooseFightOrRun.setVisible(false);
                     report.setText(("Couldn't run away"));
                     try {
-                        destroyPeasantShipsOrEscape();
+                        if(destroyPeasantShipsOrEscape()==true){
+                            completeWipe();
+                            continueButton.setVisible(true);
+                            fightButton.setVisible(false);
+                            runButton.setVisible(false);
+                            continueButton.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    TaipanShopGUI shop = new TaipanShopGUI(player);
+                                    shop.initializeShop(stage);
+                                    stage.show();
+                                }
+                            });
+                        }
+
                     } catch (Exception e) {
                     }
                 } else {
                     completeWipe();
                     report.setText("Phew! Got away safely");
+                    TaipanShopGUI shop = new TaipanShopGUI(player);
+                    shop.initializeShop(stage);
+                    stage.show();
 
 
                 }

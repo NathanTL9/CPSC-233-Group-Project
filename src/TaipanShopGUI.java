@@ -803,7 +803,7 @@ public class TaipanShopGUI {
         gunsText.setText(String.format("Guns %d\n\n\n\n ", player.getGuns()));
         inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", player.getOpiumHeld(), player.getSilkHeld(), player.getArmsHeld(), player.getGeneralHeld()));
         shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", player.getDebt(), shipStatusString(), player.getHP()));
-        cashText.setText(String.format("  Cash: %d", player.getMoney()));
+        cashText.setText(String.format("  Cash: $%,d", player.getMoney()));
         bankText.setText(String.format("Bank: %d", player.getBank()));
     }
     
