@@ -380,6 +380,8 @@ public class ShipWarfareGUI {
                     if (destroyPeasantShipsOrEscape()){
                         completeWipe();
                         continueButton.setVisible(true);
+                        fightButton.setVisible(false);
+                        runButton.setVisible(false);
                         continueButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
@@ -416,6 +418,8 @@ public class ShipWarfareGUI {
                         if(destroyPeasantShipsOrEscape()==true){
                             completeWipe();
                             continueButton.setVisible(true);
+                            fightButton.setVisible(false);
+                            runButton.setVisible(false);
                             continueButton.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
