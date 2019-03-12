@@ -204,14 +204,14 @@ public class TravelGUI{
                         try {
                             //Makes sure you can't travel to your own location.
                             if (response != player.getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
-                                System.out.println("a");
                                 hasTraveled = seaAtlas(response);
                                 randomEventSea(response,stage);
                                 player.setBank((int) (player.getBank() * 1.01));
                                 player.setDebt((int) (player.getDebt() * 1.01));
                                 player.setIsPriceChanged(2);
-                                shopScene = false;
-                                stormScene = false;
+                                //shopScene = false;
+                                //stormScene = false;
+
                             } else{
                                 if(response == player.getLocation()){
                                     textOut.setText("    " + "You're already here " + player.getName() + "\n");
@@ -384,7 +384,7 @@ public class TravelGUI{
             quitButton.setVisible(false);
             numberInput.setVisible(false);
             textOut.setText("    We see a ship on the horizon " + player.getName() + "; Prepare for combat!");
-            //System.out.println(textOut.getText() + "\n    " + "PLACEHOLDER FOR SHIPWARFARE");
+            peasantShipScene = true;
         }else if (randGenNum == 2) {
             disaster(locationOfTravel);
             textOut.setText(textOut.getText() + "\n    " + "We made it!");
