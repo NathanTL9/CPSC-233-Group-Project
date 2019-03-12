@@ -5,6 +5,8 @@
 *
 */
 
+import java.util.Random;
+
 public class Player {
 
     private String name = "Taipan";
@@ -24,6 +26,11 @@ public class Player {
     private int wArms = 0;
     private boolean retire = false;
     private int cargoSpace = 60;
+    private int opiumPrice = 16000;
+    private int silkPrice = 1600;
+    private int armsPrice = 160;
+    private int generalPrice = 8;
+    private int isPriceChanged = 0;
 
     public Player() {
         this.name = "Taipan";
@@ -42,7 +49,12 @@ public class Player {
         this.wGeneral = 0;
         this.wArms = 0;
         this.retire = false;
+        this.opiumPrice = 1600;
+        this.silkPrice = 1600;
+        this.armsPrice = 160;
+        this.generalPrice = 8;
         this.cargoSpace = 60;
+        this.isPriceChanged = 0;
     }
 
     /**
@@ -66,7 +78,12 @@ public class Player {
         this.wSilk = player.wSilk;
         this.wGeneral = player.wGeneral;
         this.wArms = player.wArms;
+        this.opiumPrice = player.opiumPrice;
+        this.silkPrice = player.silkPrice;
+        this.armsPrice = player.armsPrice;
+        this.generalPrice = player.generalPrice;
         this.cargoSpace = player.cargoSpace;
+        this.isPriceChanged = player.isPriceChanged;
     }
 
     /**
@@ -438,6 +455,106 @@ public class Player {
     public void setwArms(int wArms) {
         if (wArms >= 0) {
             this.wArms = wArms;
+        }
+    }
+
+    /**
+     * getter for opiumPrice instance variable.
+     *
+     * @return opiumPrice -- the price of opium in the shop
+     */
+    public int getOpiumPrice() {
+        return opiumPrice;
+    }
+
+    /**
+     * setter for the opiumPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param opiumPrice -- what the instance variable opiumPrice should be changed to.
+     */
+    public void setOpiumPrice(int opiumPrice) {
+        if (opiumPrice > 0) {
+            this.opiumPrice = opiumPrice;
+        }
+    }
+
+    /**
+     * getter for silkPrice instance variable.
+     *
+     * @return silkPrice -- the price of silk in the shop.
+     */
+    public int getSilkPrice() {
+        return silkPrice;
+    }
+
+    /**
+     * setter for the silkPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param silkPrice -- what the instance variable silkPrice should be changed to.
+     */
+    public void setSilkPrice(int silkPrice) {
+        if (silkPrice > 0) {
+            this.silkPrice = silkPrice;
+        }
+    }
+
+    /**
+     * getter for armsPrice instance variable.
+     *
+     * @return armsPrice -- the price of arms in the shop.
+     */
+    public int getArmsPrice() {
+        return armsPrice;
+    }
+
+    /**
+     * setter for the armsPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param armsPrice -- what the instance variable armsPrice should be changed to.
+     */
+    public void setArmsPrice(int armsPrice) {
+        if (armsPrice > 0) {
+            this.armsPrice = armsPrice;
+        }
+    }
+
+    /**
+     * getter for generalPrice instance variable.
+     *
+     * @return generalPrice -- the price of general cargo in the shop.
+     */
+    public int getGeneralPrice() {
+        return generalPrice;
+    }
+
+    /**
+     * setter for the generalPrice instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param generalPrice -- what the instance variable generalPrice should be changed to.
+     */
+    public void setGeneralPrice(int generalPrice) {
+        if (generalPrice > 0) {
+            this.generalPrice = generalPrice;
+        }
+    }
+
+    /**
+     * getter for isPriceChanged instance variable.
+     *
+     * @return isPriceChanged -- Checks if the price has changed since last in shop.
+     */
+    public int getIsPriceChanged() {
+        return isPriceChanged;
+    }
+
+    /**
+     * setter for the isPriceChanged instance variable. Runs as long as the parameter is greater than 0.
+     *
+     * @param isPriceChanged -- what the instance variable isPriceChanged should be changed to.
+     */
+    public void setIsPriceChanged(int isPriceChanged) {
+        if(isPriceChanged >= 0) {
+            this.isPriceChanged = isPriceChanged;
         }
     }
 

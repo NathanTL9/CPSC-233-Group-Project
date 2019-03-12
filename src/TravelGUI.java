@@ -1,3 +1,8 @@
+/**
+* TravelGUI is the class in which takes the player from location to location
+*
+* Author: Harkamal Randhawa
+*/
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +18,7 @@ import java.util.Random;
 
 public class TravelGUI{
     private Player player;
+    private TaipanShopGUI shop;
     private Label firm = new Label();
     private Label wItemsText = new Label();
     private Label wItemSpaceText = new Label();
@@ -42,6 +48,7 @@ public class TravelGUI{
      */
     public TravelGUI(Player player) {
         Player playerDummy = new Player(player);
+        this.shop = new TaipanShopGUI(player);
         this.player = playerDummy;
     }
 
@@ -200,6 +207,7 @@ public class TravelGUI{
                                 hasTraveled = seaAtlas(response);
                                 player.setBank((int) (player.getBank() * 1.01));
                                 player.setDebt((int) (player.getDebt() * 1.01));
+                                player.setIsPriceChanged(2);
                                 shopScene = false;
                                 stormScene = false;
                             } else{
