@@ -401,8 +401,13 @@ public class TaipanShopGUI {
         buyButton.setPrefHeight(25.0);
         buyButton.setPrefWidth(45.0);
         buyButton.setText("Buy");
-        // if the buy button is clicked, the main utility buttons are set to be invisible and the buying process begins.
         buyButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * if the buy button is clicked, the main utility buttons are set to be invisible and the buying process begins.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 buttonSetup("shop");
@@ -416,6 +421,12 @@ public class TaipanShopGUI {
         sellButton.setText("Sell");
         // if the sell button is clicked, the main utility buttons are set to be invisible and the selling process begins.
         sellButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * if the sell button is clicked, the main utility buttons are set to be invisible and the selling process begins.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 buttonSetup("shop");
@@ -428,8 +439,13 @@ public class TaipanShopGUI {
         sellButton.setMnemonicParsing(false);
 
         bankButton.setPrefHeight(25.0);
-        // opens the bank if the bank button is clicked.
         bankButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * opens the bank if the bank button is clicked.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 BankGUI bank = new BankGUI(getPlayer());
@@ -445,8 +461,13 @@ public class TaipanShopGUI {
         cargoButton.setText("Transfer");
         cargoButton.setMnemonicParsing(false);
         cargoButton.setPrefWidth(94.0);
-        // warehouse is entered when the warehouse button is clicked.
         cargoButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * warehouse is entered when the warehouse button is clicked.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 WarehouseGUI warehouseGUI = new WarehouseGUI(player);
@@ -459,8 +480,13 @@ public class TaipanShopGUI {
         loanButton.setMnemonicParsing(false);
         loanButton.setPrefHeight(25.0);
         loanButton.setPrefWidth(73.0);
-        // loan office is entered when the loan button is clicked.
         loanButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * loan office is entered when the loan button is clicked.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 LoanSharkGUI loan = new LoanSharkGUI(getPlayer());
@@ -474,8 +500,13 @@ public class TaipanShopGUI {
         quitButton.setMnemonicParsing(false);
         quitButton.setPrefWidth(90.0);
         quitButton.setText("Quit");
-        // the user is free to travel once the quit button is clicked.
         quitButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * the user is free to travel once the quit button is clicked.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 player.setIsPriceChanged(1);
@@ -490,8 +521,13 @@ public class TaipanShopGUI {
         retireButton.setPrefWidth(49.0);
         retireButton.setText("Retire");
         retireButton.setVisible(false);
-        // the user wins the game when the retire button is clicked.
         retireButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * the user wins the game when the retire button is clicked.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 retire(stage);
@@ -504,8 +540,13 @@ public class TaipanShopGUI {
         opiumButton.setPrefHeight(25.0);
         opiumButton.setText("Opium");
         opiumButton.setVisible(false);
-        // the opium buying/selling process starts as soon as the user clicks the opium button.
         opiumButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * the opium buying/selling process starts as soon as the user clicks the opium button.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 buttonSetup("input");
@@ -526,8 +567,13 @@ public class TaipanShopGUI {
         silkButton.setMnemonicParsing(false);
         silkButton.setText("Silk");
         silkButton.setVisible(false);
-        // the silk buying/selling process starts as soon as the user clicks the silk button.
         silkButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * the silk buying/selling process starts as soon as the user clicks the silk button.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 buttonSetup("input");
@@ -546,8 +592,13 @@ public class TaipanShopGUI {
         armsButton.setPrefWidth(86.0);
         armsButton.setMnemonicParsing(false);
         armsButton.setVisible(false);
-        // the arms buying/selling process starts as soon as the user clicks the arms button.
         armsButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * the arms buying/selling process starts as soon as the user clicks the arms button.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 buttonSetup("input");
@@ -570,8 +621,13 @@ public class TaipanShopGUI {
         generalButton.setPrefWidth(86.0);
         generalButton.setText("General");
         generalButton.setVisible(false);
-        // the general cargo buying/selling process starts as soon as the user clicks the general cargo button.
         generalButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            /**
+             * the general cargo buying/selling process starts as soon as the user clicks the general cargo button.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(ActionEvent event) {
                 buttonSetup("input");
@@ -590,9 +646,14 @@ public class TaipanShopGUI {
         numberInput.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         numberInput.setText("Enter amount here...");
         numberInput.setVisible(false);
-        // after the user inputs a valid input into the text field and presses Z or ENTER, the buying/selling ends and
-        // the user is returned to the regular shop dialogue.
         numberInput.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+            /**
+             * after the user inputs a valid input into the text field and presses Z or ENTER, the buying/selling ends
+             * and the user is returned to the regular shop dialogue.
+             *
+             * @param event -- the event corresponding to the button click
+             */
             @Override
             public void handle(KeyEvent event) {
                 boolean exit = true;
