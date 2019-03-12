@@ -39,6 +39,7 @@ public class TravelGUI{
     private Boolean littyShipScene = false;
     private Boolean shopScene = false;
     private Boolean stormScene = false;
+    private Boolean sceneContinue = false;
 
 
     /**
@@ -202,17 +203,24 @@ public class TravelGUI{
                         //Just in case the player types something that was not intended. It will refresh the question and ask it again
                         try {
                             //Makes sure you can't travel to your own location.
-                            if (response != player.getLocation() && response != 0 && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
-                                randomEventSea(response,stage);
+                            if (response != player.getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
+                                System.out.println("a");
                                 hasTraveled = seaAtlas(response);
+                                randomEventSea(response,stage);
                                 player.setBank((int) (player.getBank() * 1.01));
                                 player.setDebt((int) (player.getDebt() * 1.01));
                                 player.setIsPriceChanged(2);
                                 shopScene = false;
                                 stormScene = false;
                             } else{
-                                textOut.setText("    " + "You're already here " + player.getName());
-                                textOut.setText(textOut.getText() + ", do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
+                                if(response == player.getLocation()){
+                                    textOut.setText("    " + "You're already here " + player.getName() + "\n");
+                                }
+                                else{
+                                    textOut.setText("    " + player.getName() + "; Sorry but could you say that again?");
+                                }
+
+                                textOut.setText(textOut.getText() + "\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
                             }
                         } catch (Exception e) {
                             textOut.setText("    " + "Sorry, " + player.getName() + " could you say that again?");
@@ -375,11 +383,9 @@ public class TravelGUI{
             continueButton.setVisible(true);
             quitButton.setVisible(false);
             numberInput.setVisible(false);
-            peasantShipScene = true;
             textOut.setText("    We see a ship on the horizon " + player.getName() + "; Prepare for combat!");
             //System.out.println(textOut.getText() + "\n    " + "PLACEHOLDER FOR SHIPWARFARE");
         }else if (randGenNum == 2) {
-            stormScene = true;
             disaster(locationOfTravel);
             textOut.setText(textOut.getText() + "\n    " + "We made it!");
         }
