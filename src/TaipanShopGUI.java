@@ -128,7 +128,7 @@ public class TaipanShopGUI {
                 }
             } else {
                 if (value < 7) {
-                    player.setOpiumPrice(1);
+                    player.setGeneralPrice(1);
                     textOut.setText(s + "General Cargo has dropped to 1!!!\n" + textOut.getText());
                 } else {
                     player.setGeneralPrice(player.getGeneralPrice() * 5);
