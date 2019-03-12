@@ -212,7 +212,7 @@ public class StartGUI {
                 if (response.equalsIgnoreCase("Vikram")) {
                     player.setMoney(999999999);
                     player.setBank(999999999);
-                    player.setGuns(0);
+                    player.setGuns(999);
                     player.setHP(99999999);
                     player.setCargoSpace(Integer.MAX_VALUE);
                 }
