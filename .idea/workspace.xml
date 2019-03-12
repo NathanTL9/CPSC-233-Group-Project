@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Fixed output for start and TaipanShop GUI">
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
     </list>
@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="210">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -175,7 +175,7 @@
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552339184926" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552351596289" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -290,7 +290,7 @@
       <workItem from="1552240770629" duration="40000" />
       <workItem from="1552241394045" duration="178000" />
       <workItem from="1552254283748" duration="9473000" />
-      <workItem from="1552277298937" duration="10489000" />
+      <workItem from="1552277298937" duration="10904000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -558,11 +558,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552328825548</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added JavaDocs for ShipWarfare">
+      <created>1552339973224</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1552339973224</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83562000" />
+    <option name="totallyTimeSpent" value="83977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="26" width="1189" height="652" extended-state="0" />
@@ -665,7 +672,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Made ShipWarfare easier to access by ShipWarfareGUI" />
     <MESSAGE value="Missed one statement that I needed to encapsulate" />
     <MESSAGE value="Messed up player by setting money to 1000" />
     <MESSAGE value="Please find error" />
@@ -690,7 +696,8 @@
     <MESSAGE value="Added to my javadocs a bit" />
     <MESSAGE value="Changed one line of text in shipwarfare GUI" />
     <MESSAGE value="Fixed output for start and TaipanShop GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed output for start and TaipanShop GUI" />
+    <MESSAGE value="Added JavaDocs for ShipWarfare" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDocs for ShipWarfare" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -808,7 +815,7 @@
     <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -842,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        <state relative-caret-position="210">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
         </state>
       </provider>
     </entry>
