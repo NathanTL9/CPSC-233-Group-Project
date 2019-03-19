@@ -9,16 +9,15 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
-* 2019-03-10
-* Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
-* StartGUI class, Initializes and displays the start menu for Taipan
-*
-*/
+ * 2019-03-10
+ * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+ * StartGUI class, Initializes and displays the start menu for Taipan
+ *
+ */
 
 
-public class StartGUI {
+public class StartGUI extends Player{
 
-    private Player player;
     private BorderPane borderPane = new BorderPane();
     private HBox hBox = new HBox();
     private TextField nameField = new TextField();
@@ -33,23 +32,12 @@ public class StartGUI {
     private Label authors = new Label();
 
     /**
-     * gets the player instance variable. The method returns a copy of the instance variable for encapsulation purposes.
-     *
-     * @return playerDummy -- playerDummy is a copy of the player instance variable.
+     * Copy constructor.
+     * @param player object of the class Player
      */
-    public Player getPlayer() {
+    public StartGUI(Player player) {
         Player playerTemp = new Player(player);
-        return playerTemp;
-    }
-
-    /**
-     * sets the player instance variable equal to a copy of the parameter -- a copy is used for encapsulation purposes.
-     *
-     * @param player is a Player object that will replace the current instance of the player instance variable.
-     */
-    public void setPlayer(Player player) {
-        Player playerTemp = new Player(player);
-        this.player = playerTemp;
+        setPlayer(playerTemp);
     }
 
     /**
@@ -59,20 +47,10 @@ public class StartGUI {
      */
     public void setFirm(String name) {
         if (name.length() <= 22) {
-            player.setName(name);
+            super.setName(name);
         } else {
-            player.setName("Taipan");
+            super.setName("Taipan");
         }
-    }
-
-    /*
-     **
-     * Copy constructor.
-     * @param player object of the class Player
-     */
-    public StartGUI(Player player) {
-        Player playerTemp = new Player(player);
-        this.player = playerTemp;
     }
 
     /**
@@ -199,26 +177,26 @@ public class StartGUI {
             @Override
             public void handle(ActionEvent event) {
                 if (Start.getSelectedToggle() == cashChoice) {
-                    player.setMoney(400);
-                    player.setDebt(5000);
+                    setMoney(400);
+                    setDebt(5000);
 
                 }
                 if (Start.getSelectedToggle() == gunChoice) {
-                    player.setGuns(5);
+                    setGuns(5);
                 }
 
                 String response = nameField.getText();
                 // purely for testing purposes.
                 if (response.equalsIgnoreCase("Vikram")) {
-                    player.setMoney(999999999);
-                    player.setBank(999999999);
-                    player.setGuns(999);
-                    player.setHP(99999999);
-                    player.setCargoSpace(Integer.MAX_VALUE);
+                    setMoney(999999999);
+                    setBank(999999999);
+                    setGuns(999);
+                    setHP(99999999);
+                    setCargoSpace(Integer.MAX_VALUE);
                 }
                 setFirm(response);
 
-                TaipanShopGUI shop = new TaipanShopGUI(player);
+                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                 shop.initializeShop(stage);
                 stage.show();
                 //title.setText("SHOP PLACEHOLDER");

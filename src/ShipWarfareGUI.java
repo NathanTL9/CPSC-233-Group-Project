@@ -19,10 +19,8 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-public class ShipWarfareGUI {
+public class ShipWarfareGUI extends Player{
 
-
-    private Player player = new Player();
     private HBox hBox;
     private Button fightButton;
     private Button runButton;
@@ -39,17 +37,6 @@ public class ShipWarfareGUI {
     private Button continueButton;
 
 
-    /**
-     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-     *
-     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
-     */
-    public ShipWarfareGUI(Player player) {
-        Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
-
-
     private int numOfPeasantShips = 0;
     private int numOfLittyShips = 0;
     private boolean userAttacks = true;
@@ -59,24 +46,15 @@ public class ShipWarfareGUI {
     private int counter = 0;
     private String pirateName = "Liu Yen";
 
-    /**
-     * setter method for player
-     *
-     * @param player object of the class Player
-     */
-    public void setPlayer(Player player) {
-        Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
 
     /**
-     * getter method for obtaining a player object.
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
      *
-     * @return returns player object
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
-    public Player getPlayer() {
+    public ShipWarfareGUI(Player player) {
         Player playerDummy = new Player(player);
-        return playerDummy;
+        setPlayer(playerDummy);
     }
 
     /**
@@ -103,16 +81,16 @@ public class ShipWarfareGUI {
         int numOfShipsAttacking = 0;
         Random randomValue = new Random();
 
-        if (player.getMoney() <= 100000) {
+        if (getMoney() <= 100000) {
             //Minimum one ship will attack, maximum 20
             numOfShipsAttacking = randomValue.nextInt(20) + 1;
-        } else if (player.getMoney() <= 200000) {
+        } else if (getMoney() <= 200000) {
             //Minimum 30 Ships will attack, maximum 70
             numOfShipsAttacking = randomValue.nextInt(40) + 31;
-        } else if (player.getMoney() <= 500000) {
+        } else if (getMoney() <= 500000) {
             //Minimum 50 ships will attack, maximum 140
             numOfShipsAttacking = randomValue.nextInt(90) + 51;
-        } else if (player.getMoney() >= 1000000) {
+        } else if (getMoney() >= 1000000) {
             //Minimum 100 ships will attack, maximum 300 ships
             numOfShipsAttacking = randomValue.nextInt(200) + 101;
         }
@@ -196,9 +174,9 @@ public class ShipWarfareGUI {
 
         //Player volley
         //while (exitValue == 0) {
-        if (player.getGuns() > 0) {
+        if (getGuns() > 0) {
 
-            for (int j = 0; j < player.getGuns(); j++) {
+            for (int j = 0; j < getGuns(); j++) {
                 if (userAttacks == true) {
                     int hitOrMiss = randomValue.nextInt(2) + 1;
                     if (hitOrMiss == 2) {
@@ -230,7 +208,7 @@ public class ShipWarfareGUI {
             exitValue = 1;
             //break;
         }
-        if (player.getGuns() > 0) {
+        if (getGuns() > 0) {
             chanceOfEnemyRun = randomValue.nextInt(2) + 1;
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
@@ -240,12 +218,12 @@ public class ShipWarfareGUI {
                     setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
-                            runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, player.getName()));
+                            runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
                             //runAwayOrLeft.setVisible(true);
                         }
 
                     } else {
-                        report.setText((String.format("Escaped %d of them %s!", howMuchRun, player.getName())));
+                        report.setText((String.format("Escaped %d of them %s!", howMuchRun, getName())));
                     }
 
                 }
@@ -255,47 +233,47 @@ public class ShipWarfareGUI {
         shipsRemaining.setText(String.format("%d ships remaining and they look angry!", numOfPeasantShips));
         //Computer volley
         int takeGunChance = randomValue.nextInt(4) + 1;
-        if (takeGunChance == 1 && player.getGuns() > 0) {
-            player.setGuns(player.getGuns() - 1);
+        if (takeGunChance == 1 && getGuns() > 0) {
+            setGuns(getGuns() - 1);
             gunFrustration = true;
         } else {
             if (numOfPeasantShips > 0) {
-                player.setHP(player.getHP() - (1 + randomValue.nextInt(10)));
+                setHP(getHP() - (1 + randomValue.nextInt(10)));
 
             }
         }
-        if (player.getHP() <= 0) {
+        if (getHP() <= 0) {
             exitValue = 2;
             //break;
         }
         if (gunFrustration == true) {
-            gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", player.getGuns()));
+            gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", getGuns()));
         } else {
-            gunsLeftOrTaken.setText(String.format("We still have %d guns left", player.getGuns()));
+            gunsLeftOrTaken.setText(String.format("We still have %d guns left", getGuns()));
         }
 
-        HPLeft.setText(String.format("EEK, our current ship status is %d%% ", player.getHP()));
+        HPLeft.setText(String.format("EEK, our current ship status is %d%% ", getHP()));
         if (userAttacks == false) {
             userAttacks = true;
         }
 
-        continueToFight.setText(String.format("Captain, what are your orders? (Click the fight button or the run button)", player.getGuns()));
+        continueToFight.setText(String.format("Captain, what are your orders? (Click the fight button or the run button)", getGuns()));
 
         if (exitValue == 1) {
             wipe();
-            chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", player.getHP()));
+            chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", getHP()));
             calculateLoot = (startingPeasantShips * 100) + randomValue.nextInt(startingPeasantShips) * 200;
-            player.setMoney(player.getMoney() + calculateLoot);
+            setMoney(getMoney() + calculateLoot);
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
             return true;
         } else if (exitValue == 2) {
-            GameEndGUI gameEndGUI = new GameEndGUI(player);
+            GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
             gameEndGUI.initializeGameEndGUI(stage);
             stage.show();
             return true;
         } else if (exitValue == 3) {
-            System.out.printf("We made it out at %d%% ship status!\n", player.getHP());
+            System.out.printf("We made it out at %d%% ship status!\n", getHP());
             continueButton.setVisible(true);
             return true;
         }
@@ -414,7 +392,7 @@ public class ShipWarfareGUI {
                              * @param event, once button is clicked, executes graphical information
                              */
                             public void handle(ActionEvent event) {
-                                TaipanShopGUI shop = new TaipanShopGUI(player);
+                                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                                 shop.initializeShop(stage);
                                 stage.show();
                             }
@@ -460,7 +438,7 @@ public class ShipWarfareGUI {
                                  * @param event, once button is clicked, executes graphical information
                                  */
                                 public void handle(ActionEvent event) {
-                                    TaipanShopGUI shop = new TaipanShopGUI(player);
+                                    TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                                     shop.initializeShop(stage);
                                     stage.show();
                                 }
@@ -472,7 +450,7 @@ public class ShipWarfareGUI {
                 } else {
                     completeWipe();
                     report.setText("Phew! Got away safely");
-                    TaipanShopGUI shop = new TaipanShopGUI(player);
+                    TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                     shop.initializeShop(stage);
                     stage.show();
 

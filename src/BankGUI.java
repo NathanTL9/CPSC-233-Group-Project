@@ -10,37 +10,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BankGUI {
-    private Player player;
-
-    /**
-     * setter method that takes in a Player object as an argument.
-     *
-     * @param player object of the class Player
-     */
-    public void setPlayer(Player player) {
-        Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
-
-    /**
-     * getter method for obtaining a player object.
-     *
-     * @return returns player object
-     */
-    public Player getPlayer() {
-        Player playerDummy = new Player(player);
-        return playerDummy;
-    }
+public class BankGUI extends Player{
 
     /**
      * Class Constructor that takes in a type player as a parameter
-     * <p>
-     * //* @param player object of the class Player
+     *
+     * @param player object of the class Player
      */
     public BankGUI(Player player) {
         Player playerDummy = new Player(player);
-        this.player = playerDummy;
+        setPlayer(playerDummy);
     }
 
     /**
@@ -61,10 +40,10 @@ public class BankGUI {
         HBox hbx2 = new HBox(30);
         VBox vbx1 = new VBox(30);
 
-        Label l1 = new Label("Player:  " + player.getName());
-        Label l2 = new Label("Current Balance: " + player.getBank());
+        Label l1 = new Label("Player:  " + getName());
+        Label l2 = new Label("Current Balance: " + getBank());
         Label l3 = new Label("Enter Amount: ");
-        Label l4 = new Label("Current cash: " + player.getMoney());
+        Label l4 = new Label("Current cash: " + getMoney());
         Label l5 = new Label(" ");
 
         Button b1 = new Button("Withdraw");
@@ -114,17 +93,17 @@ public class BankGUI {
                                try {
                                    int withdraw = Integer.parseInt(txtField1.getText());
                                    if(withdraw < 0){
-                                       l5.setText("Come on " + player.getName() + " are you trying to fool me??? \n No negative Numbers Please");
+                                       l5.setText("Come on " + getName() + " are you trying to fool me??? \n No negative Numbers Please");
                                    }
-                                   else if (withdraw <= player.getBank()) {
-                                       player.setMoney(withdraw + player.getMoney());
-                                       player.setBank(player.getBank() - withdraw);
+                                   else if (withdraw <= getBank()) {
+                                       setMoney(withdraw + getMoney());
+                                       setBank(getBank() - withdraw);
                                    }
                                    else {
                                        l5.setText("Sorry you cannot withdraw that much");
                                    }
-                                   l2.setText("Current Balance: " + player.getBank());
-                                   l4.setText("Current cash: " + player.getMoney());
+                                   l2.setText("Current Balance: " + getBank());
+                                   l4.setText("Current cash: " + getMoney());
                                }
                                catch (Exception e) {
                                    l5.setText("Please enter a valid value");
@@ -146,14 +125,14 @@ public class BankGUI {
                                    if(deposit < 0){
                                        l5.setText("Nice Try!!! No negative Numbers Please");
                                    }
-                                   else if (deposit <= player.getMoney()) {
-                                       player.setBank(deposit + player.getBank());
-                                       player.setMoney(player.getMoney() - deposit);
+                                   else if (deposit <= getMoney()) {
+                                       setBank(deposit + getBank());
+                                       setMoney(getMoney() - deposit);
                                    } else {
                                        l5.setText("Sorry you cannot deposit that much.$");
                                    }
-                                   l2.setText("Current Balance: " + player.getBank());
-                                   l4.setText("Current cash: " + player.getMoney());
+                                   l2.setText("Current Balance: " + getBank());
+                                   l4.setText("Current cash: " + getMoney());
 
                                }
                                catch (Exception e) {
@@ -170,7 +149,7 @@ public class BankGUI {
         b3.setOnAction(new EventHandler<ActionEvent>() {
                            @Override
                            public void handle(ActionEvent event) {
-                               TaipanShopGUI shopGUI = new TaipanShopGUI(player);
+                               TaipanShopGUI shopGUI = new TaipanShopGUI(getPlayer());
                                shopGUI.initializeShop(primaryStage);
                                primaryStage.show();
                            }
@@ -193,7 +172,7 @@ public class BankGUI {
      * @param primaryStage the stage in which the scene may be run and switched to
      */
     public void start(Stage primaryStage) {
-        BankGUI bank = new BankGUI(player);
+        BankGUI bank = new BankGUI(getPlayer());
         bank.initializeBank(primaryStage);
         primaryStage.show();
     }

@@ -10,14 +10,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
-* 2019-03-10
-* Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
-* WarehouseGUI class, Initializes and displays the graphical interface for the warehouse in Taipan
-*
-*/
-public class WarehouseGUI {
-
-    private Player player;
+ * 2019-03-10
+ * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
+ * WarehouseGUI class, Initializes and displays the graphical interface for the warehouse in Taipan
+ *
+ */
+public class WarehouseGUI extends Player{
 
     private Text title;
     private HBox hBox;
@@ -56,27 +54,7 @@ public class WarehouseGUI {
      */
     public WarehouseGUI(Player player) {
         Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
-
-    /**
-     * Setter method for the Player object, player
-     *
-     * @param player an object of type Player
-     */
-    public void setPlayer(Player player) {
-        Player playerDummy = new Player(player);
-        this.player = playerDummy;
-    }
-
-    /**
-     * Getter method for the Player object, player.
-     *
-     * @return returns a copy of the Player object, player
-     */
-    public Player getPlayer() {
-        Player playerDummy = new Player(player);
-        return playerDummy;
+        setPlayer(playerDummy);
     }
 
     /**
@@ -179,33 +157,33 @@ public class WarehouseGUI {
                                      int withdraw = Integer.parseInt(textIn.getText());
                                      updateLabels();
                                      if (opium.isSelected()) {
-                                         if (player.getwOpium() >= withdraw) {
-                                             player.setwOpium(player.getwOpium() - withdraw);
-                                             player.setOpiumHeld(player.getOpiumHeld() + withdraw);
+                                         if (getwOpium() >= withdraw) {
+                                             setwOpium(getwOpium() - withdraw);
+                                             setOpiumHeld(getOpiumHeld() + withdraw);
                                          } else {
                                              title.setText("You don't have that much opium stored in the warehouse!");
                                          }
                                      }
                                      if (silk.isSelected()) {
-                                         if (player.getwSilk() >= withdraw) {
-                                             player.setwSilk(player.getwSilk() - withdraw);
-                                             player.setSilkHeld(player.getSilkHeld() + withdraw);
+                                         if (getwSilk() >= withdraw) {
+                                             setwSilk(getwSilk() - withdraw);
+                                             setSilkHeld(getSilkHeld() + withdraw);
                                          } else {
                                              title.setText("You don't have that much silk stored in the warehouse!");
                                          }
                                      }
                                      if (arms.isSelected()) {
-                                         if (player.getwArms() >= withdraw) {
-                                             player.setwArms(player.getwArms() - withdraw);
-                                             player.setArmsHeld(player.getArmsHeld() + withdraw);
+                                         if (getwArms() >= withdraw) {
+                                             setwArms(getwArms() - withdraw);
+                                             setArmsHeld(getArmsHeld() + withdraw);
                                          } else {
                                              title.setText("You don't have that much arms stored in the warehouse!");
                                          }
                                      }
                                      if (general.isSelected()) {
-                                         if (player.getwGeneral() >= withdraw) {
-                                             player.setwGeneral(player.getwGeneral() - withdraw);
-                                             player.setGeneralHeld(player.getGeneralHeld() + withdraw);
+                                         if (getwGeneral() >= withdraw) {
+                                             setwGeneral(getwGeneral() - withdraw);
+                                             setGeneralHeld(getGeneralHeld() + withdraw);
                                          } else {
                                              title.setText("You don't have that much general stored in the warehouse!");
                                          }
@@ -225,33 +203,33 @@ public class WarehouseGUI {
                 updateLabels();
                 int deposit = Integer.parseInt(textIn.getText());
                 if (opium.isSelected()) {
-                    if (player.getOpiumHeld() >= deposit) {
-                        player.setwOpium(player.getwOpium() + deposit);
-                        player.setOpiumHeld(player.getOpiumHeld() - deposit);
+                    if (getOpiumHeld() >= deposit) {
+                        setwOpium(getwOpium() + deposit);
+                        setOpiumHeld(getOpiumHeld() - deposit);
                     } else {
                         title.setText("You don't have that much opium stored in the ship!");
                     }
                 }
                 if (silk.isSelected()) {
-                    if (player.getwSilk() >= deposit) {
-                        player.setwSilk(player.getwSilk() + deposit);
-                        player.setSilkHeld(player.getSilkHeld() - deposit);
+                    if (getwSilk() >= deposit) {
+                        setwSilk(getwSilk() + deposit);
+                        setSilkHeld(getSilkHeld() - deposit);
                     } else {
                         title.setText("You don't have that much silk stored in the ship!");
                     }
                 }
                 if (arms.isSelected()) {
-                    if (player.getwArms() >= deposit) {
-                        player.setwArms(player.getwArms() + deposit);
-                        player.setArmsHeld(player.getArmsHeld() - deposit);
+                    if (getwArms() >= deposit) {
+                        setwArms(getwArms() + deposit);
+                        setArmsHeld(getArmsHeld() - deposit);
                     } else {
                         title.setText("You don't have that much arms stored in the ship!");
                     }
                 }
                 if (general.isSelected()) {
-                    if (player.getwGeneral() >= deposit) {
-                        player.setwGeneral(player.getwGeneral() + deposit);
-                        player.setGeneralHeld(player.getGeneralHeld() - deposit);
+                    if (getwGeneral() >= deposit) {
+                        setwGeneral(getwGeneral() + deposit);
+                        setGeneralHeld(getGeneralHeld() - deposit);
                     } else {
                         title.setText("You don't have that much general stored in the ship!");
                     }
@@ -618,7 +596,7 @@ public class WarehouseGUI {
      * @param primaryStage object of type Stage
      */
     public void start(Stage primaryStage) {
-        WarehouseGUI warehouseGUI = new WarehouseGUI(player);
+        WarehouseGUI warehouseGUI = new WarehouseGUI(getPlayer());
         warehouseGUI.initializeWarehouse(primaryStage);
         primaryStage.show();
     }
@@ -628,14 +606,14 @@ public class WarehouseGUI {
      * can be safely stored without holing space on the ship!
      */
     public void updateLabels() {
-        generalPlayer.setText("General: " + player.getGeneralHeld());
-        armsPlayer.setText("Arms: " + player.getArmsHeld());
-        silkPlayer.setText("Silk: " + player.getSilkHeld());
-        opiumPlayer.setText("Opium: " + player.getOpiumHeld());
+        generalPlayer.setText("General: " + getGeneralHeld());
+        armsPlayer.setText("Arms: " + getArmsHeld());
+        silkPlayer.setText("Silk: " + getSilkHeld());
+        opiumPlayer.setText("Opium: " + getOpiumHeld());
 
-        generalWarehouse.setText("General: " + player.getwGeneral());
-        armsWarehouse.setText("Arms: " + player.getwArms());
-        silkWarehouse.setText("Silk: " + player.getwSilk());
-        opiumWarehouse.setText("Opium: " + player.getwOpium());
+        generalWarehouse.setText("General: " + getwGeneral());
+        armsWarehouse.setText("Arms: " + getwArms());
+        silkWarehouse.setText("Silk: " + getwSilk());
+        opiumWarehouse.setText("Opium: " + getwOpium());
     }
 }

@@ -1,8 +1,8 @@
 /**
-* TravelGUI is the class in which takes the player from location to location
-*
-* Author: Harkamal Randhawa
-*/
+ * TravelGUI is the class in which takes the player from location to location
+ *
+ * Author: Harkamal Randhawa
+ */
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,8 +16,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import java.util.Random;
 
-public class TravelGUI{
-    private Player player;
+public class TravelGUI extends Player{
     private TaipanShopGUI shop;
     private Label firm = new Label();
     private Label wItemsText = new Label();
@@ -41,7 +40,6 @@ public class TravelGUI{
     private Boolean stormScene = false;
     private Boolean sceneContinue = false;
 
-
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
      *
@@ -50,7 +48,7 @@ public class TravelGUI{
     public TravelGUI(Player player) {
         Player playerDummy = new Player(player);
         this.shop = new TaipanShopGUI(player);
-        this.player = playerDummy;
+        setPlayer(playerDummy);
     }
 
     /**
@@ -166,7 +164,7 @@ public class TravelGUI{
 
         //Goes back to shop
         quitButton.setOnAction(event -> {
-            TaipanShopGUI taipanShopGUI = new TaipanShopGUI(player);
+            TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
             stage.show();
         });
@@ -174,12 +172,12 @@ public class TravelGUI{
         //Continues on to either shop or shipwarfare
         continueButton.setOnAction(event -> {
             if(peasantShipScene){
-                ShipWarfareGUI ship = new ShipWarfareGUI(player);
+                ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
                 ship.initializeShip(stage);
                 stage.show();
             }
             else if(shopScene){
-                TaipanShopGUI shop = new TaipanShopGUI(player);
+                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                 shop.initializeShop(stage);
                 stage.show();
             }
@@ -199,43 +197,43 @@ public class TravelGUI{
                 }
                 boolean hasTraveled = false;
                 //Only lets the player leave the port if their inventory is greater than or equal to the sum of the items in the inventory.
-                if(player.getCargoSpace() >= (player.getOpiumHeld()+ (player.getGuns()*10)+player.getSilkHeld() + player.getArmsHeld() + player.getGeneralHeld())){
-                        //Just in case the player types something that was not intended. It will refresh the question and ask it again
-                        try {
-                            //Makes sure you can't travel to your own location.
-                            if (response != player.getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
-                                hasTraveled = seaAtlas(response);
-                                randomEventSea(response,stage);
-                                player.setBank((int) (player.getBank() * 1.01));
-                                player.setDebt((int) (player.getDebt() * 1.01));
-                                player.setIsPriceChanged(2);
-                                //shopScene = false;
-                                //stormScene = false;
+                if(getCargoSpace() >= (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
+                    //Just in case the player types something that was not intended. It will refresh the question and ask it again
+                    try {
+                        //Makes sure you can't travel to your own location.
+                        if (response != getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
+                            hasTraveled = seaAtlas(response);
+                            randomEventSea(response,stage);
+                            setBank((int) (getBank() * 1.01));
+                            setDebt((int) (getDebt() * 1.01));
+                            setIsPriceChanged(2);
+                            //shopScene = false;
+                            //stormScene = false;
 
-                            } else{
-                                if(response == player.getLocation()){
-                                    textOut.setText("    " + "You're already here " + player.getName() + "\n");
-                                }
-                                else{
-                                    textOut.setText("    " + player.getName() + "; Sorry but could you say that again?");
-                                }
-
-                                textOut.setText(textOut.getText() + "\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
+                        } else{
+                            if(response == getLocation()){
+                                textOut.setText("    " + "You're already here " + getName() + "\n");
                             }
-                        } catch (Exception e) {
-                            textOut.setText("    " + "Sorry, " + player.getName() + " could you say that again?");
+                            else{
+                                textOut.setText("    " + getName() + "; Sorry but could you say that again?");
+                            }
+
+                            textOut.setText(textOut.getText() + "\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
                         }
-                        if (hasTraveled) {
-                            continueButton.setVisible(true);
-                            quitButton.setVisible(false);
-                            numberInput.setVisible(false);
-                            shopScene = true;
-                        }
+                    } catch (Exception e) {
+                        textOut.setText("    " + "Sorry, " + getName() + " could you say that again?");
+                    }
+                    if (hasTraveled) {
+                        continueButton.setVisible(true);
+                        quitButton.setVisible(false);
+                        numberInput.setVisible(false);
+                        shopScene = true;
                     }
                 }
-                else if (player.getCargoSpace() < (player.getOpiumHeld()+ (player.getGuns()*10)+player.getSilkHeld() + player.getArmsHeld() + player.getGeneralHeld())){
-                    textOut.setText("   "+player.getName() + " the cargo is too heavy! We can't set sail!");
-                }
+            }
+            else if (getCargoSpace() < (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
+                textOut.setText("   "+getName() + " the cargo is too heavy! We can't set sail!");
+            }
         });
 
         firm.setAlignment(Pos.CENTER);
@@ -338,34 +336,34 @@ public class TravelGUI{
         switch (locationOfTravel) {
             case 1:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Hong Kong");
-                player.setLocation(1);
+                setLocation(1);
                 return true;
             case 2:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Shanghai");
-                player.setLocation(2);
+                setLocation(2);
                 return true;
             case 3:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Nagasaki");
-                player.setLocation(3);
+                setLocation(3);
                 return true;
             case 4:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Saigon");
-                player.setLocation(4);
+                setLocation(4);
                 return true;
             case 5:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Manila");
-                player.setLocation(5);
+                setLocation(5);
                 return true;
             case 6:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Singapore");
-                player.setLocation(6);
+                setLocation(6);
                 return true;
             case 7:
                 if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Batavia");
-                player.setLocation(7);
+                setLocation(7);
                 return true;
             default:
-                textOut.setText("    " + "Sorry but could you say that again " + player.getName() + "?");
+                textOut.setText("    " + "Sorry but could you say that again " + getName() + "?");
                 return false;
         }
     }
@@ -383,7 +381,7 @@ public class TravelGUI{
             continueButton.setVisible(true);
             quitButton.setVisible(false);
             numberInput.setVisible(false);
-            textOut.setText("    We see a ship on the horizon " + player.getName() + "; Prepare for combat!");
+            textOut.setText("    We see a ship on the horizon " + getName() + "; Prepare for combat!");
             peasantShipScene = true;
         }else if (randGenNum == 2) {
             disaster(locationOfTravel);
@@ -400,14 +398,14 @@ public class TravelGUI{
      **/
     private void disaster(int locationOfTravel) {
         //Tells player that there is a storm approaching.
-        textOut.setText("    " + "Storm " + player.getName() + "! ");
+        textOut.setText("    " + "Storm " + getName() + "! ");
         Random rand = new Random();
         int randGenNum = rand.nextInt(5) + 1;
 
         //If the player lands within this range, nothing happens to them
         //Else they randomly get thrown into a location they weren't planning on going to(Anything but location of Travel).
         if (randGenNum <= 2) {
-            textOut.setText(textOut.getText() + "\n    " + "We got through the storm " + player.getName() + "!");
+            textOut.setText(textOut.getText() + "\n    " + "We got through the storm " + getName() + "!");
         }else {
             while (randGenNum == locationOfTravel) {
                 randGenNum = rand.nextInt(7) + 1;
@@ -426,7 +424,7 @@ public class TravelGUI{
      */
     public String getStringLocation(){
         String location;
-        switch(player.getLocation()){
+        switch(getLocation()){
             case 1: location = "Hong Kong"; break;
             case 2: location = "Shanghai"; break;
             case 3: location = "Nagasaki"; break;
@@ -446,7 +444,7 @@ public class TravelGUI{
      */
     public String shipStatusString(){
         String shipStatus;
-        switch(player.getHP()/10){
+        switch(getHP()/10){
             case 10: shipStatus = "Mint Condition"; break;
             case 9: shipStatus = "Near Perfect"; break;
             case 8: shipStatus = "Great"; break;
@@ -467,21 +465,21 @@ public class TravelGUI{
      * updates the text associated with the user's inventory.
      */
     public void updateStage(){
-        firm.setText(String.format("Firm: %s, %s", player.getName(), getStringLocation()));
-        wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", player.getwOpium(), player.getwSilk(), player.getwArms(), player.getwGeneral()));
-        int itemsInWarehouse = player.getwOpium()+player.getwGeneral()+player.getwArms()+player.getwSilk();
+        firm.setText(String.format("Firm: %s, %s", getName(), getStringLocation()));
+        wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", getwOpium(), getwSilk(), getwArms(), getwGeneral()));
+        int itemsInWarehouse = getwOpium()+getwGeneral()+getwArms()+getwSilk();
         wItemSpaceText.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000-itemsInWarehouse)));
         locationText.setText(String.format("Location\n%s", getStringLocation()));
-        int itemsInInventory = player.getCargoSpace()-player.getSilkHeld()-player.getOpiumHeld()-player.getGeneralHeld()-player.getArmsHeld()-10*player.getGuns();
+        int itemsInInventory = getCargoSpace()-getSilkHeld()-getOpiumHeld()-getGeneralHeld()-getArmsHeld()-10*getGuns();
         if(itemsInInventory < 0){
             inventoryText.setText("   Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
         }else{
             inventoryText.setText(String.format("   Hold %d\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General", itemsInInventory));
         }
-        gunsText.setText(String.format("Guns %d\n\n\n\n ", player.getGuns()));
-        inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", player.getOpiumHeld(), player.getSilkHeld(), player.getArmsHeld(), player.getGeneralHeld()));
-        shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", player.getDebt(), shipStatusString(), player.getHP()));
-        cashText.setText(String.format("  Cash: $%,d", player.getMoney()));
-        bankText.setText(String.format("Bank: %d", player.getBank()));
+        gunsText.setText(String.format("Guns %d\n\n\n\n ", getGuns()));
+        inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", getOpiumHeld(), getSilkHeld(), getArmsHeld(), getGeneralHeld()));
+        shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", getDebt(), shipStatusString(), getHP()));
+        cashText.setText(String.format("  Cash: $%,d", getMoney()));
+        bankText.setText(String.format("Bank: %d", getBank()));
     }
 }

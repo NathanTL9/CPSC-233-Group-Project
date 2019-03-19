@@ -9,30 +9,6 @@ import javafx.stage.Stage;
 */
 
 public class MainGUI extends Application {
-    private Player player = new Player();
-
-    /**
-     * getter method for the Player object player.
-     *
-     * @return returns a copy of the object player
-     */
-
-    public Player getPlayer() {
-        Player copy = new Player(player);
-        return copy;
-    }
-
-    /**
-     * Initializes the Taipan shop with the players stats after the player finishes shopping, it updates the player object and returns it.
-     *
-     * @param shop player object from the main class used to update the shop class
-     */
-
-    public void shop(TaipanShopGUI shop) {
-        shop.setPlayer(player);
-        shop.shop();
-        player = shop.getPlayer();
-    }
 
     /**
      * Updates main class with player data and starts the game.
@@ -45,7 +21,7 @@ public class MainGUI extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        StartGUI start = new StartGUI(player);
+        StartGUI start = new StartGUI(new Player());
         start.initializeStart(primaryStage);
         primaryStage.show();
     }
