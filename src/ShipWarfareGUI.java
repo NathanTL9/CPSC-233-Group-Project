@@ -345,15 +345,18 @@ public class ShipWarfareGUI extends Player{
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
 
-        Image image = new Image(new FileInputStream("src/ShipsAttacking.gif"));
+        Image shipsAttacking = new Image(new FileInputStream("src/ShipsAttacking.gif"));
+        Image shipsRunning = new Image(new FileInputStream("src/ShipsRunning.gif"));
+
 
         //Setting the image view
-        ImageView shipsAttackingGif = new ImageView(image);
-        shipsAttackingGif.setFitHeight(193.0);
-        shipsAttackingGif.setFitWidth(349.0);
-        shipsAttackingGif.setPickOnBounds(true);
-        shipsAttackingGif.setPreserveRatio(true);
-        shipsAttackingGif.setVisible(false);
+        ImageView shipsAttackingOrRunningGif = new ImageView(shipsAttacking);
+
+        shipsAttackingOrRunningGif.setFitHeight(193.0);
+        shipsAttackingOrRunningGif.setFitWidth(349.0);
+        shipsAttackingOrRunningGif.setPickOnBounds(true);
+        shipsAttackingOrRunningGif.setPreserveRatio(true);
+        shipsAttackingOrRunningGif.setVisible(false);
 
 
         BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
@@ -416,7 +419,7 @@ public class ShipWarfareGUI extends Player{
         vBox0.getChildren().add(gunsLeftOrTaken);
         vBox0.getChildren().add(continueToFight);
         hBox0.getChildren().add(vBox0);
-        hBox0.getChildren().add(shipsAttackingGif);
+        hBox0.getChildren().add(shipsAttackingOrRunningGif);
         vBox.getChildren().add(hBox0);
         vBox.getChildren().add(continueButton);
 
@@ -429,12 +432,17 @@ public class ShipWarfareGUI extends Player{
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+                try{
+                shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/ShipsAttacking.gif")));
+                }catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 counter++;
                 chooseFightOrRun.setVisible(true);
                 try {
-                    shipsAttackingGif.setVisible(true);
+                    shipsAttackingOrRunningGif.setVisible(true);
                     if (destroyPeasantShipsOrEscape(stage)) {
-                        shipsAttackingGif.setVisible(false);
+                        shipsAttackingOrRunningGif.setVisible(false);
                         setVisibilitiesAndTransition(stage);
 
 
@@ -457,6 +465,12 @@ public class ShipWarfareGUI extends Player{
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+                shipsAttackingOrRunningGif.setVisible(true);
+                try{
+                    shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/ShipsRunning.gif")));
+                }catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 chooseFightOrRun.setText("Ayy captain we will try to run!");
                 counter++;
 
@@ -473,6 +487,7 @@ public class ShipWarfareGUI extends Player{
                     }
                 } else {
                     completeWipe();
+                    shipsAttackingOrRunningGif.setVisible(false);
                     report.setText("Phew! Got away safely");
                    setVisibilitiesAndTransition(stage);
 

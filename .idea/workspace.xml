@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Made the fight gif runnable by everyone hopefully">
+      <change afterPath="$PROJECT_DIR$/src/ShipsRunning.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
     </list>
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="351" column="53" selection-start-line="351" selection-start-column="53" selection-end-line="351" selection-end-column="53" />
+            <state relative-caret-position="99">
+              <caret line="466" column="51" lean-forward="true" selection-start-line="466" selection-start-column="51" selection-end-line="466" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,10 +30,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ShipsRunning.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ShipsAttacking.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="251">
+              <caret line="180" column="18" selection-start-line="180" selection-start-column="18" selection-end-line="182" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -48,18 +59,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>warehouse</find>
-      <find>warehouse\n</find>
-      <find>runfr</find>
-      <find>getGuns</find>
-      <find>approach</find>
       <find>initialize</find>
       <find>gif</find>
       <find>shipsRemainingGIF</find>
       <find>initial</find>
       <find>initializeS</find>
       <find>ship</find>
-      <find>shipWarfa</find>
       <find>imageView</find>
       <find>20</find>
       <find>shipsAttackingGif.set</find>
@@ -77,7 +82,13 @@
       <find>run</find>
       <find>setvisi</find>
       <find>fightand</find>
+      <find>shipWarfa</find>
+      <find>imageview</find>
       <find>image</find>
+      <find>shipsAttack</find>
+      <find>shipsAttackingOr</find>
+      <find>ships</find>
+      <find>shipw</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -86,8 +97,9 @@
       <replace>shipWarfare.getHowMuchRun()</replace>
       <replace>shipWarfare.isUserAttacks()</replace>
       <replace>shipWarfare.getNumOfPeasantShips()</replace>
-      <replace>shipsApproachingGIF</replace>
       <replace>attackImage</replace>
+      <replace>shipsAttacking</replace>
+      <replace>shipsApproachingGIF</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -276,7 +288,7 @@
       <workItem from="1553047073421" duration="2245000" />
       <workItem from="1553050110780" duration="21000" />
       <workItem from="1553051761247" duration="104000" />
-      <workItem from="1553051882218" duration="7472000" />
+      <workItem from="1553051882218" duration="9623000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -565,11 +577,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553060094595</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Made the fight gif runnable by everyone hopefully">
+      <created>1553060976358</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1553060976358</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Made the fight gif runnable by everyone hopefully">
+      <created>1553061205759</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1553061205759</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97727000" />
+    <option name="totallyTimeSpent" value="99878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1189" height="652" extended-state="0" />
@@ -672,7 +698,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Please find error" />
     <MESSAGE value="Super broken but fight button is in progress for shipwarfare" />
     <MESSAGE value="Forces you to fight in ShipWarfareGUI unfortunately" />
     <MESSAGE value="ShipWarfare fight button coming along nicely" />
@@ -697,7 +722,8 @@
     <MESSAGE value="Added JavaDocs for ShipWarfare" />
     <MESSAGE value="wrote javadocs for authorname" />
     <MESSAGE value="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily." />
+    <MESSAGE value="Made the fight gif runnable by everyone hopefully" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the fight gif runnable by everyone hopefully" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -801,13 +827,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ships Approaching.gif" />
-    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4902">
@@ -825,10 +844,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShipsAttacking.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShipsRunning.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="180" column="18" selection-start-line="180" selection-start-column="18" selection-end-line="182" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="351" column="53" selection-start-line="351" selection-start-column="53" selection-end-line="351" selection-end-column="53" />
+        <state relative-caret-position="99">
+          <caret line="466" column="51" lean-forward="true" selection-start-line="466" selection-start-column="51" selection-end-line="466" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
