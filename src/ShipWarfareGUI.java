@@ -345,10 +345,6 @@ public class ShipWarfareGUI extends Player{
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
 
-        //Creating an image
-
-        //Image image = new Image(new FileInputStream("/Users/harismuhammad/Desktop/ShipsAttacking.gif"));
-        System.out.println(System.getProperty("user.dir"));
         Image image = new Image(new FileInputStream("src/ShipsAttacking.gif"));
 
         //Setting the image view
@@ -358,9 +354,6 @@ public class ShipWarfareGUI extends Player{
         shipsAttackingGif.setPickOnBounds(true);
         shipsAttackingGif.setPreserveRatio(true);
         shipsAttackingGif.setVisible(false);
-
-
-
 
 
         BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
