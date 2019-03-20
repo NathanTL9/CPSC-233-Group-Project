@@ -14,6 +14,9 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class TravelGUI extends Player{
@@ -57,7 +60,7 @@ public class TravelGUI extends Player{
      * @param stage sets the stage to which we will execute the scene of the TravelGUI class
      * @return stage so that another class can switch to the stage
      */
-    public Stage initializeTravel(Stage stage){
+    public Stage initializeTravel(Stage stage) {
         //Updates the stage for the first-time you read it
         updateStage();
 
@@ -173,7 +176,11 @@ public class TravelGUI extends Player{
         continueButton.setOnAction(event -> {
             if(peasantShipScene){
                 ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
-                ship.initializeShip(stage);
+                try {
+                    ship.initializeShip(stage);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 stage.show();
             }
             else if(shopScene){

@@ -4,37 +4,47 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Random;
+
 
 /**
- * 2019-03-10
+ * 2019-03-10 (Edited on 2019-03-19)
  * Authors: Haris Muhammad
  * ShipWarfareGUI class, Generates and utilizes ships which the user can attack or run from
  *
  */
 
-import java.util.Random;
 
 public class ShipWarfareGUI extends Player{
 
-    private HBox hBox;
-    private Button fightButton;
-    private Button runButton;
-    private VBox vBox;
-    private Label title;
-    private Label chooseFightOrRun;
-    private Label report;
-    private Label runAwayOrLeft;
-    private Label shipsRemaining;
-    private Label HPLeft;
-    private Label gunsLeftOrTaken;
-    private Label continueToFight;
+    private  HBox hBox;
+    private  Button fightButton;
+    private  Button runButton;
+    private  VBox vBox;
+    private  Label title;
+    private  Label chooseFightOrRun;
+    private  HBox hBox0;
+    private  VBox vBox0;
+    private  Label shipsRemaining;
+    private  Label report;
+    private  Label runAwayOrLeft;
+    private  Label HPLeft;
+    private  Label gunsLeftOrTaken;
+    private  Label continueToFight;
+    private  ImageView imageView;
+
     private int counter1;
     private Button continueButton;
+
 
 
     private int numOfPeasantShips = 0;
@@ -257,7 +267,7 @@ public class ShipWarfareGUI extends Player{
             userAttacks = true;
         }
 
-        continueToFight.setText(String.format("Captain, what are your orders? (Click the fight button or the run button)", getGuns()));
+        continueToFight.setText(String.format("Captain, what are your orders?"));
 
         if (exitValue == 1) {
             wipe();
@@ -287,7 +297,7 @@ public class ShipWarfareGUI extends Player{
      * @return stage so that another class can switch to the stage
      */
 
-    public Stage initializeShip(Stage stage) {
+    public Stage initializeShip(Stage stage) throws FileNotFoundException {
         setNumOfPeasantShips(numOfShips());
 
         BorderPane BorderPane = new BorderPane();
@@ -302,15 +312,23 @@ public class ShipWarfareGUI extends Player{
         vBox = new VBox();
         title = new Label();
         chooseFightOrRun = new Label();
+        hBox0 = new HBox();
+        vBox0 = new VBox();
+        shipsRemaining = new Label();
         report = new Label();
         runAwayOrLeft = new Label();
-        shipsRemaining = new Label();
         HPLeft = new Label();
         gunsLeftOrTaken = new Label();
         continueToFight = new Label();
+        imageView = new ImageView();
         continueButton = new Button();
 
+        chooseFightOrRun.setVisible(false);
+
+        continueToFight.setPrefWidth(379);
+
         continueButton.setVisible(false);
+        title.setVisible(true);
 
 
         BorderPane.setPrefHeight(400.0);
@@ -326,18 +344,57 @@ public class ShipWarfareGUI extends Player{
         title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfPeasantShips));
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
+
+        //Creating an image
+
+        //Image image = new Image(new FileInputStream("/Users/harismuhammad/Desktop/ShipsAttacking.gif"));
+
+        Image image = new Image(new FileInputStream("/Users/harismuhammad/Documents/TaipanClone/src/ShipsAttacking.gif"));
+
+        //Setting the image view
+        ImageView shipsAttackingGif = new ImageView(image);
+        shipsAttackingGif.setFitHeight(193.0);
+        shipsAttackingGif.setFitWidth(349.0);
+        shipsAttackingGif.setPickOnBounds(true);
+        shipsAttackingGif.setPreserveRatio(true);
+        shipsAttackingGif.setVisible(false);
+
+
+
+
+
+        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        hBox.setAlignment(javafx.geometry.Pos.CENTER);
+        hBox.setPrefHeight(100.0);
+        hBox.setPrefWidth(200.0);
+        hBox.setSpacing(10.0);
+
+        fightAndRunButtonSetting();
+        runButton.setText("Run");
+
+        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
+        vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        vBox.setPrefHeight(200.0);
+        vBox.setPrefWidth(200);
+        vBox.setSpacing(30.0);
+
+
+        titleSetting(title);
+
+        chooseFightOrRun.setText("Ohh, Fight ehh?");
+
+        hBox0.setPrefHeight(100.0);
+        hBox0.setPrefWidth(200.0);
+
+        vBox0.setPrefHeight(102.0);
+        vBox0.setPrefWidth(400.0);
+        vBox0.setSpacing(30.0);
+
+
         continueButton.setMnemonicParsing(false);
         continueButton.setText("Continue?");
 
-        fightButton.setAlignment(javafx.geometry.Pos.CENTER);
-        fightButton.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        fightButton.setId("Button1");
-        fightButton.setMnemonicParsing(false);
-        fightButton.setText("Fight");
-
-        runButton.setAlignment(javafx.geometry.Pos.CENTER);
-        runButton.setId("Button2");
-        runButton.setMnemonicParsing(false);
+        fightAndRunButtonSetting();
 
         BorderPane.setBottom(hBox);
         runButton.setText("Run");
@@ -345,14 +402,13 @@ public class ShipWarfareGUI extends Player{
         javafx.scene.layout.BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
         vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         vBox.setPrefHeight(200.0);
-        vBox.setPrefWidth(100.0);
+        vBox.setPrefWidth(400.0);
         vBox.setSpacing(20.0);
 
-        report.setAlignment(javafx.geometry.Pos.TOP_CENTER);
-        report.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        report.setId("Label1");
-        report.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
+        titleSetting(report);
         vBox.setPadding(new Insets(0.0, 0.0, 10.0, 0.0));
+        vBox0.setPadding(new Insets(0.0, 0.0, 0.0, 6.0));
+
         BorderPane.setTop(vBox);
         BorderPane.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
@@ -360,12 +416,15 @@ public class ShipWarfareGUI extends Player{
         hBox.getChildren().add(runButton);
         vBox.getChildren().add(title);
         vBox.getChildren().add(chooseFightOrRun);
-        vBox.getChildren().add(report);
-        vBox.getChildren().add(runAwayOrLeft);
-        vBox.getChildren().add(shipsRemaining);
-        vBox.getChildren().add(HPLeft);
-        vBox.getChildren().add(gunsLeftOrTaken);
-        vBox.getChildren().add(continueToFight);
+        vBox0.getChildren().add(shipsRemaining);
+        vBox0.getChildren().add(report);
+        vBox0.getChildren().add(runAwayOrLeft);
+        vBox0.getChildren().add(HPLeft);
+        vBox0.getChildren().add(gunsLeftOrTaken);
+        vBox0.getChildren().add(continueToFight);
+        hBox0.getChildren().add(vBox0);
+        hBox0.getChildren().add(shipsAttackingGif);
+        vBox.getChildren().add(hBox0);
         vBox.getChildren().add(continueButton);
 
 
@@ -378,32 +437,19 @@ public class ShipWarfareGUI extends Player{
              */
             public void handle(ActionEvent event) {
                 counter++;
-                chooseFightOrRun.setText("Ohh, Fight ehh?");
+                chooseFightOrRun.setVisible(true);
                 try {
+                    shipsAttackingGif.setVisible(true);
                     if (destroyPeasantShipsOrEscape(stage)) {
-                        completeWipe();
-                        continueButton.setVisible(true);
-                        fightButton.setVisible(false);
-                        runButton.setVisible(false);
-                        continueButton.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            /**
-                             * Switches to Taipan Shop scene
-                             * @param event, once button is clicked, executes graphical information
-                             */
-                            public void handle(ActionEvent event) {
-                                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                                shop.initializeShop(stage);
-                                stage.show();
-                            }
-                        });
+                        shipsAttackingGif.setVisible(false);
+                        setVisibilitiesAndTransition(stage);
 
 
                     }
                 } catch (Exception e) {
                 }
 
-                if (counter >= 2) {
+                if (counter >= 1) {
                     title.setVisible(false);
 
                 }
@@ -427,22 +473,7 @@ public class ShipWarfareGUI extends Player{
                     report.setText(("Couldn't run away"));
                     try {
                         if (destroyPeasantShipsOrEscape(stage) == true) {
-                            completeWipe();
-                            continueButton.setVisible(true);
-                            fightButton.setVisible(false);
-                            runButton.setVisible(false);
-                            continueButton.setOnAction(new EventHandler<ActionEvent>() {
-                                @Override
-                                /**
-                                 * Switches to Taipan Shop scene
-                                 * @param event, once button is clicked, executes graphical information
-                                 */
-                                public void handle(ActionEvent event) {
-                                    TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                                    shop.initializeShop(stage);
-                                    stage.show();
-                                }
-                            });
+                            setVisibilitiesAndTransition(stage);
                         }
 
                     } catch (Exception e) {
@@ -450,9 +481,7 @@ public class ShipWarfareGUI extends Player{
                 } else {
                     completeWipe();
                     report.setText("Phew! Got away safely");
-                    TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                    shop.initializeShop(stage);
-                    stage.show();
+                   setVisibilitiesAndTransition(stage);
 
 
                 }
@@ -472,11 +501,63 @@ public class ShipWarfareGUI extends Player{
     }
 
     /**
+     * sets the title and does basic layout for the label
+     * @param title label which is set
+     */
+
+    public void titleSetting(Label title) {
+        title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        title.setId("Label1");
+        title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
+    }
+
+
+    /**
+     * Sets the fightButton and runButton to a specific layout
+     */
+    public void fightAndRunButtonSetting() {
+        fightButton.setAlignment(javafx.geometry.Pos.CENTER);
+        fightButton.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
+        fightButton.setId("Button1");
+        fightButton.setMnemonicParsing(false);
+        fightButton.setText("Fight");
+
+        runButton.setAlignment(javafx.geometry.Pos.CENTER);
+        runButton.setId("Button2");
+        runButton.setMnemonicParsing(false);
+    }
+
+
+    /**
+     * Sets most buttons to being invisble and switches to TaipanShop scene
+     * @param stage stage the user incorporates when they utilize the GUI
+     */
+    public void setVisibilitiesAndTransition(Stage stage) {
+        completeWipe();
+        continueButton.setVisible(true);
+        fightButton.setVisible(false);
+        runButton.setVisible(false);
+        continueButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            /**
+             * Switches to Taipan Shop scene
+             * @param event, once button is clicked, executes graphical information
+             */
+            public void handle(ActionEvent event) {
+                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+                shop.initializeShop(stage);
+                stage.show();
+            }
+        });
+    }
+
+    /**
      * sets scene and runs stage
      *
      * @param primaryStage the stage in which the scene may be run and switched to
      */
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws FileNotFoundException{
         primaryStage = initializeShip(primaryStage);
         primaryStage.show();
     }
