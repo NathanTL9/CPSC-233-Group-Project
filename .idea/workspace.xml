@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameEndGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameEndGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoanSharkGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoanSharkGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaipanShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaipanShopGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Harkamal Randhawa\IdeaProjects\TaipanClone\.idea\shelf/" />
@@ -23,55 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#23112#23113#0" expanded="true" />
-                <element signature="e#23157#23158#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="114" column="58" selection-start-line="114" selection-start-column="58" selection-end-line="114" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LoanSharkGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="160" column="58" lean-forward="true" selection-start-line="160" selection-start-column="58" selection-end-line="160" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4067">
-              <caret line="452" column="71" selection-start-line="452" selection-start-column="71" selection-end-line="452" selection-end-column="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/StartGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="74" column="5" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="74" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="351" column="53" selection-start-line="351" selection-start-column="53" selection-end-line="351" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,38 +29,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BankGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-              <folding>
-                <element signature="e#1205#1206#0" expanded="true" />
-                <element signature="e#1233#1234#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-              <folding>
-                <element signature="e#1049#1050#0" expanded="true" />
-                <element signature="e#1082#1083#0" expanded="true" />
-                <element signature="e#1114#1115#0" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1380">
+              <caret line="110" selection-start-line="110" selection-end-line="110" />
             </state>
           </provider>
         </entry>
@@ -127,36 +48,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hitco</find>
-      <find>game</find>
-      <find>numOf</find>
-      <find>mis</find>
-      <find>exitValue</find>
-      <find>getGuns</find>
-      <find>frustRat</find>
-      <find>counter++</find>
-      <find>setMone</find>
-      <find>setNum</find>
-      <find>We survive</find>
-      <find>total of</find>
-      <find>int numOfShips</find>
-      <find>runFromShips()</find>
-      <find>dang it!</find>
-      <find>dang it</find>
-      <find>destroy</find>
-      <find>destroyPeas</find>
-      <find>cash</find>
-      <find>op</find>
-      <find>continue</find>
-      <find>cashTex</find>
-      <find>cashTe</find>
-      <find>loan</find>
-      <find>get loa</find>
       <find>warehouse</find>
       <find>warehouse\n</find>
+      <find>runfr</find>
+      <find>getGuns</find>
+      <find>approach</find>
+      <find>initialize</find>
+      <find>gif</find>
+      <find>shipsRemainingGIF</find>
+      <find>initial</find>
+      <find>initializeS</find>
+      <find>ship</find>
+      <find>shipWarfa</find>
+      <find>imageView</find>
+      <find>20</find>
+      <find>shipsAttackingGif.set</find>
+      <find>continueto</find>
+      <find>setprefwidth</find>
+      <find>setvisible(false)</find>
+      <find>chooseF</find>
+      <find>setPadd</find>
+      <find>setvisible</find>
+      <find>vbox.se</find>
+      <find>attacking</find>
+      <find>would</find>
+      <find>choosefightorrun.set</find>
+      <find>setpre</find>
       <find>run</find>
-      <find>player.</find>
-      <find>GUI()</find>
+      <find>setvisi</find>
+      <find>fightand</find>
+      <find>image</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -165,10 +86,12 @@
       <replace>shipWarfare.getHowMuchRun()</replace>
       <replace>shipWarfare.isUserAttacks()</replace>
       <replace>shipWarfare.getNumOfPeasantShips()</replace>
-      <replace>GUI(getPlayer())</replace>
+      <replace>shipsApproachingGIF</replace>
+      <replace>attackImage</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -181,21 +104,16 @@
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Travel.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
-        <option value="$PROJECT_DIR$/src/TravelGUI.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
-        <option value="$PROJECT_DIR$/src/BankGUI.java" />
-        <option value="$PROJECT_DIR$/src/MainGUI.java" />
-        <option value="$PROJECT_DIR$/src/GameEndGUI.java" />
-        <option value="$PROJECT_DIR$/src/LoanSharkGUI.java" />
-        <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
         <option value="$PROJECT_DIR$/src/StartGUI.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/TravelGUI.java" />
+        <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="6" />
-    <option name="y" value="26" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1189" />
     <option name="height" value="652" />
   </component>
@@ -229,13 +147,18 @@
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553037216345" />
-    <property name="extract.method.default.visibility" value="private" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552534669451" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -344,9 +267,16 @@
       <workItem from="1552240770629" duration="40000" />
       <workItem from="1552241394045" duration="178000" />
       <workItem from="1552254283748" duration="9473000" />
-      <workItem from="1552277298937" duration="10904000" />
-      <workItem from="1553035977312" duration="71000" />
-      <workItem from="1553036106507" duration="948000" />
+      <workItem from="1552277298937" duration="11151000" />
+      <workItem from="1552353291496" duration="1918000" />
+      <workItem from="1552359156805" duration="98000" />
+      <workItem from="1552533765176" duration="1016000" />
+      <workItem from="1552622234355" duration="130000" />
+      <workItem from="1553037480176" duration="499000" />
+      <workItem from="1553047073421" duration="2245000" />
+      <workItem from="1553050110780" duration="21000" />
+      <workItem from="1553051761247" duration="104000" />
+      <workItem from="1553051882218" duration="7472000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -621,31 +551,31 @@
       <option name="project" value="LOCAL" />
       <updated>1552339973224</updated>
     </task>
-    <task id="LOCAL-00040" summary="fixed one small issue.">
-      <created>1552352826307</created>
+    <task id="LOCAL-00040" summary="wrote javadocs for authorname">
+      <created>1552351619924</created>
       <option name="number" value="00040" />
       <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1552352826307</updated>
+      <updated>1552351619924</updated>
     </task>
-    <task id="LOCAL-00041" summary="fixed one small issue.">
-      <created>1552353433447</created>
+    <task id="LOCAL-00041" summary="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily.">
+      <created>1553060094595</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1552353433447</updated>
+      <updated>1553060094595</updated>
     </task>
     <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87696000" />
+    <option name="totallyTimeSpent" value="97727000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1189" height="652" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19349681" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32519618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -654,7 +584,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.08342362" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.9357143" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -665,7 +595,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061125" side_tool="true" weight="0.32922733" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49938875" weight="0.32857144" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32922733" />
+      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32857144" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -742,7 +672,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Messed up player by setting money to 1000" />
     <MESSAGE value="Please find error" />
     <MESSAGE value="Super broken but fight button is in progress for shipwarfare" />
     <MESSAGE value="Forces you to fight in ShipWarfareGUI unfortunately" />
@@ -766,8 +695,9 @@
     <MESSAGE value="Changed one line of text in shipwarfare GUI" />
     <MESSAGE value="Fixed output for start and TaipanShop GUI" />
     <MESSAGE value="Added JavaDocs for ShipWarfare" />
-    <MESSAGE value="fixed one small issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed one small issue." />
+    <MESSAGE value="wrote javadocs for authorname" />
+    <MESSAGE value="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily." />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -813,18 +743,17 @@
     <entry file="file://$PROJECT_DIR$/src/Bank.java" />
     <entry file="file://$PROJECT_DIR$/src/TaipanShop.java" />
     <entry file="file://$PROJECT_DIR$/src/Travel.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShopGUI" />
     <entry file="file://$PROJECT_DIR$/src/Start.java" />
     <entry file="file://$PROJECT_DIR$/src/main.java" />
     <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java" />
-    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WarehouseGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1968">
@@ -832,77 +761,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/StartGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="10" selection-start-line="10" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoanSharkGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BankGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        <state relative-caret-position="150">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ships Approaching.gif" />
+    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4902">
+          <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding>
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1082#1083#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BankGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#23112#23113#0" expanded="true" />
-            <element signature="e#23157#23158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="114" column="58" selection-start-line="114" selection-start-column="58" selection-end-line="114" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoanSharkGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="160" column="58" lean-forward="true" selection-start-line="160" selection-start-column="58" selection-end-line="160" selection-end-column="58" />
+        <state relative-caret-position="300">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4067">
-          <caret line="452" column="71" selection-start-line="452" selection-start-column="71" selection-end-line="452" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StartGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="74" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="351" column="53" selection-start-line="351" selection-start-column="53" selection-end-line="351" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -949,7 +875,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.8.0_201</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -966,7 +892,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -348,8 +348,8 @@ public class ShipWarfareGUI extends Player{
         //Creating an image
 
         //Image image = new Image(new FileInputStream("/Users/harismuhammad/Desktop/ShipsAttacking.gif"));
-
-        Image image = new Image(new FileInputStream("/Users/harismuhammad/Documents/TaipanClone/src/ShipsAttacking.gif"));
+        System.out.println(System.getProperty("user.dir"));
+        Image image = new Image(new FileInputStream("src/ShipsAttacking.gif"));
 
         //Setting the image view
         ImageView shipsAttackingGif = new ImageView(image);
