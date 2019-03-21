@@ -434,6 +434,8 @@ public class ShipWarfareGUI extends Player{
             public void handle(ActionEvent event) {
                 try{
                 shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/ShipsAttacking.gif")));
+                    chooseFightOrRun.setText("Pressing forward in our attack!");
+
                 }catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
