@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -145,7 +146,7 @@ public class StartGUI extends Player{
          *
          */
         authors.setPrefHeight(80.0);
-        authors.setPrefWidth(499.0);
+        authors.setPrefWidth(480.0);
         authors.setText("By Vikram Bawa, Haris Muhammad, Siddhant Dewani, Nathan Lum \nand Harkamal Randhawa");
 
         /**
@@ -153,6 +154,8 @@ public class StartGUI extends Player{
          *
          */
         authors.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        authors.setAlignment(Pos.CENTER);
+        vBox0.setAlignment(Pos.CENTER);
         borderPane.setCenter(vBox0);
 
         /**

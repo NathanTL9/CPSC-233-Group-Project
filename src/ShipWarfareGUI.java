@@ -345,8 +345,8 @@ public class ShipWarfareGUI extends Player{
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
 
-        Image shipsAttacking = new Image(new FileInputStream("src/ShipsAttacking.gif"));
-        Image shipsRunning = new Image(new FileInputStream("src/ShipsRunning.gif"));
+        Image shipsAttacking = new Image(new FileInputStream("src/images/ShipsAttacking.gif"));
+        Image shipsRunning = new Image(new FileInputStream("src/images/ShipsRunning.gif"));
 
 
         //Setting the image view
@@ -433,7 +433,7 @@ public class ShipWarfareGUI extends Player{
              */
             public void handle(ActionEvent event) {
                 try{
-                shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/ShipsAttacking.gif")));
+                shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
                     chooseFightOrRun.setText("Pressing forward in our attack!");
 
                 }catch (FileNotFoundException e) {
@@ -469,7 +469,7 @@ public class ShipWarfareGUI extends Player{
             public void handle(ActionEvent event) {
                 shipsAttackingOrRunningGif.setVisible(true);
                 try{
-                    shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/ShipsRunning.gif")));
+                    shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsRunning.gif")));
                 }catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
