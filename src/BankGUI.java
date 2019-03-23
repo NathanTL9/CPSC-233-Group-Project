@@ -164,6 +164,7 @@ public class BankGUI extends Player{
          *
          */
         Scene scene = new Scene(brdr1, 600, 480);
+        scene.getStylesheets().add("styleguide.css");
         primaryStage.setScene(scene);
         return primaryStage;
     }

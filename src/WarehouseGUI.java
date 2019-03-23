@@ -581,7 +581,7 @@ public class WarehouseGUI extends Player{
         vBox1.getChildren().add(vacantWarehouse);
 
         Scene root = new Scene(borderPane, 600, 480);
-
+        root.getStylesheets().add("styleguide.css");
         stage.setTitle("Warehouse");
         stage.setResizable(false);
         stage.setScene(root);

@@ -23,6 +23,7 @@ public class StartGUI extends Player{
     private HBox hBox = new HBox();
     private TextField nameField = new TextField();
     private Button startButton = new Button();
+    private Button continueButton = new Button();
     private VBox vBox = new VBox();
     private Label choiceLabel = new Label();
     private RadioButton gunChoice = new RadioButton();
@@ -92,6 +93,13 @@ public class StartGUI extends Player{
          */
         startButton.setMnemonicParsing(false);
         startButton.setText("Start");
+
+        /**
+         * Creates a button with text "Continue"
+         *
+         */
+        continueButton.setMnemonicParsing(false);
+        continueButton.setText("Continue Save");
 
         /**
          * Creates a VBox at the left of center of the borderpane.
@@ -164,6 +172,7 @@ public class StartGUI extends Player{
          */
         hBox.getChildren().add(nameField);
         hBox.getChildren().add(startButton);
+        hBox.getChildren().add(continueButton);
         vBox.getChildren().add(choiceLabel);
         vBox.getChildren().add(gunChoice);
         vBox.getChildren().add(cashChoice);
@@ -207,6 +216,7 @@ public class StartGUI extends Player{
         });
 
         Scene root = new Scene(borderPane, 600, 480);
+        root.getStylesheets().add("styleguide.css");
 
         stage.setTitle("Start");
         stage.setResizable(false);

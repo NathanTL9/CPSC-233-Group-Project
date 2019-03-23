@@ -98,6 +98,7 @@ public class GameEndGUI extends Player{
         netWorth.setText("Net Worth: " + netWorthInt);
 
         Scene root = new Scene(borderPane, 600, 480);
+        root.getStylesheets().add("styleguide.css");
 
         stage.setTitle("End Game Stats");
         stage.setResizable(false);

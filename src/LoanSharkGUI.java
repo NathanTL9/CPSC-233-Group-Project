@@ -155,6 +155,7 @@ public class LoanSharkGUI extends Player {
 
         //Setting the Scene and displaying it
         Scene scene = new Scene(brdr1, 600, 480);
+        scene.getStylesheets().add("styleguide.css");
         primaryStage.setScene(scene);
         //primaryStage.show();
         return primaryStage;

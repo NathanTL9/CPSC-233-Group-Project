@@ -744,9 +744,22 @@ public class TaipanShopGUI extends Player{
 
         Scene root = new Scene(anchorPane, 600, 480);
 
+        root.getStylesheets().add("styleguide.css");
         stage.setTitle("Shop");
         stage.setResizable(false);
         stage.setScene(root);
+        buyButton.setFocusTraversable(false);
+        sellButton.setFocusTraversable(false);
+        bankButton.setFocusTraversable(false);
+        loanButton.setFocusTraversable(false);
+        generalButton.setFocusTraversable(false);
+        armsButton.setFocusTraversable(false);
+        silkButton.setFocusTraversable(false);
+        opiumButton.setFocusTraversable(false);
+        sellButton.setFocusTraversable(false);
+        retireButton.setFocusTraversable(false);
+        cargoButton.setFocusTraversable(false);
+        quitButton.setFocusTraversable(false);
 
         // general updates to the buttons, user stats/inventory, and text.
         buttonSetup("reset");

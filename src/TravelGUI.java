@@ -328,6 +328,7 @@ public class TravelGUI extends Player{
         anchorPane.getChildren().add(gridPane);
 
         Scene root = new Scene(anchorPane, 600, 480);
+        root.getStylesheets().add("styleguide.css");
 
         stage.setTitle("Travel");
         stage.setResizable(false);

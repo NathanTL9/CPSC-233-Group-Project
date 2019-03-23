@@ -506,7 +506,7 @@ public class ShipWarfareGUI extends Player{
 
 
         Scene root = new Scene(BorderPane, 600, 480);
-
+        root.getStylesheets().add("styleguide.css");
         stage.setTitle("Ship");
         stage.setResizable(false);
         stage.setScene(root);
