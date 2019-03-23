@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -60,7 +61,7 @@ public class BankGUI extends Player{
         hbx1.getChildren().add(b1);
         hbx1.getChildren().add(b2);
         hbx1.getChildren().add(b3);
-
+        hbx1.setPadding(new Insets(0,0,20,0));
         brdr1.setBottom(hbx1);
 
         /**
@@ -81,6 +82,7 @@ public class BankGUI extends Player{
         vbx1.getChildren().add(l2);
         vbx1.getChildren().add(l4);
         vbx1.getChildren().add(l5);
+        vbx1.setPadding(new Insets(20,0,0,0));
         brdr1.setTop(vbx1);
 
         /**

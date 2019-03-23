@@ -170,6 +170,7 @@ public class StartGUI extends Player{
         hBox.getChildren().add(vBox);
         vBox0.getChildren().add(title);
         vBox0.getChildren().add(authors);
+        startButton.setDefaultButton(true);
 
         /**
          * Adds function to the "Start" button, scenario 1 gives the player $400 and a $5000 debt at the start of the game;
@@ -202,7 +203,6 @@ public class StartGUI extends Player{
                 TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                 shop.initializeShop(stage);
                 stage.show();
-                //title.setText("SHOP PLACEHOLDER");
             }
         });
 
@@ -211,6 +211,8 @@ public class StartGUI extends Player{
         stage.setTitle("Start");
         stage.setResizable(false);
         stage.setScene(root);
+        stage.setHeight(510);
+        stage.setWidth(600);
         return stage;
     }
 }

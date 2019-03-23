@@ -192,7 +192,7 @@ public class TravelGUI extends Player{
 
         //Text input for where the player needs to go inside of the game world
         numberInput.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
-        numberInput.setText("Enter preferred location.");
+        //numberInput.setText("Enter preferred location.");
         numberInput.setOnKeyPressed(event -> {
             if(event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)) {
                 int response;
@@ -232,6 +232,7 @@ public class TravelGUI extends Player{
                     }
                     if (hasTraveled) {
                         continueButton.setVisible(true);
+                        continueButton.setDefaultButton(true);
                         quitButton.setVisible(false);
                         numberInput.setVisible(false);
                         shopScene = true;
@@ -317,6 +318,7 @@ public class TravelGUI extends Player{
 
         hBox0.getChildren().addAll(inventoryText, inventoryHeldText, gunsText, shipStatusText);
 
+        numberInput.requestFocus();
         flowPane.getChildren().addAll(numberInput, quitButton, continueButton);
 
         gridPane.getColumnConstraints().add(columnConstraints);
@@ -386,6 +388,7 @@ public class TravelGUI extends Player{
         int randGenNum = rand.nextInt(3) + 1;
         if (randGenNum == 1) {
             continueButton.setVisible(true);
+            continueButton.setDefaultButton(true);
             quitButton.setVisible(false);
             numberInput.setVisible(false);
             textOut.setText("    We see a ship on the horizon " + getName() + "; Prepare for combat!");

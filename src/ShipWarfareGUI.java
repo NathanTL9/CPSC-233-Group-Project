@@ -276,6 +276,7 @@ public class ShipWarfareGUI extends Player{
             setMoney(getMoney() + calculateLoot);
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
+            continueButton.setDefaultButton(true);
             return true;
         } else if (exitValue == 2) {
             GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
@@ -285,6 +286,7 @@ public class ShipWarfareGUI extends Player{
         } else if (exitValue == 3) {
             System.out.printf("We made it out at %d%% ship status!\n", getHP());
             continueButton.setVisible(true);
+            continueButton.setDefaultButton(true);
             return true;
         }
         return false;
@@ -324,6 +326,7 @@ public class ShipWarfareGUI extends Player{
         continueButton = new Button();
 
         chooseFightOrRun.setVisible(false);
+        fightButton.setDefaultButton(true);
 
         continueToFight.setPrefWidth(379);
 
@@ -532,6 +535,7 @@ public class ShipWarfareGUI extends Player{
         fightButton.setId("Button1");
         fightButton.setMnemonicParsing(false);
         fightButton.setText("Fight");
+        fightButton.setDefaultButton(true);
 
         runButton.setAlignment(javafx.geometry.Pos.CENTER);
         runButton.setId("Button2");
@@ -546,20 +550,18 @@ public class ShipWarfareGUI extends Player{
     public void setVisibilitiesAndTransition(Stage stage) {
         completeWipe();
         continueButton.setVisible(true);
+        continueButton.setDefaultButton(true);
         fightButton.setVisible(false);
         runButton.setVisible(false);
-        continueButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            /**
-             * Switches to Taipan Shop scene
-             * @param event, once button is clicked, executes graphical information
-             */
-            public void handle(ActionEvent event) {
-                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                shop.initializeShop(stage);
-                stage.show();
-            }
-        });
+        /**
+         * Switches to Taipan Shop scene
+         * @param event, once button is clicked, executes graphical information
+         */
+        continueButton.setOnAction(event -> {
+             TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+             shop.initializeShop(stage);
+             stage.show();
+         });
     }
 
     /**
