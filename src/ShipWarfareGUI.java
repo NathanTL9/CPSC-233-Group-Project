@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -56,7 +57,6 @@ public class ShipWarfareGUI extends Player{
     private int counter = 0;
     private String pirateName = "Liu Yen";
 
-
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
      *
@@ -80,6 +80,7 @@ public class ShipWarfareGUI extends Player{
         }
 
     }
+
 
     /**
      * The number of ships that attack is based on the amount of money one has on hand
@@ -157,7 +158,6 @@ public class ShipWarfareGUI extends Player{
      * The user faces off against the peasant ships and either prevails, dies, or runs away
      *
      * @return true if the user wins, loses, or flees, it returns false otherwise
-     * @throws Exception in case of errors due to the delay
      */
     public boolean destroyPeasantShipsOrEscape(Stage stage) throws Exception {
         int calculateLoot = 0;
@@ -196,6 +196,7 @@ public class ShipWarfareGUI extends Player{
                             //break;
                         }
                         hitCounter++;
+
                     } else {
                         missCounter++;
                     }
@@ -229,6 +230,7 @@ public class ShipWarfareGUI extends Player{
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
                             runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
+
                             //runAwayOrLeft.setVisible(true);
                         }
 
@@ -415,15 +417,12 @@ public class ShipWarfareGUI extends Player{
         hBox.getChildren().add(runButton);
         vBox.getChildren().add(title);
         vBox.getChildren().add(chooseFightOrRun);
-        vBox0.getChildren().add(shipsRemaining);
-        vBox0.getChildren().add(report);
-        vBox0.getChildren().add(runAwayOrLeft);
-        vBox0.getChildren().add(HPLeft);
-        vBox0.getChildren().add(gunsLeftOrTaken);
-        vBox0.getChildren().add(continueToFight);
-        hBox0.getChildren().add(vBox0);
-        hBox0.getChildren().add(shipsAttackingOrRunningGif);
-        vBox.getChildren().add(hBox0);
+        vBox.getChildren().add(report);
+        vBox.getChildren().add(runAwayOrLeft);
+        vBox.getChildren().add(shipsRemaining);
+        vBox.getChildren().add(HPLeft);
+        vBox.getChildren().add(gunsLeftOrTaken);
+        vBox.getChildren().add(continueToFight);
         vBox.getChildren().add(continueButton);
 
 
@@ -435,6 +434,7 @@ public class ShipWarfareGUI extends Player{
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+
                 try{
                 shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
                     chooseFightOrRun.setText("Pressing forward in our attack!");
