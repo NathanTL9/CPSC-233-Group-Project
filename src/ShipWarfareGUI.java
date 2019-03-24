@@ -433,13 +433,7 @@ public class ShipWarfareGUI extends Player {
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
-                AnimationTesting fightShips = new AnimationTesting(getPlayer());
-                try {
-                    fightShips.startShipAnimation(stage);
-                } catch (Exception e) {
 
-                }
-                stage.show();
                 try {
                     shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
                     chooseFightOrRun.setText("Pressing forward in our attack!");
