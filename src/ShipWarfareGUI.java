@@ -1,3 +1,4 @@
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -6,11 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
@@ -21,31 +22,29 @@ import java.util.concurrent.TimeUnit;
  * 2019-03-10 (Edited on 2019-03-19)
  * Authors: Haris Muhammad
  * ShipWarfareGUI class, Generates and utilizes ships which the user can attack or run from
- *
  */
 
 
-public class ShipWarfareGUI extends Player{
+public class ShipWarfareGUI extends Player {
 
-    private  HBox hBox;
-    private  Button fightButton;
-    private  Button runButton;
-    private  VBox vBox;
-    private  Label title;
-    private  Label chooseFightOrRun;
-    private  HBox hBox0;
-    private  VBox vBox0;
-    private  Label shipsRemaining;
-    private  Label report;
-    private  Label runAwayOrLeft;
-    private  Label HPLeft;
-    private  Label gunsLeftOrTaken;
-    private  Label continueToFight;
-    private  ImageView imageView;
+    private HBox hBox;
+    private Button fightButton;
+    private Button runButton;
+    private VBox vBox;
+    private Label title;
+    private Label chooseFightOrRun;
+    private HBox hBox0;
+    private VBox vBox0;
+    private Label shipsRemaining;
+    private Label report;
+    private Label runAwayOrLeft;
+    private Label HPLeft;
+    private Label gunsLeftOrTaken;
+    private Label continueToFight;
+    private ImageView imageView;
 
     private int counter1;
     private Button continueButton;
-
 
 
     private int numOfPeasantShips = 0;
@@ -434,12 +433,18 @@ public class ShipWarfareGUI extends Player{
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+                AnimationTesting fightShips = new AnimationTesting(getPlayer());
+                try {
+                    fightShips.startShipAnimation(stage);
+                } catch (Exception e) {
 
-                try{
-                shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
+                }
+                stage.show();
+                try {
+                    shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
                     chooseFightOrRun.setText("Pressing forward in our attack!");
 
-                }catch (FileNotFoundException e) {
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
                 counter++;
@@ -471,9 +476,9 @@ public class ShipWarfareGUI extends Player{
              */
             public void handle(ActionEvent event) {
                 shipsAttackingOrRunningGif.setVisible(true);
-                try{
+                try {
                     shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsRunning.gif")));
-                }catch (FileNotFoundException e) {
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
                 chooseFightOrRun.setText("Ayy captain we will try to run!");
@@ -494,7 +499,7 @@ public class ShipWarfareGUI extends Player{
                     completeWipe();
                     shipsAttackingOrRunningGif.setVisible(false);
                     report.setText("Phew! Got away safely");
-                   setVisibilitiesAndTransition(stage);
+                    setVisibilitiesAndTransition(stage);
 
 
                 }
@@ -515,6 +520,7 @@ public class ShipWarfareGUI extends Player{
 
     /**
      * sets the title and does basic layout for the label
+     *
      * @param title label which is set
      */
 
@@ -545,6 +551,7 @@ public class ShipWarfareGUI extends Player{
 
     /**
      * Sets most buttons to being invisble and switches to TaipanShop scene
+     *
      * @param stage stage the user incorporates when they utilize the GUI
      */
     public void setVisibilitiesAndTransition(Stage stage) {
@@ -558,10 +565,98 @@ public class ShipWarfareGUI extends Player{
          * @param event, once button is clicked, executes graphical information
          */
         continueButton.setOnAction(event -> {
-             TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-             shop.initializeShop(stage);
-             stage.show();
-         });
+            TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+            shop.initializeShop(stage);
+            stage.show();
+        });
+    }
+
+    public void startShipAnimation(Stage primaryStage) throws Exception {
+
+
+        Pane root = new Pane();
+        HBox usAgainstEnemyDivisor = new HBox();
+        BorderPane centeringUserShipPane = new BorderPane();
+        Circle cannon = new Circle();
+        BorderPane centeringMerchantShipPane = new BorderPane();
+        BorderPane encompassingPane = new BorderPane();
+
+
+        final int USER_SHOOTS_X = 150;
+        final int USER_SHOOTS_Y = 180;
+
+        final int CLEAN_SHOT_X = 350;
+        final int CLEAN_SHOT_Y = 110;
+
+        root.getChildren().add(cannon);
+
+        encompassingPane.setPrefHeight(480);
+        encompassingPane.setPrefWidth(600);
+
+        usAgainstEnemyDivisor.setPrefHeight(480.0);
+        usAgainstEnemyDivisor.setPrefWidth(600.0);
+
+        centeringUserShipPane.setPrefHeight(200.0);
+        centeringUserShipPane.setPrefWidth(200.0);
+
+        Image ourShip = new Image(new FileInputStream("src/images/ourShip.png"));
+        Image enemyShip = new Image(new FileInputStream("src/images/enemyShip.png"));
+
+
+        //Setting the image view
+        ImageView userShip = new ImageView(ourShip);
+        ImageView merchantShip = new ImageView(enemyShip);
+
+        BorderPane.setAlignment(userShip, javafx.geometry.Pos.CENTER);
+        userShip.setFitHeight(150.0);
+        userShip.setFitWidth(248.0);
+        userShip.setPickOnBounds(true);
+        userShip.setPreserveRatio(true);
+        centeringUserShipPane.setCenter(userShip);
+
+
+        cannon.setRadius(10.0);
+        cannon.setStroke(javafx.scene.paint.Color.BLACK);
+        cannon.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
+        centeringUserShipPane.setRight(cannon);
+
+        centeringMerchantShipPane.setPrefHeight(200.0);
+        centeringMerchantShipPane.setPrefWidth(200.0);
+        centeringMerchantShipPane.setOpaqueInsets(new Insets(0.0));
+        HBox.setMargin(centeringMerchantShipPane, new Insets(0.0, 0.0, 0.0, 200.0));
+
+        encompassingPane.setAlignment(merchantShip, javafx.geometry.Pos.CENTER);
+        merchantShip.setFitHeight(165.0);
+        merchantShip.setFitWidth(180.0);
+        merchantShip.setPickOnBounds(true);
+        merchantShip.setPreserveRatio(true);
+        encompassingPane.setMargin(merchantShip, new Insets(0.0, 0.0, 20.0, 0.0));
+        centeringMerchantShipPane.setCenter(merchantShip);
+        encompassingPane.setCenter(usAgainstEnemyDivisor);
+
+        usAgainstEnemyDivisor.getChildren().add(centeringUserShipPane);
+        usAgainstEnemyDivisor.getChildren().add(centeringMerchantShipPane);
+
+        root.getChildren().addAll(encompassingPane, cannon);
+
+        // start
+        cannon.setLayoutX(USER_SHOOTS_X);
+        cannon.setLayoutY(USER_SHOOTS_Y);
+
+        TranslateTransition shotsFired = new TranslateTransition();
+        shotsFired.setDuration(Duration.seconds(3));
+        shotsFired.setToX(CLEAN_SHOT_X);
+        shotsFired.setToY(CLEAN_SHOT_Y);
+        shotsFired.setCycleCount(getGuns());
+        shotsFired.setNode(cannon);
+        shotsFired.play();
+
+        Scene scene = new Scene(root, 600, 480);
+        root.getStylesheets().add("styleguide.css");
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
     }
 
     /**
@@ -569,7 +664,7 @@ public class ShipWarfareGUI extends Player{
      *
      * @param primaryStage the stage in which the scene may be run and switched to
      */
-    public void start(Stage primaryStage) throws FileNotFoundException{
+    public void start(Stage primaryStage) throws FileNotFoundException {
         primaryStage = initializeShip(primaryStage);
         primaryStage.show();
     }
