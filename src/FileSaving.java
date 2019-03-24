@@ -7,7 +7,6 @@ public class FileSaving extends Player implements Serializable {
             InputStream in = new FileInputStream(new File("src/saves/playerSave.txt"));
             ObjectInputStream inObject = new ObjectInputStream(in);
             Player player = (Player) inObject.readObject();
-            System.out.println(getPlayer().getName());
             in.close();
             inObject.close();
             return player;
