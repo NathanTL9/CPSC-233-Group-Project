@@ -15,7 +15,6 @@ import javafx.util.Duration;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -433,6 +432,13 @@ public class ShipWarfareGUI extends Player {
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+                AnimationTesting test = new AnimationTesting(getPlayer());
+                try {
+                    test.startShipAnimation(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                stage.show();
 
                 try {
                     shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
@@ -564,6 +570,7 @@ public class ShipWarfareGUI extends Player {
             stage.show();
         });
     }
+/*
 
     public void startShipAnimation(Stage primaryStage) throws Exception {
 
@@ -652,7 +659,7 @@ public class ShipWarfareGUI extends Player {
         primaryStage.show();
 
     }
-
+ */
     /**
      * sets scene and runs stage
      *
