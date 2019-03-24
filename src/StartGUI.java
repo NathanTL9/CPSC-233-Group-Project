@@ -92,14 +92,14 @@ public class StartGUI extends Player{
          *
          */
         startButton.setMnemonicParsing(false);
-        startButton.setText("Start");
+        startButton.setText("New");
 
         /**
          * Creates a button with text "Continue"
          *
          */
         continueButton.setMnemonicParsing(false);
-        continueButton.setText("Continue Save");
+        continueButton.setText("Load");
 
         /**
          * Creates a VBox at the left of center of the borderpane.
