@@ -1,32 +1,37 @@
 import java.io.*;
 
-public class FileSaving extends Player {
-    InputStream in = null;
-    BufferedReader reader = null;
-    OutputStream out = null;
+public class FileSaving extends Player implements Serializable {
 
-    public Boolean loadFile() {
+    public Player loadFile() {
         try {
-            in = new FileInputStream("src/saves/playerSave.txt");
-            reader = new BufferedReader(new InputStreamReader(in));
-
-            //Returns true if there is a save file
-            return true;
+            InputStream in = new FileInputStream(new File("src/saves/playerSave.txt"));
+            ObjectInputStream inObject = new ObjectInputStream(in);
+            Player player = (Player) inObject.readObject();
+            System.out.println(getPlayer().getName());
+            in.close();
+            inObject.close();
+            return player;
         }
-        catch (Exception e){
-            //returns false if there isn't a save file
-            return false;
+        catch (Exception e) {
+            return null;
         }
     }
 
-    public void saveFile(){
+    public boolean saveFile(Player player){
         try{
-            out = new FileOutputStream("src/saves/playerSave.txt");
-        }
-        catch (Exception e){
+            FileOutputStream out = new FileOutputStream(new File("src/saves/playerSave.txt"));
+            ObjectOutputStream outObject = new ObjectOutputStream(out);
+            outObject.writeObject(player);
 
-        }
+            out.close();
+            outObject.close();
 
+            //returns true if program can save file
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 
 

@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 /**
 * 2019-03-10
 * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
@@ -5,7 +7,7 @@
 *
 */
 
-public class Player {
+public class Player implements Serializable {
 
     private String name = "Taipan";
     private int bank = 0;
@@ -30,8 +32,7 @@ public class Player {
     private int generalPrice = 8;
     private int isPriceChanged = 0;
 
-    public Player() {
-
+    public Player(){
     }
 
     /**
@@ -63,13 +64,13 @@ public class Player {
         this.wSilk = player.wSilk;
         this.wGeneral = player.wGeneral;
         this.wArms = player.wArms;
+        this.retire = player.retire;
+        this.cargoSpace = player.cargoSpace;
         this.opiumPrice = player.opiumPrice;
         this.silkPrice = player.silkPrice;
         this.armsPrice = player.armsPrice;
         this.generalPrice = player.generalPrice;
-        this.cargoSpace = player.cargoSpace;
         this.isPriceChanged = player.isPriceChanged;
-        this.retire = player.retire;
     }
 
     /**

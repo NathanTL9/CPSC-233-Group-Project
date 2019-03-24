@@ -215,6 +215,21 @@ public class StartGUI extends Player{
             }
         });
 
+        continueButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FileSaving saving = new FileSaving();
+                if(saving.loadFile() != null){
+                    TaipanShopGUI shop = new TaipanShopGUI(saving.loadFile());
+                    shop.initializeShop(stage);
+                    stage.show();
+                }
+                else{
+                    authors.setText("There are no previous saves!");
+                }
+            }
+        });
+
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");
 

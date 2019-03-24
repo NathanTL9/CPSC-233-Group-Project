@@ -289,6 +289,9 @@ public class TaipanShopGUI extends Player{
      * @param stage
      */
     public void initializeShop(Stage stage) {
+        FileSaving saving = new FileSaving();
+        saving.saveFile(getPlayer());
+
         Font size14 = new Font(14.0);
         Rectangle dialogueRectangle = new Rectangle();
         dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
