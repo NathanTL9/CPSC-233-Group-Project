@@ -535,6 +535,8 @@ public class AnimationTesting extends Player {
                             else{
                                 report.setVisible(true);
                                 continueButton.setVisible(true);
+                                usAgainstEnemyDivisor.setVisible(false);
+                                cannon.setVisible(false);
                                 shotsFired.stop();
 
                             }
@@ -563,6 +565,10 @@ public class AnimationTesting extends Player {
 
             }
         });
+
+
+
+
 
     }
 }
