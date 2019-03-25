@@ -518,6 +518,7 @@ public class ShipWarfareGUI extends Player {
 
         primaryStage.setResizable(false);
 
+        primaryStage.setTitle("Ship Warfare");
         primaryStage.setScene(scene);
         primaryStage.show();
         continueButton.setOnAction(new EventHandler<ActionEvent>() {
