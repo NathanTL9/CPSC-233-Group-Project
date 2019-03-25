@@ -46,10 +46,8 @@ public class ShipWarfareGUI extends Player {
     private Button continueButton;
 
 
-    private int numOfPeasantShips = 0;
     private int numOfLittyShips = 0;
     private boolean userAttacks = true;
-    private int startingPeasantShips = 0;
     private int startingLittyShips = 0;
     private int howMuchRun = 0;
     private int counter = 0;
@@ -68,13 +66,13 @@ public class ShipWarfareGUI extends Player {
     /**
      * setter method that takes in an integer as an argument
      *
-     * @param numOfPeasantShips the number of ships to be used in the peasant fleet attack
+     * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
      */
-    public void setNumOfPeasantShips(int numOfPeasantShips) {
+    public void setNumOfLittyShips(int numOfLittyShips) {
         counter1++;
-        this.numOfPeasantShips = numOfPeasantShips;
+        this.numOfLittyShips = numOfLittyShips;
         if (counter1 == 1) {
-            startingPeasantShips = numOfPeasantShips;
+            startingLittyShips = numOfLittyShips;
         }
 
     }
@@ -153,11 +151,11 @@ public class ShipWarfareGUI extends Player {
     }
 
     /**
-     * The user faces off against the peasant ships and either prevails, dies, or runs away
+     * The user faces off against the litty ships and either prevails, dies, or runs away
      *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
-    public boolean destroyPeasantShipsOrEscape(Stage stage) throws Exception {
+    public boolean destroyLittyShipsOrEscape(Stage stage) throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
         int hitCounter = 0;
@@ -188,8 +186,8 @@ public class ShipWarfareGUI extends Player {
                 if (userAttacks == true) {
                     int hitOrMiss = randomValue.nextInt(2) + 1;
                     if (hitOrMiss == 2) {
-                        numOfPeasantShips--;
-                        if (numOfPeasantShips <= 0) {
+                        numOfLittyShips--;
+                        if (numOfLittyShips <= 0) {
                             exitValue = 1;
                             //break;
                         }
@@ -213,7 +211,7 @@ public class ShipWarfareGUI extends Player {
         }
 
 
-        if (numOfPeasantShips <= 0) {
+        if (numOfLittyShips <= 0) {
             exitValue = 1;
             //break;
         }
@@ -221,10 +219,10 @@ public class ShipWarfareGUI extends Player {
             chanceOfEnemyRun = randomValue.nextInt(2) + 1;
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
-                if (howMuchRun != 0 && howMuchRun < numOfPeasantShips) {
+                if (howMuchRun != 0 && howMuchRun < numOfLittyShips) {
 
 
-                    setNumOfPeasantShips(numOfPeasantShips - howMuchRun);
+                    setNumOfLittyShips(numOfLittyShips - howMuchRun);
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
                             runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
@@ -240,14 +238,14 @@ public class ShipWarfareGUI extends Player {
             }
         }
 
-        shipsRemaining.setText(String.format("%d ships remaining and they look angry!", numOfPeasantShips));
+        shipsRemaining.setText(String.format("%d ships remaining and they look angry!", numOfLittyShips));
         //Computer volley
         int takeGunChance = randomValue.nextInt(4) + 1;
         if (takeGunChance == 1 && getGuns() > 0) {
             setGuns(getGuns() - 1);
             gunFrustration = true;
         } else {
-            if (numOfPeasantShips > 0) {
+            if (numOfLittyShips > 0) {
                 setHP(getHP() - (1 + randomValue.nextInt(10)));
 
             }
@@ -272,7 +270,7 @@ public class ShipWarfareGUI extends Player {
         if (exitValue == 1) {
             wipe();
             chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", getHP()));
-            calculateLoot = (startingPeasantShips * 100) + randomValue.nextInt(startingPeasantShips) * 200;
+            calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
             setMoney(getMoney() + calculateLoot);
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
@@ -300,7 +298,7 @@ public class ShipWarfareGUI extends Player {
      */
 
     public Stage initializeShip(Stage stage) throws FileNotFoundException {
-        setNumOfPeasantShips(numOfShips());
+        setNumOfLittyShips(numOfShips());
 
         BorderPane BorderPane = new BorderPane();
 
@@ -344,7 +342,7 @@ public class ShipWarfareGUI extends Player {
         title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         title.setId("Label1");
-        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfPeasantShips));
+        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfLittyShips));
         title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
 
 
@@ -451,7 +449,7 @@ public class ShipWarfareGUI extends Player {
                 chooseFightOrRun.setVisible(true);
                 try {
                     shipsAttackingOrRunningGif.setVisible(true);
-                    if (destroyPeasantShipsOrEscape(stage)) {
+                    if (destroyLittyShipsOrEscape(stage)) {
                         shipsAttackingOrRunningGif.setVisible(false);
                         setVisibilitiesAndTransition(stage);
 
@@ -489,7 +487,7 @@ public class ShipWarfareGUI extends Player {
                     chooseFightOrRun.setVisible(false);
                     report.setText(("Couldn't run away"));
                     try {
-                        if (destroyPeasantShipsOrEscape(stage) == true) {
+                        if (destroyLittyShipsOrEscape(stage) == true) {
                             setVisibilitiesAndTransition(stage);
                         }
 
