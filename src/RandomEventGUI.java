@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  * 2019-03-19
- * Authors:
+ * Authors: Harkamal Randhawa
  * Random Event GUI class generates random events that occur during travel, such as fixing your ship,
  * liu yen asking for money and to purchase a gun.
  */
@@ -126,6 +126,8 @@ public class RandomEventGUI extends Player{
 
         /*Pick a random number dictating the events that could happen.
         * 1: New gun for player
+        * 2: Paying Liu Yuen
+        * 3: Repairing the Ship
         */
         Random rand = new Random();
         int randGenNum = rand.nextInt(3) + 1;
@@ -133,17 +135,18 @@ public class RandomEventGUI extends Player{
             //Buy Guns
             if (randGenNum == 1) {
                 itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
-                sellingItemLabel.setText("Would you like to pay $" + itemPrice + " for a gun?");
+                sellingItemLabel.setText("A vender is selling a gun for $" + itemPrice + " for a gun?");
                 break;
             }
             //Liu Yuen
             if (randGenNum == 2) {
                 itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
                 sellingItemLabel.setText("Liu Yuen asks $" + itemPrice + " in donation to the temple of Tin Hau, the Sea Goddess");
+                setAttackingShips(true);
                 break;
             }
             //Ship Repair
-            if (randGenNum == 3 && getHP() != 100) {
+            if (randGenNum == 3 && getHP() < 101) {
                 itemPrice = (int) ((100 - getPlayer().getHP()) * 10 + 10);
                 sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived, would be willing to repair your ship for $" + itemPrice);
                 break;
@@ -159,7 +162,7 @@ public class RandomEventGUI extends Player{
             taipanShopGUI.initializeShop(stage);
             stage.show();
         }
-        if((eventNumber == 3 && getPlayer().getHP() == 100)){
+        if((eventNumber == 3 && getPlayer().getHP() >= 100)){
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
             stage.show();
@@ -182,7 +185,7 @@ public class RandomEventGUI extends Player{
 
                 //Liu Yuen
                 if (eventNumber == 2) {
-                    //MAKE LIU YUEN CHANCE BASICALLY 0
+                    setAttackingShips(false);
                     setMoney(getPlayer().getMoney() - itemPrice);
 
                     TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
@@ -207,14 +210,13 @@ public class RandomEventGUI extends Player{
             }
         });
 
-
-
         //If the no button is clicked then it skips to the location screen you wanted to go to.
         noButton.setOnAction(event -> {
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
             stage.show();
         });
+
         //Creates the scene and window
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");

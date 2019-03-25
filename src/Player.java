@@ -31,6 +31,7 @@ public class Player implements Serializable {
     private int armsPrice = 160;
     private int generalPrice = 8;
     private int isPriceChanged = 0;
+    private boolean attackingShips = true;
     
     /**
      * default constructor for player
@@ -84,6 +85,7 @@ public class Player implements Serializable {
         this.armsPrice = player.armsPrice;
         this.generalPrice = player.generalPrice;
         this.isPriceChanged = player.isPriceChanged;
+        this.attackingShips = player.attackingShips;
     }
 
     /**
@@ -101,11 +103,28 @@ public class Player implements Serializable {
      *
      * @param cargoSpace takes an int that is greater than 0 as an argument
      */
-
     public void setCargoSpace(int cargoSpace) {
         if (cargoSpace > 0) {
             this.cargoSpace = cargoSpace;
         }
+    }
+
+    /**
+     * getter method for the instance variable attackingShips.
+     *
+     * @return returns the instance variable attackingShips
+     */
+    public boolean getAttackingShips() {
+        return attackingShips;
+    }
+
+    /**
+     * setter method for the instance variable attackingShips.
+     *
+     * @param attackingShips takes an int that is greater than 0 as an argument
+     */
+    public void setAttackingShips(boolean attackingShips) {
+        this.attackingShips = attackingShips;
     }
 
     /**

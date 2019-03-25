@@ -173,7 +173,7 @@ public class TravelGUI extends Player{
 
         //Continues on to either shop or shipwarfare
         continueButton.setOnAction(event -> {
-            if(peasantShipScene){
+            if(peasantShipScene && getAttackingShips()){
                 ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
                 try {
                     ship.initializeShip(stage);
