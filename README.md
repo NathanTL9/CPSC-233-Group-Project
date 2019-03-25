@@ -7,9 +7,11 @@ If you are using intellij, extract "TaipanClone-master.zip", and open the "Taipa
 Place jfxt.jar, hamcrest-core-1.3.jar and junit-4.12.jar into the src folder
 Then, run MainGUI.java.
 
-If you are using the command line, extract "TaipanClone-master.zip", and open the "TaipanClone-master" folder. Open your terminal and change its directory to the "src" folder within "TaipanClone-master" folder. Then, type in "javac *.java", this compiles all the necessary files. Now, run MainGUI.java using "java MainGUI".
+If you are using the command line, extract "TaipanClone-master.zip", and open the "TaipanClone-master" folder. Open your terminal and change its directory to the "src" folder within "TaipanClone-master" folder.
 
-To run the test file PlayerTest.java, type in "javac *.java", this compiles all the necessary files. Now, run PlayerTest.java using "java PlayerTest".
+Then, type in "javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar *.java", this compiles all the necessary files. Now, run MainGUI.java using "java MainGUI".
+
+To run the test file PlayerTest.java, type in "javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar *.java", this compiles all the necessary files. Now, run PlayerTest.java using "java PlayerTest".
 
 Additional information:
 
