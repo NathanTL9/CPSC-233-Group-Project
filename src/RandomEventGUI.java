@@ -148,7 +148,7 @@ public class RandomEventGUI extends Player{
             //Ship Repair
             if (randGenNum == 3 && getHP() < 100) {
                 itemPrice = (int) ((100 - getPlayer().getHP()) * 10 + 10);
-                sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived, would be willing to repair your ship for $" + itemPrice);
+                sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived,\n would be willing to repair your ship for $" + itemPrice);
                 break;
             }
             else {
