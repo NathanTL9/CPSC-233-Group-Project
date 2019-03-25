@@ -492,6 +492,7 @@ public class TaipanShopGUI extends Player{
              */
             @Override
             public void handle(ActionEvent event) {
+                saving.saveFile(getPlayer());
                 setIsPriceChanged(1);
                 TravelGUI travelGUI = new TravelGUI(getPlayer());
                 travelGUI.initializeTravel(stage);
