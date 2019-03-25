@@ -1,619 +1,286 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * 2019-03-10
- * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
- * WarehouseGUI class, Initializes and displays the graphical interface for the warehouse in Taipan
- *
- */
 public class WarehouseGUI extends Player{
 
-    private Text title;
     private HBox hBox;
-    private Button withdraw;
-    private Button deposit;
-    private Button goBack;
     private VBox vBox;
-    private Text playerName;
-    private Text text;
-    private Label opiumPlayer;
-    private Label silkPlayer;
-    private Label armsPlayer;
-    private Label generalPlayer;
+    private TextField textField;
+    private RadioButton generalRadio;
+    private ToggleGroup Goods;
+    private RadioButton armsRadio;
+    private RadioButton silkRadio;
+    private RadioButton opiumRadio;
+    private Button withdrawButton;
+    private Button depositButton;
+    private Button quitButton;
+    private Label title;
+    private HBox hBox0;
     private VBox vBox0;
-    private Text text0;
-    private Text text1;
-    private Text opiumWarehouse;
-    private Text silkWarehouse;
-    private Text armsWarehouse;
-    private Text generalWarehouse;
+    private Label playerLabel;
+    private Label playerGeneral;
+    private Label playerArms;
+    private Label playerSilk;
+    private Label playerOpium;
     private VBox vBox1;
-    private Text inUseWarehouse;
-    private Text vacantWarehouse;
+    private Label houseLabel;
+    private Label houseGeneral;
+    private Label houseArms;
+    private Label houseSilk;
+    private Label houseOpium;
     private BorderPane borderPane;
-    private TextField textIn;
-    private SplitMenuButton splitMenu;
-    private CheckMenuItem general;
-    private CheckMenuItem arms;
-    private CheckMenuItem silk;
-    private CheckMenuItem opium;
 
-    /**
-     * A constructor that takes an object of type Player as an argument
-     *
-     * @param player object of the class Player
-     */
     public WarehouseGUI(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
 
-    /**
-     * initializes the GUI for the warehouse aspect of our game.
-     *
-     * @param stage an object of type Stage
-     * @return returns the stage of the GUI
-     */
-    public Stage initializeWarehouse(Stage stage) {
+    public Stage initializeWarehouse(Stage stage){
 
-        title = new Text();
         hBox = new HBox();
-        withdraw = new Button();
-        deposit = new Button();
         vBox = new VBox();
-        playerName = new Text();
-        text = new Text();
-        opiumPlayer = new Label();
-        silkPlayer = new Label();
-        armsPlayer = new Label();
-        generalPlayer = new Label();
+        generalRadio = new RadioButton();
+        Goods = new ToggleGroup();
+        armsRadio = new RadioButton();
+        silkRadio = new RadioButton();
+        opiumRadio = new RadioButton();
+        withdrawButton = new Button();
+        depositButton = new Button();
+        quitButton = new Button();
+        title = new Label();
+        hBox0 = new HBox();
         vBox0 = new VBox();
-        text0 = new Text();
-        text1 = new Text();
-        opiumWarehouse = new Text();
-        silkWarehouse = new Text();
-        armsWarehouse = new Text();
-        generalWarehouse = new Text();
+        playerLabel = new Label();
+        playerGeneral = new Label();
+        playerArms = new Label();
+        playerSilk = new Label();
+        playerOpium = new Label();
         vBox1 = new VBox();
-        inUseWarehouse = new Text();
-        vacantWarehouse = new Text();
+        houseLabel = new Label();
+        houseGeneral = new Label();
+        houseArms = new Label();
+        houseSilk = new Label();
+        houseOpium = new Label();
         borderPane = new BorderPane();
-        textIn = new TextField();
-        splitMenu = new SplitMenuButton();
-        general = new CheckMenuItem();
-        arms = new CheckMenuItem();
-        silk = new CheckMenuItem();
-        opium = new CheckMenuItem();
+        textField = new TextField();
 
-        borderPane.setPrefHeight(480.0);
-        borderPane.setPrefWidth(600.0);
-
-        /**
-         * Sets the preferred width and height of the borderpane window to 600 by 480.
-         *
-         */
-        borderPane.setPrefHeight(480.0);
-        borderPane.setPrefWidth(600.0);
-
-        /**
-         * Creates a label "Hong Kong Warehouse: at the top of the borderpane.
-         *
-         */
-        BorderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
-
-        title.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        title.setStrokeWidth(0.0);
-        title.setText("Hong Kong Warehouse");
-        title.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        title.setWrappingWidth(393.63671875);
-        title.setFont(new Font(24.0));
-        borderPane.setPrefHeight(480.0);
-        borderPane.setPrefWidth(600.0);
-
-        BorderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
-        title.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        title.setStrokeWidth(0.0);
-        title.setText("Hong Kong Warehouse");
-        title.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        title.setWrappingWidth(393.63671875);
-        title.setFont(new Font(24.0));
-        borderPane.setTop(title);
-
-
-        /**
-         * creates an HBox at the center of the borderpane with a width of 200 and height of 100.
-         *
-         */
-        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
+        hBox.setSpacing(10.0);
 
-        /**
-         * Creates a button with text "Withdraw" which handles user events.
-         *
-         */
-        withdraw.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        withdraw.setMnemonicParsing(false);
-        withdraw.setText("Withdraw");
-        updateLabels();
-        withdraw.setOnAction(new EventHandler<ActionEvent>() {
-                                 /**
-                                  * Creates a button with text "Deposit" which handles user events.
-                                  *
-                                  */
-                                 @Override
-                                 public void handle(ActionEvent event) {
+        vBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        vBox.setPrefHeight(200.0);
+        vBox.setPrefWidth(100.0);
 
-                                     int withdraw = Integer.parseInt(textIn.getText());
-                                     updateLabels();
-                                     if (opium.isSelected()) {
-                                         if (getwOpium() >= withdraw) {
-                                             setwOpium(getwOpium() - withdraw);
-                                             setOpiumHeld(getOpiumHeld() + withdraw);
-                                         } else {
-                                             title.setText("You don't have that much opium stored in the warehouse!");
-                                         }
-                                     }
-                                     if (silk.isSelected()) {
-                                         if (getwSilk() >= withdraw) {
-                                             setwSilk(getwSilk() - withdraw);
-                                             setSilkHeld(getSilkHeld() + withdraw);
-                                         } else {
-                                             title.setText("You don't have that much silk stored in the warehouse!");
-                                         }
-                                     }
-                                     if (arms.isSelected()) {
-                                         if (getwArms() >= withdraw) {
-                                             setwArms(getwArms() - withdraw);
-                                             setArmsHeld(getArmsHeld() + withdraw);
-                                         } else {
-                                             title.setText("You don't have that much arms stored in the warehouse!");
-                                         }
-                                     }
-                                     if (general.isSelected()) {
-                                         if (getwGeneral() >= withdraw) {
-                                             setwGeneral(getwGeneral() - withdraw);
-                                             setGeneralHeld(getGeneralHeld() + withdraw);
-                                         } else {
-                                             title.setText("You don't have that much general stored in the warehouse!");
-                                         }
-                                     }
-                                 }
-                             }
-        );
+        generalRadio.setMnemonicParsing(false);
+        generalRadio.setSelected(true);
+        generalRadio.setText("General");
 
-        deposit.setMnemonicParsing(false);
-        deposit.setText("Deposit");
-        deposit.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        generalRadio.setToggleGroup(Goods);
+
+        armsRadio.setMnemonicParsing(false);
+        armsRadio.setText("Arms");
+        armsRadio.setToggleGroup(Goods);
+
+        silkRadio.setMnemonicParsing(false);
+        silkRadio.setText("Silk");
+        silkRadio.setToggleGroup(Goods);
+
+        opiumRadio.setMnemonicParsing(false);
+        opiumRadio.setText("Opium");
+        opiumRadio.setToggleGroup(Goods);
+
+        withdrawButton.setMnemonicParsing(false);
+        withdrawButton.setText("Withdraw");
+
+        depositButton.setMnemonicParsing(false);
+        depositButton.setText("Deposit");
+
+        quitButton.setMnemonicParsing(false);
+        quitButton.setText("Go back");
         borderPane.setBottom(hBox);
 
-        deposit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        borderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
+        title.setText("Hong Kong Warehouse");
+        title.setFont(new Font(24.0));
+        title.setPadding(new Insets(10.0, 0.0, 0.0, 0.0));
+        borderPane.setTop(title);
+
+        borderPane.setAlignment(hBox0, javafx.geometry.Pos.CENTER);
+        hBox0.setAlignment(javafx.geometry.Pos.CENTER);
+        hBox0.setPrefHeight(100.0);
+        hBox0.setPrefWidth(200.0);
+        hBox0.setSpacing(10.0);
+
+        vBox0.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        vBox0.setSpacing(10.0);
+
+        playerLabel.setText("Player:");
+        playerLabel.setFont(new Font(18.0));
+
+        playerGeneral.setText("General:");
+
+        playerArms.setText("Arms:");
+
+        playerSilk.setText("Silk:");
+
+        playerOpium.setText("Opium:");
+
+        vBox1.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        vBox1.setSpacing(10.0);
+
+        houseLabel.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        houseLabel.setText("Warehouse:");
+        houseLabel.setFont(new Font(18.0));
+
+        houseGeneral.setText("General:");
+
+        houseArms.setText("Arms:");
+
+        houseSilk.setText("Silk:");
+
+        houseOpium.setText("Opium:");
+        borderPane.setMargin(hBox0, new Insets(0.0));
+        hBox0.setPadding(new Insets(10.0, 0.0, 0.0, 0.0));
+        vBox0.setPadding(new Insets(0, 0.0, 0.0, 0.0));
+        borderPane.setCenter(hBox0);
+
+        vBox.getChildren().add(generalRadio);
+        vBox.getChildren().add(armsRadio);
+        vBox.getChildren().add(silkRadio);
+        vBox.getChildren().add(opiumRadio);
+
+        hBox.getChildren().add(vBox);
+        hBox.getChildren().add(textField);
+        hBox.getChildren().add(withdrawButton);
+        hBox.getChildren().add(depositButton);
+        hBox.getChildren().add(quitButton);
+
+        vBox0.getChildren().add(playerLabel);
+        vBox0.getChildren().add(playerGeneral);
+        vBox0.getChildren().add(playerArms);
+        vBox0.getChildren().add(playerSilk);
+        vBox0.getChildren().add(playerOpium);
+
+        vBox1.getChildren().add(houseLabel);
+        vBox1.getChildren().add(houseGeneral);
+        vBox1.getChildren().add(houseArms);
+        vBox1.getChildren().add(houseSilk);
+        vBox1.getChildren().add(houseOpium);
+
+        hBox0.getChildren().add(vBox0);
+        hBox0.getChildren().add(vBox1);
+
+        updateLabels();
+
+        //Goes back to shop
+        quitButton.setOnAction(event -> {
+            TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
+            taipanShopGUI.initializeShop(stage);
+            stage.show();
+        });
+
+        withdrawButton.setOnAction(event -> {
+            try {
+                int playerInventory = getPlayer().getCargoSpace()-((getPlayer().getGuns()*10)+ getPlayer().getGeneralHeld() + getPlayer().getArmsHeld() + getPlayer().getSilkHeld() + getPlayer().getOpiumHeld());
+                int houseInventory = (10000 -(getPlayer().getwGeneral() + getPlayer().getwArms() + getPlayer().getwSilk() + getPlayer().getwOpium()));
+                int withdraw = Integer.parseInt(textField.getText());
+                if(withdraw <= 0 && (houseInventory-withdraw) <= 0 && (playerInventory+withdraw) >= getCargoSpace()){
+                    title.setText("Please enter a valid value");
+                }
+                else if(Goods.getSelectedToggle() == generalRadio){
+                    setGeneralHeld(getPlayer().getGeneralHeld()+withdraw);
+                    setwGeneral(getPlayer().getGeneralHeld()-withdraw);
+                }
+                else if(Goods.getSelectedToggle() == armsRadio){
+                    setArmsHeld(getPlayer().getArmsHeld()+withdraw);
+                    setwArms(getPlayer().getArmsHeld()-withdraw);
+                }
+                else if(Goods.getSelectedToggle() == silkRadio){
+                    setSilkHeld(getPlayer().getSilkHeld()+withdraw);
+                    setwSilk(getPlayer().getSilkHeld()-withdraw);
+                }
+                else if(Goods.getSelectedToggle() == opiumRadio){
+                    setOpiumHeld(getPlayer().getOpiumHeld()+withdraw);
+                    setwOpium(getPlayer().getOpiumHeld()-withdraw);
+                }
+                else{
+                    title.setText("Please enter a valid value");
+                }
                 updateLabels();
-                int deposit = Integer.parseInt(textIn.getText());
-                if (opium.isSelected()) {
-                    if (getOpiumHeld() >= deposit) {
-                        setwOpium(getwOpium() + deposit);
-                        setOpiumHeld(getOpiumHeld() - deposit);
-                    } else {
-                        title.setText("You don't have that much opium stored in the ship!");
-                    }
-                }
-                if (silk.isSelected()) {
-                    if (getwSilk() >= deposit) {
-                        setwSilk(getwSilk() + deposit);
-                        setSilkHeld(getSilkHeld() - deposit);
-                    } else {
-                        title.setText("You don't have that much silk stored in the ship!");
-                    }
-                }
-                if (arms.isSelected()) {
-                    if (getwArms() >= deposit) {
-                        setwArms(getwArms() + deposit);
-                        setArmsHeld(getArmsHeld() - deposit);
-                    } else {
-                        title.setText("You don't have that much arms stored in the ship!");
-                    }
-                }
-                if (general.isSelected()) {
-                    if (getwGeneral() >= deposit) {
-                        setwGeneral(getwGeneral() + deposit);
-                        setGeneralHeld(getGeneralHeld() - deposit);
-                    } else {
-                        title.setText("You don't have that much general stored in the ship!");
-                    }
-                }
+            }
+            catch (Exception e) {
+                title.setText("Please enter a valid value");
             }
         });
 
-        splitMenu.setMnemonicParsing(false);
-        splitMenu.setText("Item");
+        depositButton.setOnAction(event -> {
+            try {
+                int playerInventory = getPlayer().getCargoSpace()-((getPlayer().getGuns()*10)+ getPlayer().getGeneralHeld() + getPlayer().getArmsHeld() + getPlayer().getSilkHeld() + getPlayer().getOpiumHeld());
+                int houseInventory = (10000 -(getPlayer().getwGeneral() + getPlayer().getwArms() + getPlayer().getwSilk() + getPlayer().getwOpium()));
+                int deposit = Integer.parseInt(textField.getText());
+                if(deposit <= 0 && (houseInventory-deposit) <= 0 && (playerInventory+deposit) >= getCargoSpace()){
+                    title.setText("Please enter a valid value");
+                }
+                else if(Goods.getSelectedToggle() == generalRadio){
+                    setGeneralHeld(getPlayer().getGeneralHeld()-deposit);
+                    setwGeneral(getPlayer().getGeneralHeld()+deposit);
+                }
+                else if(Goods.getSelectedToggle() == armsRadio){
+                    setArmsHeld(getPlayer().getArmsHeld()-deposit);
+                    setwArms(getPlayer().getArmsHeld()+deposit);
+                }
+                else if(Goods.getSelectedToggle() == silkRadio){
+                    setSilkHeld(getPlayer().getSilkHeld()-deposit);
+                    setwSilk(getPlayer().getSilkHeld()+deposit);
+                }
+                else if(Goods.getSelectedToggle() == opiumRadio){
+                    setOpiumHeld(getPlayer().getOpiumHeld()-deposit);
+                    setwOpium(getPlayer().getOpiumHeld()+deposit);
+                }
+                else{
+                    title.setText("Please enter a valid value");
+                }
+                updateLabels();
+            }
+            catch (Exception e) {
+                title.setText("Please enter a valid value");
+            }
+        });
 
-        general.setMnemonicParsing(false);
-        general.setText("General");
 
-        arms.setMnemonicParsing(false);
-        arms.setText("Arms");
-
-        silk.setMnemonicParsing(false);
-        silk.setText("Silk");
-
-        opium.setMnemonicParsing(false);
-        opium.setText("Opium");
-        borderPane.setBottom(hBox);
-
-        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER_LEFT);
-        vBox.setPrefHeight(156.0);
-        vBox.setPrefWidth(106.0);
-
-        /**
-         * Creates a label with text "Player" with size 18 font and default font style.
-         *
-         */
-        playerName.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        playerName.setStrokeWidth(0.0);
-        playerName.setText("Player");
-        playerName.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        playerName.setWrappingWidth(103.47265625);
-        playerName.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with no text for aesthetic spacing purposes.
-         *
-         */
-        text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text.setStrokeWidth(0.0);
-        text.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text.setWrappingWidth(103.47265625);
-        text.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "Opium" under the "Player" label with size 18 font and default font style
-         *
-         */
-        opiumPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        opiumPlayer.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        opiumPlayer.setPrefWidth(100.0);
-        opiumPlayer.setText("Opium");
-        opiumPlayer.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        opiumPlayer.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "Silk" under the "Player" label with size 18 font and default font style.
-         *
-         */
-        silkPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        silkPlayer.setPrefWidth(100.0);
-        silkPlayer.setText("Silk");
-        silkPlayer.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "Arms" under the "Player" label with size 18 font and default font style.
-         *
-         */
-        armsPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        armsPlayer.setPrefWidth(100.0);
-        armsPlayer.setText("Arms");
-        armsPlayer.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "General" under the "Player" label with size 18 font and default font style.
-         *
-         */
-        generalPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        generalPlayer.setPrefWidth(100.0);
-        generalPlayer.setText("General");
-        generalPlayer.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        generalPlayer.setFont(new Font(18.0));
-        borderPane.setLeft(vBox);
-
-        /**
-         * Creates a VBox at the center of the borderpane with a width of 261 and a height of 343.
-         *
-         */
-        BorderPane.setAlignment(vBox0, javafx.geometry.Pos.TOP_LEFT);
-        vBox0.setAlignment(javafx.geometry.Pos.CENTER);
-        vBox0.setPrefHeight(343.0);
-        vBox0.setPrefWidth(261.0);
-
-        text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text0.setStrokeWidth(0.0);
-        text0.setText("Warehouse");
-        text0.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text0.setWrappingWidth(103.47265625);
-        text0.setFont(new Font(18.0));
-
-        text1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text1.setStrokeWidth(0.0);
-        text1.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text1.setWrappingWidth(103.47265625);
-        text1.setFont(new Font(18.0));
-
-        opiumWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        opiumWarehouse.setStrokeWidth(0.0);
-        opiumWarehouse.setText("Opium");
-        opiumWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        opiumWarehouse.setWrappingWidth(103.47265625);
-        opiumWarehouse.setFont(new Font(18.0));
-
-        silkWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        silkWarehouse.setStrokeWidth(0.0);
-        silkWarehouse.setText("Silk");
-        silkWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        silkWarehouse.setWrappingWidth(103.47265625);
-        silkWarehouse.setFont(new Font(18.0));
-
-        armsWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        armsWarehouse.setStrokeWidth(0.0);
-        armsWarehouse.setText("Arms");
-        armsWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        armsWarehouse.setWrappingWidth(103.47265625);
-        armsWarehouse.setFont(new Font(18.0));
-
-        generalWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        generalWarehouse.setStrokeWidth(0.0);
-        generalWarehouse.setText("General");
-        generalWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        generalWarehouse.setWrappingWidth(103.47265625);
-        generalWarehouse.setFont(new Font(18.0));
-        borderPane.setCenter(vBox0);
-
-        BorderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
-        vBox1.setPrefHeight(48.0);
-        vBox1.setPrefWidth(152.0);
-
-        inUseWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        inUseWarehouse.setStrokeWidth(0.0);
-        inUseWarehouse.setText("In use:");
-        inUseWarehouse.setFont(new Font(18.0));
-
-        vacantWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        vacantWarehouse.setStrokeWidth(0.0);
-        vacantWarehouse.setText("Vacant:");
-        vacantWarehouse.setFont(new Font(18.0));
-        borderPane.setRight(vBox1);
-        borderPane.setTop(title);
-
-        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
-        hBox.setAlignment(javafx.geometry.Pos.CENTER);
-        hBox.setPrefHeight(100.0);
-        hBox.setPrefWidth(200.0);
-
-        withdraw.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        withdraw.setMnemonicParsing(false);
-        withdraw.setText("Withdraw");
-
-        deposit.setMnemonicParsing(false);
-        deposit.setText("Deposit");
-        deposit.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-
-        splitMenu.setMnemonicParsing(false);
-        splitMenu.setText("Item");
-
-        general.setMnemonicParsing(false);
-        general.setText("General");
-
-        arms.setMnemonicParsing(false);
-        arms.setText("Arms");
-
-        silk.setMnemonicParsing(false);
-        silk.setText("Silk");
-
-        opium.setMnemonicParsing(false);
-        opium.setText("Opium");
-        borderPane.setBottom(hBox);
-
-        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER_LEFT);
-        vBox.setPrefHeight(156.0);
-        vBox.setPrefWidth(106.0);
-
-        playerName.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        playerName.setStrokeWidth(0.0);
-        playerName.setText("Player");
-        playerName.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        playerName.setWrappingWidth(103.47265625);
-        playerName.setFont(new Font(18.0));
-
-        text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text.setStrokeWidth(0.0);
-        text.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text.setWrappingWidth(103.47265625);
-        text.setFont(new Font(18.0));
-
-        opiumPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        opiumPlayer.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        opiumPlayer.setPrefWidth(100.0);
-        opiumPlayer.setText("Opium");
-        opiumPlayer.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        opiumPlayer.setFont(new Font(18.0));
-
-        silkPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        silkPlayer.setPrefWidth(100.0);
-        silkPlayer.setText("Silk");
-        silkPlayer.setFont(new Font(18.0));
-
-        armsPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        armsPlayer.setPrefWidth(100.0);
-        armsPlayer.setText("Arms");
-        armsPlayer.setFont(new Font(18.0));
-
-        generalPlayer.setAlignment(javafx.geometry.Pos.CENTER);
-        generalPlayer.setPrefWidth(100.0);
-        generalPlayer.setText("General");
-        generalPlayer.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        generalPlayer.setFont(new Font(18.0));
-        borderPane.setLeft(vBox);
-
-        BorderPane.setAlignment(vBox0, javafx.geometry.Pos.TOP_LEFT);
-        vBox0.setAlignment(javafx.geometry.Pos.CENTER);
-        vBox0.setPrefHeight(343.0);
-        vBox0.setPrefWidth(261.0);
-
-        /**
-         * Creates a label with text "Warehouse" with size 18 font and default font style.
-         *
-         */
-        text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text0.setStrokeWidth(0.0);
-        text0.setText("Warehouse");
-        text0.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text0.setWrappingWidth(103.47265625);
-        text0.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with no text for aesthetic spacing purposes.
-         *
-         */
-        text1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        text1.setStrokeWidth(0.0);
-        text1.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text1.setWrappingWidth(103.47265625);
-        text1.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "Opium" under the "Warehouse" label with size 18 font and default font style.
-         *
-         */
-        opiumWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        opiumWarehouse.setStrokeWidth(0.0);
-        opiumWarehouse.setText("Opium");
-        opiumWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        opiumWarehouse.setWrappingWidth(103.47265625);
-        opiumWarehouse.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "Silk" under the "Warehouse" label with size 18 font and default font style.
-         *
-         */
-        silkWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        silkWarehouse.setStrokeWidth(0.0);
-        silkWarehouse.setText("Silk");
-        silkWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        silkWarehouse.setWrappingWidth(103.47265625);
-        silkWarehouse.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "Arms" under the "Warehouse" label with size 18 font and default font style.
-         *
-         */
-        armsWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        armsWarehouse.setStrokeWidth(0.0);
-        armsWarehouse.setText("Arms");
-        armsWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        armsWarehouse.setWrappingWidth(103.47265625);
-        armsWarehouse.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with text "General" under the "Warehouse" label with size 18 font and default font style.
-         *
-         */
-        generalWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        generalWarehouse.setStrokeWidth(0.0);
-        generalWarehouse.setText("General");
-        generalWarehouse.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        generalWarehouse.setWrappingWidth(103.47265625);
-        generalWarehouse.setFont(new Font(18.0));
-        borderPane.setCenter(vBox0);
-
-        /**
-         * Creates a VBox at the center of the borderpane with a width of 152 and a height of 48.
-         *
-         */
-        BorderPane.setAlignment(vBox1, javafx.geometry.Pos.CENTER);
-        vBox1.setPrefHeight(48.0);
-        vBox1.setPrefWidth(152.0);
-
-        /**
-         * Creates a label with "In use:" text with size 18 font and default font style.
-         *
-         */
-        inUseWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        inUseWarehouse.setStrokeWidth(0.0);
-        inUseWarehouse.setText("In use:");
-        inUseWarehouse.setFont(new Font(18.0));
-
-        /**
-         * Creates a label with "Vacant:" text with size 18 font and default font style.
-         *
-         */
-        vacantWarehouse.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
-        vacantWarehouse.setStrokeWidth(0.0);
-        vacantWarehouse.setText("Vacant:");
-        vacantWarehouse.setFont(new Font(18.0));
-        borderPane.setRight(vBox1);
-
-        /**
-         * Adds all the labels and buttons to their respective boxes.
-         *
-         */
-        splitMenu.getItems().add(general);
-        splitMenu.getItems().add(arms);
-        splitMenu.getItems().add(silk);
-        splitMenu.getItems().add(opium);
-        hBox.getChildren().add(textIn);
-        hBox.getChildren().add(withdraw);
-        hBox.getChildren().add(deposit);
-        hBox.getChildren().add(splitMenu);
-        vBox.getChildren().add(playerName);
-        vBox.getChildren().add(text);
-        vBox.getChildren().add(opiumPlayer);
-        vBox.getChildren().add(silkPlayer);
-        vBox.getChildren().add(armsPlayer);
-        vBox.getChildren().add(generalPlayer);
-        vBox0.getChildren().add(text0);
-        vBox0.getChildren().add(text1);
-        vBox0.getChildren().add(opiumWarehouse);
-        vBox0.getChildren().add(silkWarehouse);
-        vBox0.getChildren().add(armsWarehouse);
-        vBox0.getChildren().add(generalWarehouse);
-        vBox1.getChildren().add(inUseWarehouse);
-        vBox1.getChildren().add(vacantWarehouse);
 
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");
+
         stage.setTitle("Warehouse");
         stage.setResizable(false);
         stage.setScene(root);
-        updateLabels();
-
         return stage;
     }
 
-    /**
-     * When run, shows the stage as a graphical interface through JavaFX.
-     *
-     * @param primaryStage object of type Stage
-     */
-    public void start(Stage primaryStage) {
-        WarehouseGUI warehouseGUI = new WarehouseGUI(getPlayer());
-        warehouseGUI.initializeWarehouse(primaryStage);
-        primaryStage.show();
-    }
+    public void updateLabels(){
+        playerLabel.setText("Player: " + (getPlayer().getCargoSpace()-((getPlayer().getGuns()*10)+ getPlayer().getGeneralHeld() + getPlayer().getArmsHeld() + getPlayer().getSilkHeld() + getPlayer().getOpiumHeld())));
+        houseLabel.setText("Warehouse: " + (10000 -(getPlayer().getwGeneral() + getPlayer().getwArms() + getPlayer().getwSilk() + getPlayer().getwOpium())));
 
-    /**
-     * The purpose of this class is to create a warehouse where the goods
-     * can be safely stored without holing space on the ship!
-     */
-    public void updateLabels() {
-        generalPlayer.setText("General: " + getGeneralHeld());
-        armsPlayer.setText("Arms: " + getArmsHeld());
-        silkPlayer.setText("Silk: " + getSilkHeld());
-        opiumPlayer.setText("Opium: " + getOpiumHeld());
+        playerGeneral.setText("General: " + getPlayer().getGeneralHeld());
+        playerArms.setText("Arms: " + getPlayer().getArmsHeld());
+        playerSilk.setText("Silk: " + getPlayer().getSilkHeld() );
+        playerOpium.setText("Opium: " + getPlayer().getOpiumHeld());
 
-        generalWarehouse.setText("General: " + getwGeneral());
-        armsWarehouse.setText("Arms: " + getwArms());
-        silkWarehouse.setText("Silk: " + getwSilk());
-        opiumWarehouse.setText("Opium: " + getwOpium());
+        houseGeneral.setText("General: " + getPlayer().getwGeneral());
+        houseArms.setText("Arms: " + getPlayer().getwArms());
+        houseSilk.setText("Silk: " + getPlayer().getwSilk());
+        houseOpium.setText("Opium: " + getPlayer().getwOpium());
     }
 }

@@ -192,6 +192,7 @@ public class StartGUI extends Player{
                 if (Start.getSelectedToggle() == cashChoice) {
                     setMoney(400);
                     setDebt(5000);
+                    setGuns(0);
                 }
                 if (Start.getSelectedToggle() == gunChoice) {
                     setGuns(5);

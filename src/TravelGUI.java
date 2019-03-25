@@ -50,7 +50,6 @@ public class TravelGUI extends Player{
      */
     public TravelGUI(Player player) {
         Player playerDummy = new Player(player);
-        this.shop = new TaipanShopGUI(player);
         setPlayer(playerDummy);
     }
 
@@ -184,9 +183,18 @@ public class TravelGUI extends Player{
                 stage.show();
             }
             else if(shopScene){
-                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                shop.initializeShop(stage);
-                stage.show();
+                Random rand = new Random();
+                int randGenNum = rand.nextInt(3) + 1;
+                if(randGenNum >= 2) {
+                    TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+                    shop.initializeShop(stage);
+                    stage.show();
+                }
+                else {
+                    RandomEventGUI randomEventGUI = new RandomEventGUI(getPlayer());
+                    randomEventGUI.initializeRandomEventGUI(stage);
+                    stage.show();
+                }
             }
         });
 
