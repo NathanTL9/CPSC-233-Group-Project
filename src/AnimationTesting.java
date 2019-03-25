@@ -1,4 +1,3 @@
-
 import javafx.animation.*;
 
 import javafx.event.ActionEvent;
@@ -322,11 +321,17 @@ public class AnimationTesting extends Player {
         if(getGuns()>0) {
             shotsFired.setCycleCount(getGuns());
         }
+        else{
+            shotsFired.setCycleCount(0);
+            shotsFired.stop();
+            cannon.setVisible(false);
+        }
         shotsFired.setNode(cannon);
         shotsFired.play();
     }
 
     public void shipsRetaliate(){
+        cannon.setVisible(true);
         enemyShots.setFromX(270);
         enemyShots.setFromY(0);
         enemyShots.setToX(-30);
@@ -568,7 +573,7 @@ public class AnimationTesting extends Player {
                 runButton.setVisible(false);
 
                 try {
-                     winOrLose= destroyLittyShipsOrEscape(primaryStage);
+                    winOrLose= destroyLittyShipsOrEscape(primaryStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -585,7 +590,7 @@ public class AnimationTesting extends Player {
                 }
 
 
-                    playerShoots();
+                playerShoots();
 
 
 
@@ -593,149 +598,48 @@ public class AnimationTesting extends Player {
                 shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
+                        shotsFired.stop();
+                        if(!winOrLose) {
+                            shipsRetaliate();
+                        }
+                        else{
+                            report.setVisible(true);
+                            continueButton.setVisible(true);
+                            usAgainstEnemyDivisor.setVisible(false);
+                            cannon.setVisible(false);
                             shotsFired.stop();
-                            if(!winOrLose) {
-                                shipsRetaliate();
-                            }
-                            else{
-                                report.setVisible(true);
-                                continueButton.setVisible(true);
-                                usAgainstEnemyDivisor.setVisible(false);
-                                cannon.setVisible(false);
-                                shotsFired.stop();
-
-                            }
-                            enemyShots.setOnFinished(new EventHandler<ActionEvent>() {
-                                @Override
-                                public void handle(ActionEvent event) {
-                                    fightButton.setVisible(true);
-                                    runButton.setVisible(true);
-                                    report.setVisible(true);
-                                    cannon.setVisible(false);
-                                    runAwayOrLeft.setVisible(true);
-                                    gunsLeftOrTaken.setVisible(true);
-                                    shipsRemaining.setVisible(true);
-                                    HPLeft.setVisible(true);
-                                    gunsLeftOrTaken.setVisible(true);
-
-                                    if(winOrLose==true){
-                                        usAgainstEnemyDivisor.setVisible(false);
-                                    }
-
-                                }
-                            });
 
                         }
+                        enemyShots.setOnFinished(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                fightButton.setVisible(true);
+                                runButton.setVisible(true);
+                                report.setVisible(true);
+                                cannon.setVisible(false);
+                                runAwayOrLeft.setVisible(true);
+                                gunsLeftOrTaken.setVisible(true);
+                                shipsRemaining.setVisible(true);
+                                HPLeft.setVisible(true);
+                                gunsLeftOrTaken.setVisible(true);
 
-                    });
+                                if(winOrLose==true){
+                                    usAgainstEnemyDivisor.setVisible(false);
+                                }
+
+                            }
+                        });
+
+                    }
+
+                });
 
 
             }
         });
-
-
-
-
 
     }
 }
-
-
-
-
-
-
-
-            /*
-                for (int i = 0; i < 5; i++) {
-                    cannon.setLayoutX(beginningX);
-                    cannon.setLayoutY(beginningY);
-
-
-                        @Override
-                        public void handle(Event event) {
-                            for (int i = 0; i < 5; i++) {
-                                if (i == 2) {
-                                    shotsFired.setFromX(0);
-                                    shotsFired.setFromY(0);
-                                    shotsFired.setToX(endX + 60);
-                                    shotsFired.setToY(endY + 70);
-
-                                    shotsFired.setFromX(0);
-                                    shotsFired.setFromY(0);
-                                    shotsFired.setToX(endX);
-                                    shotsFired.setToY(endY);
-                                    shotsFired.setNode(cannon);
-                                    shotsFired.play();
-
-                                } else {
-                                    shotsFired.setFromX(0);
-                                    shotsFired.setFromY(0);
-                                    shotsFired.setToX(endX );
-                                    shotsFired.setToY(endY );
-
-                                    shotsFired.setFromX(0);
-                                    shotsFired.setFromY(0);
-                                    shotsFired.setToX(endX);
-                                    shotsFired.setToY(endY);
-                                    shotsFired.setNode(cannon);
-                                    shotsFired.get
-                                    shotsFired.play();
-
-                                }
-                            }
-                        }
-
-                    });
-                    shotsFired.setDuration(Duration.seconds(3));
-                    shotsFired.setCycleCount(5);
-
-
-                    shotsFired.play();
-
-
-                    shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
-                        @Override
-
-                        public void handle(ActionEvent event) {
-                            shotsFired.stop();
-
-
-                        }
-                    });
-
-
-                }
-
-
-                    /*
-                destroyLittyShipsOrEscape(primaryStage);
-
-                } catch (Exception e) {
-                }
-
-
-
-                if (counter >= 1) {
-                    title.setVisible(false);
-
-                }
-            }
-
-            }
-        });
-
-
-        Scene scene = new Scene(root, 600, 480);
-        root.getStylesheets().add("styleguide.css");
-
-        primaryStage.setResizable(false);
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-    }
-    */
 
 
 
