@@ -227,9 +227,9 @@ public class TaipanShopGUI extends Player{
                 textOut.setText(originalDialogue + "\n\t" + getName() + ", you can't afford that!");
             } else if (opiumButton.getText().contains(".")) {
                 textOut.setText(originalDialogue + "\n\t" + getName() + ", how am I supposed to buy " + "'" + num + "'" + " Opium?");
-            } else if (silkButton.getText().contains(".") && num <= getMoney() / getOpiumPrice() && num >= 0) {
+            } else if (silkButton.getText().contains(".") && num <= getMoney() / getSilkPrice() && num >= 0) {
                 setSilkHeld(getSilkHeld() + num);
-                setMoney(getMoney() - num * getOpiumPrice());
+                setMoney(getMoney() - num * getSilkPrice());
             } else if (num >= 0 && silkButton.getText().contains(".")) {
                 textOut.setText(originalDialogue + "\n\t" + getName() + ", you can't afford that!");
             } else if (silkButton.getText().contains(".")) {
@@ -259,7 +259,7 @@ public class TaipanShopGUI extends Player{
                 textOut.setText(originalDialogue + "\n\t" + getName() + ", how am I supposed to sell " + "'" + num + "'" + " Opium?");
             } else if (silkButton.getText().contains(".") && num <= getSilkHeld() && num >= 0) {
                 setSilkHeld(getSilkHeld() - num);
-                setMoney(getMoney() + num * getOpiumPrice());
+                setMoney(getMoney() + num * getSilkPrice());
             } else if (num >= 0 && silkButton.getText().contains(".")) {
                 textOut.setText(originalDialogue + "\n\t" + getName() + ", you don't have that many to sell!");
             } else if (silkButton.getText().contains(".")) {
