@@ -1,4 +1,4 @@
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -7,44 +7,45 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Random;
 
-
 /**
- * 2019-03-10 (Edited on 2019-03-19)
- * Authors: Haris Muhammad
+ * 2019-03-10 (Edited on 2019-03-23)
+ * Author: Haris Muhammad
  * ShipWarfareGUI class, Generates and utilizes ships which the user can attack or run from
  */
 
 
 public class ShipWarfareGUI extends Player {
 
-    private HBox hBox;
+    private ShipWarfareGUI ship;
+    private Circle cannon;
+    private VBox buttonBox;
+    private HBox fightRunBox;
     private Button fightButton;
     private Button runButton;
-    private VBox vBox;
+    private Button continueButton;
+    private VBox labelBox;
     private Label title;
-    private Label chooseFightOrRun;
-    private HBox hBox0;
-    private VBox vBox0;
-    private Label shipsRemaining;
-    private Label report;
-    private Label runAwayOrLeft;
     private Label HPLeft;
     private Label gunsLeftOrTaken;
-    private Label continueToFight;
-    private ImageView imageView;
+    private Label runAwayOrLeft;
+    private Label shipsRemaining;
+    private Label report;
+
+    private boolean winOrLose= false;
+
 
     private int counter1;
-    private Button continueButton;
-
+    private int timeCounter;
 
     private int numOfLittyShips = 0;
     private boolean userAttacks = true;
@@ -52,6 +53,15 @@ public class ShipWarfareGUI extends Player {
     private int howMuchRun = 0;
     private int counter = 0;
     private String pirateName = "Liu Yen";
+
+    private int beginningX = 150;
+    private int beginningY = 245;
+
+    private int endX = 350;
+    private int endY = 90;
+
+    private TranslateTransition shotsFired = new TranslateTransition();
+    private TranslateTransition enemyShots = new TranslateTransition();
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
@@ -62,21 +72,6 @@ public class ShipWarfareGUI extends Player {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
-
-    /**
-     * setter method that takes in an integer as an argument
-     *
-     * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
-     */
-    public void setNumOfLittyShips(int numOfLittyShips) {
-        counter1++;
-        this.numOfLittyShips = numOfLittyShips;
-        if (counter1 == 1) {
-            startingLittyShips = numOfLittyShips;
-        }
-
-    }
-
 
     /**
      * The number of ships that attack is based on the amount of money one has on hand
@@ -107,6 +102,20 @@ public class ShipWarfareGUI extends Player {
     }
 
     /**
+     * setter method that takes in an integer as an argument
+     *
+     * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
+     */
+    public void setNumOfLittyShips(int numOfLittyShips) {
+        counter1++;
+        this.numOfLittyShips = numOfLittyShips;
+        if (counter1 == 1) {
+            startingLittyShips = numOfLittyShips;
+        }
+
+    }
+
+    /**
      * One in two chance of running away
      *
      * @return true if the user is allowed to run, false if not, the "default" is false
@@ -132,7 +141,6 @@ public class ShipWarfareGUI extends Player {
         shipsRemaining.setVisible(false);
         HPLeft.setVisible(false);
         gunsLeftOrTaken.setVisible(false);
-        continueToFight.setVisible(false);
 
 
     }
@@ -142,13 +150,15 @@ public class ShipWarfareGUI extends Player {
      */
     public void completeWipe() {
         title.setVisible(false);
-        chooseFightOrRun.setVisible(false);
         runAwayOrLeft.setVisible(false);
         shipsRemaining.setVisible(false);
         HPLeft.setVisible(false);
         gunsLeftOrTaken.setVisible(false);
-        continueToFight.setVisible(false);
+        report.setVisible(false);
     }
+
+
+
 
     /**
      * The user faces off against the litty ships and either prevails, dies, or runs away
@@ -156,34 +166,28 @@ public class ShipWarfareGUI extends Player {
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
     public boolean destroyLittyShipsOrEscape(Stage stage) throws Exception {
+        cannon.setLayoutX(beginningX);
+        cannon.setLayoutY(beginningY);
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
         int hitCounter = 0;
         int missCounter = 0;
         boolean gunFrustration = false;
 
-        title.setVisible(true);
-        chooseFightOrRun.setVisible(true);
-        report.setVisible(true);
-        runAwayOrLeft.setVisible(true);
-        shipsRemaining.setVisible(true);
-        HPLeft.setVisible(true);
-        gunsLeftOrTaken.setVisible(true);
-        continueToFight.setVisible(true);
-        continueButton.setVisible(false);
 
 
-        runAwayOrLeft.setText("No ships ran away");
+
+
 
         Random randomValue = new Random();
         int exitValue = 0;
-
         //Player volley
         //while (exitValue == 0) {
         if (getGuns() > 0) {
 
             for (int j = 0; j < getGuns(); j++) {
                 if (userAttacks == true) {
+
                     int hitOrMiss = randomValue.nextInt(2) + 1;
                     if (hitOrMiss == 2) {
                         numOfLittyShips--;
@@ -193,9 +197,12 @@ public class ShipWarfareGUI extends Player {
                         }
                         hitCounter++;
 
+
                     } else {
                         missCounter++;
+
                     }
+
 
 
                 } else {
@@ -246,7 +253,9 @@ public class ShipWarfareGUI extends Player {
             gunFrustration = true;
         } else {
             if (numOfLittyShips > 0) {
-                setHP(getHP() - (1 + randomValue.nextInt(10)));
+                int HPTaken = randomValue.nextInt(10);
+                setHP(getHP() - (HPTaken));
+
 
             }
         }
@@ -265,15 +274,16 @@ public class ShipWarfareGUI extends Player {
             userAttacks = true;
         }
 
-        continueToFight.setText(String.format("Captain, what are your orders?"));
 
         if (exitValue == 1) {
             wipe();
-            chooseFightOrRun.setText(String.format("Ayy! We won and survived at %d%% ship status!", getHP()));
             calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
             setMoney(getMoney() + calculateLoot);
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
+            completeWipe();
+            fightButton.setVisible(false);
+            runButton.setVisible(false);
             continueButton.setDefaultButton(true);
             return true;
         } else if (exitValue == 2) {
@@ -282,270 +292,56 @@ public class ShipWarfareGUI extends Player {
             stage.show();
             return true;
         } else if (exitValue == 3) {
-            System.out.printf("We made it out at %d%% ship status!\n", getHP());
+            report.setText(String.format("We made it out at %d%% ship status!", getHP()));
+
             continueButton.setVisible(true);
+            completeWipe();
+            fightButton.setVisible(false);
+            runButton.setVisible(false);
             continueButton.setDefaultButton(true);
             return true;
         }
         return false;
+
     }
 
     /**
-     * Sets up the graphical part of ShipWarfare and includes all logic for the class
-     *
-     * @param stage sets the stage to which we will execute the scene of the ShipWarfare class
-     * @return stage so that another class can switch to the stage
+     * Player attacks enemy ships in an animation
      */
-
-    public Stage initializeShip(Stage stage) throws FileNotFoundException {
-        setNumOfLittyShips(numOfShips());
-
-        BorderPane BorderPane = new BorderPane();
-
-        GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(10.0, 10.0, 10.0, 10.0));
-        gridPane.setVgap(5.0);
-
-        hBox = new HBox();
-        fightButton = new Button();
-        runButton = new Button();
-        vBox = new VBox();
-        title = new Label();
-        chooseFightOrRun = new Label();
-        hBox0 = new HBox();
-        vBox0 = new VBox();
-        shipsRemaining = new Label();
-        report = new Label();
-        runAwayOrLeft = new Label();
-        HPLeft = new Label();
-        gunsLeftOrTaken = new Label();
-        continueToFight = new Label();
-        imageView = new ImageView();
-        continueButton = new Button();
-
-        chooseFightOrRun.setVisible(false);
-        fightButton.setDefaultButton(true);
-
-        continueToFight.setPrefWidth(379);
-
-        continueButton.setVisible(false);
-        title.setVisible(true);
-
-
-        BorderPane.setPrefHeight(400.0);
-        BorderPane.setPrefWidth(600.0);
-        hBox.setAlignment(javafx.geometry.Pos.CENTER);
-        hBox.setPrefHeight(100.0);
-        hBox.setPrefWidth(200.0);
-        hBox.setSpacing(10.0);
-
-        title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
-        title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        title.setId("Label1");
-        title.setText(String.format("%d ships attacking. Would you like to Fight or Run?", numOfLittyShips));
-        title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
-
-
-        Image shipsAttacking = new Image(new FileInputStream("src/images/ShipsAttacking.gif"));
-        Image shipsRunning = new Image(new FileInputStream("src/images/ShipsRunning.gif"));
-
-
-        //Setting the image view
-        ImageView shipsAttackingOrRunningGif = new ImageView(shipsAttacking);
-
-        shipsAttackingOrRunningGif.setFitHeight(193.0);
-        shipsAttackingOrRunningGif.setFitWidth(349.0);
-        shipsAttackingOrRunningGif.setPickOnBounds(true);
-        shipsAttackingOrRunningGif.setPreserveRatio(true);
-        shipsAttackingOrRunningGif.setVisible(false);
-
-
-        BorderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
-        hBox.setAlignment(javafx.geometry.Pos.CENTER);
-        hBox.setPrefHeight(100.0);
-        hBox.setPrefWidth(200.0);
-        hBox.setSpacing(10.0);
-
-        fightAndRunButtonSetting();
-        runButton.setText("Run");
-
-        BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
-        vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
-        vBox.setPrefHeight(200.0);
-        vBox.setPrefWidth(200);
-        vBox.setSpacing(30.0);
-
-
-        titleSetting(title);
-
-        chooseFightOrRun.setText("Ohh, Fight ehh?");
-
-        hBox0.setPrefHeight(100.0);
-        hBox0.setPrefWidth(200.0);
-
-        vBox0.setPrefHeight(102.0);
-        vBox0.setPrefWidth(400.0);
-        vBox0.setSpacing(30.0);
-
-
-        continueButton.setMnemonicParsing(false);
-        continueButton.setText("Continue?");
-
-        fightAndRunButtonSetting();
-
-        BorderPane.setBottom(hBox);
-        runButton.setText("Run");
-
-        javafx.scene.layout.BorderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
-        vBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
-        vBox.setPrefHeight(200.0);
-        vBox.setPrefWidth(400.0);
-        vBox.setSpacing(20.0);
-
-        titleSetting(report);
-        vBox.setPadding(new Insets(0.0, 0.0, 10.0, 0.0));
-        vBox0.setPadding(new Insets(0.0, 0.0, 0.0, 6.0));
-
-        BorderPane.setTop(vBox);
-        BorderPane.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
-
-        hBox.getChildren().add(fightButton);
-        hBox.getChildren().add(runButton);
-        vBox.getChildren().add(title);
-        vBox.getChildren().add(chooseFightOrRun);
-        vBox.getChildren().add(report);
-        vBox.getChildren().add(runAwayOrLeft);
-        vBox.getChildren().add(shipsRemaining);
-        vBox.getChildren().add(HPLeft);
-        vBox.getChildren().add(gunsLeftOrTaken);
-        vBox.getChildren().add(continueToFight);
-        vBox.getChildren().add(continueButton);
-
-
-        //Fight
-        fightButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            /**
-             * Fight Button, engages in fight logic and graphical interface
-             * @param event, once button is clicked, executes graphical information
-             */
-            public void handle(ActionEvent event) {
-                AnimationTesting test = new AnimationTesting(getPlayer());
-                try {
-                    test.startShipAnimation(stage);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                stage.show();
-
-                try {
-                    shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsAttacking.gif")));
-                    chooseFightOrRun.setText("Pressing forward in our attack!");
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                counter++;
-                chooseFightOrRun.setVisible(true);
-                try {
-                    shipsAttackingOrRunningGif.setVisible(true);
-                    if (destroyLittyShipsOrEscape(stage)) {
-                        shipsAttackingOrRunningGif.setVisible(false);
-                        setVisibilitiesAndTransition(stage);
-
-
-                    }
-                } catch (Exception e) {
-                }
-
-                if (counter >= 1) {
-                    title.setVisible(false);
-
-                }
-            }
-        });
-
-        //Flee
-        runButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            /**
-             * Run Button, engages in run logic and graphical interface
-             * @param event, once button is clicked, executes graphical information
-             */
-            public void handle(ActionEvent event) {
-                shipsAttackingOrRunningGif.setVisible(true);
-                try {
-                    shipsAttackingOrRunningGif.setImage(new Image(new FileInputStream("src/images/ShipsRunning.gif")));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                chooseFightOrRun.setText("Ayy captain we will try to run!");
-                counter++;
-
-                if (runFromShips() == false) {
-                    title.setVisible(false);
-                    chooseFightOrRun.setVisible(false);
-                    report.setText(("Couldn't run away"));
-                    try {
-                        if (destroyLittyShipsOrEscape(stage) == true) {
-                            setVisibilitiesAndTransition(stage);
-                        }
-
-                    } catch (Exception e) {
-                    }
-                } else {
-                    completeWipe();
-                    shipsAttackingOrRunningGif.setVisible(false);
-                    report.setText("Phew! Got away safely");
-                    setVisibilitiesAndTransition(stage);
-
-
-                }
-                if (counter >= 2) {
-                    title.setVisible(false);
-                }
-            }
-        });
-
-
-        Scene root = new Scene(BorderPane, 600, 480);
-        root.getStylesheets().add("styleguide.css");
-        stage.setTitle("Ship");
-        stage.setResizable(false);
-        stage.setScene(root);
-        return stage;
+    public void playerShoots() {
+        userAttacks=true;
+        shotsFired.setFromX(0);
+        shotsFired.setFromY(0);
+        shotsFired.setToX(endX);
+        shotsFired.setToY(endY);
+        shotsFired.setDuration(Duration.seconds(1));
+        if(getGuns()>0) {
+            shotsFired.setCycleCount(getGuns());
+        }
+        else{
+            shotsFired.setCycleCount(0);
+            shotsFired.stop();
+            cannon.setVisible(false);
+        }
+        shotsFired.setNode(cannon);
+        shotsFired.play();
     }
 
     /**
-     * sets the title and does basic layout for the label
-     *
-     * @param title label which is set
+     * Ships attack player ship back in an animation
      */
 
-    public void titleSetting(Label title) {
-        title.setAlignment(javafx.geometry.Pos.TOP_CENTER);
-        title.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        title.setId("Label1");
-        title.setPadding(new Insets(6.0, 0.0, 0.0, 0.0));
+    public void shipsRetaliate(){
+        cannon.setVisible(true);
+        enemyShots.setFromX(270);
+        enemyShots.setFromY(0);
+        enemyShots.setToX(-30);
+        enemyShots.setToY(90);
+        enemyShots.setDuration(Duration.seconds(1));
+        enemyShots.setCycleCount(1);
+        enemyShots.setNode(cannon);
+        enemyShots.play();
     }
-
-
-    /**
-     * Sets the fightButton and runButton to a specific layout
-     */
-    public void fightAndRunButtonSetting() {
-        fightButton.setAlignment(javafx.geometry.Pos.CENTER);
-        fightButton.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        fightButton.setId("Button1");
-        fightButton.setMnemonicParsing(false);
-        fightButton.setText("Fight");
-        fightButton.setDefaultButton(true);
-
-        runButton.setAlignment(javafx.geometry.Pos.CENTER);
-        runButton.setId("Button2");
-        runButton.setMnemonicParsing(false);
-    }
-
 
     /**
      * Sets most buttons to being invisble and switches to TaipanShop scene
@@ -568,31 +364,82 @@ public class ShipWarfareGUI extends Player {
             stage.show();
         });
     }
-/*
 
-    public void startShipAnimation(Stage primaryStage) throws Exception {
 
+    /**
+     * Generaties ships and deploys logic for the shipwarfare
+     * @param primaryStage sets up the stage to whcih the GUI may be based around
+     * @throws Exception in case of interruptions withing the graphical interface
+     */
+    public void initializeShip(Stage primaryStage) throws Exception {
+        setNumOfLittyShips(numOfShips());
 
         Pane root = new Pane();
-        HBox usAgainstEnemyDivisor = new HBox();
+        HBox usAgainstEnemyDivisor;
         BorderPane centeringUserShipPane = new BorderPane();
-        Circle cannon = new Circle();
-        BorderPane centeringMerchantShipPane = new BorderPane();
+        Circle cannon;
+        BorderPane centeringLittyShipPane = new BorderPane();
         BorderPane encompassingPane = new BorderPane();
+        usAgainstEnemyDivisor = new HBox();
+        cannon = new Circle();
+        this.cannon = cannon;
 
 
-        final int USER_SHOOTS_X = 150;
-        final int USER_SHOOTS_Y = 180;
 
-        final int CLEAN_SHOT_X = 350;
-        final int CLEAN_SHOT_Y = 110;
+        cannon.setVisible(false);
+
+        buttonBox = new VBox();
+        fightRunBox = new HBox();
+        fightButton = new Button();
+        runButton = new Button();
+        continueButton = new Button();
+        labelBox = new VBox();
+        title = new Label();
+        HPLeft = new Label();
+        gunsLeftOrTaken = new Label();
+        runAwayOrLeft = new Label();
+        shipsRemaining = new Label();
+        report = new Label();
+
+        title.setText(String.format("%d ships from Liu Yuen's Fleet are attacking, Would you like to fight or run?", numOfLittyShips));
+
+
+        fightButton.setText("Fight");
+        runButton.setText("Run");
+        continueButton.setText("Continue");
+
+        fightButton.setVisible(true);
+        runButton.setVisible(true);
+        continueButton.setVisible(false);
+
+
+        encompassingPane.setAlignment(labelBox, javafx.geometry.Pos.CENTER);
+        labelBox.setAlignment(javafx.geometry.Pos.CENTER);
+        labelBox.setPrefHeight(41.0);
+        labelBox.setPrefWidth(600.0);
+        labelBox.setSpacing(20.0);
+
+        labelBox.setPadding(new Insets(10.0, 0.0, 0.0, 0.0));
+
+        encompassingPane.setAlignment(buttonBox, javafx.geometry.Pos.CENTER);
+        buttonBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+
+
+        fightRunBox.setAlignment(javafx.geometry.Pos.CENTER);
+        fightRunBox.setPrefHeight(100.0);
+        fightRunBox.setPrefWidth(200.0);
+        fightRunBox.setSpacing(10.0);
+
+        VBox.setMargin(continueButton, new Insets(0.0, 0.0, 20.0, 0.0));
+
 
         root.getChildren().add(cannon);
 
         encompassingPane.setPrefHeight(480);
         encompassingPane.setPrefWidth(600);
 
-        usAgainstEnemyDivisor.setPrefHeight(480.0);
+
+        usAgainstEnemyDivisor.setPrefHeight(0.0);
         usAgainstEnemyDivisor.setPrefWidth(600.0);
 
         centeringUserShipPane.setPrefHeight(200.0);
@@ -604,7 +451,7 @@ public class ShipWarfareGUI extends Player {
 
         //Setting the image view
         ImageView userShip = new ImageView(ourShip);
-        ImageView merchantShip = new ImageView(enemyShip);
+        ImageView littyShip = new ImageView(enemyShip);
 
         BorderPane.setAlignment(userShip, javafx.geometry.Pos.CENTER);
         userShip.setFitHeight(150.0);
@@ -613,58 +460,209 @@ public class ShipWarfareGUI extends Player {
         userShip.setPreserveRatio(true);
         centeringUserShipPane.setCenter(userShip);
 
+        BorderPane.setAlignment(buttonBox, javafx.geometry.Pos.CENTER);
+        buttonBox.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+
+        usAgainstEnemyDivisor.setTranslateY(-20.0);
 
         cannon.setRadius(10.0);
         cannon.setStroke(javafx.scene.paint.Color.BLACK);
         cannon.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         centeringUserShipPane.setRight(cannon);
 
-        centeringMerchantShipPane.setPrefHeight(200.0);
-        centeringMerchantShipPane.setPrefWidth(200.0);
-        centeringMerchantShipPane.setOpaqueInsets(new Insets(0.0));
-        HBox.setMargin(centeringMerchantShipPane, new Insets(0.0, 0.0, 0.0, 200.0));
+        centeringLittyShipPane.setPrefHeight(200.0);
+        centeringLittyShipPane.setPrefWidth(200.0);
+        centeringLittyShipPane.setOpaqueInsets(new Insets(0.0));
+        HBox.setMargin(centeringLittyShipPane, new Insets(0.0, 0.0, 0.0, 200.0));
 
-        encompassingPane.setAlignment(merchantShip, javafx.geometry.Pos.CENTER);
-        merchantShip.setFitHeight(165.0);
-        merchantShip.setFitWidth(180.0);
-        merchantShip.setPickOnBounds(true);
-        merchantShip.setPreserveRatio(true);
-        encompassingPane.setMargin(merchantShip, new Insets(0.0, 0.0, 20.0, 0.0));
-        centeringMerchantShipPane.setCenter(merchantShip);
-        encompassingPane.setCenter(usAgainstEnemyDivisor);
+        encompassingPane.setAlignment(littyShip, javafx.geometry.Pos.CENTER);
+        littyShip.setFitHeight(165.0);
+        littyShip.setFitWidth(180.0);
+        littyShip.setPickOnBounds(true);
+        littyShip.setPreserveRatio(true);
+        encompassingPane.setMargin(littyShip, new Insets(0.0, 0.0, 20.0, 0.0));
+        centeringLittyShipPane.setCenter(littyShip);
 
         usAgainstEnemyDivisor.getChildren().add(centeringUserShipPane);
-        usAgainstEnemyDivisor.getChildren().add(centeringMerchantShipPane);
+        usAgainstEnemyDivisor.getChildren().add(centeringLittyShipPane);
+        fightRunBox.getChildren().add(fightButton);
+        fightRunBox.getChildren().add(continueButton);
+        fightRunBox.getChildren().add(runButton);
+        buttonBox.getChildren().add(fightRunBox);
+        labelBox.getChildren().add(title);
+        labelBox.getChildren().add(HPLeft);
+        labelBox.getChildren().add(gunsLeftOrTaken);
+        labelBox.getChildren().add(runAwayOrLeft);
+        labelBox.getChildren().add(shipsRemaining);
+        labelBox.getChildren().add(report);
+
+        encompassingPane.setTop(labelBox);
+        encompassingPane.setCenter(usAgainstEnemyDivisor);
+
+        encompassingPane.setBottom(buttonBox);
 
         root.getChildren().addAll(encompassingPane, cannon);
-
-        // start
-        cannon.setLayoutX(USER_SHOOTS_X);
-        cannon.setLayoutY(USER_SHOOTS_Y);
-
-        TranslateTransition shotsFired = new TranslateTransition();
-        shotsFired.setDuration(Duration.seconds(3));
-        shotsFired.setToX(CLEAN_SHOT_X);
-        shotsFired.setToY(CLEAN_SHOT_Y);
-        shotsFired.setCycleCount(getGuns());
-        shotsFired.setNode(cannon);
-        shotsFired.play();
 
         Scene scene = new Scene(root, 600, 480);
         root.getStylesheets().add("styleguide.css");
 
+        primaryStage.setResizable(false);
+
         primaryStage.setScene(scene);
         primaryStage.show();
+        continueButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            /**
+             * Continue Button, engages in run logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
+            public void handle(ActionEvent event) {
+                shotsFired.stop();
+
+                /**
+                 * Switches to Taipan Shop scene
+                 */
+
+                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+                shop.initializeShop(primaryStage);
+                primaryStage.show();
+
+            }
+        });
+
+        //Flee
+        runButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            /**
+             * Run Button, engages in run logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
+            public void handle(ActionEvent event) {
+                report.setVisible(true);
+                title.setVisible(true);
+                shipsRemaining.setVisible(true);
+                gunsLeftOrTaken.setVisible(true);
+
+                title.setText("Ayy captain we will try to run!");
+                report.setText("Epic");
+                counter++;
+
+                if (runFromShips() == false) {
+                    report.setText(("Couldn't run away"));
+                    try {
+                        winOrLose= destroyLittyShipsOrEscape(primaryStage);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(winOrLose==true){
+                        report.setVisible(true);
+                        title.setVisible(true);
+                        shipsRemaining.setVisible(true);
+                        gunsLeftOrTaken.setVisible(true);
+
+                    }
+                } else {
+
+                    report.setText("Phew! Got away safely");
+                    setVisibilitiesAndTransition(primaryStage);
+
+
+                }
+
+            }
+        });
+
+        //Fight
+        fightButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            /**
+             * Fight Button, engages in fight logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
+            public void handle(ActionEvent event) {
+                report.setVisible(false);
+                runAwayOrLeft.setVisible(false);
+                shipsRemaining.setVisible(false);
+                HPLeft.setVisible(false);
+                gunsLeftOrTaken.setVisible(false);
+                fightButton.setVisible(false);
+                runButton.setVisible(false);
+
+                try {
+                    winOrLose= destroyLittyShipsOrEscape(primaryStage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                counter++;
+
+                cannon.setVisible(true);
+                cannon.setLayoutX(beginningX);
+                cannon.setLayoutY(beginningY);
+
+                if (counter >= 1) {
+                    title.setVisible(false);
+
+                }
+
+                playerShoots();
+
+                shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    /**
+                     * When the user is completed their volley this information will be accessed
+                     * @param event, once the shots fired transition is completed, execute graphical information
+                     */
+                    public void handle(ActionEvent event) {
+                        shotsFired.stop();
+                        if(!winOrLose) {
+                            shipsRetaliate();
+                        }
+                        else{
+                            report.setVisible(true);
+                            continueButton.setVisible(true);
+                            usAgainstEnemyDivisor.setVisible(false);
+                            cannon.setVisible(false);
+                            shotsFired.stop();
+
+                        }
+                        enemyShots.setOnFinished(new EventHandler<ActionEvent>() {
+                            @Override
+                            /**
+                             * When the user is completed their volley, this information will be accessed
+                             * @param event, once the enemy shots transition is completed, execute graphical information
+                             */
+                            public void handle(ActionEvent event) {
+                                fightButton.setVisible(true);
+                                runButton.setVisible(true);
+                                report.setVisible(true);
+                                cannon.setVisible(false);
+                                runAwayOrLeft.setVisible(true);
+                                gunsLeftOrTaken.setVisible(true);
+                                shipsRemaining.setVisible(true);
+                                HPLeft.setVisible(true);
+                                gunsLeftOrTaken.setVisible(true);
+
+                                if(winOrLose==true){
+                                    usAgainstEnemyDivisor.setVisible(false);
+                                }
+
+                            }
+                        });
+
+                    }
+
+                });
+
+
+            }
+        });
 
     }
- */
-    /**
-     * sets scene and runs stage
-     *
-     * @param primaryStage the stage in which the scene may be run and switched to
-     */
-    public void start(Stage primaryStage) throws FileNotFoundException {
-        primaryStage = initializeShip(primaryStage);
-        primaryStage.show();
-    }
 }
+
+
+
+
+
