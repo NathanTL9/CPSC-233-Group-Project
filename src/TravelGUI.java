@@ -280,6 +280,8 @@ public class TravelGUI extends Player{
         locationText.setFont(size14);
 
         inventoryText.setAlignment(Pos.CENTER);
+        inventoryText.setPrefWidth(100.0);
+        inventoryText.setPrefHeight(108.0);
         inventoryText.setFont(size14);
 
         inventoryHeldText.setAlignment(Pos.CENTER);
@@ -499,6 +501,6 @@ public class TravelGUI extends Player{
         inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", getOpiumHeld(), getSilkHeld(), getArmsHeld(), getGeneralHeld()));
         shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", getDebt(), shipStatusString(), getHP()));
         cashText.setText(String.format("  Cash: $%,d", getMoney()));
-        bankText.setText(String.format("Bank: %d", getBank()));
+        bankText.setText(String.format("Bank: $%,d", getBank()));
     }
 }
