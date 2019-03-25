@@ -696,7 +696,7 @@ public class TaipanShopGUI extends Player{
 
         inventoryHeldText.setAlignment(Pos.CENTER);
         inventoryHeldText.setPrefHeight(108.0);
-        inventoryHeldText.setPrefWidth(90.0);
+        inventoryHeldText.setPrefWidth(100.0);
         inventoryHeldText.setFont(size14);
 
         gunsText.setPrefHeight(108.0);
