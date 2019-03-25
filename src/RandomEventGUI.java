@@ -8,6 +8,13 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
+/**
+ * 2019-03-19
+ * Authors:
+ * Random Event GUI class generates random events that occur during travel, such as fixing your ship,
+ * liu yen asking for money and to purchase a gun.
+ */
+
 public class RandomEventGUI extends Player{
 
     private HBox hBox;
@@ -160,10 +167,7 @@ public class RandomEventGUI extends Player{
 
 
 
-        /**
-         *
-         *
-         */
+        //if yes button is clicked, executes the code depending on the type of event
         yesButton.setOnAction(event -> {
             if(getPlayer().getMoney() > itemPrice) {
                 //Buy Guns
@@ -205,16 +209,13 @@ public class RandomEventGUI extends Player{
 
 
 
-        /**
-         *
-         *
-         */
+        //If the no button is clicked then it skips to the location screen you wanted to go to.
         noButton.setOnAction(event -> {
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
             stage.show();
         });
-
+        //Creates the scene and window
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");
 

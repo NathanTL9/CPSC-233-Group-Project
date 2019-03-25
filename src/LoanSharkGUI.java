@@ -11,6 +11,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * 2019-03-10
+ * Authors: Siddhant Dewani
+ * LoanShark GUI Class allows the user to get a loan from the loan shark
+ */
+
 public class LoanSharkGUI extends Player {
 
     /**

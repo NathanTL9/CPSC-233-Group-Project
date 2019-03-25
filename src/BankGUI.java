@@ -12,6 +12,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class BankGUI extends Player{
+    /**
+     * 2019-03-10
+     * Authors: Siddhant Dewani
+     * BankGUI allows the user to store cash and gain interest off of the cash
+     */
 
     /**
      * Class Constructor that takes in a type player as a parameter
