@@ -266,6 +266,8 @@ public class ShipWarfareGUI extends Player {
         }
         if (gunFrustration == true) {
             gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", getGuns()));
+            playerShoots(getGuns()+1);
+
         } else {
             gunsLeftOrTaken.setText(String.format("We still have %d guns left", getGuns()));
         }
@@ -309,7 +311,7 @@ public class ShipWarfareGUI extends Player {
     /**
      * Player attacks enemy ships in an animation
      */
-    public void playerShoots() {
+    public void playerShoots(int amountOfShots) {
         userAttacks=true;
         shotsFired.setFromX(0);
         shotsFired.setFromY(0);
@@ -317,7 +319,7 @@ public class ShipWarfareGUI extends Player {
         shotsFired.setToY(endY);
         shotsFired.setDuration(Duration.seconds(0.5));
         if(getGuns()>0) {
-            shotsFired.setCycleCount(getGuns());
+            shotsFired.setCycleCount(amountOfShots);
         }
         else{
             shotsFired.setCycleCount(0);
@@ -617,7 +619,7 @@ public class ShipWarfareGUI extends Player {
 
                 }
 
-                playerShoots();
+                playerShoots(getGuns());
 
                 shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
                     @Override
