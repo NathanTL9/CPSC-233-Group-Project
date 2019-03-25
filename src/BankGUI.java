@@ -47,9 +47,9 @@ public class BankGUI extends Player{
         VBox vbx1 = new VBox(30);
 
         Label l1 = new Label("Player:  " + getName());
-        Label l2 = new Label("Current Balance: " + getBank());
+        Label l2 = new Label("Balance: " + getBank());
         Label l3 = new Label("Enter Amount: ");
-        Label l4 = new Label("Current cash: " + getMoney());
+        Label l4 = new Label("Cash: " + getMoney());
         Label l5 = new Label(" ");
 
         Button b1 = new Button("Withdraw");
@@ -100,20 +100,20 @@ public class BankGUI extends Player{
                                try {
                                    int withdraw = Integer.parseInt(txtField1.getText());
                                    if(withdraw < 0){
-                                       l5.setText("Come on " + getName() + " are you trying to fool me??? \n No negative Numbers Please");
+                                       l5.setText("Come on " + getName() + ", are you trying to fool me?\nNo negative numbers please!");
                                    }
                                    else if (withdraw <= getBank()) {
                                        setMoney(withdraw + getMoney());
                                        setBank(getBank() - withdraw);
                                    }
                                    else {
-                                       l5.setText("Sorry you cannot withdraw that much");
+                                       l5.setText("Sorry, you can not withdraw that much.");
                                    }
-                                   l2.setText("Current Balance: " + getBank());
-                                   l4.setText("Current cash: " + getMoney());
+                                   l2.setText("Balance: " + getBank());
+                                   l4.setText("Cash: " + getMoney());
                                }
                                catch (Exception e) {
-                                   l5.setText("Please enter a valid value");
+                                   l5.setText("Please enter a valid response.");
                                }
                            }
                        }
@@ -130,20 +130,20 @@ public class BankGUI extends Player{
                                try {
                                    int deposit = Integer.parseInt(txtField1.getText());
                                    if(deposit < 0){
-                                       l5.setText("Nice Try!!! No negative Numbers Please");
+                                       l5.setText("Nice try! You can not enter negative numbers.");
                                    }
                                    else if (deposit <= getMoney()) {
                                        setBank(deposit + getBank());
                                        setMoney(getMoney() - deposit);
                                    } else {
-                                       l5.setText("Sorry you cannot deposit that much.$");
+                                       l5.setText("Sorry, you can not deposit that much.");
                                    }
-                                   l2.setText("Current Balance: " + getBank());
-                                   l4.setText("Current cash: " + getMoney());
+                                   l2.setText("Balance: " + getBank());
+                                   l4.setText("Cash: " + getMoney());
 
                                }
                                catch (Exception e) {
-                                   l5.setText("Please enter a valid value");
+                                   l5.setText("Please enter a valid response.");
                                }
                            }
                        }
