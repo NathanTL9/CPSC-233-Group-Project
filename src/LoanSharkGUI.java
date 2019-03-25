@@ -50,8 +50,8 @@ public class LoanSharkGUI extends Player {
 
         //Declaring all Variables
         Label l1 = new Label("Player:  " + getName());
-        Label l2 = new Label("Current Debt " + getDebt());
-        Label l4 = new Label("Current cash: " + getMoney());
+        Label l2 = new Label("Debt " + getDebt());
+        Label l4 = new Label("Cash: " + getMoney());
         Label l3 = new Label("Enter Amount: ");
         Label l5 = new Label(" ");
 
@@ -98,7 +98,7 @@ public class LoanSharkGUI extends Player {
                                    if (loanAsk <= 2 * (getMoney() - getDebt()) && loanAsk >= 0) {
                                        setDebt(getDebt() + loanAsk);
                                        setMoney(getMoney() + loanAsk);
-                                       l4.setText("Current cash: " + getMoney());
+                                       l4.setText("Cash: " + getMoney());
                                    } else if (loanAsk < 0) {
                                        l5.setText("Sorry you cannot enter negative numbers");
                                    }
@@ -126,18 +126,18 @@ public class LoanSharkGUI extends Player {
 
                                    int returnAsk = Integer.parseInt(txtField1.getText());
                                    if (returnAsk > getDebt()) {
-                                       l5.setText("You dont need to return that much");
+                                       l5.setText("You do not need to return that much.");
                                    }
                                    else if (returnAsk <= getDebt() && returnAsk >= 0 && getMoney() >= returnAsk) {
                                        setDebt(getDebt() - returnAsk);
                                        setMoney(getMoney() - returnAsk);
-                                       l4.setText("Current cash: " + getMoney());
+                                       l4.setText("Cash: " + getMoney());
                                    }
                                    else if(getMoney() < returnAsk)  {
                                        l5.setText("Look " + getName() + ", you are being cheap!");
                                    }
                                    else  {
-                                       l5.setText("Sorry you cannot return a negative amount");
+                                       l5.setText("Sorry, you can not return a negative amount!");
                                    }
                                    l2.setText("Debt: " + getDebt());
                                }
