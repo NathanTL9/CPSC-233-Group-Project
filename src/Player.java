@@ -31,7 +31,10 @@ public class Player implements Serializable {
     private int armsPrice = 160;
     private int generalPrice = 8;
     private int isPriceChanged = 0;
-
+    
+    /**
+     * default constructor for player
+     */
     public Player(){
     }
 
@@ -44,10 +47,20 @@ public class Player implements Serializable {
         setPlayer(player);
     }
 
+    /**
+     * getter for this player object
+     *
+     * @return a copy of this player object
+     */
     public Player getPlayer(){
         return new Player(this);
     }
 
+    /**
+     * copies the provided player's properties into the instance variable of this object
+     *
+     * @param player
+     */
     public void setPlayer(Player player){
         this.name = player.name;
         this.bank = player.bank;
