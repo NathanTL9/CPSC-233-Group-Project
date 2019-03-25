@@ -680,17 +680,17 @@ public class TaipanShopGUI extends Player{
         wItemsText.setFont(size14);
 
         wItemSpaceText.setPrefHeight(108.0);
-        wItemSpaceText.setPrefWidth(215.0);
+        wItemSpaceText.setPrefWidth(210.0);
         wItemSpaceText.setFont(size14);
 
-        locationText.setAlignment(Pos.BOTTOM_CENTER);
+        locationText.setAlignment(Pos.BOTTOM_RIGHT);
         locationText.setPrefHeight(106.0);
-        locationText.setPrefWidth(175.0);
+        locationText.setPrefWidth(140.0);
         locationText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         locationText.setFont(size14);
 
         inventoryText.setAlignment(Pos.CENTER);
-        inventoryText.setPrefWidth(100.0);
+        inventoryText.setPrefWidth(110.0);
         inventoryText.setPrefHeight(108.0);
         inventoryText.setFont(size14);
 
@@ -707,7 +707,7 @@ public class TaipanShopGUI extends Player{
         shipStatusText.setAlignment(Pos.TOP_CENTER);
         shipStatusText.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         shipStatusText.setPrefHeight(110.0);
-        shipStatusText.setPrefWidth(180.0);
+        shipStatusText.setPrefWidth(200.0);
         shipStatusText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         shipStatusText.setFont(size14);
 
