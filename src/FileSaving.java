@@ -13,6 +13,7 @@ public class FileSaving extends Player implements Serializable {
      * @return player
      */
     public Player loadFile() {
+
         try {
             InputStream in = new FileInputStream(new File("src/saves/playerSave.txt"));
             ObjectInputStream inObject = new ObjectInputStream(in);
@@ -22,7 +23,17 @@ public class FileSaving extends Player implements Serializable {
             return player;
         }
         catch (Exception e) {
-            return null;
+            try {
+                InputStream in = new FileInputStream(new File("saves/playerSave.txt"));
+                ObjectInputStream inObject = new ObjectInputStream(in);
+                Player player = (Player) inObject.readObject();
+                in.close();
+                inObject.close();
+                return player;
+            }
+            catch(Exception e2){
+                return null;
+            }
         }
     }
 
@@ -39,7 +50,18 @@ public class FileSaving extends Player implements Serializable {
             return true;
         }
         catch (Exception e) {
-            return false;
+            try {
+                FileOutputStream out = new FileOutputStream(new File("saves/playerSave.txt"));
+                ObjectOutputStream outObject = new ObjectOutputStream(out);
+                outObject.writeObject(player);
+
+                out.close();
+                outObject.close();
+                return true;
+            }
+            catch(Exception e2){
+                return false;
+            }
         }
     }
 
