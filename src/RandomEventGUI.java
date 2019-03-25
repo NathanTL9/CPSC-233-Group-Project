@@ -119,22 +119,29 @@ public class RandomEventGUI extends Player{
 
         Random rand = new Random();
         int randGenNum = rand.nextInt(3) + 1;
-        //Buy Guns
-        if(randGenNum == 1){
-            itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
-            sellingItemLabel.setText("Would you like to pay $" + itemPrice + " for a cannon?");
+        while(true){
+            //Buy Guns
+            if (randGenNum == 1) {
+                itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
+                sellingItemLabel.setText("Would you like to pay $" + itemPrice + " for a gun?");
+                break;
+            }
+            //Liu Yuen
+            if (randGenNum == 2) {
+                itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
+                sellingItemLabel.setText("Liu Yuen asks $" + itemPrice + " in donation to the temple of Tin Hau, the Sea Goddess");
+                break;
+            }
+            //Ship Repair
+            if (randGenNum == 3 && getHP() != 100) {
+                itemPrice = (int) ((100 - getPlayer().getHP()) * 10 + 10);
+                sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived, would be willing to repair your ship for $" + itemPrice);
+                break;
+            }
+            else {
+                randGenNum = 2;
+            }
         }
-        //Liu Yuen
-        if(randGenNum == 2){
-            itemPrice = (int) ((getPlayer().getMoney()*0.1)+10);
-            sellingItemLabel.setText("Liu Yuen asks $" + itemPrice + " in donation to the temple of Tin Hau, the Sea Goddess");
-        }
-        //Ship Repair
-        if(randGenNum == 3){
-            itemPrice = (int) ((100-getPlayer().getHP())*10 + 10);
-            sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived, would be willing to repair your ship for $" + itemPrice);
-        }
-
         eventNumber = randGenNum;
 
         if((eventNumber == 1 && getCargoSpace() < 10)){
@@ -196,8 +203,6 @@ public class RandomEventGUI extends Player{
             taipanShopGUI.initializeShop(stage);
             stage.show();
         });
-
-
 
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");

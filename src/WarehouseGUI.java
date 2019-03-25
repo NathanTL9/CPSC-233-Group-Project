@@ -1,5 +1,3 @@
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -192,27 +190,26 @@ public class WarehouseGUI extends Player{
 
         withdrawButton.setOnAction(event -> {
             try {
-                int playerInventory = getPlayer().getCargoSpace()-((getPlayer().getGuns()*10)+ getPlayer().getGeneralHeld() + getPlayer().getArmsHeld() + getPlayer().getSilkHeld() + getPlayer().getOpiumHeld());
-                int houseInventory = (10000 -(getPlayer().getwGeneral() + getPlayer().getwArms() + getPlayer().getwSilk() + getPlayer().getwOpium()));
                 int withdraw = Integer.parseInt(textField.getText());
-                if(withdraw <= 0 && (houseInventory-withdraw) <= 0 && (playerInventory+withdraw) >= getCargoSpace()){
+
+                if(withdraw <= 0){
                     title.setText("Please enter a valid value");
                 }
-                else if(Goods.getSelectedToggle() == generalRadio){
+                else if(Goods.getSelectedToggle() == generalRadio && withdraw <= getwGeneral()){
                     setGeneralHeld(getPlayer().getGeneralHeld()+withdraw);
-                    setwGeneral(getPlayer().getGeneralHeld()-withdraw);
+                    setwGeneral(getPlayer().getwGeneral()-withdraw);
                 }
-                else if(Goods.getSelectedToggle() == armsRadio){
+                else if(Goods.getSelectedToggle() == armsRadio && withdraw <= getwArms()){
                     setArmsHeld(getPlayer().getArmsHeld()+withdraw);
-                    setwArms(getPlayer().getArmsHeld()-withdraw);
+                    setwArms(getPlayer().getwArms()-withdraw);
                 }
-                else if(Goods.getSelectedToggle() == silkRadio){
+                else if(Goods.getSelectedToggle() == silkRadio && withdraw <= getwSilk()){
                     setSilkHeld(getPlayer().getSilkHeld()+withdraw);
-                    setwSilk(getPlayer().getSilkHeld()-withdraw);
+                    setwSilk(getPlayer().getwSilk()-withdraw);
                 }
-                else if(Goods.getSelectedToggle() == opiumRadio){
+                else if(Goods.getSelectedToggle() == opiumRadio && withdraw <= getwOpium()){
                     setOpiumHeld(getPlayer().getOpiumHeld()+withdraw);
-                    setwOpium(getPlayer().getOpiumHeld()-withdraw);
+                    setwOpium(getPlayer().getwOpium()-withdraw);
                 }
                 else{
                     title.setText("Please enter a valid value");
@@ -226,27 +223,26 @@ public class WarehouseGUI extends Player{
 
         depositButton.setOnAction(event -> {
             try {
-                int playerInventory = getPlayer().getCargoSpace()-((getPlayer().getGuns()*10)+ getPlayer().getGeneralHeld() + getPlayer().getArmsHeld() + getPlayer().getSilkHeld() + getPlayer().getOpiumHeld());
-                int houseInventory = (10000 -(getPlayer().getwGeneral() + getPlayer().getwArms() + getPlayer().getwSilk() + getPlayer().getwOpium()));
                 int deposit = Integer.parseInt(textField.getText());
-                if(deposit <= 0 && (houseInventory-deposit) <= 0 && (playerInventory+deposit) >= getCargoSpace()){
+
+                if(deposit <= 0){
                     title.setText("Please enter a valid value");
                 }
-                else if(Goods.getSelectedToggle() == generalRadio){
+                else if(Goods.getSelectedToggle() == generalRadio && deposit <= getGeneralHeld()){
                     setGeneralHeld(getPlayer().getGeneralHeld()-deposit);
-                    setwGeneral(getPlayer().getGeneralHeld()+deposit);
+                    setwGeneral(getPlayer().getwGeneral()+deposit);
                 }
-                else if(Goods.getSelectedToggle() == armsRadio){
+                else if(Goods.getSelectedToggle() == armsRadio && deposit <= getArmsHeld()){
                     setArmsHeld(getPlayer().getArmsHeld()-deposit);
-                    setwArms(getPlayer().getArmsHeld()+deposit);
+                    setwArms(getPlayer().getwArms()+deposit);
                 }
-                else if(Goods.getSelectedToggle() == silkRadio){
+                else if(Goods.getSelectedToggle() == silkRadio && deposit <= getSilkHeld()){
                     setSilkHeld(getPlayer().getSilkHeld()-deposit);
-                    setwSilk(getPlayer().getSilkHeld()+deposit);
+                    setwSilk(getPlayer().getwSilk()+deposit);
                 }
-                else if(Goods.getSelectedToggle() == opiumRadio){
+                else if(Goods.getSelectedToggle() == opiumRadio && deposit <= getOpiumHeld()){
                     setOpiumHeld(getPlayer().getOpiumHeld()-deposit);
-                    setwOpium(getPlayer().getOpiumHeld()+deposit);
+                    setwOpium(getPlayer().getwOpium()+deposit);
                 }
                 else{
                     title.setText("Please enter a valid value");
