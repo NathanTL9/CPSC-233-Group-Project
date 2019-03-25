@@ -177,7 +177,7 @@ public class TravelGUI extends Player{
                 ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
                 try {
                     ship.initializeShip(stage);
-                } catch (FileNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 stage.show();
