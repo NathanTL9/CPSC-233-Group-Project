@@ -38,8 +38,13 @@ public class RandomEventGUI extends Player{
         setPlayer(playerDummy);
     }
 
+    /**
+     * Initializes randomEvent on the given stage as a parameter.
+     *
+     * @param stage
+     */
     public Stage initializeRandomEventGUI(Stage stage) {
-
+        //Creating the nodes within the event screen
         hBox = new HBox();
         yesButton = new Button();
         noButton = new Button();
@@ -55,51 +60,43 @@ public class RandomEventGUI extends Player{
         cargoShipLabel = new Label();
         borderPane = new BorderPane();
 
-
+        //Messing with the alignments of the buttons and their text
         borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
         hBox.setAlignment(javafx.geometry.Pos.CENTER);
         hBox.setPrefHeight(100.0);
         hBox.setPrefWidth(200.0);
         hBox.setSpacing(10.0);
-
         yesButton.setMnemonicParsing(false);
         yesButton.setText("Yes");
         yesButton.setDefaultButton(true);
-
         noButton.setMnemonicParsing(false);
         noButton.setText("No");
         borderPane.setBottom(hBox);
 
+        //Making the vbox to put all Labels for the events
         borderPane.setAlignment(vBox, javafx.geometry.Pos.CENTER);
         vBox.setAlignment(javafx.geometry.Pos.CENTER);
         vBox.setPrefHeight(200.0);
         vBox.setPrefWidth(100.0);
-
         paymentLabel.setText("Would you like to pay?");
-
         sellingItemLabel.setText("for a Gun?");
-
-        cannotAffordLabel.setFocusTraversable(false);
         cannotAffordLabel.setText("You can't afford that!");
+        cannotAffordLabel.setFocusTraversable(false);
         borderPane.setCenter(vBox);
-
-        BorderPane.setAlignment(vBox0, javafx.geometry.Pos.CENTER);
+        borderPane.setAlignment(vBox0, javafx.geometry.Pos.CENTER);
         vBox0.setAlignment(javafx.geometry.Pos.CENTER);
         vBox0.setPrefHeight(200.0);
         vBox0.setPrefWidth(100.0);
 
+        //Update the labels to fit the player's stats
         shipHPLabel.setText("Ship Health: " + getPlayer().getHP());
-
         gunsShipLabel.setText("Number of Guns Remaining: " + getPlayer().getGuns());
-
         moneyPlayerLabel.setText("Money on Player: " + getPlayer().getMoney());
-
         moneyBankLabel.setText("Money in Bank: " + getPlayer().getBank());
-
         cargoShipLabel.setText("Ship Cargo Space: " + getPlayer().getCargoSpace());
 
-        borderPane.setTop(vBox0);
 
+        //Adding all the buttons and labels to the elements in the scene
         hBox.getChildren().add(yesButton);
         hBox.getChildren().add(noButton);
         vBox.getChildren().add(sellingItemLabel);
@@ -111,12 +108,18 @@ public class RandomEventGUI extends Player{
         vBox0.getChildren().add(moneyBankLabel);
         vBox0.getChildren().add(cargoShipLabel);
 
+        //Adding all the elements to the scene
+        borderPane.setTop(vBox0);
         borderPane.setTop(vBox0);
         borderPane.setCenter(vBox);
         borderPane.setBottom(hBox);
 
+        //Make it so that the player can't see the can't afford label until after they actually can't understand
         cannotAffordLabel.setVisible(false);
 
+        /*Pick a random number dictating the events that could happen.
+        * 1: New gun for player
+        */
         Random rand = new Random();
         int randGenNum = rand.nextInt(3) + 1;
         while(true){
@@ -157,6 +160,10 @@ public class RandomEventGUI extends Player{
 
 
 
+        /**
+         *
+         *
+         */
         yesButton.setOnAction(event -> {
             if(getPlayer().getMoney() > itemPrice) {
                 //Buy Guns
@@ -197,7 +204,11 @@ public class RandomEventGUI extends Player{
         });
 
 
-        //Goes back to shop
+
+        /**
+         *
+         *
+         */
         noButton.setOnAction(event -> {
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
