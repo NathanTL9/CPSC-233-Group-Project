@@ -170,6 +170,8 @@ public class AnimationTesting extends Player {
 
 
 
+
+
     public boolean destroyLittyShipsOrEscape(Stage stage) throws Exception {
         cannon.setLayoutX(beginningX);
         cannon.setLayoutY(beginningY);
@@ -179,11 +181,7 @@ public class AnimationTesting extends Player {
         int missCounter = 0;
         boolean gunFrustration = false;
 
-        report.setVisible(false);
-        runAwayOrLeft.setVisible(false);
-        shipsRemaining.setVisible(false);
-        HPLeft.setVisible(false);
-        gunsLeftOrTaken.setVisible(false);
+
 
 
 
@@ -321,7 +319,9 @@ public class AnimationTesting extends Player {
         shotsFired.setToX(endX);
         shotsFired.setToY(endY);
         shotsFired.setDuration(Duration.seconds(1));
-        shotsFired.setCycleCount(getGuns());
+        if(getGuns()>0) {
+            shotsFired.setCycleCount(getGuns());
+        }
         shotsFired.setNode(cannon);
         shotsFired.play();
     }
@@ -335,6 +335,23 @@ public class AnimationTesting extends Player {
         enemyShots.setCycleCount(1);
         enemyShots.setNode(cannon);
         enemyShots.play();
+    }
+
+    public void setVisibilitiesAndTransition(Stage stage) {
+        completeWipe();
+        continueButton.setVisible(true);
+        continueButton.setDefaultButton(true);
+        fightButton.setVisible(false);
+        runButton.setVisible(false);
+        /**
+         * Switches to Taipan Shop scene
+         * @param event, once button is clicked, executes graphical information
+         */
+        continueButton.setOnAction(event -> {
+            TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+            shop.initializeShop(stage);
+            stage.show();
+        });
     }
 
 
@@ -495,16 +512,60 @@ public class AnimationTesting extends Player {
             }
         });
 
+        //Flee
+        runButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                report.setVisible(true);
+                title.setVisible(true);
+                shipsRemaining.setVisible(true);
+                gunsLeftOrTaken.setVisible(true);
 
+                title.setText("Ayy captain we will try to run!");
+                report.setText("Epic");
+                counter++;
+
+                if (runFromShips() == false) {
+                    report.setText(("Couldn't run away"));
+                    try {
+                        winOrLose= destroyLittyShipsOrEscape(primaryStage);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(winOrLose==true){
+                        report.setVisible(true);
+                        title.setVisible(true);
+                        shipsRemaining.setVisible(true);
+                        gunsLeftOrTaken.setVisible(true);
+
+                    }
+                } else {
+
+                    report.setText("Phew! Got away safely");
+                    setVisibilitiesAndTransition(primaryStage);
+
+
+                }
+
+            }
+        });
 
         //Fight
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
             /**
              * Fight Button, engages in fight logic and graphical interface
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+                report.setVisible(false);
+                runAwayOrLeft.setVisible(false);
+                shipsRemaining.setVisible(false);
+                HPLeft.setVisible(false);
+                gunsLeftOrTaken.setVisible(false);
+                fightButton.setVisible(false);
+                runButton.setVisible(false);
 
                 try {
                      winOrLose= destroyLittyShipsOrEscape(primaryStage);
@@ -523,7 +584,11 @@ public class AnimationTesting extends Player {
 
                 }
 
-                playerShoots();
+
+                    playerShoots();
+
+
+
 
                 shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
                     @Override
@@ -543,6 +608,8 @@ public class AnimationTesting extends Player {
                             enemyShots.setOnFinished(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
+                                    fightButton.setVisible(true);
+                                    runButton.setVisible(true);
                                     report.setVisible(true);
                                     cannon.setVisible(false);
                                     runAwayOrLeft.setVisible(true);
