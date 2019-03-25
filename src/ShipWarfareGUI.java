@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.FileInputStream;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
 
 /**
  * 2019-03-10 (Edited on 2019-03-23)
@@ -445,8 +446,17 @@ public class ShipWarfareGUI extends Player {
         centeringUserShipPane.setPrefHeight(200.0);
         centeringUserShipPane.setPrefWidth(200.0);
 
-        Image ourShip = new Image(new FileInputStream("src/images/ourShip.png"));
-        Image enemyShip = new Image(new FileInputStream("src/images/enemyShip.png"));
+        Image ourShip;
+        Image enemyShip;
+
+        try {
+            ourShip = new Image(new FileInputStream("src/images/ourShip.png"));
+            enemyShip = new Image(new FileInputStream("src/images/enemyShip.png"));
+
+        }catch(Exception e){
+            ourShip = new Image(new FileInputStream("images/ourShip.png"));
+            enemyShip = new Image(new FileInputStream("images/enemyShip.png"));
+        }
 
 
         //Setting the image view
