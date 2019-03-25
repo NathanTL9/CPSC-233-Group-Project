@@ -1,7 +1,5 @@
 import javafx.animation.*;
-
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,10 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Random;
 
 /**
@@ -32,11 +27,7 @@ import java.util.Random;
 public class AnimationTesting extends Player {
 
     private ShipWarfareGUI ship;
-    private HBox usAgainstEnemyDivisor;
-    private BorderPane centeringUserShipPane;
     private Circle cannon;
-    private BorderPane centeringLittyShipPane;
-    private BorderPane encompassingPane;
     private VBox buttonBox;
     private HBox fightRunBox;
     private Button fightButton;
@@ -170,7 +161,11 @@ public class AnimationTesting extends Player {
 
 
 
-
+    /**
+     * The user faces off against the litty ships and either prevails, dies, or runs away
+     *
+     * @return true if the user wins, loses, or flees, it returns false otherwise
+     */
     public boolean destroyLittyShipsOrEscape(Stage stage) throws Exception {
         cannon.setLayoutX(beginningX);
         cannon.setLayoutY(beginningY);
@@ -311,6 +306,9 @@ public class AnimationTesting extends Player {
 
     }
 
+    /**
+     * Player attacks enemy ships in an animation
+     */
     public void playerShoots() {
         userAttacks=true;
         shotsFired.setFromX(0);
@@ -330,6 +328,10 @@ public class AnimationTesting extends Player {
         shotsFired.play();
     }
 
+    /**
+     * Ships attack player ship back in an animation
+     */
+
     public void shipsRetaliate(){
         cannon.setVisible(true);
         enemyShots.setFromX(270);
@@ -342,6 +344,11 @@ public class AnimationTesting extends Player {
         enemyShots.play();
     }
 
+    /**
+     * Sets most buttons to being invisble and switches to TaipanShop scene
+     *
+     * @param stage stage the user incorporates when they utilize the GUI
+     */
     public void setVisibilitiesAndTransition(Stage stage) {
         completeWipe();
         continueButton.setVisible(true);
@@ -360,6 +367,11 @@ public class AnimationTesting extends Player {
     }
 
 
+    /**
+     * Generaties ships and deploys logic for the shipwarfare
+     * @param primaryStage sets up the stage to whcih the GUI may be based around
+     * @throws Exception in case of interruptions withing the graphical interface
+     */
     public void startShipAnimation(Stage primaryStage) throws Exception {
         setNumOfLittyShips(numOfShips());
 
@@ -501,14 +513,16 @@ public class AnimationTesting extends Player {
         primaryStage.show();
         continueButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
+            /**
+             * Continue Button, engages in run logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
             public void handle(ActionEvent event) {
                 shotsFired.stop();
 
                 /**
                  * Switches to Taipan Shop scene
-                 * @param event, once button is clicked, executes graphical information
                  */
-
 
                 TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                 shop.initializeShop(primaryStage);
@@ -520,6 +534,10 @@ public class AnimationTesting extends Player {
         //Flee
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
+            /**
+             * Run Button, engages in run logic and graphical interface
+             * @param event, once button is clicked, executes graphical information
+             */
             public void handle(ActionEvent event) {
                 report.setVisible(true);
                 title.setVisible(true);
@@ -589,14 +607,14 @@ public class AnimationTesting extends Player {
 
                 }
 
-
                 playerShoots();
-
-
-
 
                 shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
                     @Override
+                    /**
+                     * When the user is completed their volley this information will be accessed
+                     * @param event, once the shots fired transition is completed, execute graphical information
+                     */
                     public void handle(ActionEvent event) {
                         shotsFired.stop();
                         if(!winOrLose) {
@@ -612,6 +630,10 @@ public class AnimationTesting extends Player {
                         }
                         enemyShots.setOnFinished(new EventHandler<ActionEvent>() {
                             @Override
+                            /**
+                             * When the user is completed their volley, this information will be accessed
+                             * @param event, once the enemy shots transition is completed, execute graphical information
+                             */
                             public void handle(ActionEvent event) {
                                 fightButton.setVisible(true);
                                 runButton.setVisible(true);
