@@ -179,7 +179,7 @@ public class ShipWarfareGUI extends Player {
 
 
 
-
+        runAwayOrLeft.setText("No ships ran away");
         Random randomValue = new Random();
         int exitValue = 0;
         //Player volley
