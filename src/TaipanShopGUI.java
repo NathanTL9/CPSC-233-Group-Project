@@ -1,9 +1,8 @@
 /**
-* TaipanShopGUI deals with setting the stage for shop; the shop shows much of the user's inventory
-* and features the buying and selling aspect of the game.
-*
-* Author: Vikram Bawa
-*/
+ * TaipanShopGUI deals with setting the stage for shop.
+ *
+ * Author: Vikram Bawa
+ */
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -18,7 +17,6 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import java.util.Random;
 
 public class TaipanShopGUI extends Player{
     private Label firm = new Label();
@@ -63,56 +61,6 @@ public class TaipanShopGUI extends Player{
         GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
         gameEndGUI.initializeGameEndGUI(stage);
         stage.show();
-    }
-
-    /**
-     * this method is when the shop is accessed, randomizing the prices of all the items.
-     */
-    public void updatePrices() {
-        String s = "\t" + getName() + ", the price of ";
-        double value = 80 * Math.random();
-        Random rand = new Random();
-        setOpiumPrice((rand.nextInt(201) + 60) * 100);
-        setSilkPrice((rand.nextInt(201) + 60) * 10);
-        setArmsPrice((rand.nextInt(21) + 6) * 10);
-        setGeneralPrice((rand.nextInt(17) + 4));
-
-        // there is a 10% chance that the price of an item is increased/decreased beyond its regular range.
-        if (value < 8) {
-            if (value < 2) {
-                if (value < 1) {
-                    setOpiumPrice(getOpiumPrice() / 5);
-                    textOut.setText(s + "Opium has dropped to " + getOpiumPrice() + "!!!\n" + textOut.getText());
-                } else {
-                    setOpiumPrice(getOpiumPrice() * 5);
-                    textOut.setText(s + "Opium has risen to " + getOpiumPrice() + "!!!\n" + textOut.getText());
-                }
-            } else if (value < 4) {
-                if (value < 3) {
-                    setSilkPrice(getSilkPrice() / 5);
-                    textOut.setText(s + "Silk has dropped to " + getSilkPrice() + "!!!\n" + textOut.getText());
-                } else {
-                    setSilkPrice(getSilkPrice() * 5);
-                    textOut.setText(s + "Silk has risen to " + getSilkPrice() + "!!!\n" + textOut.getText());
-                }
-            } else if (value < 6) {
-                if (value < 3) {
-                    setArmsPrice(getArmsPrice() / 5);
-                    textOut.setText(s + "Arms has dropped to " + getArmsPrice() + "!!!\n" + textOut.getText());
-                } else {
-                    setArmsPrice(getArmsPrice() * 5);
-                    textOut.setText(s + "Arms has risen to " + getArmsPrice() + "!!!\n" + textOut.getText());
-                }
-            } else {
-                if (value < 7) {
-                    setGeneralPrice(1);
-                    textOut.setText(s + "General Cargo has dropped to 1!!!\n" + textOut.getText());
-                } else {
-                    setGeneralPrice(getGeneralPrice() * 5);
-                    textOut.setText(s + "General Cargo has risen to " + getGeneralPrice() + "!!!\n" + textOut.getText());
-                }
-            }
-        }
     }
 
     /**
@@ -200,16 +148,16 @@ public class TaipanShopGUI extends Player{
         } else if (state.equals("input")) {
             buyButton.setVisible(false);
             sellButton.setVisible(false);
+            generalButton.setVisible(false);
             bankButton.setVisible(false);
-            cargoButton.setVisible(false);
             loanButton.setVisible(false);
-            numberInput.setVisible(true);
             quitButton.setVisible(false);
             opiumButton.setVisible(false);
+            cargoButton.setVisible(false);
             silkButton.setVisible(false);
-            generalButton.setVisible(false);
             armsButton.setVisible(false);
             retireButton.setVisible(false);
+            numberInput.setVisible(true);
         }
     }
 
@@ -492,7 +440,6 @@ public class TaipanShopGUI extends Player{
              */
             @Override
             public void handle(ActionEvent event) {
-                saving.saveFile(getPlayer());
                 setIsPriceChanged(1);
                 TravelGUI travelGUI = new TravelGUI(getPlayer());
                 travelGUI.initializeTravel(stage);
@@ -681,18 +628,16 @@ public class TaipanShopGUI extends Player{
         wItemsText.setFont(size14);
 
         wItemSpaceText.setPrefHeight(108.0);
-        wItemSpaceText.setPrefWidth(210.0);
+        wItemSpaceText.setPrefWidth(215.0);
         wItemSpaceText.setFont(size14);
 
-        locationText.setAlignment(Pos.BOTTOM_RIGHT);
+        locationText.setAlignment(Pos.BOTTOM_CENTER);
         locationText.setPrefHeight(106.0);
-        locationText.setPrefWidth(140.0);
+        locationText.setPrefWidth(175.0);
         locationText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         locationText.setFont(size14);
 
         inventoryText.setAlignment(Pos.CENTER);
-        inventoryText.setPrefWidth(110.0);
-        inventoryText.setPrefHeight(108.0);
         inventoryText.setFont(size14);
 
         inventoryHeldText.setAlignment(Pos.CENTER);
@@ -708,7 +653,7 @@ public class TaipanShopGUI extends Player{
         shipStatusText.setAlignment(Pos.TOP_CENTER);
         shipStatusText.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         shipStatusText.setPrefHeight(110.0);
-        shipStatusText.setPrefWidth(200.0);
+        shipStatusText.setPrefWidth(180.0);
         shipStatusText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         shipStatusText.setFont(size14);
 
@@ -768,105 +713,26 @@ public class TaipanShopGUI extends Player{
         // general updates to the buttons, user stats/inventory, and text.
         buttonSetup("reset");
         if(getIsPriceChanged() == 0 || getIsPriceChanged() == 2){
-            updatePrices();
+            TaipanShopLogic logic = new TaipanShopLogic(getPlayer());
+            String temp = logic.updatePrices();
+            setPlayer(logic.getPlayer());
+            defaultTextOut();
+            textOut.setText(temp + textOut.getText());
         }
-        defaultTextOut();
+        //defaultTextOut();
         updateStage();
-    }
-
-    /**
-     * converts the user's location (an integer) to a String, and returns it.
-     *
-     * @return location -- the user's location as a string; the actual name of the location.
-     */
-    public String getStringLocation() {
-        String location;
-        switch (getLocation()) {
-            case 1:
-                location = "Hong Kong";
-                break;
-            case 2:
-                location = "Shanghai";
-                break;
-            case 3:
-                location = "Nagasaki";
-                break;
-            case 4:
-                location = "Saigon";
-                break;
-            case 5:
-                location = "Manila";
-                break;
-            case 6:
-                location = "Singapore";
-                break;
-            case 7:
-                location = "Batavia";
-                break;
-            default:
-                location = "Error";
-                break;
-        }
-        return location;
-    }
-
-    /**
-     * returns the user's condition based upon their current HP.
-     *
-     * @return shipStatus -- a representation of their ship's health in words.
-     */
-    public String shipStatusString() {
-        String shipStatus;
-        switch (getHP() / 10) {
-            case 10:
-                shipStatus = "Mint Condition";
-                break;
-            case 9:
-                shipStatus = "Near Perfect";
-                break;
-            case 8:
-                shipStatus = "Great";
-                break;
-            case 7:
-                shipStatus = "Good";
-                break;
-            case 6:
-                shipStatus = "Acceptable";
-                break;
-            case 5:
-                shipStatus = "Tolerable";
-                break;
-            case 4:
-                shipStatus = "Needs Repair";
-                break;
-            case 3:
-                shipStatus = "Damaged";
-                break;
-            case 2:
-                shipStatus = "Indangered";
-                break;
-            case 1:
-                shipStatus = "Near Sinking";
-                break;
-            case 0:
-                shipStatus = "Sinking";
-                break;
-            default:
-                shipStatus = "Invincible";
-                break;
-        }
-        return shipStatus;
     }
 
     /**
      * updates the text associated with the user's inventory.
      */
     public void updateStage() {
-        firm.setText(String.format("Firm: %s, %s", getName(), getStringLocation()));
+        TaipanShopLogic logic = new TaipanShopLogic(getPlayer());
+        firm.setText(String.format("Firm: %s, %s", getName(), logic.getStringLocation()));
         wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", getwOpium(), getwSilk(), getwArms(), getwGeneral()));
         int itemsInWarehouse = getwOpium() + getwGeneral() + getwArms() + getwSilk();
         wItemSpaceText.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000 - itemsInWarehouse)));
-        locationText.setText(String.format("Location\n%s", getStringLocation()));
+        locationText.setText(String.format("Location\n%s", logic.getStringLocation()));
         int itemsInInventory = getCargoSpace() - getSilkHeld() - getOpiumHeld() - getGeneralHeld() - getArmsHeld() - 10 * getGuns();
         if (itemsInInventory < 0) {
             inventoryText.setText("   Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
@@ -875,7 +741,7 @@ public class TaipanShopGUI extends Player{
         }
         gunsText.setText(String.format("Guns %d\n\n\n\n ", getGuns()));
         inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", getOpiumHeld(), getSilkHeld(), getArmsHeld(), getGeneralHeld()));
-        shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", getDebt(), shipStatusString(), getHP()));
+        shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", getDebt(), logic.shipStatusString(), getHP()));
         cashText.setText(String.format("  Cash: $%,d", getMoney()));
         bankText.setText(String.format("Bank: $%,d", getBank()));
     }
