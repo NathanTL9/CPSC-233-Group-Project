@@ -32,12 +32,12 @@ public class ShipWarfareGUILogic extends Player {
 
     public ShipWarfareGUILogic(Player player) {
         Player playerDummy = new Player(player);
-        setPlayer(playerDummy);
+        this.setPlayer(playerDummy);
     }
 
 
     /**
-     * setter method that takes in an integer as an argument
+     * this.setter method that takes in an integer as an argument
      *
      * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
      */
@@ -170,7 +170,7 @@ public class ShipWarfareGUILogic extends Player {
         int missCounter = 0;
         boolean gunFrustration = false;
 
-        setRunAwayOrLeftMessage("No Ships ran away");
+        this.setRunAwayOrLeftMessage("No Ships ran away");
 
 
         Random randomValue = new Random();
@@ -203,10 +203,10 @@ public class ShipWarfareGUILogic extends Player {
                 }
             }
             if (userAttacks == true) {
-                setReportMessage(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
+                this.setReportMessage(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
             }
         } else {
-            setReportMessage(("We don't have any guns!!!"));
+            this.setReportMessage(("We don't have any guns!!!"));
         }
 
 
@@ -221,31 +221,31 @@ public class ShipWarfareGUILogic extends Player {
                 if (howMuchRun != 0 && howMuchRun < numOfLittyShips) {
 
 
-                    setNumOfLittyShips(numOfLittyShips - howMuchRun);
+                    this.setNumOfLittyShips(numOfLittyShips - howMuchRun);
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
-                            setRunAwayOrLeftMessage(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
+                            this.setRunAwayOrLeftMessage(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
                         }
 
                     } else {
-                        setReportMessage((String.format("Escaped %d of them %s!", howMuchRun, getName())));
+                        this.setReportMessage((String.format("Escaped %d of them %s!", howMuchRun, getName())));
                     }
 
                 }
             }
         }
 
-        setShipsRemainingMessage(String.format("%d ships remaining and they look angry!", numOfLittyShips));
+        this.setShipsRemainingMessage(String.format("%d ships remaining and they look angry!", numOfLittyShips));
 
         //Computer volley
         int takeGunChance = randomValue.nextInt(4) + 1;
         if (takeGunChance == 1 && getGuns() > 0) {
-            setGuns(getGuns() - 1);
+            this.setGuns(getGuns() - 1);
             gunFrustration = true;
         } else {
             if (numOfLittyShips > 0) {
                 int HPTaken = randomValue.nextInt(10);
-                setHP(getHP() - (HPTaken));
+                this.setHP(getHP() - (HPTaken));
 
 
             }
@@ -255,14 +255,14 @@ public class ShipWarfareGUILogic extends Player {
             //break;
         }
         if (gunFrustration == true) {
-            setGunsLeftOrTakenMessage(String.format("Dang it! We only have %d guns left", getGuns()));
+            this.setGunsLeftOrTakenMessage(String.format("Dang it! We only have %d guns left", getGuns()));
             //playerShoots(getGuns() + 1);
 
         } else {
-            setGunsLeftOrTakenMessage(String.format("We still have %d guns left", getGuns()));
+            this.setGunsLeftOrTakenMessage(String.format("We still have %d guns left", getGuns()));
         }
 
-        setHPLeftMessage(String.format("EEK, our current ship status is %d%% ", getHP()));
+        this.setHPLeftMessage(String.format("EEK, our current ship status is %d%% ", getHP()));
 
         if (userAttacks == false) {
             userAttacks = true;
@@ -271,20 +271,19 @@ public class ShipWarfareGUILogic extends Player {
 
         if (exitValue == 1) {
             setAvenue(1);
-            //calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
-            calculateLoot = 100;
-            setMoney(getMoney() + calculateLoot);
-            setReportMessage(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
+            calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
+            this.setMoney(getMoney() + calculateLoot);
+            this.setReportMessage(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
 
             return 1;
 
         } else if (exitValue == 2) {
-            setAvenue(2);
+            this.setAvenue(2);
             return 2;
 
         } else if (exitValue == 3) {
-            setAvenue(3);
-            setReportMessage(String.format("We made it out at %d%% ship status!", getHP()));
+            this.setAvenue(3);
+            this.setReportMessage(String.format("We made it out at %d%% ship status!", getHP()));
             return 3;
         }
         else{
@@ -297,14 +296,14 @@ public class ShipWarfareGUILogic extends Player {
      if (destroyLittyShipsOrEscape() == 1) {
             wipe();
             calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
-            setMoney(getMoney() + calculateLoot);
+            this.setMoney(getMoney() + calculateLoot);
             reportMessage = String.format("Our firm has earned $%,d in loot! ", calculateLoot);
 
-            continueButton.setVisible(true);
+            continueButton.this.setVisible(true);
             completeWipe();
-            fightButton.setVisible(false);
-            runButton.setVisible(false);
-            continueButton.setDefaultButton(true);
+            fightButton.this.setVisible(false);
+            runButton.this.setVisible(false);
+            continueButton.this.setDefaultButton(true);
             return true;
 
 
@@ -315,13 +314,13 @@ public class ShipWarfareGUILogic extends Player {
             return true;
 
         } else if (destroyLittyShipsOrEscape() == 3) {
-            report.setText(String.format("We made it out at %d%% ship status!", getHP()));
+            report.this.setText(String.format("We made it out at %d%% ship status!", getHP()));
 
-            continueButton.setVisible(true);
+            continueButton.this.setVisible(true);
             completeWipe();
-            fightButton.setVisible(false);
-            runButton.setVisible(false);
-            continueButton.setDefaultButton(true);
+            fightButton.this.setVisible(false);
+            runButton.this.setVisible(false);
+            continueButton.this.setDefaultButton(true);
             return true;
         }
      */

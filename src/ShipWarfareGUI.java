@@ -158,7 +158,7 @@ public class ShipWarfareGUI extends Player {
     public boolean winOrLose(Stage stage) {
         ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
 
-        int commenceFire = logic.destroyLittyShipsOrEscape();
+        int commenceFire = logic.destroyLittyShipsOrEscape(logic.getNumOfLittyShips());
         if (commenceFire == 1) {
             wipe();
             report.setText(logic.getReportMessage());
@@ -220,7 +220,6 @@ public class ShipWarfareGUI extends Player {
         BorderPane encompassingPane = new BorderPane();
         HBox usAgainstEnemyDivisor = new HBox();
         Circle cannon = new Circle();
-
 
         cannon.setLayoutX(beginningX);
         cannon.setLayoutY(beginningY);
@@ -393,7 +392,7 @@ public class ShipWarfareGUI extends Player {
                 if (logic.runFromShips() == false) {
                     report.setText(("Couldn't run away"));
                     try {
-                        checkIfDone = logic.destroyLittyShipsOrEscape();
+                        checkIfDone = logic.destroyLittyShipsOrEscape(logic.getNumOfLittyShips());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -404,7 +403,7 @@ public class ShipWarfareGUI extends Player {
                         gunsLeftOrTaken.setVisible(true);
 
                     } else {
-                        gunsLeftOrTaken.setText("AYYYY");
+
                     }
                 } else {
 
