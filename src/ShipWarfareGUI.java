@@ -28,8 +28,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ShipWarfareGUI extends Player {
 
-    private ShipWarfareGUI ship;
-    private  ShipWarfareGUILogic logic;
+    private ShipWarfareGUILogic logic;
     private Circle cannon;
     private VBox buttonBox;
     private HBox fightRunBox;
@@ -206,23 +205,6 @@ public class ShipWarfareGUI extends Player {
      * @throws Exception in case of interruptions withing the graphical interface
      */
     public void initializeShip(Stage primaryStage) throws Exception {
-        cannon.setLayoutX(beginningX);
-        cannon.setLayoutY(beginningY);
-        logic.setNumOfLittyShips(logic.numOfShips());
-
-        Pane root = new Pane();
-        HBox usAgainstEnemyDivisor;
-        BorderPane centeringUserShipPane = new BorderPane();
-        Circle cannon;
-        BorderPane centeringLittyShipPane = new BorderPane();
-        BorderPane encompassingPane = new BorderPane();
-        usAgainstEnemyDivisor = new HBox();
-        cannon = new Circle();
-        this.cannon = cannon;
-
-
-        cannon.setVisible(false);
-
         buttonBox = new VBox();
         fightRunBox = new HBox();
         fightButton = new Button();
@@ -235,6 +217,24 @@ public class ShipWarfareGUI extends Player {
         runAwayOrLeft = new Label();
         shipsRemaining = new Label();
         report = new Label();
+        Pane root = new Pane();
+        BorderPane centeringUserShipPane = new BorderPane();
+        BorderPane centeringLittyShipPane = new BorderPane();
+        BorderPane encompassingPane = new BorderPane();
+        HBox usAgainstEnemyDivisor = new HBox();
+        Circle cannon = new Circle();
+        logic = new ShipWarfareGUILogic(getPlayer());
+
+
+        cannon.setLayoutX(beginningX);
+        cannon.setLayoutY(beginningY);
+        logic.setNumOfLittyShips(logic.numOfShips());
+
+        this.cannon = cannon;
+
+
+        cannon.setVisible(false);
+
 
         title.setText(String.format("%d ships from Liu Yuen's Fleet are attacking, Would you like to fight or run?", logic.getNumOfLittyShips()));
 
