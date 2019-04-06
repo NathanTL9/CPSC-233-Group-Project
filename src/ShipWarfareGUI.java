@@ -167,6 +167,7 @@ public class ShipWarfareGUI extends Player {
             fightButton.setVisible(false);
             runButton.setVisible(false);
             continueButton.setDefaultButton(true);
+            setPlayer(logic.getPlayer());
             return true;
 
 
@@ -174,6 +175,7 @@ public class ShipWarfareGUI extends Player {
             GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
             gameEndGUI.initializeGameEndGUI(stage);
             stage.show();
+            setPlayer(logic.getPlayer());
             return true;
 
         } else if (commenceFire == 3) {
@@ -184,8 +186,10 @@ public class ShipWarfareGUI extends Player {
             fightButton.setVisible(false);
             runButton.setVisible(false);
             continueButton.setDefaultButton(true);
+            setPlayer(logic.getPlayer());
             return true;
         } else {
+            setPlayer(logic.getPlayer());
             return false;
         }
     }
@@ -216,12 +220,10 @@ public class ShipWarfareGUI extends Player {
         BorderPane encompassingPane = new BorderPane();
         HBox usAgainstEnemyDivisor = new HBox();
         Circle cannon = new Circle();
-        ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
 
 
         cannon.setLayoutX(beginningX);
         cannon.setLayoutY(beginningY);
-        logic.setNumOfLittyShips(logic.numOfShips());
 
         this.cannon = cannon;
 
@@ -229,7 +231,10 @@ public class ShipWarfareGUI extends Player {
         cannon.setVisible(false);
 
 
+        ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
+        logic.setNumOfLittyShips(logic.numOfShips());
         title.setText(String.format("%d ships from Liu Yuen's Fleet are attacking, Would you like to fight or run?", logic.getNumOfLittyShips()));
+        setPlayer(logic.getPlayer());
 
 
         fightButton.setText("Fight");
@@ -408,7 +413,7 @@ public class ShipWarfareGUI extends Player {
 
 
                 }
-
+                setPlayer(logic.getPlayer());
             }
         });
 
