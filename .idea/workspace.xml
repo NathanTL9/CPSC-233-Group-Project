@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/LoanSharkGUI.java" line="66" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Fixed an issue with shipWarfare with the ships running away label">
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Made">
+      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileSaving.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saves/playerSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/saves/playerSave.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -15,29 +21,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="221">
+              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
               <folding>
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/FileSaving.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="589" column="27" selection-start-line="589" selection-start-column="27" selection-end-line="589" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="646">
+              <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -47,43 +52,43 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
-        <option value="JavaFXApplication" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>continueButton</find>
-      <find>continueButton.setV</find>
-      <find>.setText</find>
-      <find>.setVisi</find>
-      <find>taipanSH</find>
-      <find>runButton.setOn</find>
-      <find>runButton.se</find>
-      <find>setVis</find>
-      <find>counter</find>
-      <find>stage</find>
-      <find>run</find>
-      <find>flee</find>
-      <find>runFrom</find>
-      <find>report</find>
-      <find>report.setVisible</find>
-      <find>fightButton</find>
-      <find>PlayerSh</find>
-      <find>andT</find>
-      <find>dest</find>
-      <find>shotsFired</find>
-      <find>duration</find>
-      <find>shop()</find>
-      <find>dang i</find>
-      <find>playerS</find>
-      <find>cowards</find>
-      <find>playerShoots</find>
-      <find>playerSh</find>
-      <find>getGuns</find>
-      <find>!</find>
-      <find>earned</find>
+      <find>runAwayOrLeft</find>
+      <find>gunsLeftOrTaken</find>
+      <find>continueToFight</find>
+      <find>sellingItemLab</find>
+      <find>You can'</find>
+      <find>cannotAfford</find>
+      <find>warehouse</find>
+      <find>cargoButton</find>
+      <find>cargobutton</find>
+      <find>peasantShip</find>
+      <find>BorderPane</find>
+      <find>houseLabel</find>
+      <find>setGuns</find>
+      <find>for a gun</find>
+      <find>cannon</find>
+      <find>quitButton</find>
+      <find>textField</find>
+      <find>numberInput</find>
+      <find>shop</find>
+      <find>default</find>
+      <find>defaultButton</find>
+      <find>printSt</find>
+      <find>txtField</find>
+      <find>vBox</find>
+      <find>Would you like to pay</find>
+      <find>shipWa</find>
+      <find>attackingShips</find>
+      <find>random</find>
+      <find>cargo</find>
+      <find>Noot</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -92,19 +97,13 @@
       <replace>shipWarfare.getHowMuchRun()</replace>
       <replace>shipWarfare.isUserAttacks()</replace>
       <replace>shipWarfare.getNumOfPeasantShips()</replace>
-      <replace>attackImage</replace>
-      <replace>shipsAttacking</replace>
-      <replace>shipsApproachingGIF</replace>
-      <replace>centeringLittyShipPane</replace>
-      <replace>numOfLittyShips</replace>
-      <replace>startingLitty</replace>
-      <replace>littyShip</replace>
-      <replace>whenfinished</replace>
-      <replace>whenFinished</replace>
+      <replace>deposit</replace>
+      <replace>textOut.setText(&quot;    &quot; +</replace>
+      <replace>borderPane</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -117,26 +116,42 @@
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Travel.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
-        <option value="$PROJECT_DIR$/src/StartGUI.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/bankGUI.java" />
+        <option value="$PROJECT_DIR$/src/MainGUI.java" />
+        <option value="$PROJECT_DIR$/src/stylesheet.css" />
+        <option value="$PROJECT_DIR$/src/styleguide.css" />
+        <option value="$PROJECT_DIR$/src/BankGUI.java" />
+        <option value="$PROJECT_DIR$/src/GameEndGUI.java" />
+        <option value="$PROJECT_DIR$/src/LoanSharkGUI.java" />
+        <option value="$PROJECT_DIR$/src/Save.java" />
         <option value="$PROJECT_DIR$/src/AnimationTesting.java" />
-        <option value="$PROJECT_DIR$/src/TravelGUI.java" />
-        <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
+        <option value="$PROJECT_DIR$/src/StartGUI.java" />
+        <option value="$PROJECT_DIR$/src/WarehouseGUI.java" />
+        <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
+        <option value="$PROJECT_DIR$/src/TravelGUI.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/RandomEventGUI.java" />
+        <option value="$PROJECT_DIR$/src/FileSaving.java" />
+        <option value="$PROJECT_DIR$/src/HighScore.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1189" />
-    <option name="height" value="652" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -149,36 +164,32 @@
               <item name="TaipanClone" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TaipanClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaipanClone" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553647592854" />
-    <property name="extract.method.default.visibility" value="public" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552292013744" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Demo 3" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/images" />
-      <recent name="$PROJECT_DIR$/src" />
+      <recent name="C:\Users\Harkamal Randhawa\IdeaProjects\TaipanClone\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -194,15 +205,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MainGUI">
-    <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainGUI" />
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="TaipanClone" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShipWarfareGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShipWarfareGUI" />
+    <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainGUI" />
       <module name="TaipanClone" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -231,17 +242,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.TaipanShop" />
+      <item itemvalue="Application.Game" />
       <item itemvalue="Application.main" />
-      <item itemvalue="Application.MainGUI" />
       <item itemvalue="Application.ShipWarfareGUI" />
+      <item itemvalue="Application.MainGUI" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainGUI" />
         <item itemvalue="Application.ShipWarfareGUI" />
-        <item itemvalue="Application.ShipWarfareGUI" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.TaipanShop" />
+        <item itemvalue="Application.Game" />
       </list>
     </recent_temporary>
   </component>
@@ -287,28 +299,89 @@
       <workItem from="1552240770629" duration="40000" />
       <workItem from="1552241394045" duration="178000" />
       <workItem from="1552254283748" duration="9473000" />
-      <workItem from="1552277298937" duration="11151000" />
-      <workItem from="1552353291496" duration="1918000" />
-      <workItem from="1552359156805" duration="98000" />
-      <workItem from="1552533765176" duration="1016000" />
-      <workItem from="1552622234355" duration="130000" />
-      <workItem from="1553037480176" duration="499000" />
-      <workItem from="1553047073421" duration="2245000" />
-      <workItem from="1553050110780" duration="21000" />
-      <workItem from="1553051761247" duration="104000" />
-      <workItem from="1553051882218" duration="12177000" />
-      <workItem from="1553369996499" duration="3948000" />
-      <workItem from="1553376520648" duration="32000" />
-      <workItem from="1553383476219" duration="1349000" />
-      <workItem from="1553386923955" duration="4000" />
-      <workItem from="1553387088425" duration="330000" />
-      <workItem from="1553387443301" duration="11000" />
-      <workItem from="1553387530005" duration="22322000" />
-      <workItem from="1553444493182" duration="159000" />
-      <workItem from="1553444769737" duration="82000" />
-      <workItem from="1553444880371" duration="36052000" />
-      <workItem from="1553560570410" duration="3016000" />
-      <workItem from="1553832002953" duration="139000" />
+      <workItem from="1552277298937" duration="2427000" />
+      <workItem from="1552542283204" duration="152000" />
+      <workItem from="1553061169716" duration="603000" />
+      <workItem from="1553309944652" duration="63685000" />
+      <workItem from="1553661269531" duration="1969000" />
+      <workItem from="1553965313291" duration="2578000" />
+    </task>
+    <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
+      <created>1550458470138</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1550458470138</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created Core class">
+      <created>1550540282400</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1550540282400</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created Player class">
+      <created>1550540820542</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1550540820542</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created Player class">
+      <created>1550541406597</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1550541406597</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed the setters to be greater than 0">
+      <created>1550541751914</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1550541751914</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Created Player class">
+      <created>1550543764970</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1550543764971</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added some stuff for the Travel Class">
+      <created>1550575512841</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1550575512841</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added disasters as well as removing a bug from the flee method in Haris's code">
+      <created>1550623749854</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1550623749854</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed a bunch of stuff inside of Travel, but also discovered a MASSIVE problem with our code">
+      <created>1550628232136</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1550628232136</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Brought back Vikram's changes">
+      <created>1550879092914</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1550879092914</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fixed the commenting on a lot of the code. Also added some stuff to Travel, fixed some bugs.">
+      <created>1551162699319</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1551162699319</updated>
     </task>
     <task id="LOCAL-00012" summary="Added time stuff to Shipwarfare GUI">
       <created>1552168801248</created>
@@ -478,212 +551,137 @@
       <option name="project" value="LOCAL" />
       <updated>1552280311399</updated>
     </task>
-    <task id="LOCAL-00036" summary="Added to my javadocs a bit">
-      <created>1552280610787</created>
+    <task id="LOCAL-00036" summary="Finished cleaning up the code. Ready for Demo 2">
+      <created>1552291526354</created>
       <option name="number" value="00036" />
       <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1552280610787</updated>
+      <updated>1552291526354</updated>
     </task>
-    <task id="LOCAL-00037" summary="Changed one line of text in shipwarfare GUI">
-      <created>1552282957716</created>
+    <task id="LOCAL-00037" summary="Renamed a few classes so that all of them are uppercase">
+      <created>1552291930927</created>
       <option name="number" value="00037" />
       <option name="presentableId" value="LOCAL-00037" />
       <option name="project" value="LOCAL" />
-      <updated>1552282957716</updated>
+      <updated>1552291930927</updated>
     </task>
-    <task id="LOCAL-00038" summary="Fixed output for start and TaipanShop GUI">
-      <created>1552328825548</created>
+    <task id="LOCAL-00038" summary="Made it so you can go inbetween screens by pressing enter, allowing for you to speed through the game without pressing buttons.">
+      <created>1553317292291</created>
       <option name="number" value="00038" />
       <option name="presentableId" value="LOCAL-00038" />
       <option name="project" value="LOCAL" />
-      <updated>1552328825548</updated>
+      <updated>1553317292291</updated>
     </task>
-    <task id="LOCAL-00039" summary="Added JavaDocs for ShipWarfare">
-      <created>1552339973224</created>
+    <task id="LOCAL-00039" summary="File saving is work in progress&#10;Added a css file for the game&#10;Made it so that you can press enter to continue forwars&#10;Made folder for both images and save files">
+      <created>1553333862860</created>
       <option name="number" value="00039" />
       <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1552339973224</updated>
+      <updated>1553333862860</updated>
     </task>
-    <task id="LOCAL-00040" summary="wrote javadocs for authorname">
-      <created>1552351619924</created>
+    <task id="LOCAL-00040" summary="Finished game saves">
+      <created>1553386388417</created>
       <option name="number" value="00040" />
       <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1552351619924</updated>
+      <updated>1553386388417</updated>
     </task>
-    <task id="LOCAL-00041" summary="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily.">
-      <created>1553060094595</created>
+    <task id="LOCAL-00041" summary="Should completely get rid of error messages and print statements related to save state">
+      <created>1553386560208</created>
       <option name="number" value="00041" />
       <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1553060094595</updated>
+      <updated>1553386560208</updated>
     </task>
-    <task id="LOCAL-00042" summary="Made the fight gif runnable by everyone hopefully">
-      <created>1553060976358</created>
+    <task id="LOCAL-00042" summary="Made animation testing same as everyother class, can run from other classes.">
+      <created>1553389478439</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1553060976358</updated>
+      <updated>1553389478440</updated>
     </task>
-    <task id="LOCAL-00043" summary="Made the fight gif runnable by everyone hopefully">
-      <created>1553061205759</created>
+    <task id="LOCAL-00043" summary="Made warehouse reappear">
+      <created>1553465550904</created>
       <option name="number" value="00043" />
       <option name="presentableId" value="LOCAL-00043" />
       <option name="project" value="LOCAL" />
-      <updated>1553061205759</updated>
+      <updated>1553465550904</updated>
     </task>
-    <task id="LOCAL-00044" summary="Ayy added all the gifs needed.">
-      <created>1553124112040</created>
+    <task id="LOCAL-00044" summary="Warehouse and Travel events are still work in progress but added their code to the github repo">
+      <created>1553476314578</created>
       <option name="number" value="00044" />
       <option name="presentableId" value="LOCAL-00044" />
       <option name="project" value="LOCAL" />
-      <updated>1553124112040</updated>
+      <updated>1553476314578</updated>
     </task>
-    <task id="LOCAL-00045" summary="Maybe this is whack idk">
-      <created>1553193939606</created>
+    <task id="LOCAL-00045" summary="Finished Warehouse">
+      <created>1553480113870</created>
       <option name="number" value="00045" />
       <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1553193939606</updated>
+      <updated>1553480113870</updated>
     </task>
-    <task id="LOCAL-00046" summary="Litty Animation Practice">
-      <created>1553387960582</created>
+    <task id="LOCAL-00046" summary="Commented a bit of Random Event">
+      <created>1553486869684</created>
       <option name="number" value="00046" />
       <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1553387960582</updated>
+      <updated>1553486869684</updated>
     </task>
-    <task id="LOCAL-00047" summary="Added gifs back">
-      <created>1553389067767</created>
+    <task id="LOCAL-00047" summary="Made it so that the user doesn't get pushed into travel if they press enter while buying something">
+      <created>1553487676090</created>
       <option name="number" value="00047" />
       <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1553389067767</updated>
+      <updated>1553487676090</updated>
     </task>
-    <task id="LOCAL-00048" summary="Added method for animation">
-      <created>1553390319733</created>
+    <task id="LOCAL-00048" summary="Fixed some of the code related with Liu Yuen and fixed some of the javadocing">
+      <created>1553491865868</created>
       <option name="number" value="00048" />
       <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1553390319734</updated>
+      <updated>1553491865869</updated>
     </task>
-    <task id="LOCAL-00049" summary="Litty Animation Practice littier">
-      <created>1553390384762</created>
+    <task id="LOCAL-00049" summary="Pushed the fix for ship repair while 100 hp">
+      <created>1553494120569</created>
       <option name="number" value="00049" />
       <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1553390384762</updated>
+      <updated>1553494120570</updated>
     </task>
-    <task id="LOCAL-00050" summary="Sep up the scene which will be used for animation">
-      <created>1553400771267</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1553400771272</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Made fight button basically functional for AnimationTesting">
-      <created>1553476072174</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1553476072175</updated>
-    </task>
-    <task id="LOCAL-00052" summary="changed some stuff related to the fight button animation">
-      <created>1553478643204</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1553478643204</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Small error in animation whcih shoots even if no guns must fix that">
-      <created>1553482933744</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1553482933744</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Fixed the issue where the ship shot with no guns">
-      <created>1553484357669</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1553484357670</updated>
-    </task>
-    <task id="LOCAL-00055" summary="ShipWarfare javaDocs completed">
-      <created>1553485725159</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1553485725159</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Completed ShipWarfareGUI">
-      <created>1553486334208</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1553486334209</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Fixed silk issue">
-      <created>1553533396273</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1553533396273</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Completed ShipWarfareGUI">
-      <created>1553533600087</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1553533600087</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Ship Warfare &quot;dang it&quot; issue fixed">
-      <created>1553542511809</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1553542511809</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Fixed an issue with ShipWarfareGUI with the ships running away label">
-      <created>1553560337526</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1553560337526</updated>
-    </task>
-    <option name="localTasksCounter" value="61" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169876000" />
+    <option name="totallyTimeSpent" value="147501000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1189" height="652" extended-state="0" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22755013" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12286063" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22678572" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49938875" weight="0.32922733" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32922733" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061125" side_tool="true" weight="0.32922733" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49938875" weight="0.32857144" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32857144" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32922733" />
+      <window_info anchor="bottom" id="Duplicates" order="1" weight="0.50391936" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32922733" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49874055" weight="0.36954087" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.39977604" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49938875" weight="0.32922733" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32922733" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.3281075" />
+      <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -695,27 +693,29 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21026894" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118581906" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3975364" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49938875" weight="0.32922733" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32922733" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061125" side_tool="true" weight="0.32922733" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49938875" weight="0.32922733" />
-      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32922733" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32922733" />
+      <window_info anchor="bottom" id="Duplicates" order="1" weight="0.50391936" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32922733" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49874055" weight="0.36954087" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.39977604" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49938875" weight="0.32922733" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32922733" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.3281075" />
+      <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -760,198 +760,198 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Completed javadocs for shipwarfare GUI" />
-    <MESSAGE value="Added to my javadocs a bit" />
-    <MESSAGE value="Changed one line of text in shipwarfare GUI" />
-    <MESSAGE value="Fixed output for start and TaipanShop GUI" />
-    <MESSAGE value="Added JavaDocs for ShipWarfare" />
-    <MESSAGE value="wrote javadocs for authorname" />
-    <MESSAGE value="Added fight Button gif. Might not work on your computers yet though... I inputed my own local documents folder as the library temporarily." />
-    <MESSAGE value="Made the fight gif runnable by everyone hopefully" />
-    <MESSAGE value="Ayy added all the gifs needed." />
-    <MESSAGE value="Maybe this is whack idk" />
-    <MESSAGE value="Litty Animation Practice" />
-    <MESSAGE value="Added gifs back" />
-    <MESSAGE value="Added method for animation" />
-    <MESSAGE value="Litty Animation Practice littier" />
-    <MESSAGE value="Sep up the scene which will be used for animation" />
-    <MESSAGE value="Made fight button basically functional for AnimationTesting" />
-    <MESSAGE value="changed some stuff related to the fight button animation" />
-    <MESSAGE value="Small error in animation whcih shoots even if no guns must fix that" />
-    <MESSAGE value="Fixed the issue where the ship shot with no guns" />
-    <MESSAGE value="ShipWarfare javaDocs completed" />
-    <MESSAGE value="Fixed silk issue" />
+    <MESSAGE value="Basic functionality of buttons completed, think all I have to do now is to find a way to break the code when the user wins, loses or runs away." />
+    <MESSAGE value="Fixed probability of ships running away" />
+    <MESSAGE value="Fined minor bugs in shipwarfareGUI" />
+    <MESSAGE value="Fined minor bugs in shipwarfareGUI including the &quot;gun frustration&quot; variable" />
+    <MESSAGE value="Just checking" />
+    <MESSAGE value="A lot of errors but easily fixable SHipwarfareGUI" />
+    <MESSAGE value="Completed SHipWarfareGUI" />
     <MESSAGE value="Completed ShipWarfareGUI" />
-    <MESSAGE value="Ship Warfare &quot;dang it&quot; issue fixed" />
-    <MESSAGE value="Fixed an issue with shipWarfare with the ships running away label" />
-    <MESSAGE value="Fixed an issue with ShipWarfareGUI with the ships running away label" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with ShipWarfareGUI with the ships running away label" />
+    <MESSAGE value="Probably should upload" />
+    <MESSAGE value="Fixed ShipWarfare bug about one-shotting." />
+    <MESSAGE value="Completed javadocs for shipwarfare GUI" />
+    <MESSAGE value="Finished cleaning up the code. Ready for Demo 2" />
+    <MESSAGE value="Renamed a few classes so that all of them are uppercase" />
+    <MESSAGE value="Made it so you can go inbetween screens by pressing enter, allowing for you to speed through the game without pressing buttons." />
+    <MESSAGE value="File saving is work in progress&#10;Added a css file for the game&#10;Made it so that you can press enter to continue forwars&#10;Made folder for both images and save files" />
+    <MESSAGE value="Finished game saves" />
+    <MESSAGE value="Should completely get rid of error messages and print statements related to save state" />
+    <MESSAGE value="Made animation testing same as everyother class, can run from other classes." />
+    <MESSAGE value="Made warehouse reappear" />
+    <MESSAGE value="Warehouse and Travel events are still work in progress but added their code to the github repo" />
+    <MESSAGE value="Finished Warehouse" />
+    <MESSAGE value="Commented a bit of Random Event" />
+    <MESSAGE value="Made it so that the user doesn't get pushed into travel if they press enter while buying something" />
+    <MESSAGE value="Fixed some of the code related with Liu Yuen and fixed some of the javadocing" />
+    <MESSAGE value="Pushed the fix for ship repair while 100 hp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushed the fix for ship repair while 100 hp" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JAVA/ShipWarfare">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>ShipWarfare</OriginalElement>
-          <nodes>
-            <node x="" y="">ShipWarfare</node>
-            <node x="" y="">Player</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="213.0" y="195.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>Project Files</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/TaipanShop">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>TaipanShop</OriginalElement>
-          <nodes>
-            <node x="" y="">TaipanShop</node>
-            <node x="" y="">Player</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="56.0" y="54.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
+    <entry file="uml://JAVA/ShipWarfare" />
+    <entry file="uml://JAVA/TaipanShop" />
     <entry file="file://$PROJECT_DIR$/src/Game.java" />
     <entry file="file://$PROJECT_DIR$/src/Warehouse.java" />
     <entry file="file://$PROJECT_DIR$/src/Bank.java" />
     <entry file="file://$PROJECT_DIR$/src/TaipanShop.java" />
     <entry file="file://$PROJECT_DIR$/src/Travel.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java" />
     <entry file="file://$PROJECT_DIR$/src/ShopGUI" />
     <entry file="file://$PROJECT_DIR$/src/Start.java" />
     <entry file="file://$PROJECT_DIR$/src/main.java" />
     <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java" />
-    <entry file="file://$PROJECT_DIR$/src/WarehouseGUI.java">
+    <entry file="uml://JAVA/TaipanShopGUI" />
+    <entry file="uml://JAVA/bankGUI" />
+    <entry file="file://$PROJECT_DIR$/src/stylesheet.css" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/jre/lib/ext/jfxrt.jar!/com/sun/javafx/scene/control/skin/modena/blackOnWhite.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1968">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="272">
+          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StartGUI.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/jre/lib/ext/jfxrt.jar!/com/sun/javafx/scene/control/skin/modena/modena.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="10" selection-start-line="10" selection-end-line="15" selection-end-column="2" />
+        <state relative-caret-position="272">
+          <caret line="127" column="24" lean-forward="true" selection-start-line="127" selection-end-line="128" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoanSharkGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/styleguide.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BankGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/saves/playerSave.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ships Approaching.gif" />
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipsRunning.gif" />
-    <entry file="file://$PROJECT_DIR$/src/images/ShipsRunning.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/ShipsAttacking.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FinalShipWarfareGUI.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/javafx/application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="145" column="7" lean-forward="true" selection-start-line="145" selection-start-column="7" selection-end-line="145" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/javafx/event/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="101" selection-start-line="1" selection-start-column="101" selection-end-line="1" selection-end-column="101" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+        <state relative-caret-position="437">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AnimationTesting.java" />
+    <entry file="uml://MODULES/mdl-TaipanClone" />
+    <entry file="uml://JAVA/AnimationTesting" />
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="641" column="33" lean-forward="true" selection-start-line="641" selection-start-column="33" selection-end-line="641" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/" />
+    <entry file="uml://JAVA/TravelGUI" />
+    <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6443">
+          <caret line="396" column="18" selection-start-line="396" selection-start-column="18" selection-end-line="396" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BankGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StartGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3094">
+          <caret line="191" selection-start-line="191" selection-end-line="198" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoanSharkGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1921">
+          <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WarehouseGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="188" column="11" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="277" column="43" selection-start-line="277" selection-start-column="43" selection-end-line="277" selection-end-column="43" />
+        <state relative-caret-position="3264">
+          <caret line="215" column="73" selection-start-line="215" selection-start-column="73" selection-end-line="215" selection-end-column="73" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="docComment;method#initializeTravel#0;class#TravelGUI#0" />
+            <element signature="docComment;method#seaAtlas#0;class#TravelGUI#0" />
+            <element signature="docComment;method#randomEventSea#0;class#TravelGUI#0" />
+            <element signature="docComment;method#disaster#0;class#TravelGUI#0" />
+            <element signature="method#disaster#0;class#TravelGUI#0" />
+            <element signature="docComment;method#getStringLocation#0;class#TravelGUI#0" />
+            <element signature="method#getStringLocation#0;class#TravelGUI#0" />
+            <element signature="docComment;method#shipStatusString#0;class#TravelGUI#0" />
+            <element signature="method#shipStatusString#0;class#TravelGUI#0" />
+            <element signature="docComment;method#updateStage#0;class#TravelGUI#0" />
+            <element signature="method#updateStage#0;class#TravelGUI#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/RandomEventGUI.java" />
     <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding>
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="589" column="27" selection-start-line="589" selection-start-column="27" selection-end-line="589" selection-end-column="27" />
+        <state relative-caret-position="221">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HighScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileSaving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
         </state>
       </provider>
     </entry>

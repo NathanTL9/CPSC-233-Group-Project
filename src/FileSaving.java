@@ -1,7 +1,7 @@
 import java.io.*;
 /**
  * 2019-03-10 (Edited on 2019-03-19)
- * Authors:
+ * Authors: 
  * FileSaving Class allows the user to save the current status of the game and to continue from where they left off.
  */
 
@@ -37,6 +37,10 @@ public class FileSaving extends Player implements Serializable {
         }
     }
 
+    /**
+     * Saves the file of type player which contains all the player instances
+     * @param player The player object being saved
+     */
     public boolean saveFile(Player player){
         try{
             FileOutputStream out = new FileOutputStream(new File("src/saves/playerSave.txt"));
@@ -64,6 +68,4 @@ public class FileSaving extends Player implements Serializable {
             }
         }
     }
-
-
 }
