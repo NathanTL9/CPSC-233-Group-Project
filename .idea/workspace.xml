@@ -1,48 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/LoanSharkGUI.java" line="66" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Made">
-      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BankText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TravelText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WarehouseText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/loanSharkText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileSaving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaipanShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaipanShopGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TravelGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TravelGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saves/playerSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/saves/playerSave.txt" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="C:\Users\Harkamal Randhawa\IdeaProjects\TaipanClone\.idea\shelf/" />
-    <ignored path="$PROJECT_DIR$/.idea/shelf/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+            <state relative-caret-position="442">
+              <caret line="176" column="31" lean-forward="true" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;method#seaAtlas#0;class#TravelGUI#0" />
+                <element signature="method#seaAtlas#0;class#TravelGUI#0" />
+                <element signature="docComment;method#randomEventSea#0;class#TravelGUI#0" />
+                <element signature="method#randomEventSea#0;class#TravelGUI#0" />
+                <element signature="docComment;method#disaster#0;class#TravelGUI#0" />
+                <element signature="method#disaster#0;class#TravelGUI#0" />
+                <element signature="docComment;method#getStringLocation#0;class#TravelGUI#0" />
+                <element signature="method#getStringLocation#0;class#TravelGUI#0" />
+                <element signature="docComment;method#shipStatusString#0;class#TravelGUI#0" />
+                <element signature="method#shipStatusString#0;class#TravelGUI#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/FileSaving.java">
+        <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+            <state relative-caret-position="185">
+              <caret line="465" column="38" lean-forward="true" selection-start-line="465" selection-start-column="38" selection-end-line="465" selection-end-column="38" />
+              <folding>
+                <element signature="docComment;method#TaipanShopGUI#0;class#TaipanShopGUI#0" />
+                <element signature="method#TaipanShopGUI#0;class#TaipanShopGUI#0" />
+                <element signature="docComment;method#retire#0;class#TaipanShopGUI#0" />
+                <element signature="method#retire#0;class#TaipanShopGUI#0" />
+                <element signature="docComment;method#defaultTextOut#0;class#TaipanShopGUI#0" />
+                <element signature="method#defaultTextOut#0;class#TaipanShopGUI#0" />
+                <element signature="docComment;method#buttonSetup#0;class#TaipanShopGUI#0" />
+                <element signature="method#buttonSetup#0;class#TaipanShopGUI#0" />
+                <element signature="method#shop#0;class#TaipanShopGUI#0" />
+                <element signature="docComment;method#initializeShop#0;class#TaipanShopGUI#0" />
+                <element signature="class#16068:16656" />
+                <element signature="class#16894:17482" />
+                <element signature="class#17646:18088" />
+                <element signature="class#18418:18904" />
+                <element signature="class#19069:19536" />
+                <element signature="method#handle#0;class#19069:19536" />
+                <element signature="class#19773:20283" />
+                <element signature="class#20487:20841" />
+                <element signature="class#21134:22015" />
+                <element signature="class#22253:23127" />
+                <element signature="class#23289:24163" />
+                <element signature="method#handle#0;class#23289:24163" />
+                <element signature="class#24498:25411" />
+                <element signature="method#handle#0;class#24498:25411" />
+                <element signature="class#25615:26933" />
+                <element signature="method#handle#0;class#25615:26933" />
+                <element signature="e#31225#31481#1" />
+                <element signature="method#updateStage#0;class#TaipanShopGUI#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1406">
+              <caret line="186" column="6" selection-start-line="186" selection-start-column="6" selection-end-line="186" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setVisibilitiesAndTransition#0;class#ShipWarfareGUI#0" />
+                <element signature="docComment;method#initializeShip#0;class#ShipWarfareGUI#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,89 +109,33 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>runAwayOrLeft</find>
-      <find>gunsLeftOrTaken</find>
-      <find>continueToFight</find>
-      <find>sellingItemLab</find>
-      <find>You can'</find>
-      <find>cannotAfford</find>
-      <find>warehouse</find>
-      <find>cargoButton</find>
-      <find>cargobutton</find>
-      <find>peasantShip</find>
-      <find>BorderPane</find>
-      <find>houseLabel</find>
-      <find>setGuns</find>
-      <find>for a gun</find>
-      <find>cannon</find>
-      <find>quitButton</find>
-      <find>textField</find>
-      <find>numberInput</find>
-      <find>shop</find>
-      <find>default</find>
-      <find>defaultButton</find>
-      <find>printSt</find>
-      <find>txtField</find>
-      <find>vBox</find>
-      <find>Would you like to pay</find>
-      <find>shipWa</find>
-      <find>attackingShips</find>
-      <find>random</find>
-      <find>cargo</find>
-      <find>Noot</find>
+      <find>updat</find>
     </findStrings>
-    <replaceStrings>
-      <replace>HP</replace>
-      <replace>p1.get</replace>
-      <replace>p1.set</replace>
-      <replace>shipWarfare.getHowMuchRun()</replace>
-      <replace>shipWarfare.isUserAttacks()</replace>
-      <replace>shipWarfare.getNumOfPeasantShips()</replace>
-      <replace>deposit</replace>
-      <replace>textOut.setText(&quot;    &quot; +</replace>
-      <replace>borderPane</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Core.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
-        <option value="$PROJECT_DIR$/src/Start.java" />
-        <option value="$PROJECT_DIR$/src/TaipanShop.java" />
-        <option value="$PROJECT_DIR$/src/main.java" />
-        <option value="$PROJECT_DIR$/src/Travel.java" />
-        <option value="$PROJECT_DIR$/src/ShipWarfare.java" />
-        <option value="$PROJECT_DIR$/src/bankGUI.java" />
-        <option value="$PROJECT_DIR$/src/MainGUI.java" />
-        <option value="$PROJECT_DIR$/src/stylesheet.css" />
-        <option value="$PROJECT_DIR$/src/styleguide.css" />
-        <option value="$PROJECT_DIR$/src/BankGUI.java" />
-        <option value="$PROJECT_DIR$/src/GameEndGUI.java" />
-        <option value="$PROJECT_DIR$/src/LoanSharkGUI.java" />
-        <option value="$PROJECT_DIR$/src/Save.java" />
-        <option value="$PROJECT_DIR$/src/AnimationTesting.java" />
+        <option value="$PROJECT_DIR$/src/TravelText.java" />
+        <option value="$PROJECT_DIR$/src/WarehouseText.java" />
+        <option value="$PROJECT_DIR$/src/BankText.java" />
+        <option value="$PROJECT_DIR$/src/loanSharkText.java" />
+        <option value="$PROJECT_DIR$/src/text/BankText.java" />
+        <option value="$PROJECT_DIR$/src/TaipanShopText.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
-        <option value="$PROJECT_DIR$/src/StartGUI.java" />
-        <option value="$PROJECT_DIR$/src/WarehouseGUI.java" />
         <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
         <option value="$PROJECT_DIR$/src/TravelGUI.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/RandomEventGUI.java" />
-        <option value="$PROJECT_DIR$/src/FileSaving.java" />
-        <option value="$PROJECT_DIR$/src/HighScore.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="106" />
+    <option name="y" value="-13" />
+    <option name="width" value="1111" />
+    <option name="height" value="533" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -151,6 +145,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -168,28 +163,20 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ChangesTree.GroupingKeys" value="" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552292013744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554585449403" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Demo 3" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/junit-4.12.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Harkamal Randhawa\IdeaProjects\TaipanClone\src" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -257,9 +244,8 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\Harkamal Randhawa\AppData\Roaming\Subversion</configuration>
-    <supportedVersion>125</supportedVersion>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -305,6 +291,7 @@
       <workItem from="1553309944652" duration="63685000" />
       <workItem from="1553661269531" duration="1969000" />
       <workItem from="1553965313291" duration="2578000" />
+      <workItem from="1554580719911" duration="4636000" />
     </task>
     <task id="LOCAL-00001" summary="This should fix the ShipWarfare file and bring it up to date with the rest of the file.">
       <created>1550458470138</created>
@@ -649,17 +636,16 @@
       <option name="project" value="LOCAL" />
       <updated>1553494120570</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147501000" />
+    <option name="totallyTimeSpent" value="4582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12286063" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12408313" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -670,7 +656,7 @@
       <window_info anchor="bottom" id="Duplicates" order="1" weight="0.50391936" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49874055" weight="0.36954087" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49874055" weight="0.19484882" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.39977604" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -680,7 +666,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.3281075" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.18141097" />
       <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -693,7 +679,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118581906" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12408313" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -704,7 +690,7 @@
       <window_info anchor="bottom" id="Duplicates" order="1" weight="0.50391936" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49874055" weight="0.36954087" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49874055" weight="0.19484882" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.39977604" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -714,7 +700,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.3281075" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.18141097" />
       <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -726,19 +712,6 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout-to-restore>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
@@ -788,152 +761,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="Pushed the fix for ship repair while 100 hp" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JAVA/ShipWarfare" />
-    <entry file="uml://JAVA/TaipanShop" />
-    <entry file="file://$PROJECT_DIR$/src/Game.java" />
-    <entry file="file://$PROJECT_DIR$/src/Warehouse.java" />
-    <entry file="file://$PROJECT_DIR$/src/Bank.java" />
-    <entry file="file://$PROJECT_DIR$/src/TaipanShop.java" />
-    <entry file="file://$PROJECT_DIR$/src/Travel.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java" />
-    <entry file="file://$PROJECT_DIR$/src/ShopGUI" />
-    <entry file="file://$PROJECT_DIR$/src/Start.java" />
-    <entry file="file://$PROJECT_DIR$/src/main.java" />
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfare.java" />
-    <entry file="uml://JAVA/TaipanShopGUI" />
-    <entry file="uml://JAVA/bankGUI" />
-    <entry file="file://$PROJECT_DIR$/src/stylesheet.css" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/jre/lib/ext/jfxrt.jar!/com/sun/javafx/scene/control/skin/modena/blackOnWhite.css">
+    <entry file="file://$PROJECT_DIR$/src/FileSaving.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+        <state relative-caret-position="-34">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/jre/lib/ext/jfxrt.jar!/com/sun/javafx/scene/control/skin/modena/modena.css">
+    <entry file="file://$PROJECT_DIR$/src/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="127" column="24" lean-forward="true" selection-start-line="127" selection-end-line="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styleguide.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saves/playerSave.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="101" selection-start-line="1" selection-start-column="101" selection-end-line="1" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameEndGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        <state relative-caret-position="320">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AnimationTesting.java" />
-    <entry file="uml://MODULES/mdl-TaipanClone" />
-    <entry file="uml://JAVA/AnimationTesting" />
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/WarehouseText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="641" column="33" lean-forward="true" selection-start-line="641" selection-start-column="33" selection-end-line="641" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/" />
-    <entry file="uml://JAVA/TravelGUI" />
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6443">
-          <caret line="396" column="18" selection-start-line="396" selection-start-column="18" selection-end-line="396" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BankGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StartGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3094">
-          <caret line="191" selection-start-line="191" selection-end-line="198" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoanSharkGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WarehouseGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3264">
-          <caret line="215" column="73" selection-start-line="215" selection-start-column="73" selection-end-line="215" selection-end-column="73" />
-          <folding>
-            <element signature="docComment;method#initializeTravel#0;class#TravelGUI#0" />
-            <element signature="docComment;method#seaAtlas#0;class#TravelGUI#0" />
-            <element signature="docComment;method#randomEventSea#0;class#TravelGUI#0" />
-            <element signature="docComment;method#disaster#0;class#TravelGUI#0" />
-            <element signature="method#disaster#0;class#TravelGUI#0" />
-            <element signature="docComment;method#getStringLocation#0;class#TravelGUI#0" />
-            <element signature="method#getStringLocation#0;class#TravelGUI#0" />
-            <element signature="docComment;method#shipStatusString#0;class#TravelGUI#0" />
-            <element signature="method#shipStatusString#0;class#TravelGUI#0" />
-            <element signature="docComment;method#updateStage#0;class#TravelGUI#0" />
-            <element signature="method#updateStage#0;class#TravelGUI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RandomEventGUI.java" />
     <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="204">
           <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -941,17 +795,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HighScore.java">
+    <entry file="file://$PROJECT_DIR$/src/BankText.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="918">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FileSaving.java">
+    <entry file="file://$PROJECT_DIR$/src/loanSharkText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        <state relative-caret-position="119">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TravelText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1139">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1406">
+          <caret line="186" column="6" selection-start-line="186" selection-start-column="6" selection-end-line="186" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setVisibilitiesAndTransition#0;class#ShipWarfareGUI#0" />
+            <element signature="docComment;method#initializeShip#0;class#ShipWarfareGUI#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="176" column="31" lean-forward="true" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#seaAtlas#0;class#TravelGUI#0" />
+            <element signature="method#seaAtlas#0;class#TravelGUI#0" />
+            <element signature="docComment;method#randomEventSea#0;class#TravelGUI#0" />
+            <element signature="method#randomEventSea#0;class#TravelGUI#0" />
+            <element signature="docComment;method#disaster#0;class#TravelGUI#0" />
+            <element signature="method#disaster#0;class#TravelGUI#0" />
+            <element signature="docComment;method#getStringLocation#0;class#TravelGUI#0" />
+            <element signature="method#getStringLocation#0;class#TravelGUI#0" />
+            <element signature="docComment;method#shipStatusString#0;class#TravelGUI#0" />
+            <element signature="method#shipStatusString#0;class#TravelGUI#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="465" column="38" lean-forward="true" selection-start-line="465" selection-start-column="38" selection-end-line="465" selection-end-column="38" />
+          <folding>
+            <element signature="docComment;method#TaipanShopGUI#0;class#TaipanShopGUI#0" />
+            <element signature="method#TaipanShopGUI#0;class#TaipanShopGUI#0" />
+            <element signature="docComment;method#retire#0;class#TaipanShopGUI#0" />
+            <element signature="method#retire#0;class#TaipanShopGUI#0" />
+            <element signature="docComment;method#defaultTextOut#0;class#TaipanShopGUI#0" />
+            <element signature="method#defaultTextOut#0;class#TaipanShopGUI#0" />
+            <element signature="docComment;method#buttonSetup#0;class#TaipanShopGUI#0" />
+            <element signature="method#buttonSetup#0;class#TaipanShopGUI#0" />
+            <element signature="method#shop#0;class#TaipanShopGUI#0" />
+            <element signature="docComment;method#initializeShop#0;class#TaipanShopGUI#0" />
+            <element signature="class#16068:16656" />
+            <element signature="class#16894:17482" />
+            <element signature="class#17646:18088" />
+            <element signature="class#18418:18904" />
+            <element signature="class#19069:19536" />
+            <element signature="method#handle#0;class#19069:19536" />
+            <element signature="class#19773:20283" />
+            <element signature="class#20487:20841" />
+            <element signature="class#21134:22015" />
+            <element signature="class#22253:23127" />
+            <element signature="class#23289:24163" />
+            <element signature="method#handle#0;class#23289:24163" />
+            <element signature="class#24498:25411" />
+            <element signature="method#handle#0;class#24498:25411" />
+            <element signature="class#25615:26933" />
+            <element signature="method#handle#0;class#25615:26933" />
+            <element signature="e#31225#31481#1" />
+            <element signature="method#updateStage#0;class#TaipanShopGUI#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -995,7 +936,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8.0_201</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1012,6 +953,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1019,17 +961,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
+          <last-edited>hamcrest-core-1.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
