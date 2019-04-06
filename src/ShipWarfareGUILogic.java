@@ -271,7 +271,8 @@ public class ShipWarfareGUILogic extends Player {
 
         if (exitValue == 1) {
             setAvenue(1);
-            calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
+            //calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
+            calculateLoot = 100;
             setMoney(getMoney() + calculateLoot);
             setReportMessage(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
 

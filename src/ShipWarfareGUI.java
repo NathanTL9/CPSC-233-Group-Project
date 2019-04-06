@@ -28,7 +28,6 @@ import java.util.concurrent.ExecutionException;
 
 public class ShipWarfareGUI extends Player {
 
-    private ShipWarfareGUILogic logic;
     private Circle cannon;
     private VBox buttonBox;
     private HBox fightRunBox;
@@ -47,7 +46,6 @@ public class ShipWarfareGUI extends Player {
     private int counter;
 
     private int checkIfDone;
-
 
 
     private int timeCounter;
@@ -71,9 +69,6 @@ public class ShipWarfareGUI extends Player {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
-
-
-
 
 
     /**
@@ -100,9 +95,6 @@ public class ShipWarfareGUI extends Player {
         gunsLeftOrTaken.setVisible(false);
         report.setVisible(false);
     }
-
-
-
 
 
     /**
@@ -163,8 +155,11 @@ public class ShipWarfareGUI extends Player {
         });
     }
 
-    public boolean winOrLose( Stage stage){
-        if (logic.destroyLittyShipsOrEscape() == 1) {
+    public boolean winOrLose(Stage stage) {
+        ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
+
+        int commenceFire = logic.destroyLittyShipsOrEscape();
+        if (commenceFire == 1) {
             wipe();
             report.setText(logic.getReportMessage());
             continueButton.setVisible(true);
@@ -175,13 +170,14 @@ public class ShipWarfareGUI extends Player {
             return true;
 
 
-        } else if (logic.destroyLittyShipsOrEscape() == 2) {
+        } else if (commenceFire == 2) {
             GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
             gameEndGUI.initializeGameEndGUI(stage);
             stage.show();
             return true;
 
-        } else if (logic.destroyLittyShipsOrEscape() == 3) {
+        } else if (commenceFire == 3) {
+
             report.setText(logic.getReportMessage());
             continueButton.setVisible(true);
             completeWipe();
@@ -189,13 +185,10 @@ public class ShipWarfareGUI extends Player {
             runButton.setVisible(false);
             continueButton.setDefaultButton(true);
             return true;
-        }
-
-        else {
+        } else {
             return false;
         }
     }
-
 
 
     /**
@@ -223,7 +216,7 @@ public class ShipWarfareGUI extends Player {
         BorderPane encompassingPane = new BorderPane();
         HBox usAgainstEnemyDivisor = new HBox();
         Circle cannon = new Circle();
-        logic = new ShipWarfareGUILogic(getPlayer());
+        ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
 
 
         cannon.setLayoutX(beginningX);
@@ -391,20 +384,22 @@ public class ShipWarfareGUI extends Player {
                 title.setText("Ayy captain we will try to run!");
                 report.setText("Epic");
                 counter++;
-
+                ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
                 if (logic.runFromShips() == false) {
                     report.setText(("Couldn't run away"));
                     try {
-                          checkIfDone = logic.destroyLittyShipsOrEscape();
+                        checkIfDone = logic.destroyLittyShipsOrEscape();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (checkIfDone != 4 ) {
+                    if (checkIfDone != 4) {
                         report.setVisible(true);
                         title.setVisible(true);
                         shipsRemaining.setVisible(true);
                         gunsLeftOrTaken.setVisible(true);
 
+                    } else {
+                        gunsLeftOrTaken.setText("AYYYY");
                     }
                 } else {
 
@@ -435,7 +430,7 @@ public class ShipWarfareGUI extends Player {
                 runButton.setVisible(false);
 
                 try {
-                   winOrLose(primaryStage);
+                    winOrLose(primaryStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -461,7 +456,7 @@ public class ShipWarfareGUI extends Player {
                      */
                     public void handle(ActionEvent event) {
                         shotsFired.stop();
-                        if (checkIfDone==4) {
+                        if (checkIfDone == 4) {
                             shipsRetaliate();
                         } else {
                             report.setVisible(true);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Fixed an issue with shipWarfare with the ships running away label">
+    <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Failed attempt at separating logic and GUI but saving just in case I need it later">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShipWarfareGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saves/playerSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/saves/playerSave.txt" afterDir="false" />
@@ -20,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="210">
+              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
               <folding>
                 <element signature="e#551#552#0" expanded="true" />
                 <element signature="e#579#580#0" expanded="true" />
@@ -33,11 +33,56 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="589" column="27" selection-start-line="589" selection-start-column="27" selection-end-line="589" selection-end-column="27" />
+            <state relative-caret-position="-3881">
+              <caret line="159" selection-start-line="159" selection-end-line="159" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUILogic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1415">
+              <caret line="43" column="53" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1238#1239#0" expanded="true" />
+                <element signature="e#1275#1276#0" expanded="true" />
+                <element signature="e#1675#1676#0" expanded="true" />
+                <element signature="e#1710#1711#0" expanded="true" />
+                <element signature="e#1766#1767#0" expanded="true" />
+                <element signature="e#1814#1815#0" expanded="true" />
+                <element signature="e#1854#1855#0" expanded="true" />
+                <element signature="e#1890#1891#0" expanded="true" />
+                <element signature="e#1948#1949#0" expanded="true" />
+                <element signature="e#1998#1999#0" expanded="true" />
+                <element signature="e#2047#2048#0" expanded="true" />
+                <element signature="e#2092#2093#0" expanded="true" />
+                <element signature="e#2283#2284#0" expanded="true" />
+                <element signature="e#2326#2327#0" expanded="true" />
+                <element signature="e#2510#2511#0" expanded="true" />
+                <element signature="e#2554#2555#0" expanded="true" />
+                <element signature="e#2734#2735#0" expanded="true" />
+                <element signature="e#2770#2771#0" expanded="true" />
+                <element signature="e#2828#2829#0" expanded="true" />
+                <element signature="e#2878#2879#0" expanded="true" />
+                <element signature="e#2960#2961#0" expanded="true" />
+                <element signature="e#2989#2990#0" expanded="true" />
+                <element signature="e#3030#3031#0" expanded="true" />
+                <element signature="e#3066#3067#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="178" selection-start-line="178" selection-end-line="178" />
             </state>
           </provider>
         </entry>
@@ -47,24 +92,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaFXApplication" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>continueButton</find>
-      <find>continueButton.setV</find>
-      <find>.setText</find>
-      <find>.setVisi</find>
-      <find>taipanSH</find>
-      <find>runButton.setOn</find>
-      <find>runButton.se</find>
-      <find>setVis</find>
-      <find>counter</find>
-      <find>stage</find>
-      <find>run</find>
       <find>flee</find>
       <find>runFrom</find>
       <find>report</find>
@@ -84,6 +118,17 @@
       <find>getGuns</find>
       <find>!</find>
       <find>earned</find>
+      <find>destroyLitty</find>
+      <find>des</find>
+      <find>counter1</find>
+      <find>destro</find>
+      <find>logic</find>
+      <find>getNum</find>
+      <find>boolean</find>
+      <find>initializetrace</find>
+      <find>checkIfDone</find>
+      <find>winOrLose</find>
+      <find>setNum</find>
     </findStrings>
     <replaceStrings>
       <replace>HP</replace>
@@ -122,6 +167,7 @@
         <option value="$PROJECT_DIR$/src/AnimationTesting.java" />
         <option value="$PROJECT_DIR$/src/TravelGUI.java" />
         <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
+        <option value="$PROJECT_DIR$/src/ShipWarfareGUILogic.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
       </list>
     </option>
@@ -159,15 +205,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553647592854" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554589447322" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Cpsc233" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -308,28 +354,9 @@
       <workItem from="1553444769737" duration="82000" />
       <workItem from="1553444880371" duration="36052000" />
       <workItem from="1553560570410" duration="3016000" />
-      <workItem from="1553832002953" duration="139000" />
-    </task>
-    <task id="LOCAL-00012" summary="Added time stuff to Shipwarfare GUI">
-      <created>1552168801248</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1552168801248</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Notified of getting attacked">
-      <created>1552172956109</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1552172956109</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added fight stuff">
-      <created>1552173216531</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1552173216532</updated>
+      <workItem from="1553832002953" duration="940000" />
+      <workItem from="1554082372500" duration="879000" />
+      <workItem from="1554159550800" duration="10940000" />
     </task>
     <task id="LOCAL-00015" summary="Made ShipWarfare easier to access by ShipWarfareGUI">
       <created>1552181324520</created>
@@ -653,17 +680,37 @@
       <option name="project" value="LOCAL" />
       <updated>1553560337526</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Playing with miss animation">
+      <created>1553869256642</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1553869256642</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Failed attempt at separating logic and GUI but saving just in case I need it later">
+      <created>1554437585221</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1554437585221</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Failed attempt at separating logic and GUI but saving just in case I need it later">
+      <created>1554585714023</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1554585714024</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169876000" />
+    <option name="totallyTimeSpent" value="182496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1189" height="652" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22755013" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23452485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -672,7 +719,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22678572" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22678572" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -760,8 +807,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Completed javadocs for shipwarfare GUI" />
-    <MESSAGE value="Added to my javadocs a bit" />
     <MESSAGE value="Changed one line of text in shipwarfare GUI" />
     <MESSAGE value="Fixed output for start and TaipanShop GUI" />
     <MESSAGE value="Added JavaDocs for ShipWarfare" />
@@ -785,7 +830,9 @@
     <MESSAGE value="Ship Warfare &quot;dang it&quot; issue fixed" />
     <MESSAGE value="Fixed an issue with shipWarfare with the ships running away label" />
     <MESSAGE value="Fixed an issue with ShipWarfareGUI with the ships running away label" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with ShipWarfareGUI with the ships running away label" />
+    <MESSAGE value="Playing with miss animation" />
+    <MESSAGE value="Failed attempt at separating logic and GUI but saving just in case I need it later" />
+    <option name="LAST_COMMIT_MESSAGE" value="Failed attempt at separating logic and GUI but saving just in case I need it later" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://JAVA/ShipWarfare">
@@ -917,17 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="188" column="11" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="277" column="43" selection-start-line="277" selection-start-column="43" selection-end-line="277" selection-end-column="43" />
+        <state relative-caret-position="3825">
+          <caret line="269" column="66" selection-start-line="269" selection-start-column="66" selection-end-line="269" selection-end-column="67" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -936,8 +976,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state relative-caret-position="210">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
           <folding>
             <element signature="e#551#552#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
@@ -945,10 +985,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TaipanShopText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUILogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1415">
+          <caret line="43" column="53" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1814#1815#0" expanded="true" />
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1890#1891#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+            <element signature="e#2047#2048#0" expanded="true" />
+            <element signature="e#2092#2093#0" expanded="true" />
+            <element signature="e#2283#2284#0" expanded="true" />
+            <element signature="e#2326#2327#0" expanded="true" />
+            <element signature="e#2510#2511#0" expanded="true" />
+            <element signature="e#2554#2555#0" expanded="true" />
+            <element signature="e#2734#2735#0" expanded="true" />
+            <element signature="e#2770#2771#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2960#2961#0" expanded="true" />
+            <element signature="e#2989#2990#0" expanded="true" />
+            <element signature="e#3030#3031#0" expanded="true" />
+            <element signature="e#3066#3067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="589" column="27" selection-start-line="589" selection-start-column="27" selection-end-line="589" selection-end-column="27" />
+        <state relative-caret-position="-3881">
+          <caret line="159" selection-start-line="159" selection-end-line="159" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
