@@ -34,6 +34,7 @@ public class TravelGUI extends Player{
     private Label cashText = new Label();
     private Label bankText = new Label();
     private Label textOut = new Label();
+    private FlowPane flowPane = new FlowPane();
 
     private Button quitButton = new Button();
     private Button continueButton = new Button();
@@ -62,10 +63,7 @@ public class TravelGUI extends Player{
      * @return stage so that another class can switch to the stage
      */
     public Stage initializeTravel(Stage stage) {
-        //Updates the stage for the first-time you read it
-        shop.updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
 
-        shop.declareStage();
 
         //Creating the continue and quit buttons
         quitButton.setPrefHeight(25.0);
@@ -171,9 +169,13 @@ public class TravelGUI extends Player{
         firm.setPrefHeight(27.0);
         firm.setPrefWidth(632.0);
         firm.setFont(new Font(18.0));
-
-        Scene root = new Scene(shop.declareStage(), 600, 480);
-
+        flowPane.getChildren().addAll(numberInput, quitButton, continueButton);
+        TaipanShopGUI shop = new TaipanShopGUI(super.getPlayer());
+        Scene root = new Scene(shop.declareStage(flowPane,firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText,textOut), 600, 480);
+        root.getStylesheets().add("styleguide.css");
+        //Updates the stage for the first-time you read it
+        shop.updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
+        textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
         stage.setTitle("Travel");
         stage.setResizable(false);
         stage.setScene(root);

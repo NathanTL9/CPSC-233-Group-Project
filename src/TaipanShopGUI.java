@@ -45,6 +45,7 @@ public class TaipanShopGUI extends Player{
     private Button generalButton = new Button();
     private TextField numberInput = new TextField();
 
+
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
      *
@@ -240,7 +241,7 @@ public class TaipanShopGUI extends Player{
     public void initializeShop(Stage stage) {
         FileSaving saving = new FileSaving();
         saving.saveFile(getPlayer());
-
+        FlowPane flowPane = new FlowPane();
 
         buyButton.setMnemonicParsing(false);
         buyButton.setPrefHeight(25.0);
@@ -526,8 +527,10 @@ public class TaipanShopGUI extends Player{
 
         stage.setTitle("Shop");
         stage.setResizable(false);
-        Scene root = new Scene(declareStage(), 600, 480);
+        flowPane.getChildren().addAll(buyButton, sellButton, bankButton, cargoButton, loanButton, quitButton, retireButton, opiumButton, silkButton, armsButton, generalButton, numberInput);
+        Scene root = new Scene(declareStage(flowPane,firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText,textOut), 600, 480);
         stage.setScene(root);
+        root.getStylesheets().add("styleguide.css");
 
         // general updates to the buttons, user stats/inventory, and text.
         buttonSetup("reset");
@@ -538,11 +541,12 @@ public class TaipanShopGUI extends Player{
             defaultTextOut();
             textOut.setText(temp + textOut.getText());
         }
-        //defaultTextOut();
+        defaultTextOut();
         updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
     }
 
-    public AnchorPane declareStage() {
+
+    public AnchorPane declareStage(FlowPane flowPane,Label firm, Label wItemsText, Label wItemSpaceText, Label locationText, Label gunsText, Label inventoryText, Label inventoryHeldText, Label shipStatusText, Label cashText, Label bankText, Label textOut) {
         //Declaring all the elements required for the information on screen
         Rectangle dialogueRectangle = new Rectangle();
         Rectangle inventoryRectangle = new Rectangle();
@@ -558,7 +562,6 @@ public class TaipanShopGUI extends Player{
         RowConstraints rowConstraints4 = new RowConstraints();
         HBox hBox = new HBox();
         HBox hBox0 = new HBox();
-        FlowPane flowPane = new FlowPane();
         Font size14 = new Font(14.0);
         Label warehouseText = new Label();
 
@@ -707,8 +710,6 @@ public class TaipanShopGUI extends Player{
 
         hBox0.getChildren().addAll(inventoryText, inventoryHeldText, gunsText, shipStatusText);
 
-        //flowPane.getChildren().addAll(buyButton, sellButton, bankButton, cargoButton, loanButton, quitButton, retireButton, opiumButton, silkButton, armsButton, generalButton, numberInput);
-
         gridPane.getColumnConstraints().add(columnConstraints);
         gridPane.getRowConstraints().addAll(rowConstraints, rowConstraints0, rowConstraints1, rowConstraints2, rowConstraints3, rowConstraints4);
         gridPane.getChildren().addAll(firm, hBox, hBox0, cashText, bankText, textOut, flowPane);
@@ -722,7 +723,7 @@ public class TaipanShopGUI extends Player{
      * updates the text associated with the user's inventory.
      */
     public void updateStage(Label firm, Label wItemsText, Label wItemSpaceText, Label locationText, Label gunsText, Label inventoryText, Label inventoryHeldText, Label shipStatusText, Label cashText, Label bankText) {
-        TaipanShopLogic logic = new TaipanShopLogic(getPlayer());
+        TaipanShopLogic logic = new TaipanShopLogic(super.getPlayer());
         firm.setText(String.format("Firm: %s, %s", getName(), logic.getStringLocation()));
         wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", getwOpium(), getwSilk(), getwArms(), getwGeneral()));
         int itemsInWarehouse = getwOpium() + getwGeneral() + getwArms() + getwSilk();
