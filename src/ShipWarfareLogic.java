@@ -1,5 +1,3 @@
-import javafx.stage.Stage;
-
 import java.util.Random;
 
 /**
@@ -13,9 +11,8 @@ public class ShipWarfareLogic extends Player {
 
 
 
-    private int numOfLittyShips = 0;
-    private int startingLittyShips=0;
-
+    private int numOfShips = 0;
+    private int startingShips=0;
 
     private int counter;
 
@@ -28,18 +25,18 @@ public class ShipWarfareLogic extends Player {
     /**
      * setter method that takes in an integer as an argument
      *
-     * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
+     * @param numOfShips the number of ships to be used in the peasant fleet attack
      */
-    public void setNumOfLittyShips(int numOfLittyShips) {
+    public void setNumOfShips(int numOfShips) {
         counter++;
-        this.numOfLittyShips = numOfLittyShips;
+        this.numOfShips = numOfShips;
         if (counter == 1) {
-            startingLittyShips = numOfLittyShips;
+            startingShips = numOfShips;
         }
     }
 
-    public int getNumOfLittyShips(){
-        return numOfLittyShips;
+    public int getNumOfShips(){
+        return numOfShips;
     }
 
     /**
@@ -95,7 +92,7 @@ public class ShipWarfareLogic extends Player {
 
         Random randomValue = new Random();
         int calculateLoot;
-        calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
+        calculateLoot = (startingShips * 100) + randomValue.nextInt(startingShips) * 200;
         super.setMoney(super.getMoney() + calculateLoot);
         return calculateLoot;
 

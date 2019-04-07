@@ -99,11 +99,11 @@ public class ShipWarfareGUI extends Player {
 
 
     /**
-     * The user faces off against the litty ships and either prevails, dies, or runs away
+     * The user faces off against the  ships and either prevails, dies, or runs away
      *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
-    public boolean destroyLittyShipsOrEscape(Stage stage) throws Exception {
+    public boolean destroyShipsOrEscape(Stage stage) throws Exception {
 
         cannon.setLayoutX(beginningX);
         cannon.setLayoutY(beginningY);
@@ -125,9 +125,9 @@ public class ShipWarfareGUI extends Player {
 
                     int hitOrMiss = randomValue.nextInt(2) + 1;
                     if (hitOrMiss == 2) {
-                        logic.setNumOfLittyShips(logic.getNumOfLittyShips()-1);
+                        logic.setNumOfShips(logic.getNumOfShips()-1);
 
-                        if (logic.getNumOfLittyShips() <= 0) {
+                        if (logic.getNumOfShips() <= 0) {
                             exitValue = 1;
                         }
                         hitCounter++;
@@ -153,7 +153,7 @@ public class ShipWarfareGUI extends Player {
 
 
 
-        if (logic.getNumOfLittyShips() <= 0) {
+        if (logic.getNumOfShips() <= 0) {
             exitValue = 1;
         }
 
@@ -161,10 +161,10 @@ public class ShipWarfareGUI extends Player {
             chanceOfEnemyRun = randomValue.nextInt(2) + 1;
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
-                if (howMuchRun != 0 && howMuchRun < logic.getNumOfLittyShips()) {
+                if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
 
 
-                    logic.setNumOfLittyShips(logic.getNumOfLittyShips() - howMuchRun);
+                    logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
                             runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, super.getName()));
@@ -178,14 +178,14 @@ public class ShipWarfareGUI extends Player {
             }
         }
 
-        shipsRemaining.setText(String.format("%d ships remaining and they look angry!", logic.getNumOfLittyShips()));
+        shipsRemaining.setText(String.format("%d ships remaining and they look angry!", logic.getNumOfShips()));
         //Computer volley
         int takeGunChance = randomValue.nextInt(4) + 1;
         if (takeGunChance == 1 && super.getGuns() > 0) {
             super.setGuns(super.getGuns() - 1);
             gunFrustration = true;
         } else {
-            if (logic.getNumOfLittyShips() > 0) {
+            if (logic.getNumOfShips() > 0) {
                 int HPTaken = randomValue.nextInt(10) + 1;
                 super.setHP(super.getHP() - (HPTaken));
 
@@ -228,16 +228,8 @@ public class ShipWarfareGUI extends Player {
             gameEndGUI.initializeGameEndGUI(stage);
             stage.show();
             return true;
-        } else if (exitValue == 3) {
-            report.setText(String.format("We made it out at %d%% ship status!", super.getHP()));
-
-            continueButton.setVisible(true);
-            completeWipe();
-            fightButton.setVisible(false);
-            runButton.setVisible(false);
-            continueButton.setDefaultButton(true);
-            return true;
         }
+
         return false;
 
     }
@@ -309,13 +301,13 @@ public class ShipWarfareGUI extends Player {
      */
     public void initializeShip(Stage primaryStage) throws Exception {
 
-        logic.setNumOfLittyShips(logic.numOfShips());
+        logic.setNumOfShips(logic.numOfShips());
 
         Pane root = new Pane();
         HBox usAgainstEnemyDivisor;
         BorderPane centeringUserShipPane = new BorderPane();
         Circle cannon;
-        BorderPane centeringLittyShipPane = new BorderPane();
+        BorderPane centeringShipPane = new BorderPane();
         BorderPane encompassingPane = new BorderPane();
         usAgainstEnemyDivisor = new HBox();
         cannon = new Circle();
@@ -337,7 +329,7 @@ public class ShipWarfareGUI extends Player {
         shipsRemaining = new Label();
         report = new Label();
 
-        title.setText(String.format("%d ships from Liu Yuen's Fleet are attacking, Would you like to fight or run?", logic.getNumOfLittyShips()));
+        title.setText(String.format("%d ships from Liu Yuen's Fleet are attacking, Would you like to fight or run?", logic.getNumOfShips()));
 
 
         fightButton.setText("Fight");
@@ -396,7 +388,7 @@ public class ShipWarfareGUI extends Player {
 
         //Setting the image view
         ImageView userShip = new ImageView(ourShip);
-        ImageView littyShip = new ImageView(enemyShip);
+        ImageView Ship = new ImageView(enemyShip);
 
         BorderPane.setAlignment(userShip, javafx.geometry.Pos.CENTER);
         userShip.setFitHeight(150.0);
@@ -415,21 +407,21 @@ public class ShipWarfareGUI extends Player {
         cannon.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
         centeringUserShipPane.setRight(cannon);
 
-        centeringLittyShipPane.setPrefHeight(200.0);
-        centeringLittyShipPane.setPrefWidth(200.0);
-        centeringLittyShipPane.setOpaqueInsets(new Insets(0.0));
-        HBox.setMargin(centeringLittyShipPane, new Insets(0.0, 0.0, 0.0, 200.0));
+        centeringShipPane.setPrefHeight(200.0);
+        centeringShipPane.setPrefWidth(200.0);
+        centeringShipPane.setOpaqueInsets(new Insets(0.0));
+        HBox.setMargin(centeringShipPane, new Insets(0.0, 0.0, 0.0, 200.0));
 
-        encompassingPane.setAlignment(littyShip, javafx.geometry.Pos.CENTER);
-        littyShip.setFitHeight(165.0);
-        littyShip.setFitWidth(180.0);
-        littyShip.setPickOnBounds(true);
-        littyShip.setPreserveRatio(true);
-        encompassingPane.setMargin(littyShip, new Insets(0.0, 0.0, 20.0, 0.0));
-        centeringLittyShipPane.setCenter(littyShip);
+        encompassingPane.setAlignment(Ship, javafx.geometry.Pos.CENTER);
+        Ship.setFitHeight(165.0);
+        Ship.setFitWidth(180.0);
+        Ship.setPickOnBounds(true);
+        Ship.setPreserveRatio(true);
+        encompassingPane.setMargin(Ship, new Insets(0.0, 0.0, 20.0, 0.0));
+        centeringShipPane.setCenter(Ship);
 
         usAgainstEnemyDivisor.getChildren().add(centeringUserShipPane);
-        usAgainstEnemyDivisor.getChildren().add(centeringLittyShipPane);
+        usAgainstEnemyDivisor.getChildren().add(centeringShipPane);
         fightRunBox.getChildren().add(fightButton);
         fightRunBox.getChildren().add(continueButton);
         fightRunBox.getChildren().add(runButton);
@@ -498,7 +490,7 @@ public class ShipWarfareGUI extends Player {
                 if (logic.runFromShips(userAttacks) == false) {
                     report.setText(("Couldn't run away"));
                     try {
-                        winOrLose = destroyLittyShipsOrEscape(primaryStage);
+                        winOrLose = destroyShipsOrEscape(primaryStage);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -535,7 +527,7 @@ public class ShipWarfareGUI extends Player {
                 runButton.setVisible(false);
 
                 try {
-                    winOrLose = destroyLittyShipsOrEscape(primaryStage);
+                    winOrLose = destroyShipsOrEscape(primaryStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
