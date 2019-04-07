@@ -43,18 +43,20 @@ public class ShipWarfareText extends Player {
 
 
             } else if (response.equalsIgnoreCase("r")) {
-                userAttacks=false;
+                userAttacks = false;
                 boolean runSuccess = logic.runFromShips();
-                if(runSuccess==false) {
+                if (runSuccess == false) {
                     System.out.println("Couldn't run away!");
                     if (destroyPeasantShipsOrEscape())
                         break;
-                }
-                } else {
+                }else {
                     System.out.println("Phew! Got away safely");
                     delayForSeconds(2);
                     break;
                 }
+            }else{
+                System.out.println("Invalid response, please try again");
+            }
 
             }
 
@@ -169,8 +171,8 @@ public class ShipWarfareText extends Player {
                 setHP(getHP() - (1 + randomValue.nextInt(10)));
             }
             if (getHP() > 0) {
-                String response = displayQuery(userInput);
-                if (response.equalsIgnoreCase("r")) {
+                String userResponse = displayQuery(userInput);
+                if (userResponse.equalsIgnoreCase("r")) {
                     userAttacks=false;
                     if (logic.runFromShips() == false) {
                         System.out.println("Couldn't run away");
@@ -178,6 +180,9 @@ public class ShipWarfareText extends Player {
                         exitValue = 3;
                         break;
                     }
+                }
+                else if(userResponse.equalsIgnoreCase("f")){
+
                 }
             } else {
                 exitValue = 2;
@@ -199,11 +204,22 @@ public class ShipWarfareText extends Player {
             gameOver();
             return true;
         }
+        else if (exitValue == 3) {
+            System.out.printf("We made it out at %d%% ship status!\n", getHP());
+            delayForSeconds(2);
+            return true;
+        }
         return false;
 
 
     }
 
+    /**
+     * Ask the user to input either "f" or "r"
+     * @param userInput scanner object which is used to ask for user input
+     * @return user input which is the users response
+     * @throws Exception in case the delay afects this piece of code
+     */
     public String displayQuery(Scanner userInput) throws Exception {
         System.out.printf("EEK, our current ship status is %d%% \n", getHP());
         delayForSeconds(1);
@@ -214,6 +230,9 @@ public class ShipWarfareText extends Player {
         System.out.printf("Shall we continue to fight? Enter \"f\" to fight, and \"r\" to run (We have %d gun(s) left)\n", getGuns());
 
         String response = userInput.nextLine();
+        while(!(response.equalsIgnoreCase("f") || response.equalsIgnoreCase("r")))
+            System.out.println("Invalid response, try again");
+            response=userInput.nextLine();
         return response;
     }
 
