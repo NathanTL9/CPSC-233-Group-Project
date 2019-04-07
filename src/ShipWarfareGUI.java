@@ -487,7 +487,7 @@ public class ShipWarfareGUI extends Player {
                 title.setText("Ayy captain we will try to run!");
                 counter++;
 
-                if (logic.runFromShips(userAttacks) == false) {
+                if (logic.runFromShips() == false) {
                     report.setText(("Couldn't run away"));
                     try {
                         winOrLose = destroyShipsOrEscape(primaryStage);

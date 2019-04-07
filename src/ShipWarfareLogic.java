@@ -44,8 +44,7 @@ public class ShipWarfareLogic extends Player {
      *
      * @return true if the user is allowed to run, false if not, the "default" is false
      */
-    public boolean runFromShips(boolean userAttacks) {
-        userAttacks = false;
+    public boolean runFromShips() {
         Random randomValue = new Random();
         int runSuccessChance = randomValue.nextInt(10) + 1;
         if (runSuccessChance == 2) {
