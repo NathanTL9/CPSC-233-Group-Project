@@ -18,25 +18,25 @@ public class FileSaving extends Player implements Serializable {
 
         try {
             InputStream in = new FileInputStream(new File("src/saves/playerSave.txt"));
-            ObjectInputStream inObject = new ObjectInputStream(in);
-            Player player = (Player) inObject.readObject();
-            in.close();
-            inObject.close();
-            return player;
+            return getPlayer(in);
         }
         catch (Exception e) {
             try {
                 InputStream in = new FileInputStream(new File("saves/playerSave.txt"));
-                ObjectInputStream inObject = new ObjectInputStream(in);
-                Player player = (Player) inObject.readObject();
-                in.close();
-                inObject.close();
-                return player;
+                return getPlayer(in);
             }
             catch(Exception e2){
                 return null;
             }
         }
+    }
+
+    private Player getPlayer(InputStream in) throws IOException, ClassNotFoundException {
+        ObjectInputStream inObject = new ObjectInputStream(in);
+        Player player = (Player) inObject.readObject();
+        in.close();
+        inObject.close();
+        return player;
     }
 
     /**

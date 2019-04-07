@@ -74,45 +74,21 @@ public class TaipanShopLogic extends Player {
      *
      * @return shipStatus -- a representation of their ship's health in words.
      */
-    public String shipStatusString() {
+    public String shipStatusString(){
         String shipStatus;
-        switch (getHP() / 10) {
-            case 10:
-                shipStatus = "Mint Condition";
-                break;
-            case 9:
-                shipStatus = "Near Perfect";
-                break;
-            case 8:
-                shipStatus = "Great";
-                break;
-            case 7:
-                shipStatus = "Good";
-                break;
-            case 6:
-                shipStatus = "Acceptable";
-                break;
-            case 5:
-                shipStatus = "Tolerable";
-                break;
-            case 4:
-                shipStatus = "Needs Repair";
-                break;
-            case 3:
-                shipStatus = "Damaged";
-                break;
-            case 2:
-                shipStatus = "Indangered";
-                break;
-            case 1:
-                shipStatus = "Near Sinking";
-                break;
-            case 0:
-                shipStatus = "Sinking";
-                break;
-            default:
-                shipStatus = "Invincible";
-                break;
+        switch(getHP()/10){
+            case 10: shipStatus = "Mint Condition"; break;
+            case 9: shipStatus = "Near Perfect"; break;
+            case 8: shipStatus = "Great"; break;
+            case 7: shipStatus = "Good"; break;
+            case 6: shipStatus = "Acceptable"; break;
+            case 5: shipStatus = "Tolerable"; break;
+            case 4: shipStatus = "Needs Repair"; break;
+            case 3: shipStatus = "Damaged"; break;
+            case 2: shipStatus = "Indangered"; break;
+            case 1: shipStatus = "Near Sinking"; break;
+            case 0: shipStatus = "Sinking"; break;
+            default: shipStatus = "Invincible"; break;
         }
         return shipStatus;
     }
@@ -122,35 +98,20 @@ public class TaipanShopLogic extends Player {
      *
      * @return location -- the user's location as a string; the actual name of the location.
      */
-    public String getStringLocation() {
+    public String getStringLocation(){
         String location;
-        switch (getLocation()) {
-            case 1:
-                location = "Hong Kong";
-                break;
-            case 2:
-                location = "Shanghai";
-                break;
-            case 3:
-                location = "Nagasaki";
-                break;
-            case 4:
-                location = "Saigon";
-                break;
-            case 5:
-                location = "Manila";
-                break;
-            case 6:
-                location = "Singapore";
-                break;
-            case 7:
-                location = "Batavia";
-                break;
-            default:
-                location = "Error";
-                break;
+        switch(getLocation()){
+            case 1: location = "Hong Kong"; break;
+            case 2: location = "Shanghai"; break;
+            case 3: location = "Nagasaki"; break;
+            case 4: location = "Saigon"; break;
+            case 5: location = "Manila"; break;
+            case 6: location = "Singapore"; break;
+            case 7: location = "Batavia"; break;
+            default: location = "Error"; break;
         }
         return location;
     }
+
 
 }

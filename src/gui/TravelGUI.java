@@ -1,6 +1,7 @@
-package gui; /**
+package gui;
+
+/**
  * TravelGUI is the class in which takes the player from location to location
- *
  * Author: Harkamal Randhawa
  */
 import javafx.geometry.Pos;
@@ -36,10 +37,8 @@ public class TravelGUI extends Player {
     private TextField numberInput = new TextField();
 
     private Boolean peasantShipScene = false;
-    private Boolean littyShipScene = false;
     private Boolean shopScene = false;
     private Boolean stormScene = false;
-    private Boolean sceneContinue = false;
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
@@ -126,25 +125,24 @@ public class TravelGUI extends Player {
                         //Makes sure you can't travel to your own location.
                         if (response != getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
                             hasTraveled = seaAtlas(response);
-                            randomEventSea(response,stage);
+                            randomEventSea(response);
                             setBank((int) (getBank() * 1.01));
                             setDebt((int) (getDebt() * 1.01));
                             setIsPriceChanged(2);
-                            //shopScene = false;
-                            //stormScene = false;
+                            stormScene = false;
 
                         } else{
                             if(response == getLocation()){
-                                textOut.setText("    " + "You're already here " + getName() + "\n");
+                                textOut.setText("\tYou're already here " + getName() + "\n");
                             }
                             else{
-                                textOut.setText("    " + getName() + "; Sorry but could you say that again?");
+                                textOut.setText("\t" + getName() + "; Sorry but could you say that again?");
                             }
 
-                            textOut.setText(textOut.getText() + "\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?");
+                            textOut.setText(textOut.getText() + "\n\n\t\t1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n\t\t5) Manila, 6) Singapore, or 7) Batavia?");
                         }
                     } catch (Exception e) {
-                        textOut.setText("    " + "Sorry, " + getName() + " could you say that again?");
+                        textOut.setText("\tSorry, " + getName() + " could you say that again?");
                     }
                     if (hasTraveled) {
                         continueButton.setVisible(true);
@@ -170,7 +168,7 @@ public class TravelGUI extends Player {
         root.getStylesheets().add("styleguide.css");
         //Updates the stage for the first-time you read it
         shop.updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
-        textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
+        textOut.setText("\tTaipan, do you wish to go to:\n\n\t\t1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n\t\t5) Manila, 6) Singapore, or 7) Batavia?\n\n\tAfter typing the number you want to go to press 'Enter' or 'Z'");
         stage.setTitle("Travel");
         stage.setResizable(false);
         stage.setScene(root);
@@ -186,35 +184,35 @@ public class TravelGUI extends Player {
     private Boolean seaAtlas(int locationOfTravel) {
         switch (locationOfTravel) {
             case 1:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Hong Kong");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Hong Kong");
                 setLocation(1);
                 return true;
             case 2:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Shanghai");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Shanghai");
                 setLocation(2);
                 return true;
             case 3:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Nagasaki");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Nagasaki");
                 setLocation(3);
                 return true;
             case 4:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Saigon");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Saigon");
                 setLocation(4);
                 return true;
             case 5:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Manila");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Manila");
                 setLocation(5);
                 return true;
             case 6:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Singapore");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Singapore");
                 setLocation(6);
                 return true;
             case 7:
-                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n    " + "Arriving at Batavia");
+                if(!peasantShipScene && !stormScene) textOut.setText( textOut.getText() + "\n\tArriving at Batavia");
                 setLocation(7);
                 return true;
             default:
-                textOut.setText("    " + "Sorry but could you say that again " + getName() + "?");
+                textOut.setText("\tSorry but could you say that again " + getName() + "?");
                 return false;
         }
     }
@@ -225,7 +223,7 @@ public class TravelGUI extends Player {
      * @param locationOfTravel is used to see where the player is going to travel, just in case their location is changed
      *                         by a typhoon.
      **/
-    private void randomEventSea(int locationOfTravel, Stage stage) {
+    private void randomEventSea(int locationOfTravel) {
         Random rand = new Random();
         int randGenNum = rand.nextInt(3) + 1;
         if (randGenNum == 1) {
@@ -233,7 +231,7 @@ public class TravelGUI extends Player {
             continueButton.setDefaultButton(true);
             quitButton.setVisible(false);
             numberInput.setVisible(false);
-            textOut.setText("    We see a ship on the horizon " + getName() + "; Prepare for combat!");
+            textOut.setText("\tWe see a ship on the horizon " + getName() + "; Prepare for combat!");
             peasantShipScene = true;
         }else if (randGenNum == 2) {
             disaster(locationOfTravel);
@@ -250,66 +248,22 @@ public class TravelGUI extends Player {
      **/
     private void disaster(int locationOfTravel) {
         //Tells player that there is a storm approaching.
-        textOut.setText("    " + "Storm " + getName() + "! ");
+        textOut.setText("\tStorm " + getName() + "! ");
         Random rand = new Random();
         int randGenNum = rand.nextInt(5) + 1;
 
         //If the player lands within this range, nothing happens to them
         //Else they randomly get thrown into a location they weren't planning on going to(Anything but location of Travel).
         if (randGenNum <= 2) {
-            textOut.setText(textOut.getText() + "\n    " + "We got through the storm " + getName() + "!");
+            textOut.setText(textOut.getText() + "\n\tWe got through the storm " + getName() + "!");
         }else {
             while (randGenNum == locationOfTravel) {
                 randGenNum = rand.nextInt(7) + 1;
                 if (randGenNum != locationOfTravel) {
-                    textOut.setText(textOut.getText() + "\n    " + "We've been blown off course!");
+                    textOut.setText(textOut.getText() + "\n\tWe've been blown off course!");
                     seaAtlas(randGenNum);
                 }
             }
         }
-    }
-
-    /**
-     * converts the user's location (an integer) to a String, and returns it.
-     *
-     * @return location -- the user's location as a string; the actual name of the location.
-     */
-    public String getStringLocation(){
-        String location;
-        switch(getLocation()){
-            case 1: location = "Hong Kong"; break;
-            case 2: location = "Shanghai"; break;
-            case 3: location = "Nagasaki"; break;
-            case 4: location = "Saigon"; break;
-            case 5: location = "Manila"; break;
-            case 6: location = "Singapore"; break;
-            case 7: location = "Batavia"; break;
-            default: location = "Error"; break;
-        }
-        return location;
-    }
-
-    /**
-     * returns the user's condition based upon their current HP.
-     *
-     * @return shipStatus -- a representation of their ship's health in words.
-     */
-    public String shipStatusString(){
-        String shipStatus;
-        switch(getHP()/10){
-            case 10: shipStatus = "Mint Condition"; break;
-            case 9: shipStatus = "Near Perfect"; break;
-            case 8: shipStatus = "Great"; break;
-            case 7: shipStatus = "Good"; break;
-            case 6: shipStatus = "Acceptable"; break;
-            case 5: shipStatus = "Tolerable"; break;
-            case 4: shipStatus = "Needs Repair"; break;
-            case 3: shipStatus = "Damaged"; break;
-            case 2: shipStatus = "Indangered"; break;
-            case 1: shipStatus = "Near Sinking"; break;
-            case 0: shipStatus = "Sinking"; break;
-            default: shipStatus = "Invincible"; break;
-        }
-        return shipStatus;
     }
 }

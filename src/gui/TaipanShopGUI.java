@@ -704,7 +704,7 @@ public class TaipanShopGUI extends Player {
         textOut.setContentDisplay(javafx.scene.control.ContentDisplay.TOP);
         textOut.setPrefHeight(163.0);
         textOut.setPrefWidth(583.0);
-        //defaultTextOut();
+        defaultTextOut();
         textOut.setFont(size14);
 
         anchorPane.getChildren().addAll(dialogueRectangle, inventoryRectangle, warehouseRectangle);

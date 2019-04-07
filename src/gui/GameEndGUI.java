@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import logic.Player;
+import logic.GameEndLogic;
 
 /**
 * 2019-03-10
@@ -72,28 +73,15 @@ public class GameEndGUI extends Player {
         netWorth.setFont(new Font(22.0));
         borderPane.setCenter(vBox);
 
+        //Calculating the netWorth of the Player
+        GameEndLogic gameEndLogic = new GameEndLogic();
+        netWorthInt = gameEndLogic.getNetWorth();
 
         //Adding the labels to the character's stats to the VBox which will show up on the screen
         vBox.getChildren().add(firmName);
         vBox.getChildren().add(gunsHeld);
         vBox.getChildren().add(netWorth);
-
-        /**
-         * If health is below or equal to 0 then the game will either show the gameOver screen or the win screen
-         * */
-        if (getHP() <= 0) {
-            title.setText("Game Over!");
-        } else {
-            title.setText("Congratulations!");
-        }
-
-        /**
-         * Calculates the networth of the player by the end of the game
-         * */
-        netWorthInt = getMoney() + (getOpiumHeld() * 16000) + (getSilkHeld() * 160) + (getArmsHeld() * 160) + (getGeneralHeld() * 8);
-        netWorthInt += (getwOpium() * 16000) + (getwSilk() * 160) + (getwArms() * 160) + (getwGeneral() * 8);
-        netWorthInt -= getDebt();
-
+        title.setText(gameEndLogic.endGameText());
 
         //Updating the endgame stats of the player
         firmName.setText("Firm Name: " + getName());

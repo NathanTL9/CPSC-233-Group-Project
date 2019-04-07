@@ -2,24 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/logic/BankLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/GameEndLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/MainLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/RandomEventLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/StartLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/TravelLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logic/WarehouseLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/GameEndText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/MainText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/RandomEventText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/StartText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/BankGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BankGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GameEndGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GameEndGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/TaipanShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TaipanShopGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/TravelGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TravelGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logic/FileSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/FileSaving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text/ShipWarfareText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/ShipWarfareText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text/TaipanShopText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/TaipanShopText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/GameEndLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/GameEndLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/TaipanShopLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/TaipanShopLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saves/playerSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/saves/playerSave.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/BankText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/BankText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/GameEndText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/GameEndText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/StartText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/StartText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/TravelText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/TravelText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/text/WarehouseText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/WarehouseText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text/loanSharkText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/LoanSharkText.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +23,621 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text/GameEndText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/GameEndLogic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/TravelGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="77" selection-start-line="3" selection-start-column="77" selection-end-line="3" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement />
+              <nodes>
+                <node x="0.0" y="153.0">images</node>
+                <node x="152.0" y="227.0">tests</node>
+                <node x="0.0" y="227.0">saves</node>
+                <node x="118.0" y="79.0">gui</node>
+                <node x="0.0" y="79.0">text</node>
+                <node x="55.0" y="0.0">logic</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="gui" target="logic">
+                  <point x="0.0" y="-14.5" />
+                  <point x="166.0" y="54.0" />
+                  <point x="133.75" y="54.0" />
+                  <point x="26.25" y="14.5" />
+                </edge>
+                <edge source="text" target="logic">
+                  <point x="0.0" y="-14.5" />
+                  <point x="49.0" y="54.0" />
+                  <point x="81.25" y="54.0" />
+                  <point x="-26.25" y="14.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="-199.5" y="58.0" />
+              <SelectedNodes />
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+                <Category>Properties</Category>
+                <Category>Inner Classes</Category>
+              </Categories>
+              <SCOPE>Project Files</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="uml://JAVA/logic.TravelLogic">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>logic.TravelLogic</OriginalElement>
+              <nodes>
+                <node x="681.4999999999999" y="528.0">logic.WarehouseLogic</node>
+                <node x="546.4999999999999" y="528.0">logic.BankLogic</node>
+                <node x="2335.386257890782" y="815.0">gui.WarehouseGUI</node>
+                <node x="1660.2580345340673" y="528.0">logic.GameEndLogic</node>
+                <node x="10.5" y="528.0">text.BankText</node>
+                <node x="865.0616964872731" y="815.0">text.TravelText</node>
+                <node x="1286.5616964872731" y="617.0">logic.ShipWarfareLogic</node>
+                <node x="1933.5869819024883" y="716.0">gui.RandomEventGUI</node>
+                <node x="838.4999999999999" y="528.0">logic.TravelLogic</node>
+                <node x="1759.4870648638364" y="716.0">gui.ShipWarfareGUI</node>
+                <node x="2737.0404135338345" y="1113.0">javafx.application.Application</node>
+                <node x="1855.5343503235408" y="528.0">text.MainText</node>
+                <node x="1995.4653822055136" y="815.0">gui.TravelGUI</node>
+                <node x="272.5" y="528.0">logic.MainLogic</node>
+                <node x="2582.9915210486765" y="815.0">logic.FileSaving</node>
+                <node x="348.4463118718886" y="1024.0">text.TaipanShopText</node>
+                <node x="1497.4630047134608" y="79.0">logic.Player</node>
+                <node x="2170.8336263118345" y="528.0">text.StartText</node>
+                <node x="1062.538736288453" y="528.0">text.RandomEventText</node>
+                <node x="127.5" y="528.0">text.LoanSharkText</node>
+                <node x="1449.6143280662207" y="528.0">text.GameEndText</node>
+                <node x="1949.6336263118346" y="1024.0">gui.TaipanShopGUI</node>
+                <node x="397.5" y="528.0">text.WarehouseText</node>
+                <node x="1027.4486407834174" y="815.0">logic.TaipanShopLogic</node>
+                <node x="1710.1080345340674" y="617.0">gui.GameEndGUI</node>
+                <node x="2408.886257890782" y="528.0">logic.RandomEventLogic</node>
+                <node x="1227.538736288453" y="528.0">tests.PlayerTest</node>
+                <node x="2606.0404135338345" y="1113.0">gui.StartGUI</node>
+                <node x="720.4723249939435" y="716.0">text.ShipWarfareText</node>
+                <node x="2093.024032282383" y="0.0">java.io.Serializable</node>
+                <node x="2125.705983709273" y="815.0">gui.BankGUI</node>
+                <node x="2628.9915210486765" y="1212.0">gui.MainGUI</node>
+                <node x="1496.3150520779268" y="815.0">gui.LoanSharkGUI</node>
+                <node x="2286.886257890782" y="528.0">logic.StartLogic</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="text.TaipanShopText" target="text.BankText">
+                  <point x="-51.15384615384619" y="-14.5" />
+                  <point x="363.7924657180424" y="994.0" />
+                  <point x="61.40309422471273" y="994.0" />
+                  <point x="61.40309422471273" y="597.0" />
+                  <point x="82.5" y="597.0" />
+                  <point x="24.0" y="14.5" />
+                </edge>
+                <edge source="text.TaipanShopText" target="text.TravelText">
+                  <point x="20.461538461538566" y="-14.5" />
+                  <point x="435.4078503334272" y="964.0" />
+                  <point x="890.5616964872731" y="964.0" />
+                  <point x="-25.5" y="14.5" />
+                </edge>
+                <edge source="javafx.application.Application" target="javafx.application.Application">
+                  <point x="-36.33333333333326" y="14.5" />
+                  <point x="2755.207080200501" y="1162.0" />
+                  <point x="2717.0404135338345" y="1162.0" />
+                  <point x="2717.0404135338345" y="1127.5" />
+                  <point x="-54.5" y="-0.0" />
+                </edge>
+                <edge source="gui.ShipWarfareGUI" target="gui.TaipanShopGUI">
+                  <point x="-49.125" y="14.5" />
+                  <point x="1775.8620648638364" y="795.0" />
+                  <point x="1799.5142809686947" y="795.0" />
+                  <point x="1799.5142809686947" y="904.0" />
+                  <point x="1995.1336263118346" y="904.0" />
+                  <point x="-19.5" y="-14.5" />
+                </edge>
+                <edge source="text.TravelText" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="916.0616964872731" y="775.0" />
+                  <point x="957.9999999999999" y="775.0" />
+                  <point x="957.9999999999999" y="328.0" />
+                  <point x="1517.9893205029346" y="328.0" />
+                  <point x="-19.473684210526244" y="14.5" />
+                </edge>
+                <edge source="gui.MainGUI" target="logic.Player">
+                  <point x="-37.59999999999991" y="-14.5" />
+                  <point x="2638.3915210486766" y="1192.0" />
+                  <point x="0.0" y="1192.0" />
+                  <point x="0.0" y="138.0" />
+                  <point x="1497.9893205029346" y="138.0" />
+                  <point x="-39.473684210526244" y="14.5" />
+                </edge>
+                <edge source="logic.ShipWarfareLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="1357.0616964872731" y="597.0" />
+                  <point x="1351.038736288453" y="597.0" />
+                  <point x="1351.038736288453" y="458.0" />
+                  <point x="1531.6735310292504" y="458.0" />
+                  <point x="-5.789473684210407" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="logic.Player">
+                  <point x="-54.16666666666663" y="-14.5" />
+                  <point x="1960.4669596451681" y="984.0" />
+                  <point x="1438.0616964872731" y="984.0" />
+                  <point x="1438.0616964872731" y="478.0" />
+                  <point x="1533.778794187145" y="478.0" />
+                  <point x="-3.6842105263158373" y="14.5" />
+                </edge>
+                <edge source="text.WarehouseText" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="462.0" y="248.0" />
+                  <point x="1509.5682678713556" y="248.0" />
+                  <point x="-27.894736842105203" y="14.5" />
+                </edge>
+                <edge source="gui.RandomEventGUI" target="gui.TaipanShopGUI">
+                  <point x="-17.625" y="14.5" />
+                  <point x="1986.4619819024883" y="795.0" />
+                  <point x="1984.3336263118345" y="795.0" />
+                  <point x="1984.3336263118345" y="874.0" />
+                  <point x="2008.1336263118346" y="874.0" />
+                  <point x="-6.5" y="-14.5" />
+                </edge>
+                <edge source="text.ShipWarfareText" target="logic.Player">
+                  <point x="-53.59999999999991" y="-14.5" />
+                  <point x="733.8723249939436" y="696.0" />
+                  <point x="659.9999999999999" y="696.0" />
+                  <point x="659.9999999999999" y="278.0" />
+                  <point x="1512.7261626081977" y="278.0" />
+                  <point x="-24.736842105263122" y="14.5" />
+                </edge>
+                <edge source="gui.TravelGUI" target="gui.TaipanShopGUI">
+                  <point x="39.59999999999991" y="14.5" />
+                  <point x="2084.5653822055137" y="894.0" />
+                  <point x="2029.8002929785011" y="894.0" />
+                  <point x="15.166666666666629" y="-14.5" />
+                </edge>
+                <edge source="gui.StartGUI" target="logic.Player">
+                  <point x="-13.0" y="-14.5" />
+                  <point x="2638.5404135338345" y="1073.0" />
+                  <point x="2572.4915210486765" y="1073.0" />
+                  <point x="2572.4915210486765" y="168.0" />
+                  <point x="1572.7261626081977" y="168.0" />
+                  <point x="35.26315789473688" y="14.5" />
+                </edge>
+                <edge source="text.TaipanShopText" target="text.LoanSharkText">
+                  <point x="-20.461538461538566" y="-14.5" />
+                  <point x="394.48477341035004" y="964.0" />
+                  <point x="185.65309422471273" y="964.0" />
+                  <point x="185.65309422471273" y="597.0" />
+                  <point x="221.25" y="597.0" />
+                  <point x="31.25" y="14.5" />
+                </edge>
+                <edge source="gui.MainGUI" target="gui.StartGUI">
+                  <point x="0.0" y="-14.5" />
+                  <point x="2675.9915210486765" y="1192.0" />
+                  <point x="2674.2904135338345" y="1192.0" />
+                  <point x="22.75" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="gui.LoanSharkGUI">
+                  <point x="-49.83333333333326" y="-14.5" />
+                  <point x="1964.8002929785014" y="974.0" />
+                  <point x="1511.5650520779268" y="974.0" />
+                  <point x="-45.75" y="14.5" />
+                </edge>
+                <edge source="gui.BankGUI" target="gui.TaipanShopGUI">
+                  <point x="11.625" y="14.5" />
+                  <point x="2183.830983709273" y="924.0" />
+                  <point x="2042.8002929785011" y="924.0" />
+                  <point x="28.16666666666663" y="-14.5" />
+                </edge>
+                <edge source="logic.TravelLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="892.9999999999999" y="318.0" />
+                  <point x="1516.936688923987" y="318.0" />
+                  <point x="-20.526315789473756" y="14.5" />
+                </edge>
+                <edge source="logic.MainLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="324.5" y="218.0" />
+                  <point x="1506.4103731345135" y="218.0" />
+                  <point x="-31.052631578947285" y="14.5" />
+                </edge>
+                <edge source="logic.WarehouseLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="749.4999999999999" y="298.0" />
+                  <point x="1514.8314257660925" y="298.0" />
+                  <point x="-22.631578947368325" y="14.5" />
+                </edge>
+                <edge source="gui.RandomEventGUI" target="logic.Player">
+                  <point x="47.0" y="-14.5" />
+                  <point x="2051.0869819024883" y="696.0" />
+                  <point x="2037.9505012531326" y="696.0" />
+                  <point x="2037.9505012531326" y="328.0" />
+                  <point x="1555.8840573450398" y="328.0" />
+                  <point x="18.42105263157896" y="14.5" />
+                </edge>
+                <edge source="gui.GameEndGUI" target="logic.Player">
+                  <point x="23.600000000000023" y="-14.5" />
+                  <point x="1792.7080345340673" y="587.0" />
+                  <point x="1832.9817187445938" y="587.0" />
+                  <point x="1832.9817187445938" y="428.0" />
+                  <point x="1545.357741555566" y="428.0" />
+                  <point x="7.894736842105203" y="14.5" />
+                </edge>
+                <edge source="gui.TravelGUI" target="gui.RandomEventGUI">
+                  <point x="-14.142857142857167" y="-14.5" />
+                  <point x="2030.8225250626565" y="795.0" />
+                  <point x="2021.7119819024883" y="795.0" />
+                  <point x="17.625" y="14.5" />
+                </edge>
+                <edge source="logic.FileSaving" target="java.io.Serializable">
+                  <point x="33.66666666666674" y="-14.5" />
+                  <point x="2667.158187715343" y="795.0" />
+                  <point x="2716.5046789434136" y="795.0" />
+                  <point x="2716.5046789434136" y="54.0" />
+                  <point x="2172.524032282383" y="54.0" />
+                  <point x="26.5" y="14.5" />
+                </edge>
+                <edge source="gui.StartGUI" target="gui.TaipanShopGUI">
+                  <point x="-39.0" y="-14.5" />
+                  <point x="2612.5404135338345" y="1093.0" />
+                  <point x="1982.1336263118346" y="1093.0" />
+                  <point x="-32.5" y="14.5" />
+                </edge>
+                <edge source="gui.BankGUI" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="2172.205983709273" y="795.0" />
+                  <point x="2160.3336263118345" y="795.0" />
+                  <point x="2160.3336263118345" y="278.0" />
+                  <point x="1561.1472152397766" y="278.0" />
+                  <point x="23.684210526315837" y="14.5" />
+                </edge>
+                <edge source="gui.LoanSharkGUI" target="gui.TaipanShopGUI">
+                  <point x="15.25" y="14.5" />
+                  <point x="1572.5650520779268" y="954.0" />
+                  <point x="1973.4669596451681" y="954.0" />
+                  <point x="-41.16666666666663" y="-14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="gui.BankGUI">
+                  <point x="23.83333333333337" y="-14.5" />
+                  <point x="2038.4669596451681" y="914.0" />
+                  <point x="2160.580983709273" y="914.0" />
+                  <point x="-11.625" y="14.5" />
+                </edge>
+                <edge source="text.GameEndText" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="1510.1143280662207" y="508.0" />
+                  <point x="1536.936688923987" y="508.0" />
+                  <point x="-0.526315789473756" y="14.5" />
+                </edge>
+                <edge source="text.TaipanShopText" target="logic.Player">
+                  <point x="-40.923076923076906" y="-14.5" />
+                  <point x="374.0232349488117" y="984.0" />
+                  <point x="117.0" y="984.0" />
+                  <point x="117.0" y="178.0" />
+                  <point x="1502.199846818724" y="178.0" />
+                  <point x="-35.26315789473688" y="14.5" />
+                </edge>
+                <edge source="gui.ShipWarfareGUI" target="gui.GameEndGUI">
+                  <point x="-18.714285714285666" y="-14.5" />
+                  <point x="1806.2727791495508" y="666.0" />
+                  <point x="1783.8580345340674" y="666.0" />
+                  <point x="14.75" y="14.5" />
+                </edge>
+                <edge source="logic.FileSaving" target="logic.Player">
+                  <point x="-33.66666666666674" y="-14.5" />
+                  <point x="2599.82485438201" y="795.0" />
+                  <point x="2610.859675705537" y="795.0" />
+                  <point x="2610.859675705537" y="158.0" />
+                  <point x="1573.7787941871452" y="158.0" />
+                  <point x="36.31578947368439" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="gui.GameEndGUI">
+                  <point x="-23.83333333333337" y="-14.5" />
+                  <point x="1990.8002929785011" y="914.0" />
+                  <point x="1745.8580345340674" y="914.0" />
+                  <point x="1745.8580345340674" y="696.0" />
+                  <point x="1754.3580345340674" y="696.0" />
+                  <point x="-14.75" y="14.5" />
+                </edge>
+                <edge source="logic.StartLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="2337.386257890782" y="218.0" />
+                  <point x="1567.4630047134608" y="218.0" />
+                  <point x="30.0" y="14.5" />
+                </edge>
+                <edge source="gui.WarehouseGUI" target="gui.TaipanShopGUI">
+                  <point x="15.75" y="14.5" />
+                  <point x="2414.136257890782" y="964.0" />
+                  <point x="2060.1336263118346" y="964.0" />
+                  <point x="45.5" y="-14.5" />
+                </edge>
+                <edge source="logic.TaipanShopLogic" target="logic.Player">
+                  <point x="46.66666666666674" y="-14.5" />
+                  <point x="1144.115307450084" y="795.0" />
+                  <point x="1217.038736288453" y="795.0" />
+                  <point x="1217.038736288453" y="418.0" />
+                  <point x="1527.4630047134608" y="418.0" />
+                  <point x="-10.0" y="14.5" />
+                </edge>
+                <edge source="gui.MainGUI" target="javafx.application.Application">
+                  <point x="37.599999999999994" y="-14.5" />
+                  <point x="2713.5915210486764" y="1192.0" />
+                  <point x="2827.873746867168" y="1192.0" />
+                  <point x="36.33333333333337" y="14.5" />
+                </edge>
+                <edge source="text.ShipWarfareText" target="logic.ShipWarfareLogic">
+                  <point x="53.59999999999991" y="-14.5" />
+                  <point x="841.0723249939434" y="696.0" />
+                  <point x="1339.4366964872731" y="696.0" />
+                  <point x="-17.625" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="logic.FileSaving">
+                  <point x="62.83333333333337" y="-14.5" />
+                  <point x="2077.466959645168" y="1004.0" />
+                  <point x="2620.8665210486765" y="1004.0" />
+                  <point x="-12.625" y="14.5" />
+                </edge>
+                <edge source="tests.PlayerTest" target="logic.Player">
+                  <point x="-25.5" y="-14.5" />
+                  <point x="1253.038736288453" y="428.0" />
+                  <point x="1528.515636292408" y="428.0" />
+                  <point x="-8.947368421052715" y="14.5" />
+                </edge>
+                <edge source="text.MainText" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="1904.0343503235408" y="388.0" />
+                  <point x="1549.5682678713556" y="388.0" />
+                  <point x="12.105263157894797" y="14.5" />
+                </edge>
+                <edge source="gui.LoanSharkGUI" target="logic.Player">
+                  <point x="-40.66666666666663" y="-14.5" />
+                  <point x="1516.6483854112603" y="795.0" />
+                  <point x="1439.1143280662207" y="795.0" />
+                  <point x="1439.1143280662207" y="488.0" />
+                  <point x="1534.8314257660925" y="488.0" />
+                  <point x="-2.6315789473683253" y="14.5" />
+                </edge>
+                <edge source="gui.ShipWarfareGUI" target="logic.ShipWarfareLogic">
+                  <point x="-37.42857142857139" y="-14.5" />
+                  <point x="1787.558493435265" y="676.0" />
+                  <point x="1409.9366964872731" y="676.0" />
+                  <point x="52.875" y="14.5" />
+                </edge>
+                <edge source="logic.GameEndLogic" target="logic.Player">
+                  <point x="32.0" y="-14.5" />
+                  <point x="1756.2580345340673" y="448.0" />
+                  <point x="1543.2524783976714" y="448.0" />
+                  <point x="5.789473684210634" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="gui.TravelGUI">
+                  <point x="-2.1666666666667425" y="-14.5" />
+                  <point x="2012.466959645168" y="864.0" />
+                  <point x="2005.3653822055135" y="864.0" />
+                  <point x="-39.599999999999994" y="14.5" />
+                </edge>
+                <edge source="gui.StartGUI" target="logic.FileSaving">
+                  <point x="0.0" y="-14.5" />
+                  <point x="2651.5404135338345" y="1093.0" />
+                  <point x="2653.2415210486765" y="1093.0" />
+                  <point x="2653.2415210486765" y="1004.0" />
+                  <point x="2646.1165210486765" y="1004.0" />
+                  <point x="12.625" y="14.5" />
+                </edge>
+                <edge source="text.TaipanShopText" target="logic.TaipanShopLogic">
+                  <point x="61.38461538461547" y="-14.5" />
+                  <point x="476.3309272565041" y="1004.0" />
+                  <point x="1079.9486407834174" y="1004.0" />
+                  <point x="-17.5" y="14.5" />
+                </edge>
+                <edge source="logic.RandomEventLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="2484.386257890782" y="198.0" />
+                  <point x="1569.5682678713556" y="198.0" />
+                  <point x="32.1052631578948" y="14.5" />
+                </edge>
+                <edge source="text.TaipanShopText" target="text.WarehouseText">
+                  <point x="0.0" y="-14.5" />
+                  <point x="414.9463118718886" y="944.0" />
+                  <point x="446.4223249939437" y="944.0" />
+                  <point x="446.4223249939437" y="597.0" />
+                  <point x="429.75" y="597.0" />
+                  <point x="-32.25" y="14.5" />
+                </edge>
+                <edge source="text.TravelText" target="text.ShipWarfareText">
+                  <point x="-20.40000000000009" y="-14.5" />
+                  <point x="895.661696487273" y="785.0" />
+                  <point x="820.9723249939435" y="785.0" />
+                  <point x="33.5" y="14.5" />
+                </edge>
+                <edge source="text.BankText" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="58.5" y="158.0" />
+                  <point x="1500.0945836608291" y="158.0" />
+                  <point x="-37.368421052631675" y="14.5" />
+                </edge>
+                <edge source="logic.BankLogic" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="597.9999999999999" y="268.0" />
+                  <point x="1511.6735310292502" y="268.0" />
+                  <point x="-25.789473684210634" y="14.5" />
+                </edge>
+                <edge source="text.StartText" target="logic.Player">
+                  <point x="-31.333333333333485" y="-14.5" />
+                  <point x="2186.500292978501" y="268.0" />
+                  <point x="1562.199846818724" y="268.0" />
+                  <point x="24.736842105263122" y="14.5" />
+                </edge>
+                <edge source="gui.WarehouseGUI" target="logic.Player">
+                  <point x="42.0" y="-14.5" />
+                  <point x="2440.386257890782" y="795.0" />
+                  <point x="2570.386257890782" y="795.0" />
+                  <point x="2570.386257890782" y="188.0" />
+                  <point x="1570.6208994503029" y="188.0" />
+                  <point x="33.15789473684208" y="14.5" />
+                </edge>
+                <edge source="gui.TravelGUI" target="gui.ShipWarfareGUI">
+                  <point x="-28.285714285714278" y="-14.5" />
+                  <point x="2016.6796679197994" y="775.0" />
+                  <point x="1874.1120648638364" y="775.0" />
+                  <point x="49.125" y="14.5" />
+                </edge>
+                <edge source="gui.ShipWarfareGUI" target="logic.Player">
+                  <point x="18.71428571428578" y="-14.5" />
+                  <point x="1843.7013505781222" y="696.0" />
+                  <point x="1845.0343503235408" y="696.0" />
+                  <point x="1845.0343503235408" y="408.0" />
+                  <point x="1547.4630047134608" y="408.0" />
+                  <point x="10.0" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="gui.WarehouseGUI">
+                  <point x="41.16666666666663" y="-14.5" />
+                  <point x="2055.800292978501" y="954.0" />
+                  <point x="2382.636257890782" y="954.0" />
+                  <point x="-15.75" y="14.5" />
+                </edge>
+                <edge source="gui.TravelGUI" target="logic.Player">
+                  <point x="42.428571428571445" y="-14.5" />
+                  <point x="2087.393953634085" y="795.0" />
+                  <point x="2133.9981661130146" y="795.0" />
+                  <point x="2133.9981661130146" y="298.0" />
+                  <point x="1559.0419520818818" y="298.0" />
+                  <point x="21.57894736842104" y="14.5" />
+                </edge>
+                <edge source="logic.Player" target="java.io.Serializable">
+                  <point x="0.0" y="-14.5" />
+                  <point x="1537.4630047134608" y="54.0" />
+                  <point x="2119.524032282383" y="54.0" />
+                  <point x="-26.5" y="14.5" />
+                </edge>
+                <edge source="gui.GameEndGUI" target="logic.GameEndLogic">
+                  <point x="-23.600000000000023" y="-14.5" />
+                  <point x="1745.5080345340673" y="597.0" />
+                  <point x="1756.2580345340673" y="597.0" />
+                  <point x="32.0" y="14.5" />
+                </edge>
+                <edge source="gui.TaipanShopGUI" target="logic.TaipanShopLogic">
+                  <point x="-62.83333333333326" y="-14.5" />
+                  <point x="1951.8002929785014" y="1004.0" />
+                  <point x="1114.9486407834174" y="1004.0" />
+                  <point x="17.5" y="14.5" />
+                </edge>
+                <edge source="text.RandomEventText" target="logic.Player">
+                  <point x="0.0" y="-14.5" />
+                  <point x="1134.538736288453" y="398.0" />
+                  <point x="1525.357741555566" y="398.0" />
+                  <point x="-12.105263157894797" y="14.5" />
+                </edge>
+                <edge source="text.LoanSharkText" target="logic.Player">
+                  <point x="-41.66666666666674" y="-14.5" />
+                  <point x="148.33333333333326" y="188.0" />
+                  <point x="1503.2524783976714" y="188.0" />
+                  <point x="-34.210526315789366" y="14.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.4564676616915422" x="1491.6076294277932" y="776.8233925662544" />
+              <SelectedNodes />
+              <Categories />
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/TaipanShopGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="75" column="39" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/GameEndGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="607">
+              <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#GameEndGUI#0;class#GameEndGUI#0" />
+                <element signature="docComment;method#initializeGameEndGUI#0;class#GameEndGUI#0" />
+                <element signature="docComment;method#start#0;class#GameEndGUI#0" />
+                <element signature="method#start#0;class#GameEndGUI#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text/TravelText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="692">
+              <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text/StartText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text/WarehouseText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3740">
+              <caret line="220" column="17" selection-start-line="220" selection-start-column="17" selection-end-line="220" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,6 +658,14 @@
       <find>printLn</find>
       <find>WarehouseText</find>
       <find>Sha</find>
+      <find>stormScene</find>
+      <find>textout</find>
+      <find>center</find>
+      <find>player.</find>
+      <find>price</find>
+      <find>where</find>
+      <find>getName</find>
+      <find>;</find>
     </findStrings>
     <replaceStrings>
       <replace>player</replace>
@@ -75,36 +693,37 @@
         <option value="$PROJECT_DIR$/src/TravelText.java" />
         <option value="$PROJECT_DIR$/src/TaipanShopText.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareText.java" />
-        <option value="$PROJECT_DIR$/src/text/TravelText.java" />
         <option value="$PROJECT_DIR$/src/tests/PlayerTest.java" />
-        <option value="$PROJECT_DIR$/src/gui/BankGUI.java" />
-        <option value="$PROJECT_DIR$/src/gui/GameEndGUI.java" />
-        <option value="$PROJECT_DIR$/src/gui/TravelGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/WarehouseGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/LoanSharkGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/RandomEventGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/StartGUI.java" />
-        <option value="$PROJECT_DIR$/src/gui/TaipanShopGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/ShipWarfareGUI.java" />
-        <option value="$PROJECT_DIR$/src/text/BankText.java" />
         <option value="$PROJECT_DIR$/src/text/loanSharkText.java" />
         <option value="$PROJECT_DIR$/src/gui/MainGUI.java" />
         <option value="$PROJECT_DIR$/src/text/TaipanShopText.java" />
         <option value="$PROJECT_DIR$/src/text/LoanSharkText.java" />
         <option value="$PROJECT_DIR$/src/logic/BankLogic.java" />
-        <option value="$PROJECT_DIR$/src/logic/GameEndLogic.java" />
-        <option value="$PROJECT_DIR$/src/logic/FileSaving.java" />
         <option value="$PROJECT_DIR$/src/logic/MainLogic.java" />
         <option value="$PROJECT_DIR$/src/logic/RandomEventLogic.java" />
         <option value="$PROJECT_DIR$/src/logic/StartLogic.java" />
         <option value="$PROJECT_DIR$/src/logic/TravelLogic.java" />
         <option value="$PROJECT_DIR$/src/logic/WarehouseLogic.java" />
-        <option value="$PROJECT_DIR$/src/text/WarehouseText.java" />
-        <option value="$PROJECT_DIR$/src/text/GameEndText.java" />
         <option value="$PROJECT_DIR$/src/text/MainText.java" />
         <option value="$PROJECT_DIR$/src/text/RandomEventText.java" />
         <option value="$PROJECT_DIR$/src/text/ShipWarfareText.java" />
+        <option value="$PROJECT_DIR$/src/gui/BankGUI.java" />
+        <option value="$PROJECT_DIR$/src/logic/TaipanShopLogic.java" />
+        <option value="$PROJECT_DIR$/src/logic/FileSaving.java" />
+        <option value="$PROJECT_DIR$/src/text/TravelText.java" />
+        <option value="$PROJECT_DIR$/src/text/WarehouseText.java" />
         <option value="$PROJECT_DIR$/src/text/StartText.java" />
+        <option value="$PROJECT_DIR$/src/text/BankText.java" />
+        <option value="$PROJECT_DIR$/src/text/GameEndText.java" />
+        <option value="$PROJECT_DIR$/src/logic/GameEndLogic.java" />
+        <option value="$PROJECT_DIR$/src/gui/GameEndGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/TaipanShopGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/TravelGUI.java" />
       </list>
     </option>
   </component>
@@ -177,8 +796,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554670042595" />
-    <property name="extract.method.default.visibility" value="private" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554676381347" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/junit-4.12.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Problems" />
@@ -339,12 +958,12 @@
       <option name="project" value="LOCAL" />
       <updated>1554669881880</updated>
     </task>
-    <task id="LOCAL-00006" summary="Created Player class">
-      <created>1550543764970</created>
+    <task id="LOCAL-00006" summary="Made every appropriate Text and Logic class">
+      <created>1554670728348</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1550543764971</updated>
+      <updated>1554670728348</updated>
     </task>
     <task id="LOCAL-00007" summary="Added some stuff for the Travel Class">
       <created>1550575512841</created>
@@ -647,11 +1266,11 @@
       <option name="project" value="LOCAL" />
       <updated>1553494120570</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13738000" />
+    <option name="totallyTimeSpent" value="19241000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,8 +1283,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12408313" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.15647922" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -687,7 +1307,7 @@
       <window_info anchor="bottom" id="Terminal" order="12" type="SLIDING" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" type="SLIDING" weight="0.18141097" />
-      <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
+      <window_info anchor="bottom" id="Duplicate detector" order="15" type="SLIDING" weight="0.08958567" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -698,40 +1318,6 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12408313" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32922733" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info active="true" anchor="bottom" x="22" y="418" width="1636" height="174" id="Run" order="2" sideWeight="0.49874055" type="SLIDING" visible="true" weight="0.19148937" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977604" />
-      <window_info anchor="bottom" id="Duplicates" order="4" weight="0.50391936" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49938875" weight="0.32922733" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32922733" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" visible="true" weight="0.18141097" />
-      <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -777,7 +1363,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="A lot of errors but easily fixable SHipwarfareGUI" />
     <MESSAGE value="Completed SHipWarfareGUI" />
     <MESSAGE value="Completed ShipWarfareGUI" />
     <MESSAGE value="Probably should upload" />
@@ -802,43 +1387,17 @@
     <MESSAGE value="Finished the merger with Dedupe and the main branch.&#10;Travel and Taipan shop shouldn't have any code sharing anymore" />
     <MESSAGE value="Fixed the severe lack of TaipanShopText" />
     <MESSAGE value="Moved everything into logic classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved everything into logic classes" />
+    <MESSAGE value="Made every appropriate Text and Logic class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made every appropriate Text and Logic class" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/styleguide.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/PlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/BankGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/WarehouseGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameEndGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -866,35 +1425,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/TaipanShopGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="244" column="16" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/ShipWarfareGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/TravelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="83" column="56" lean-forward="true" selection-start-line="83" selection-start-column="56" selection-end-line="83" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#shipStatusString#0;class#TravelGUI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/BankText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -929,13 +1463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/FileSaving.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-413">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/MainLogic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -943,17 +1470,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/GameEndLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/LoanSharkText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/MainText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/RandomEventText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/BankGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initializeBank#0;class#BankGUI#0" />
+            <element signature="e#3009#3010#0" expanded="true" />
+            <element signature="e#3078#3079#0" expanded="true" />
+            <element signature="e#3464#3465#0" expanded="true" />
+            <element signature="e#3533#3534#0" expanded="true" />
+            <element signature="method#deposits#0;class#BankGUI#0" />
+            <element signature="method#withdraw#0;class#BankGUI#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/BankLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="1" selection-start-line="2" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/FileSaving.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
@@ -982,13 +1554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/TaipanShopLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/TravelLogic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -996,45 +1561,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/WarehouseLogic.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/BankLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-start-line="2" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/GameEndText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/LoanSharkText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/MainText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/RandomEventText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,34 +1578,633 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/WarehouseLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/TaipanShopLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="97" column="6" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/text/StartText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/BankText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#BankText#0;class#BankText#0" />
+            <element signature="docComment;method#bank#0;class#BankText#0" />
+            <element signature="method#bank#0;class#BankText#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/GameEndText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/text/TaipanShopText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="834">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="36" selection-start-line="36" selection-end-line="38" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/TravelText.java">
+    <entry file="file://$PROJECT_DIR$/src/text/WarehouseText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="3740">
+          <caret line="220" column="17" selection-start-line="220" selection-start-column="17" selection-end-line="220" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/text/WarehouseText.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/GameEndGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="607">
+          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GameEndGUI#0;class#GameEndGUI#0" />
+            <element signature="docComment;method#initializeGameEndGUI#0;class#GameEndGUI#0" />
+            <element signature="docComment;method#start#0;class#GameEndGUI#0" />
+            <element signature="method#start#0;class#GameEndGUI#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/TravelText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TaipanShopGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="75" column="39" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/GameEndLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="77" selection-start-line="3" selection-start-column="77" selection-end-line="3" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="0.0" y="153.0">images</node>
+            <node x="152.0" y="227.0">tests</node>
+            <node x="0.0" y="227.0">saves</node>
+            <node x="118.0" y="79.0">gui</node>
+            <node x="0.0" y="79.0">text</node>
+            <node x="55.0" y="0.0">logic</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="gui" target="logic">
+              <point x="0.0" y="-14.5" />
+              <point x="166.0" y="54.0" />
+              <point x="133.75" y="54.0" />
+              <point x="26.25" y="14.5" />
+            </edge>
+            <edge source="text" target="logic">
+              <point x="0.0" y="-14.5" />
+              <point x="49.0" y="54.0" />
+              <point x="81.25" y="54.0" />
+              <point x="-26.25" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-199.5" y="58.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>Project Files</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/logic.TravelLogic">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>logic.TravelLogic</OriginalElement>
+          <nodes>
+            <node x="681.4999999999999" y="528.0">logic.WarehouseLogic</node>
+            <node x="546.4999999999999" y="528.0">logic.BankLogic</node>
+            <node x="2335.386257890782" y="815.0">gui.WarehouseGUI</node>
+            <node x="1660.2580345340673" y="528.0">logic.GameEndLogic</node>
+            <node x="10.5" y="528.0">text.BankText</node>
+            <node x="865.0616964872731" y="815.0">text.TravelText</node>
+            <node x="1286.5616964872731" y="617.0">logic.ShipWarfareLogic</node>
+            <node x="1933.5869819024883" y="716.0">gui.RandomEventGUI</node>
+            <node x="838.4999999999999" y="528.0">logic.TravelLogic</node>
+            <node x="1759.4870648638364" y="716.0">gui.ShipWarfareGUI</node>
+            <node x="2737.0404135338345" y="1113.0">javafx.application.Application</node>
+            <node x="1855.5343503235408" y="528.0">text.MainText</node>
+            <node x="1995.4653822055136" y="815.0">gui.TravelGUI</node>
+            <node x="272.5" y="528.0">logic.MainLogic</node>
+            <node x="2582.9915210486765" y="815.0">logic.FileSaving</node>
+            <node x="348.4463118718886" y="1024.0">text.TaipanShopText</node>
+            <node x="1497.4630047134608" y="79.0">logic.Player</node>
+            <node x="2170.8336263118345" y="528.0">text.StartText</node>
+            <node x="1062.538736288453" y="528.0">text.RandomEventText</node>
+            <node x="127.5" y="528.0">text.LoanSharkText</node>
+            <node x="1449.6143280662207" y="528.0">text.GameEndText</node>
+            <node x="1949.6336263118346" y="1024.0">gui.TaipanShopGUI</node>
+            <node x="397.5" y="528.0">text.WarehouseText</node>
+            <node x="1027.4486407834174" y="815.0">logic.TaipanShopLogic</node>
+            <node x="1710.1080345340674" y="617.0">gui.GameEndGUI</node>
+            <node x="2408.886257890782" y="528.0">logic.RandomEventLogic</node>
+            <node x="1227.538736288453" y="528.0">tests.PlayerTest</node>
+            <node x="2606.0404135338345" y="1113.0">gui.StartGUI</node>
+            <node x="720.4723249939435" y="716.0">text.ShipWarfareText</node>
+            <node x="2093.024032282383" y="0.0">java.io.Serializable</node>
+            <node x="2125.705983709273" y="815.0">gui.BankGUI</node>
+            <node x="2628.9915210486765" y="1212.0">gui.MainGUI</node>
+            <node x="1496.3150520779268" y="815.0">gui.LoanSharkGUI</node>
+            <node x="2286.886257890782" y="528.0">logic.StartLogic</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="text.TaipanShopText" target="text.BankText">
+              <point x="-51.15384615384619" y="-14.5" />
+              <point x="363.7924657180424" y="994.0" />
+              <point x="61.40309422471273" y="994.0" />
+              <point x="61.40309422471273" y="597.0" />
+              <point x="82.5" y="597.0" />
+              <point x="24.0" y="14.5" />
+            </edge>
+            <edge source="text.TaipanShopText" target="text.TravelText">
+              <point x="20.461538461538566" y="-14.5" />
+              <point x="435.4078503334272" y="964.0" />
+              <point x="890.5616964872731" y="964.0" />
+              <point x="-25.5" y="14.5" />
+            </edge>
+            <edge source="javafx.application.Application" target="javafx.application.Application">
+              <point x="-36.33333333333326" y="14.5" />
+              <point x="2755.207080200501" y="1162.0" />
+              <point x="2717.0404135338345" y="1162.0" />
+              <point x="2717.0404135338345" y="1127.5" />
+              <point x="-54.5" y="-0.0" />
+            </edge>
+            <edge source="gui.ShipWarfareGUI" target="gui.TaipanShopGUI">
+              <point x="-49.125" y="14.5" />
+              <point x="1775.8620648638364" y="795.0" />
+              <point x="1799.5142809686947" y="795.0" />
+              <point x="1799.5142809686947" y="904.0" />
+              <point x="1995.1336263118346" y="904.0" />
+              <point x="-19.5" y="-14.5" />
+            </edge>
+            <edge source="text.TravelText" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="916.0616964872731" y="775.0" />
+              <point x="957.9999999999999" y="775.0" />
+              <point x="957.9999999999999" y="328.0" />
+              <point x="1517.9893205029346" y="328.0" />
+              <point x="-19.473684210526244" y="14.5" />
+            </edge>
+            <edge source="gui.MainGUI" target="logic.Player">
+              <point x="-37.59999999999991" y="-14.5" />
+              <point x="2638.3915210486766" y="1192.0" />
+              <point x="0.0" y="1192.0" />
+              <point x="0.0" y="138.0" />
+              <point x="1497.9893205029346" y="138.0" />
+              <point x="-39.473684210526244" y="14.5" />
+            </edge>
+            <edge source="logic.ShipWarfareLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="1357.0616964872731" y="597.0" />
+              <point x="1351.038736288453" y="597.0" />
+              <point x="1351.038736288453" y="458.0" />
+              <point x="1531.6735310292504" y="458.0" />
+              <point x="-5.789473684210407" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="logic.Player">
+              <point x="-54.16666666666663" y="-14.5" />
+              <point x="1960.4669596451681" y="984.0" />
+              <point x="1438.0616964872731" y="984.0" />
+              <point x="1438.0616964872731" y="478.0" />
+              <point x="1533.778794187145" y="478.0" />
+              <point x="-3.6842105263158373" y="14.5" />
+            </edge>
+            <edge source="text.WarehouseText" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="462.0" y="248.0" />
+              <point x="1509.5682678713556" y="248.0" />
+              <point x="-27.894736842105203" y="14.5" />
+            </edge>
+            <edge source="gui.RandomEventGUI" target="gui.TaipanShopGUI">
+              <point x="-17.625" y="14.5" />
+              <point x="1986.4619819024883" y="795.0" />
+              <point x="1984.3336263118345" y="795.0" />
+              <point x="1984.3336263118345" y="874.0" />
+              <point x="2008.1336263118346" y="874.0" />
+              <point x="-6.5" y="-14.5" />
+            </edge>
+            <edge source="text.ShipWarfareText" target="logic.Player">
+              <point x="-53.59999999999991" y="-14.5" />
+              <point x="733.8723249939436" y="696.0" />
+              <point x="659.9999999999999" y="696.0" />
+              <point x="659.9999999999999" y="278.0" />
+              <point x="1512.7261626081977" y="278.0" />
+              <point x="-24.736842105263122" y="14.5" />
+            </edge>
+            <edge source="gui.TravelGUI" target="gui.TaipanShopGUI">
+              <point x="39.59999999999991" y="14.5" />
+              <point x="2084.5653822055137" y="894.0" />
+              <point x="2029.8002929785011" y="894.0" />
+              <point x="15.166666666666629" y="-14.5" />
+            </edge>
+            <edge source="gui.StartGUI" target="logic.Player">
+              <point x="-13.0" y="-14.5" />
+              <point x="2638.5404135338345" y="1073.0" />
+              <point x="2572.4915210486765" y="1073.0" />
+              <point x="2572.4915210486765" y="168.0" />
+              <point x="1572.7261626081977" y="168.0" />
+              <point x="35.26315789473688" y="14.5" />
+            </edge>
+            <edge source="text.TaipanShopText" target="text.LoanSharkText">
+              <point x="-20.461538461538566" y="-14.5" />
+              <point x="394.48477341035004" y="964.0" />
+              <point x="185.65309422471273" y="964.0" />
+              <point x="185.65309422471273" y="597.0" />
+              <point x="221.25" y="597.0" />
+              <point x="31.25" y="14.5" />
+            </edge>
+            <edge source="gui.MainGUI" target="gui.StartGUI">
+              <point x="0.0" y="-14.5" />
+              <point x="2675.9915210486765" y="1192.0" />
+              <point x="2674.2904135338345" y="1192.0" />
+              <point x="22.75" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="gui.LoanSharkGUI">
+              <point x="-49.83333333333326" y="-14.5" />
+              <point x="1964.8002929785014" y="974.0" />
+              <point x="1511.5650520779268" y="974.0" />
+              <point x="-45.75" y="14.5" />
+            </edge>
+            <edge source="gui.BankGUI" target="gui.TaipanShopGUI">
+              <point x="11.625" y="14.5" />
+              <point x="2183.830983709273" y="924.0" />
+              <point x="2042.8002929785011" y="924.0" />
+              <point x="28.16666666666663" y="-14.5" />
+            </edge>
+            <edge source="logic.TravelLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="892.9999999999999" y="318.0" />
+              <point x="1516.936688923987" y="318.0" />
+              <point x="-20.526315789473756" y="14.5" />
+            </edge>
+            <edge source="logic.MainLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="324.5" y="218.0" />
+              <point x="1506.4103731345135" y="218.0" />
+              <point x="-31.052631578947285" y="14.5" />
+            </edge>
+            <edge source="logic.WarehouseLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="749.4999999999999" y="298.0" />
+              <point x="1514.8314257660925" y="298.0" />
+              <point x="-22.631578947368325" y="14.5" />
+            </edge>
+            <edge source="gui.RandomEventGUI" target="logic.Player">
+              <point x="47.0" y="-14.5" />
+              <point x="2051.0869819024883" y="696.0" />
+              <point x="2037.9505012531326" y="696.0" />
+              <point x="2037.9505012531326" y="328.0" />
+              <point x="1555.8840573450398" y="328.0" />
+              <point x="18.42105263157896" y="14.5" />
+            </edge>
+            <edge source="gui.GameEndGUI" target="logic.Player">
+              <point x="23.600000000000023" y="-14.5" />
+              <point x="1792.7080345340673" y="587.0" />
+              <point x="1832.9817187445938" y="587.0" />
+              <point x="1832.9817187445938" y="428.0" />
+              <point x="1545.357741555566" y="428.0" />
+              <point x="7.894736842105203" y="14.5" />
+            </edge>
+            <edge source="gui.TravelGUI" target="gui.RandomEventGUI">
+              <point x="-14.142857142857167" y="-14.5" />
+              <point x="2030.8225250626565" y="795.0" />
+              <point x="2021.7119819024883" y="795.0" />
+              <point x="17.625" y="14.5" />
+            </edge>
+            <edge source="logic.FileSaving" target="java.io.Serializable">
+              <point x="33.66666666666674" y="-14.5" />
+              <point x="2667.158187715343" y="795.0" />
+              <point x="2716.5046789434136" y="795.0" />
+              <point x="2716.5046789434136" y="54.0" />
+              <point x="2172.524032282383" y="54.0" />
+              <point x="26.5" y="14.5" />
+            </edge>
+            <edge source="gui.StartGUI" target="gui.TaipanShopGUI">
+              <point x="-39.0" y="-14.5" />
+              <point x="2612.5404135338345" y="1093.0" />
+              <point x="1982.1336263118346" y="1093.0" />
+              <point x="-32.5" y="14.5" />
+            </edge>
+            <edge source="gui.BankGUI" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="2172.205983709273" y="795.0" />
+              <point x="2160.3336263118345" y="795.0" />
+              <point x="2160.3336263118345" y="278.0" />
+              <point x="1561.1472152397766" y="278.0" />
+              <point x="23.684210526315837" y="14.5" />
+            </edge>
+            <edge source="gui.LoanSharkGUI" target="gui.TaipanShopGUI">
+              <point x="15.25" y="14.5" />
+              <point x="1572.5650520779268" y="954.0" />
+              <point x="1973.4669596451681" y="954.0" />
+              <point x="-41.16666666666663" y="-14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="gui.BankGUI">
+              <point x="23.83333333333337" y="-14.5" />
+              <point x="2038.4669596451681" y="914.0" />
+              <point x="2160.580983709273" y="914.0" />
+              <point x="-11.625" y="14.5" />
+            </edge>
+            <edge source="text.GameEndText" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="1510.1143280662207" y="508.0" />
+              <point x="1536.936688923987" y="508.0" />
+              <point x="-0.526315789473756" y="14.5" />
+            </edge>
+            <edge source="text.TaipanShopText" target="logic.Player">
+              <point x="-40.923076923076906" y="-14.5" />
+              <point x="374.0232349488117" y="984.0" />
+              <point x="117.0" y="984.0" />
+              <point x="117.0" y="178.0" />
+              <point x="1502.199846818724" y="178.0" />
+              <point x="-35.26315789473688" y="14.5" />
+            </edge>
+            <edge source="gui.ShipWarfareGUI" target="gui.GameEndGUI">
+              <point x="-18.714285714285666" y="-14.5" />
+              <point x="1806.2727791495508" y="666.0" />
+              <point x="1783.8580345340674" y="666.0" />
+              <point x="14.75" y="14.5" />
+            </edge>
+            <edge source="logic.FileSaving" target="logic.Player">
+              <point x="-33.66666666666674" y="-14.5" />
+              <point x="2599.82485438201" y="795.0" />
+              <point x="2610.859675705537" y="795.0" />
+              <point x="2610.859675705537" y="158.0" />
+              <point x="1573.7787941871452" y="158.0" />
+              <point x="36.31578947368439" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="gui.GameEndGUI">
+              <point x="-23.83333333333337" y="-14.5" />
+              <point x="1990.8002929785011" y="914.0" />
+              <point x="1745.8580345340674" y="914.0" />
+              <point x="1745.8580345340674" y="696.0" />
+              <point x="1754.3580345340674" y="696.0" />
+              <point x="-14.75" y="14.5" />
+            </edge>
+            <edge source="logic.StartLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="2337.386257890782" y="218.0" />
+              <point x="1567.4630047134608" y="218.0" />
+              <point x="30.0" y="14.5" />
+            </edge>
+            <edge source="gui.WarehouseGUI" target="gui.TaipanShopGUI">
+              <point x="15.75" y="14.5" />
+              <point x="2414.136257890782" y="964.0" />
+              <point x="2060.1336263118346" y="964.0" />
+              <point x="45.5" y="-14.5" />
+            </edge>
+            <edge source="logic.TaipanShopLogic" target="logic.Player">
+              <point x="46.66666666666674" y="-14.5" />
+              <point x="1144.115307450084" y="795.0" />
+              <point x="1217.038736288453" y="795.0" />
+              <point x="1217.038736288453" y="418.0" />
+              <point x="1527.4630047134608" y="418.0" />
+              <point x="-10.0" y="14.5" />
+            </edge>
+            <edge source="gui.MainGUI" target="javafx.application.Application">
+              <point x="37.599999999999994" y="-14.5" />
+              <point x="2713.5915210486764" y="1192.0" />
+              <point x="2827.873746867168" y="1192.0" />
+              <point x="36.33333333333337" y="14.5" />
+            </edge>
+            <edge source="text.ShipWarfareText" target="logic.ShipWarfareLogic">
+              <point x="53.59999999999991" y="-14.5" />
+              <point x="841.0723249939434" y="696.0" />
+              <point x="1339.4366964872731" y="696.0" />
+              <point x="-17.625" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="logic.FileSaving">
+              <point x="62.83333333333337" y="-14.5" />
+              <point x="2077.466959645168" y="1004.0" />
+              <point x="2620.8665210486765" y="1004.0" />
+              <point x="-12.625" y="14.5" />
+            </edge>
+            <edge source="tests.PlayerTest" target="logic.Player">
+              <point x="-25.5" y="-14.5" />
+              <point x="1253.038736288453" y="428.0" />
+              <point x="1528.515636292408" y="428.0" />
+              <point x="-8.947368421052715" y="14.5" />
+            </edge>
+            <edge source="text.MainText" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="1904.0343503235408" y="388.0" />
+              <point x="1549.5682678713556" y="388.0" />
+              <point x="12.105263157894797" y="14.5" />
+            </edge>
+            <edge source="gui.LoanSharkGUI" target="logic.Player">
+              <point x="-40.66666666666663" y="-14.5" />
+              <point x="1516.6483854112603" y="795.0" />
+              <point x="1439.1143280662207" y="795.0" />
+              <point x="1439.1143280662207" y="488.0" />
+              <point x="1534.8314257660925" y="488.0" />
+              <point x="-2.6315789473683253" y="14.5" />
+            </edge>
+            <edge source="gui.ShipWarfareGUI" target="logic.ShipWarfareLogic">
+              <point x="-37.42857142857139" y="-14.5" />
+              <point x="1787.558493435265" y="676.0" />
+              <point x="1409.9366964872731" y="676.0" />
+              <point x="52.875" y="14.5" />
+            </edge>
+            <edge source="logic.GameEndLogic" target="logic.Player">
+              <point x="32.0" y="-14.5" />
+              <point x="1756.2580345340673" y="448.0" />
+              <point x="1543.2524783976714" y="448.0" />
+              <point x="5.789473684210634" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="gui.TravelGUI">
+              <point x="-2.1666666666667425" y="-14.5" />
+              <point x="2012.466959645168" y="864.0" />
+              <point x="2005.3653822055135" y="864.0" />
+              <point x="-39.599999999999994" y="14.5" />
+            </edge>
+            <edge source="gui.StartGUI" target="logic.FileSaving">
+              <point x="0.0" y="-14.5" />
+              <point x="2651.5404135338345" y="1093.0" />
+              <point x="2653.2415210486765" y="1093.0" />
+              <point x="2653.2415210486765" y="1004.0" />
+              <point x="2646.1165210486765" y="1004.0" />
+              <point x="12.625" y="14.5" />
+            </edge>
+            <edge source="text.TaipanShopText" target="logic.TaipanShopLogic">
+              <point x="61.38461538461547" y="-14.5" />
+              <point x="476.3309272565041" y="1004.0" />
+              <point x="1079.9486407834174" y="1004.0" />
+              <point x="-17.5" y="14.5" />
+            </edge>
+            <edge source="logic.RandomEventLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="2484.386257890782" y="198.0" />
+              <point x="1569.5682678713556" y="198.0" />
+              <point x="32.1052631578948" y="14.5" />
+            </edge>
+            <edge source="text.TaipanShopText" target="text.WarehouseText">
+              <point x="0.0" y="-14.5" />
+              <point x="414.9463118718886" y="944.0" />
+              <point x="446.4223249939437" y="944.0" />
+              <point x="446.4223249939437" y="597.0" />
+              <point x="429.75" y="597.0" />
+              <point x="-32.25" y="14.5" />
+            </edge>
+            <edge source="text.TravelText" target="text.ShipWarfareText">
+              <point x="-20.40000000000009" y="-14.5" />
+              <point x="895.661696487273" y="785.0" />
+              <point x="820.9723249939435" y="785.0" />
+              <point x="33.5" y="14.5" />
+            </edge>
+            <edge source="text.BankText" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="58.5" y="158.0" />
+              <point x="1500.0945836608291" y="158.0" />
+              <point x="-37.368421052631675" y="14.5" />
+            </edge>
+            <edge source="logic.BankLogic" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="597.9999999999999" y="268.0" />
+              <point x="1511.6735310292502" y="268.0" />
+              <point x="-25.789473684210634" y="14.5" />
+            </edge>
+            <edge source="text.StartText" target="logic.Player">
+              <point x="-31.333333333333485" y="-14.5" />
+              <point x="2186.500292978501" y="268.0" />
+              <point x="1562.199846818724" y="268.0" />
+              <point x="24.736842105263122" y="14.5" />
+            </edge>
+            <edge source="gui.WarehouseGUI" target="logic.Player">
+              <point x="42.0" y="-14.5" />
+              <point x="2440.386257890782" y="795.0" />
+              <point x="2570.386257890782" y="795.0" />
+              <point x="2570.386257890782" y="188.0" />
+              <point x="1570.6208994503029" y="188.0" />
+              <point x="33.15789473684208" y="14.5" />
+            </edge>
+            <edge source="gui.TravelGUI" target="gui.ShipWarfareGUI">
+              <point x="-28.285714285714278" y="-14.5" />
+              <point x="2016.6796679197994" y="775.0" />
+              <point x="1874.1120648638364" y="775.0" />
+              <point x="49.125" y="14.5" />
+            </edge>
+            <edge source="gui.ShipWarfareGUI" target="logic.Player">
+              <point x="18.71428571428578" y="-14.5" />
+              <point x="1843.7013505781222" y="696.0" />
+              <point x="1845.0343503235408" y="696.0" />
+              <point x="1845.0343503235408" y="408.0" />
+              <point x="1547.4630047134608" y="408.0" />
+              <point x="10.0" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="gui.WarehouseGUI">
+              <point x="41.16666666666663" y="-14.5" />
+              <point x="2055.800292978501" y="954.0" />
+              <point x="2382.636257890782" y="954.0" />
+              <point x="-15.75" y="14.5" />
+            </edge>
+            <edge source="gui.TravelGUI" target="logic.Player">
+              <point x="42.428571428571445" y="-14.5" />
+              <point x="2087.393953634085" y="795.0" />
+              <point x="2133.9981661130146" y="795.0" />
+              <point x="2133.9981661130146" y="298.0" />
+              <point x="1559.0419520818818" y="298.0" />
+              <point x="21.57894736842104" y="14.5" />
+            </edge>
+            <edge source="logic.Player" target="java.io.Serializable">
+              <point x="0.0" y="-14.5" />
+              <point x="1537.4630047134608" y="54.0" />
+              <point x="2119.524032282383" y="54.0" />
+              <point x="-26.5" y="14.5" />
+            </edge>
+            <edge source="gui.GameEndGUI" target="logic.GameEndLogic">
+              <point x="-23.600000000000023" y="-14.5" />
+              <point x="1745.5080345340673" y="597.0" />
+              <point x="1756.2580345340673" y="597.0" />
+              <point x="32.0" y="14.5" />
+            </edge>
+            <edge source="gui.TaipanShopGUI" target="logic.TaipanShopLogic">
+              <point x="-62.83333333333326" y="-14.5" />
+              <point x="1951.8002929785014" y="1004.0" />
+              <point x="1114.9486407834174" y="1004.0" />
+              <point x="17.5" y="14.5" />
+            </edge>
+            <edge source="text.RandomEventText" target="logic.Player">
+              <point x="0.0" y="-14.5" />
+              <point x="1134.538736288453" y="398.0" />
+              <point x="1525.357741555566" y="398.0" />
+              <point x="-12.105263157894797" y="14.5" />
+            </edge>
+            <edge source="text.LoanSharkText" target="logic.Player">
+              <point x="-41.66666666666674" y="-14.5" />
+              <point x="148.33333333333326" y="188.0" />
+              <point x="1503.2524783976714" y="188.0" />
+              <point x="-34.210526315789366" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.4564676616915422" x="1491.6076294277932" y="776.8233925662544" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
