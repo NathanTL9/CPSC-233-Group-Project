@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -8,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import logic.Player;
+import logic.FileSaving;
 
 /**
  * 2019-03-10
@@ -17,7 +21,7 @@ import javafx.stage.Stage;
  */
 
 
-public class StartGUI extends Player{
+public class StartGUI extends Player {
 
     private BorderPane borderPane = new BorderPane();
     private HBox hBox = new HBox();

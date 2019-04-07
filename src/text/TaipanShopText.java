@@ -1,10 +1,16 @@
+package text;
+
+import java.util.Scanner;
+
+import logic.Player;
+import logic.TaipanShopLogic;
+
 /**
  * TaipanShopText deals with the text based version of the shop.
  *
  * Author: Vikram Bawa
  */
-import java.util.Scanner;
-public class TaipanShopText extends Player{
+public class TaipanShopText extends Player {
     /**
      * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
      */

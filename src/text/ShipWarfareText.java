@@ -1,3 +1,8 @@
+package text;
+
+import logic.Player;
+import logic.ShipWarfareLogic;
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;

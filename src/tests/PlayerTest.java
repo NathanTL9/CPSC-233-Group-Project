@@ -1,6 +1,9 @@
+package tests;
 
 import static org.junit.Assert.*;
 
+import logic.Player;
+import org.junit.Assert;
 import org.junit.Test;
 import java.io.*;
 
@@ -21,7 +24,7 @@ public class PlayerTest {
     @Test
     public void getCargoSpace() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 60, player.getCargoSpace());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 60, player.getCargoSpace());
     }
 
     /**
@@ -31,7 +34,7 @@ public class PlayerTest {
     public void setCargoSpace() {
         Player player = new Player();
         player.setCargoSpace(10);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 10, player.getCargoSpace());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 10, player.getCargoSpace());
     }
 
     /**
@@ -40,7 +43,7 @@ public class PlayerTest {
     @Test
     public void getAttackingShips() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", true, player.getAttackingShips());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", true, player.getAttackingShips());
     }
 
     /**
@@ -50,7 +53,7 @@ public class PlayerTest {
     public void setAttackingShips() {
         Player player = new Player();
         player.setAttackingShips(false);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", false, player.getAttackingShips());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", false, player.getAttackingShips());
     }
 
     /**
@@ -59,7 +62,7 @@ public class PlayerTest {
     @Test
     public void getRetire() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", false, player.getRetire());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", false, player.getRetire());
     }
 
     /**
@@ -69,7 +72,7 @@ public class PlayerTest {
     public void setRetire() {
         Player player = new Player();
         player.setRetire(true);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", true, player.getRetire());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", true, player.getRetire());
     }
 
     /**
@@ -78,7 +81,7 @@ public class PlayerTest {
     @Test
     public void getName() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", "Taipan", player.getName());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", "Taipan", player.getName());
     }
 
     /**
@@ -88,7 +91,7 @@ public class PlayerTest {
     public void setName() {
         Player player = new Player();
         player.setName("a");
-        assertEquals("The instance variable for the object does not line up with the rest of the class", "a", player.getName());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", "a", player.getName());
     }
 
     /**
@@ -97,7 +100,7 @@ public class PlayerTest {
     @Test
     public void getHP() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 100, player.getHP());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 100, player.getHP());
     }
 
     /**
@@ -107,7 +110,7 @@ public class PlayerTest {
     public void setHP() {
         Player player = new Player();
         player.setHP(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getHP());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getHP());
     }
 
     /**
@@ -116,7 +119,7 @@ public class PlayerTest {
     @Test
     public void getBank() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getBank());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getBank());
     }
 
     /**
@@ -126,7 +129,7 @@ public class PlayerTest {
     public void setBank() {
         Player player = new Player();
         player.setBank(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getBank());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getBank());
     }
 
     /**
@@ -135,7 +138,7 @@ public class PlayerTest {
     @Test
     public void getMoney() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getMoney());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getMoney());
     }
 
     /**
@@ -145,7 +148,7 @@ public class PlayerTest {
     public void setMoney() {
         Player player = new Player();
         player.setMoney(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getMoney());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getMoney());
     }
 
     /**
@@ -154,7 +157,7 @@ public class PlayerTest {
     @Test
     public void getOpiumHeld() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getOpiumHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getOpiumHeld());
     }
 
     /**
@@ -164,7 +167,7 @@ public class PlayerTest {
     public void setOpiumHeld() {
         Player player = new Player();
         player.setOpiumHeld(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getOpiumHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getOpiumHeld());
     }
 
     /**
@@ -173,7 +176,7 @@ public class PlayerTest {
     @Test
     public void getSilkHeld() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getSilkHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getSilkHeld());
     }
 
     /**
@@ -183,7 +186,7 @@ public class PlayerTest {
     public void setSilkHeld() {
         Player player = new Player();
         player.setSilkHeld(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getSilkHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getSilkHeld());
     }
 
     /**
@@ -192,7 +195,7 @@ public class PlayerTest {
     @Test
     public void getGeneralHeld() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getGeneralHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getGeneralHeld());
     }
 
     /**
@@ -202,7 +205,7 @@ public class PlayerTest {
     public void setGeneralHeld() {
         Player player = new Player();
         player.setGeneralHeld(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getGeneralHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getGeneralHeld());
     }
 
     /**
@@ -211,7 +214,7 @@ public class PlayerTest {
     @Test
     public void getArmsHeld() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getArmsHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getArmsHeld());
     }
 
     /**
@@ -221,7 +224,7 @@ public class PlayerTest {
     public void setArmsHeld() {
         Player player = new Player();
         player.setArmsHeld(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getArmsHeld());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getArmsHeld());
     }
 
     /**
@@ -230,7 +233,7 @@ public class PlayerTest {
     @Test
     public void getLocation() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getLocation());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getLocation());
     }
 
     /**
@@ -240,7 +243,7 @@ public class PlayerTest {
     public void setLocation() {
         Player player = new Player();
         player.setLocation(2);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 2, player.getLocation());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 2, player.getLocation());
     }
 
     /**
@@ -249,7 +252,7 @@ public class PlayerTest {
     @Test
     public void getGuns() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 5, player.getGuns());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 5, player.getGuns());
     }
 
     /**
@@ -259,7 +262,7 @@ public class PlayerTest {
     public void setGuns() {
         Player player = new Player();
         player.setGuns(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getGuns());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getGuns());
     }
 
     /**
@@ -268,7 +271,7 @@ public class PlayerTest {
     @Test
     public void getDebt() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getDebt());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getDebt());
     }
 
     /**
@@ -278,7 +281,7 @@ public class PlayerTest {
     public void setDebt() {
         Player player = new Player();
         player.setDebt(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getDebt());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getDebt());
     }
 
     /**
@@ -287,7 +290,7 @@ public class PlayerTest {
     @Test
     public void getwOpium() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwOpium());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwOpium());
     }
 
     /**
@@ -297,7 +300,7 @@ public class PlayerTest {
     public void setwOpium() {
         Player player = new Player();
         player.setwOpium(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwOpium());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwOpium());
     }
 
     /**
@@ -306,7 +309,7 @@ public class PlayerTest {
     @Test
     public void getwSilk() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwSilk());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwSilk());
     }
 
     /**
@@ -316,7 +319,7 @@ public class PlayerTest {
     public void setwSilk() {
         Player player = new Player();
         player.setwSilk(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwSilk());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwSilk());
     }
 
     /**
@@ -325,7 +328,7 @@ public class PlayerTest {
     @Test
     public void getwGeneral() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwGeneral());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwGeneral());
     }
 
     /**
@@ -335,7 +338,7 @@ public class PlayerTest {
     public void setwGeneral() {
         Player player = new Player();
         player.setwGeneral(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwGeneral());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwGeneral());
     }
 
     /**
@@ -344,7 +347,7 @@ public class PlayerTest {
     @Test
     public void getwArms() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwArms());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getwArms());
     }
 
     /**
@@ -354,7 +357,7 @@ public class PlayerTest {
     public void setwArms() {
         Player player = new Player();
         player.setwArms(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwArms());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getwArms());
     }
 
     /**
@@ -363,7 +366,7 @@ public class PlayerTest {
     @Test
     public void getOpiumPrice() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 16000, player.getOpiumPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 16000, player.getOpiumPrice());
     }
 
     /**
@@ -373,7 +376,7 @@ public class PlayerTest {
     public void setOpiumPrice() {
         Player player = new Player();
         player.setOpiumPrice(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getOpiumPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getOpiumPrice());
     }
 
     /**
@@ -382,7 +385,7 @@ public class PlayerTest {
     @Test
     public void getSilkPrice() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1600, player.getSilkPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1600, player.getSilkPrice());
     }
 
     /**
@@ -392,7 +395,7 @@ public class PlayerTest {
     public void setSilkPrice() {
         Player player = new Player();
         player.setSilkPrice(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getSilkPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getSilkPrice());
     }
 
     /**
@@ -401,7 +404,7 @@ public class PlayerTest {
     @Test
     public void getArmsPrice() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 160, player.getArmsPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 160, player.getArmsPrice());
     }
 
     /**
@@ -411,7 +414,7 @@ public class PlayerTest {
     public void setArmsPrice() {
         Player player = new Player();
         player.setArmsPrice(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getArmsPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getArmsPrice());
     }
 
     /**
@@ -420,7 +423,7 @@ public class PlayerTest {
     @Test
     public void getGeneralPrice() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 8, player.getGeneralPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 8, player.getGeneralPrice());
     }
 
     /**
@@ -430,7 +433,7 @@ public class PlayerTest {
     public void setGeneralPrice() {
         Player player = new Player();
         player.setGeneralPrice(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getGeneralPrice());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getGeneralPrice());
     }
 
     /**
@@ -439,7 +442,7 @@ public class PlayerTest {
     @Test
     public void getIsPriceChanged() {
         Player player = new Player();
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getIsPriceChanged());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 0, player.getIsPriceChanged());
     }
 
     /**
@@ -449,6 +452,6 @@ public class PlayerTest {
     public void setIsPriceChanged() {
         Player player = new Player();
         player.setIsPriceChanged(1);
-        assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getIsPriceChanged());
+        Assert.assertEquals("The instance variable for the object does not line up with the rest of the class", 1, player.getIsPriceChanged());
     }
 }

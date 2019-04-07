@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -10,8 +12,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import logic.Player;
 
-public class BankGUI extends Player{
+public class BankGUI extends Player {
     /**
      * 2019-03-10
      * Authors: Siddhant Dewani
@@ -66,7 +69,7 @@ public class BankGUI extends Player{
         hbx1.getChildren().add(b1);
         hbx1.getChildren().add(b2);
         hbx1.getChildren().add(b3);
-        hbx1.setPadding(new Insets(0,0,20,0));
+        hbx1.setPadding(new Insets(0, 0, 20, 0));
         brdr1.setBottom(hbx1);
 
         /**
@@ -87,7 +90,7 @@ public class BankGUI extends Player{
         vbx1.getChildren().add(l2);
         vbx1.getChildren().add(l4);
         vbx1.getChildren().add(l5);
-        vbx1.setPadding(new Insets(20,0,0,0));
+        vbx1.setPadding(new Insets(20, 0, 0, 0));
         brdr1.setTop(vbx1);
 
         /**
@@ -95,28 +98,25 @@ public class BankGUI extends Player{
          *
          */
         b1.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               try {
-                                   int withdraw = Integer.parseInt(txtField1.getText());
-                                   if(withdraw < 0){
-                                       l5.setText("Come on " + getName() + ", are you trying to fool me?\nNo negative numbers please!");
-                                   }
-                                   else if (withdraw <= getBank()) {
-                                       setMoney(withdraw + getMoney());
-                                       setBank(getBank() - withdraw);
-                                   }
-                                   else {
-                                       l5.setText("Sorry, you can not withdraw that much.");
-                                   }
-                                   l2.setText("Balance: " + getBank());
-                                   l4.setText("Cash: " + getMoney());
-                               }
-                               catch (Exception e) {
-                                   l5.setText("Please enter a valid response.");
-                               }
-                           }
+               @Override
+               public void handle(ActionEvent event) {
+                   try {
+                       int withdraw = Integer.parseInt(txtField1.getText());
+                       if (withdraw < 0) {
+                           l5.setText("Come on " + getName() + ", are you trying to fool me?\nNo negative numbers please!");
+                       } else if (withdraw <= getBank()) {
+                           setMoney(withdraw + getMoney());
+                           setBank(getBank() - withdraw);
+                       } else {
+                           l5.setText("Sorry, you can not withdraw that much.");
                        }
+                       l2.setText("Balance: " + getBank());
+                       l4.setText("Cash: " + getMoney());
+                   } catch (Exception e) {
+                       l5.setText("Please enter a valid response.");
+                   }
+               }
+           }
         );
 
         /**
@@ -125,28 +125,26 @@ public class BankGUI extends Player{
          */
         // Set the event handler when the withdraw button is clicked
         b2.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               try {
-                                   int deposit = Integer.parseInt(txtField1.getText());
-                                   if(deposit < 0){
-                                       l5.setText("Nice try! You can not enter negative numbers.");
-                                   }
-                                   else if (deposit <= getMoney()) {
-                                       setBank(deposit + getBank());
-                                       setMoney(getMoney() - deposit);
-                                   } else {
-                                       l5.setText("Sorry, you can not deposit that much.");
-                                   }
-                                   l2.setText("Balance: " + getBank());
-                                   l4.setText("Cash: " + getMoney());
-
-                               }
-                               catch (Exception e) {
-                                   l5.setText("Please enter a valid response.");
-                               }
-                           }
+               @Override
+               public void handle(ActionEvent event) {
+                   try {
+                       int deposit = Integer.parseInt(txtField1.getText());
+                       if (deposit < 0) {
+                           l5.setText("Nice try! You can not enter negative numbers.");
+                       } else if (deposit <= getMoney()) {
+                           setBank(deposit + getBank());
+                           setMoney(getMoney() - deposit);
+                       } else {
+                           l5.setText("Sorry, you can not deposit that much.");
                        }
+                       l2.setText("Balance: " + getBank());
+                       l4.setText("Cash: " + getMoney());
+
+                   } catch (Exception e) {
+                       l5.setText("Please enter a valid response.");
+                   }
+               }
+           }
         );
 
         /**
@@ -154,13 +152,13 @@ public class BankGUI extends Player{
          *
          */
         b3.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               TaipanShopGUI shopGUI = new TaipanShopGUI(getPlayer());
-                               shopGUI.initializeShop(primaryStage);
-                               primaryStage.show();
-                           }
-                       }
+                @Override
+                public void handle(ActionEvent event) {
+                   TaipanShopGUI shopGUI = new TaipanShopGUI(getPlayer());
+                   shopGUI.initializeShop(primaryStage);
+                   primaryStage.show();
+                }
+            }
         );
 
 

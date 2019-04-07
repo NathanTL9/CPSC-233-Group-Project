@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -5,6 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import logic.Player;
 
 import java.util.Random;
 
@@ -15,7 +18,7 @@ import java.util.Random;
  * liu yen asking for money and to purchase a gun.
  */
 
-public class RandomEventGUI extends Player{
+public class RandomEventGUI extends Player {
 
     private HBox hBox;
     private Button yesButton;

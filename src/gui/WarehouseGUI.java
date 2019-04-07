@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -6,6 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import logic.Player;
 
 /**
  * 2019-03-19
@@ -13,7 +16,7 @@ import javafx.stage.Stage;
  * WarehouseGUI allows the user to store goods in a warehouse in order to have more hold on the ship
  */
 
-public class WarehouseGUI extends Player{
+public class WarehouseGUI extends Player {
     //Create the labels, buttons and textfields required
     private HBox hBox;
     private VBox vBox;

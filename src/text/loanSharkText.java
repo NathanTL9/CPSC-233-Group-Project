@@ -1,4 +1,8 @@
-public class loanSharkText extends Player{
+package text;
+
+import logic.Player;
+
+public class loanSharkText extends Player {
     public loanSharkText(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);

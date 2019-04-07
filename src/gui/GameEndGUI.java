@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -5,6 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import logic.Player;
 
 /**
 * 2019-03-10
@@ -12,7 +15,7 @@ import javafx.stage.Stage;
 * GameEndGUI class, Initializes and displays the graphical interface for when you lose
 *
 */
-public class GameEndGUI extends Player{
+public class GameEndGUI extends Player {
 
     private Label title;
     private VBox vBox;

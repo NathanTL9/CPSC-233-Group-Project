@@ -1,4 +1,4 @@
-/**
+package gui; /**
  * TravelGUI is the class in which takes the player from location to location
  *
  * Author: Harkamal Randhawa
@@ -9,19 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import logic.Player;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Random;
 
-public class TravelGUI extends Player{
+public class TravelGUI extends Player {
     private TaipanShopGUI shop;
     private Label firm = new Label();
     private Label wItemsText = new Label();

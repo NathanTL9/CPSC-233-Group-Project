@@ -1,4 +1,4 @@
-/**
+package gui; /**
  * TaipanShopGUI deals with setting the stage for shop.
  *
  * Author: Vikram Bawa
@@ -19,8 +19,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import logic.FileSaving;
+import logic.Player;
+import logic.TaipanShopLogic;
 
-public class TaipanShopGUI extends Player{
+public class TaipanShopGUI extends Player {
     private Label firm = new Label();
     private Label wItemsText = new Label();
     private Label wItemSpaceText = new Label();
@@ -51,7 +54,7 @@ public class TaipanShopGUI extends Player{
      *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
-    public TaipanShopGUI(Player player) {
+    public TaipanShopGUI(logic.Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }

@@ -3,7 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="3114a2b9-4919-4fdf-8fd9-d03b60109ce4" name="Default Changelist" comment="Fixed a bunch of errors where">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saves/playerSave.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/saves/playerSave.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BankGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BankGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BankText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/BankText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileSaving.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileSaving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/FileSaving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameEndGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GameEndGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoanSharkGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoanSharkGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomEventGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/RandomEventGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipWarfareGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ShipWarfareGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipWarfareLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/ShipWarfareLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShipWarfareText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/ShipWarfareText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/StartGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaipanShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TaipanShopGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaipanShopLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/TaipanShopLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaipanShopText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/TaipanShopText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TravelGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TravelGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TravelText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/TravelText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WarehouseGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/WarehouseGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WarehouseText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/WarehouseText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loanSharkText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/loanSharkText.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,33 +34,20 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ShipWarfareLogic.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/ShipWarfareGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="357">
+              <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/TravelGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+            <state relative-caret-position="969">
+              <caret line="83" column="56" lean-forward="true" selection-start-line="83" selection-start-column="56" selection-end-line="83" selection-end-column="56" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="104" column="17" lean-forward="true" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="method#shipStatusString#0;class#TravelGUI#0" />
               </folding>
@@ -48,43 +56,79 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/text/BankText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7175">
-              <caret line="720" lean-forward="true" selection-start-line="720" selection-end-line="720" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TaipanShopLogic.java">
+        <entry file="file://$PROJECT_DIR$/src/text/loanSharkText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TravelText.java">
+        <entry file="file://$PROJECT_DIR$/src/text/ShipWarfareText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="238">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ShipWarfareText.java">
+        <entry file="file://$PROJECT_DIR$/src/text/TaipanShopText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="595">
+              <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/text/WarehouseText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/StartGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3808">
+              <caret line="224" column="26" selection-start-line="224" selection-start-column="26" selection-end-line="224" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/TaipanShopGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="244" column="16" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/RandomEventGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -107,7 +151,9 @@
       <find>stage</find>
       <find>defaultTextOut</find>
       <find>player</find>
+      <find>printLn</find>
       <find>WarehouseText</find>
+      <find>Sha</find>
     </findStrings>
     <replaceStrings>
       <replace>player</replace>
@@ -126,16 +172,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/TravelText.java" />
         <option value="$PROJECT_DIR$/src/WarehouseText.java" />
         <option value="$PROJECT_DIR$/src/BankText.java" />
         <option value="$PROJECT_DIR$/src/loanSharkText.java" />
-        <option value="$PROJECT_DIR$/src/text/BankText.java" />
-        <option value="$PROJECT_DIR$/src/TaipanShopText.java" />
         <option value="$PROJECT_DIR$/src/TaipanShopGUI.java" />
         <option value="$PROJECT_DIR$/src/ShipWarfareGUI.java" />
-        <option value="$PROJECT_DIR$/src/ShipWarfareText.java" />
         <option value="$PROJECT_DIR$/src/TravelGUI.java" />
+        <option value="$PROJECT_DIR$/src/TravelText.java" />
+        <option value="$PROJECT_DIR$/src/TaipanShopText.java" />
+        <option value="$PROJECT_DIR$/src/ShipWarfareText.java" />
+        <option value="$PROJECT_DIR$/src/text/TravelText.java" />
+        <option value="$PROJECT_DIR$/src/tests/PlayerTest.java" />
+        <option value="$PROJECT_DIR$/src/gui/BankGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/GameEndGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/TravelGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/WarehouseGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/LoanSharkGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/RandomEventGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/StartGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/TaipanShopGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/ShipWarfareGUI.java" />
+        <option value="$PROJECT_DIR$/src/text/BankText.java" />
+        <option value="$PROJECT_DIR$/src/text/loanSharkText.java" />
+        <option value="$PROJECT_DIR$/src/text/ShipWarfareText.java" />
+        <option value="$PROJECT_DIR$/src/text/WarehouseText.java" />
+        <option value="$PROJECT_DIR$/src/text/TaipanShopText.java" />
       </list>
     </option>
   </component>
@@ -164,6 +225,42 @@
               <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TaipanClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaipanClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaipanClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaipanClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="saves" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaipanClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaipanClone2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaipanClone2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="text" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -172,7 +269,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554663465257" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554669400857" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/junit-4.12.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -199,21 +296,21 @@
   </component>
   <component name="RunManager" selected="Application.MainGUI">
     <configuration name="MainGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainGUI" />
+      <option name="MAIN_CLASS_NAME" value="gui.MainGUI" />
       <module name="TaipanClone" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="ShipWarfareGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShipWarfareGUI" />
+      <option name="MAIN_CLASS_NAME" value="gui.ShipWarfareGUI" />
       <module name="TaipanClone" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="ShipWarfareText" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ShipWarfareText" />
+      <option name="MAIN_CLASS_NAME" value="text.ShipWarfareText" />
       <module name="TaipanClone" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -242,8 +339,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainGUI" />
         <item itemvalue="Application.ShipWarfareText" />
+        <item itemvalue="Application.MainGUI" />
         <item itemvalue="Application.ShipWarfareGUI" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.TaipanShop" />
@@ -320,12 +417,12 @@
       <option name="project" value="LOCAL" />
       <updated>1554663152314</updated>
     </task>
-    <task id="LOCAL-00004" summary="Created Player class">
-      <created>1550541406597</created>
+    <task id="LOCAL-00004" summary="Fixed the severe lack of TaipanShopText">
+      <created>1554663541186</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1550541406597</updated>
+      <updated>1554663541186</updated>
     </task>
     <task id="LOCAL-00005" summary="Fixed the setters to be greater than 0">
       <created>1550541751914</created>
@@ -642,11 +739,11 @@
       <option name="project" value="LOCAL" />
       <updated>1553494120570</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8326000" />
+    <option name="totallyTimeSpent" value="12883000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -682,7 +779,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50125945" side_tool="true" weight="0.37058824" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" weight="0.18141097" />
+      <window_info active="true" anchor="bottom" id="Messages" order="14" sideWeight="0.49938875" visible="true" weight="0.18141097" />
       <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.32922733" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -773,7 +870,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Fined minor bugs in shipwarfareGUI including the &quot;gun frustration&quot; variable" />
     <MESSAGE value="Just checking" />
     <MESSAGE value="A lot of errors but easily fixable SHipwarfareGUI" />
     <MESSAGE value="Completed SHipWarfareGUI" />
@@ -798,34 +894,18 @@
     <MESSAGE value="Fixed duplication between Shop and Travel" />
     <MESSAGE value="Updated shipwarfare text to the modern era" />
     <MESSAGE value="Finished the merger with Dedupe and the main branch.&#10;Travel and Taipan shop shouldn't have any code sharing anymore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the merger with Dedupe and the main branch.&#10;Travel and Taipan shop shouldn't have any code sharing anymore" />
+    <MESSAGE value="Fixed the severe lack of TaipanShopText" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the severe lack of TaipanShopText" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/FileSaving.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/FileSaving.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-34">
           <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WarehouseText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
@@ -835,80 +915,159 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BankText.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/loanSharkText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styleguide.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopText.java" />
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfareLogic.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/ShipWarfareLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfareGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/logic/TaipanShopLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+        <state relative-caret-position="391">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/TravelText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/PlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TravelGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/BankGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="104" column="17" lean-forward="true" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+        <state relative-caret-position="357">
+          <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/WarehouseGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameEndGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/LoanSharkGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/RandomEventGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StartGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3808">
+          <caret line="224" column="26" selection-start-line="224" selection-start-column="26" selection-end-line="224" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TaipanShopGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="244" column="16" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ShipWarfareGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TravelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="83" column="56" lean-forward="true" selection-start-line="83" selection-start-column="56" selection-end-line="83" selection-end-column="56" />
+          <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#shipStatusString#0;class#TravelGUI#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/text/BankText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7175">
-          <caret line="720" lean-forward="true" selection-start-line="720" selection-end-line="720" />
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/loanSharkText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/ShipWarfareText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/WarehouseText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/text/TaipanShopText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TaipanShopLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TravelText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipWarfareText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
         </state>
       </provider>
     </entry>

@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,9 +16,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.FileInputStream;
 import java.util.Random;
+
+//Importing the logic classes required for this class
+import logic.Player;
+import logic.ShipWarfareLogic;
+
 
 /**
  * 2019-03-10 (Edited on 2019-03-23)
