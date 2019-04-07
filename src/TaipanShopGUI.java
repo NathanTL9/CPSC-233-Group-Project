@@ -14,7 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -42,6 +44,7 @@ public class TaipanShopGUI extends Player{
     private Button armsButton = new Button();
     private Button generalButton = new Button();
     private TextField numberInput = new TextField();
+
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
@@ -238,95 +241,7 @@ public class TaipanShopGUI extends Player{
     public void initializeShop(Stage stage) {
         FileSaving saving = new FileSaving();
         saving.saveFile(getPlayer());
-
-        Font size14 = new Font(14.0);
-        Rectangle dialogueRectangle = new Rectangle();
-        dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
-        dialogueRectangle.setHeight(180.0);
-        dialogueRectangle.setLayoutX(8.0);
-        dialogueRectangle.setLayoutY(294.0);
-        dialogueRectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        dialogueRectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        dialogueRectangle.setWidth(582.0);
-
-        Rectangle inventoryRectangle = new Rectangle();
-        inventoryRectangle.setFill(javafx.scene.paint.Color.WHITE);
-        inventoryRectangle.setHeight(108.0);
-        inventoryRectangle.setLayoutX(8.0);
-        inventoryRectangle.setLayoutY(147.0);
-        inventoryRectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        inventoryRectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        inventoryRectangle.setWidth(405.0);
-
-        Rectangle warehouseRectangle = new Rectangle();
-        warehouseRectangle.setFill(javafx.scene.paint.Color.WHITE);
-        warehouseRectangle.setHeight(108.0);
-        warehouseRectangle.setLayoutY(33.0);
-        warehouseRectangle.setLayoutX(8.0);
-        warehouseRectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        warehouseRectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        warehouseRectangle.setWidth(405.0);
-
-        AnchorPane anchorPane = new AnchorPane();
-        anchorPane.setPrefHeight(480.0);
-        anchorPane.setPrefWidth(600.0);
-
-        GridPane gridPane = new GridPane();
-        gridPane.setPrefHeight(480.0);
-        gridPane.setPrefWidth(600.0);
-
-        ColumnConstraints columnConstraints = new ColumnConstraints();
-        columnConstraints.setMaxWidth(590.0);
-        columnConstraints.setMinWidth(0.0);
-        columnConstraints.setPrefWidth(590.0);
-
-        RowConstraints rowConstraints = new RowConstraints();
-        rowConstraints.setMinHeight(20.0);
-        rowConstraints.setPrefHeight(20.0);
-
-        RowConstraints rowConstraints0 = new RowConstraints();
-        rowConstraints0.setMaxHeight(122.0);
-        rowConstraints0.setMinHeight(10.0);
-        rowConstraints0.setPrefHeight(117.0);
-
-        RowConstraints rowConstraints1 = new RowConstraints();
-        rowConstraints1.setMaxHeight(163.0);
-        rowConstraints1.setMinHeight(10.0);
-        rowConstraints1.setPrefHeight(112.0);
-
-        RowConstraints rowConstraints2 = new RowConstraints();
-        rowConstraints2.setMaxHeight(126.0);
-        rowConstraints2.setMinHeight(0.0);
-        rowConstraints2.setPrefHeight(42.0);
-
-        RowConstraints rowConstraints3 = new RowConstraints();
-        rowConstraints3.setMaxHeight(269.0);
-        rowConstraints3.setMinHeight(10.0);
-        rowConstraints3.setPrefHeight(118.0);
-
-        RowConstraints rowConstraints4 = new RowConstraints();
-        rowConstraints4.setMaxHeight(179.0);
-        rowConstraints4.setMinHeight(10.0);
-        rowConstraints4.setPrefHeight(52.0);
-
-        gridPane.setPadding(new Insets(10.0, 10.0, 10.0, 0.0));
-
-        HBox hBox = new HBox();
-        GridPane.setRowIndex(hBox, 1);
-        hBox.setPrefHeight(100.0);
-        hBox.setPrefWidth(200.0);
-
-        HBox hBox0 = new HBox();
-        GridPane.setRowIndex(hBox0, 2);
-        hBox0.setPrefHeight(100.0);
-        hBox0.setPrefWidth(200.0);
-
         FlowPane flowPane = new FlowPane();
-        GridPane.setRowIndex(flowPane, 5);
-        flowPane.setAlignment(javafx.geometry.Pos.CENTER);
-        flowPane.setHgap(5.0);
-        flowPane.setPrefHeight(200.0);
-        flowPane.setPrefWidth(200.0);
 
         buyButton.setMnemonicParsing(false);
         buyButton.setPrefHeight(25.0);
@@ -603,19 +518,131 @@ public class TaipanShopGUI extends Player{
                             break;
                         }
                     }
-                    updateStage();
+                    updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
 
                     buttonSetup("reset");
                 }
             }
         });
 
+        stage.setTitle("Shop");
+        stage.setResizable(false);
+        flowPane.getChildren().addAll(buyButton, sellButton, bankButton, cargoButton, loanButton, quitButton, retireButton, opiumButton, silkButton, armsButton, generalButton, numberInput);
+        Scene root = new Scene(declareStage(flowPane,firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText,textOut), 600, 480);
+        stage.setScene(root);
+        root.getStylesheets().add("styleguide.css");
+
+        // general updates to the buttons, user stats/inventory, and text.
+        buttonSetup("reset");
+        if(getIsPriceChanged() == 0 || getIsPriceChanged() == 2){
+            TaipanShopLogic logic = new TaipanShopLogic(getPlayer());
+            String temp = logic.updatePrices();
+            setPlayer(logic.getPlayer());
+            defaultTextOut();
+            textOut.setText(temp + textOut.getText());
+        }
+        defaultTextOut();
+        updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
+    }
+
+
+    public AnchorPane declareStage(FlowPane flowPane,Label firm, Label wItemsText, Label wItemSpaceText, Label locationText, Label gunsText, Label inventoryText, Label inventoryHeldText, Label shipStatusText, Label cashText, Label bankText, Label textOut) {
+        //Declaring all the elements required for the information on screen
+        Rectangle dialogueRectangle = new Rectangle();
+        Rectangle inventoryRectangle = new Rectangle();
+        Rectangle warehouseRectangle = new Rectangle();
+        AnchorPane anchorPane = new AnchorPane();
+        GridPane gridPane = new GridPane();
+        ColumnConstraints columnConstraints = new ColumnConstraints();
+        RowConstraints rowConstraints = new RowConstraints();
+        RowConstraints rowConstraints0 = new RowConstraints();
+        RowConstraints rowConstraints1 = new RowConstraints();
+        RowConstraints rowConstraints2 = new RowConstraints();
+        RowConstraints rowConstraints3 = new RowConstraints();
+        RowConstraints rowConstraints4 = new RowConstraints();
+        HBox hBox = new HBox();
+        HBox hBox0 = new HBox();
+        Font size14 = new Font(14.0);
+        Label warehouseText = new Label();
+
+        dialogueRectangle.setFill(Color.WHITE);
+        dialogueRectangle.setHeight(180.0);
+        dialogueRectangle.setLayoutX(8.0);
+        dialogueRectangle.setLayoutY(294.0);
+        dialogueRectangle.setStroke(Color.BLACK);
+        dialogueRectangle.setStrokeType(StrokeType.INSIDE);
+        dialogueRectangle.setWidth(582.0);
+
+        inventoryRectangle.setFill(Color.WHITE);
+        inventoryRectangle.setHeight(108.0);
+        inventoryRectangle.setLayoutX(8.0);
+        inventoryRectangle.setLayoutY(147.0);
+        inventoryRectangle.setStroke(Color.BLACK);
+        inventoryRectangle.setStrokeType(StrokeType.INSIDE);
+        inventoryRectangle.setWidth(405.0);
+
+        warehouseRectangle.setFill(Color.WHITE);
+        warehouseRectangle.setHeight(108.0);
+        warehouseRectangle.setLayoutY(33.0);
+        warehouseRectangle.setLayoutX(8.0);
+        warehouseRectangle.setStroke(Color.BLACK);
+        warehouseRectangle.setStrokeType(StrokeType.INSIDE);
+        warehouseRectangle.setWidth(405.0);
+
+        anchorPane.setPrefHeight(480.0);
+        anchorPane.setPrefWidth(600.0);
+
+        gridPane.setPrefHeight(480.0);
+        gridPane.setPrefWidth(600.0);
+
+        columnConstraints.setMaxWidth(590.0);
+        columnConstraints.setMinWidth(0.0);
+        columnConstraints.setPrefWidth(590.0);
+
+        rowConstraints.setMinHeight(20.0);
+        rowConstraints.setPrefHeight(20.0);
+
+        rowConstraints0.setMaxHeight(122.0);
+        rowConstraints0.setMinHeight(10.0);
+        rowConstraints0.setPrefHeight(117.0);
+
+        rowConstraints1.setMaxHeight(163.0);
+        rowConstraints1.setMinHeight(10.0);
+        rowConstraints1.setPrefHeight(112.0);
+
+        rowConstraints2.setMaxHeight(126.0);
+        rowConstraints2.setMinHeight(0.0);
+        rowConstraints2.setPrefHeight(42.0);
+
+        rowConstraints3.setMaxHeight(269.0);
+        rowConstraints3.setMinHeight(10.0);
+        rowConstraints3.setPrefHeight(118.0);
+
+        rowConstraints4.setMaxHeight(179.0);
+        rowConstraints4.setMinHeight(10.0);
+        rowConstraints4.setPrefHeight(52.0);
+
+        gridPane.setPadding(new Insets(10.0, 10.0, 10.0, 0.0));
+
+        GridPane.setRowIndex(hBox, 1);
+        hBox.setPrefHeight(100.0);
+        hBox.setPrefWidth(200.0);
+
+        GridPane.setRowIndex(hBox0, 2);
+        hBox0.setPrefHeight(100.0);
+        hBox0.setPrefWidth(200.0);
+
+        GridPane.setRowIndex(flowPane, 5);
+        flowPane.setAlignment(Pos.CENTER);
+        flowPane.setHgap(5.0);
+        flowPane.setPrefHeight(200.0);
+        flowPane.setPrefWidth(200.0);
+
         firm.setAlignment(Pos.CENTER);
         firm.setPrefHeight(27.0);
         firm.setPrefWidth(632.0);
         firm.setFont(new Font(18.0));
 
-        Label warehouseText = new Label();
         warehouseText.setAlignment(Pos.CENTER);
         warehouseText.setPrefHeight(108.0);
         warehouseText.setPrefWidth(100.0);
@@ -674,7 +701,7 @@ public class TaipanShopGUI extends Player{
         textOut.setContentDisplay(javafx.scene.control.ContentDisplay.TOP);
         textOut.setPrefHeight(163.0);
         textOut.setPrefWidth(583.0);
-        defaultTextOut();
+        //defaultTextOut();
         textOut.setFont(size14);
 
         anchorPane.getChildren().addAll(dialogueRectangle, inventoryRectangle, warehouseRectangle);
@@ -683,51 +710,20 @@ public class TaipanShopGUI extends Player{
 
         hBox0.getChildren().addAll(inventoryText, inventoryHeldText, gunsText, shipStatusText);
 
-        flowPane.getChildren().addAll(buyButton, sellButton, bankButton, cargoButton, loanButton, quitButton, retireButton, opiumButton, silkButton, armsButton, generalButton, numberInput);
-
         gridPane.getColumnConstraints().add(columnConstraints);
         gridPane.getRowConstraints().addAll(rowConstraints, rowConstraints0, rowConstraints1, rowConstraints2, rowConstraints3, rowConstraints4);
         gridPane.getChildren().addAll(firm, hBox, hBox0, cashText, bankText, textOut, flowPane);
 
         anchorPane.getChildren().add(gridPane);
 
-        Scene root = new Scene(anchorPane, 600, 480);
-
-        root.getStylesheets().add("styleguide.css");
-        stage.setTitle("Shop");
-        stage.setResizable(false);
-        stage.setScene(root);
-        buyButton.setFocusTraversable(false);
-        sellButton.setFocusTraversable(false);
-        bankButton.setFocusTraversable(false);
-        loanButton.setFocusTraversable(false);
-        generalButton.setFocusTraversable(false);
-        armsButton.setFocusTraversable(false);
-        silkButton.setFocusTraversable(false);
-        opiumButton.setFocusTraversable(false);
-        sellButton.setFocusTraversable(false);
-        retireButton.setFocusTraversable(false);
-        cargoButton.setFocusTraversable(false);
-        quitButton.setFocusTraversable(false);
-
-        // general updates to the buttons, user stats/inventory, and text.
-        buttonSetup("reset");
-        if(getIsPriceChanged() == 0 || getIsPriceChanged() == 2){
-            TaipanShopLogic logic = new TaipanShopLogic(getPlayer());
-            String temp = logic.updatePrices();
-            setPlayer(logic.getPlayer());
-            defaultTextOut();
-            textOut.setText(temp + textOut.getText());
-        }
-        //defaultTextOut();
-        updateStage();
+        return anchorPane;
     }
 
     /**
      * updates the text associated with the user's inventory.
      */
-    public void updateStage() {
-        TaipanShopLogic logic = new TaipanShopLogic(getPlayer());
+    public void updateStage(Label firm, Label wItemsText, Label wItemSpaceText, Label locationText, Label gunsText, Label inventoryText, Label inventoryHeldText, Label shipStatusText, Label cashText, Label bankText) {
+        TaipanShopLogic logic = new TaipanShopLogic(super.getPlayer());
         firm.setText(String.format("Firm: %s, %s", getName(), logic.getStringLocation()));
         wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", getwOpium(), getwSilk(), getwArms(), getwGeneral()));
         int itemsInWarehouse = getwOpium() + getwGeneral() + getwArms() + getwSilk();
@@ -745,5 +741,4 @@ public class TaipanShopGUI extends Player{
         cashText.setText(String.format("  Cash: $%,d", getMoney()));
         bankText.setText(String.format("Bank: $%,d", getBank()));
     }
-
 }

@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -32,6 +34,7 @@ public class TravelGUI extends Player{
     private Label cashText = new Label();
     private Label bankText = new Label();
     private Label textOut = new Label();
+    private FlowPane flowPane = new FlowPane();
 
     private Button quitButton = new Button();
     private Button continueButton = new Button();
@@ -60,97 +63,7 @@ public class TravelGUI extends Player{
      * @return stage so that another class can switch to the stage
      */
     public Stage initializeTravel(Stage stage) {
-        //Updates the stage for the first-time you read it
-        updateStage();
 
-        Font size14 = new Font(14.0);
-        Rectangle dialogueRectangle = new Rectangle();
-        dialogueRectangle.setFill(javafx.scene.paint.Color.WHITE);
-        dialogueRectangle.setHeight(180.0);
-        dialogueRectangle.setLayoutX(8.0);
-        dialogueRectangle.setLayoutY(294.0);
-        dialogueRectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        dialogueRectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        dialogueRectangle.setWidth(582.0);
-
-        Rectangle inventoryRectangle = new Rectangle();
-        inventoryRectangle.setFill(javafx.scene.paint.Color.WHITE);
-        inventoryRectangle.setHeight(108.0);
-        inventoryRectangle.setLayoutX(8.0);
-        inventoryRectangle.setLayoutY(147.0);
-        inventoryRectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        inventoryRectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        inventoryRectangle.setWidth(405.0);
-
-        Rectangle warehouseRectangle = new Rectangle();
-        warehouseRectangle.setFill(javafx.scene.paint.Color.WHITE);
-        warehouseRectangle.setHeight(108.0);
-        warehouseRectangle.setLayoutY(33.0);
-        warehouseRectangle.setLayoutX(8.0);
-        warehouseRectangle.setStroke(javafx.scene.paint.Color.BLACK);
-        warehouseRectangle.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
-        warehouseRectangle.setWidth(405.0);
-
-        AnchorPane anchorPane = new AnchorPane();
-        anchorPane.setPrefHeight(480.0);
-        anchorPane.setPrefWidth(600.0);
-
-        GridPane gridPane = new GridPane();
-        gridPane.setPrefHeight(480.0);
-        gridPane.setPrefWidth(600.0);
-
-        ColumnConstraints columnConstraints = new ColumnConstraints();
-        columnConstraints.setMaxWidth(590.0);
-        columnConstraints.setMinWidth(0.0);
-        columnConstraints.setPrefWidth(590.0);
-
-        RowConstraints rowConstraints = new RowConstraints();
-        rowConstraints.setMinHeight(20.0);
-        rowConstraints.setPrefHeight(20.0);
-
-        RowConstraints rowConstraints0 = new RowConstraints();
-        rowConstraints0.setMaxHeight(122.0);
-        rowConstraints0.setMinHeight(10.0);
-        rowConstraints0.setPrefHeight(117.0);
-
-        RowConstraints rowConstraints1 = new RowConstraints();
-        rowConstraints1.setMaxHeight(163.0);
-        rowConstraints1.setMinHeight(10.0);
-        rowConstraints1.setPrefHeight(112.0);
-
-        RowConstraints rowConstraints2 = new RowConstraints();
-        rowConstraints2.setMaxHeight(126.0);
-        rowConstraints2.setMinHeight(0.0);
-        rowConstraints2.setPrefHeight(42.0);
-
-        RowConstraints rowConstraints3 = new RowConstraints();
-        rowConstraints3.setMaxHeight(269.0);
-        rowConstraints3.setMinHeight(10.0);
-        rowConstraints3.setPrefHeight(118.0);
-
-        RowConstraints rowConstraints4 = new RowConstraints();
-        rowConstraints4.setMaxHeight(179.0);
-        rowConstraints4.setMinHeight(10.0);
-        rowConstraints4.setPrefHeight(52.0);
-
-        gridPane.setPadding(new Insets(10.0, 10.0, 10.0, 0.0));
-
-        HBox hBox = new HBox();
-        GridPane.setRowIndex(hBox, 1);
-        hBox.setPrefHeight(100.0);
-        hBox.setPrefWidth(200.0);
-
-        HBox hBox0 = new HBox();
-        GridPane.setRowIndex(hBox0, 2);
-        hBox0.setPrefHeight(100.0);
-        hBox0.setPrefWidth(200.0);
-
-        FlowPane flowPane = new FlowPane();
-        GridPane.setRowIndex(flowPane, 5);
-        flowPane.setAlignment(javafx.geometry.Pos.CENTER);
-        flowPane.setHgap(5.0);
-        flowPane.setPrefHeight(200.0);
-        flowPane.setPrefWidth(200.0);
 
         //Creating the continue and quit buttons
         quitButton.setPrefHeight(25.0);
@@ -176,7 +89,7 @@ public class TravelGUI extends Player{
             if(peasantShipScene && getAttackingShips()){
                 ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
                 try {
-                    ship.initializeShip(stage);
+                    //ship.initializeShip(stage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -256,90 +169,13 @@ public class TravelGUI extends Player{
         firm.setPrefHeight(27.0);
         firm.setPrefWidth(632.0);
         firm.setFont(new Font(18.0));
-
-        Label warehouseText = new Label();
-        warehouseText.setAlignment(Pos.CENTER);
-        warehouseText.setPrefHeight(108.0);
-        warehouseText.setPrefWidth(100.0);
-        warehouseText.setText("  Warehouse\n\tOpium\n\tSilk\n\tArms\n\tGeneral");
-        warehouseText.setFont(size14);
-
-        wItemsText.setAlignment(Pos.CENTER);
-        wItemsText.setPrefWidth(100.0);
-        wItemsText.setPrefHeight(108.0);
-        wItemsText.setFont(size14);
-
-        wItemSpaceText.setPrefHeight(108.0);
-        wItemSpaceText.setPrefWidth(210.0);
-        wItemSpaceText.setFont(size14);
-
-        locationText.setAlignment(Pos.BOTTOM_RIGHT);
-        locationText.setPrefHeight(106.0);
-        locationText.setPrefWidth(140.0);
-        locationText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        locationText.setFont(size14);
-
-        inventoryText.setAlignment(Pos.CENTER);
-        inventoryText.setPrefWidth(110.0);
-        inventoryText.setPrefHeight(108.0);
-        inventoryText.setFont(size14);
-
-        inventoryHeldText.setAlignment(Pos.CENTER);
-        inventoryHeldText.setPrefHeight(108.0);
-        inventoryHeldText.setPrefWidth(100.0);
-        inventoryHeldText.setFont(size14);
-
-        gunsText.setPrefHeight(108.0);
-        gunsText.setPrefWidth(212.0);
-        gunsText.setAlignment(Pos.CENTER_LEFT);
-        gunsText.setFont(size14);
-
-        shipStatusText.setAlignment(Pos.TOP_CENTER);
-        shipStatusText.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        shipStatusText.setPrefHeight(110.0);
-        shipStatusText.setPrefWidth(200.0);
-        shipStatusText.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        shipStatusText.setFont(size14);
-
-        GridPane.setRowIndex(cashText, 3);
-        cashText.setPrefHeight(17.0);
-        cashText.setPrefWidth(209.0);
-        cashText.setFont(size14);
-
-        GridPane.setHalignment(bankText, javafx.geometry.HPos.CENTER);
-        GridPane.setRowIndex(bankText, 3);
-        bankText.setAlignment(Pos.CENTER);
-        bankText.setPrefHeight(20.0);
-        bankText.setPrefWidth(264.0);
-        bankText.setFont(size14);
-
-        GridPane.setRowIndex(textOut, 4);
-        textOut.setAlignment(Pos.TOP_LEFT);
-        textOut.setContentDisplay(javafx.scene.control.ContentDisplay.TOP);
-        textOut.setPrefHeight(163.0);
-        textOut.setPrefWidth(583.0);
-        textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
-        textOut.setFont(size14);
-
-        //Added all the nodes into a single scene
-        anchorPane.getChildren().addAll(dialogueRectangle, inventoryRectangle, warehouseRectangle);
-
-        hBox.getChildren().addAll(warehouseText, wItemsText, wItemSpaceText, locationText);
-
-        hBox0.getChildren().addAll(inventoryText, inventoryHeldText, gunsText, shipStatusText);
-
-        numberInput.requestFocus();
         flowPane.getChildren().addAll(numberInput, quitButton, continueButton);
-
-        gridPane.getColumnConstraints().add(columnConstraints);
-        gridPane.getRowConstraints().addAll(rowConstraints, rowConstraints0, rowConstraints1, rowConstraints2, rowConstraints3, rowConstraints4);
-        gridPane.getChildren().addAll(firm, hBox, hBox0, cashText, bankText, textOut, flowPane);
-
-        anchorPane.getChildren().add(gridPane);
-
-        Scene root = new Scene(anchorPane, 600, 480);
+        TaipanShopGUI shop = new TaipanShopGUI(super.getPlayer());
+        Scene root = new Scene(shop.declareStage(flowPane,firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText,textOut), 600, 480);
         root.getStylesheets().add("styleguide.css");
-
+        //Updates the stage for the first-time you read it
+        shop.updateStage(firm,wItemsText,wItemSpaceText,locationText,gunsText,inventoryText,inventoryHeldText,shipStatusText,cashText,bankText);
+        textOut.setText("   Taipan, do you wish to go to:\n\n    1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n    5) Manila, 6) Singapore, or 7) Batavia?\n    After typing the number you want to go to press 'Enter' or 'Z'");
         stage.setTitle("Travel");
         stage.setResizable(false);
         stage.setScene(root);
@@ -480,27 +316,5 @@ public class TravelGUI extends Player{
             default: shipStatus = "Invincible"; break;
         }
         return shipStatus;
-    }
-
-    /**
-     * updates the text associated with the user's inventory.
-     */
-    public void updateStage(){
-        firm.setText(String.format("Firm: %s, %s", getName(), getStringLocation()));
-        wItemsText.setText(String.format("\n %d\n %d\n %d\n %d", getwOpium(), getwSilk(), getwArms(), getwGeneral()));
-        int itemsInWarehouse = getwOpium()+getwGeneral()+getwArms()+getwSilk();
-        wItemSpaceText.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000-itemsInWarehouse)));
-        locationText.setText(String.format("Location\n%s", getStringLocation()));
-        int itemsInInventory = getCargoSpace()-getSilkHeld()-getOpiumHeld()-getGeneralHeld()-getArmsHeld()-10*getGuns();
-        if(itemsInInventory < 0){
-            inventoryText.setText("   Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
-        }else{
-            inventoryText.setText(String.format("   Hold %d\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General", itemsInInventory));
-        }
-        gunsText.setText(String.format("Guns %d\n\n\n\n ", getGuns()));
-        inventoryHeldText.setText(String.format("\n %d\n %d\n %d\n %d", getOpiumHeld(), getSilkHeld(), getArmsHeld(), getGeneralHeld()));
-        shipStatusText.setText(String.format("\tDebt\n\t%d\n\n\tShip status\n\t%s: %d", getDebt(), shipStatusString(), getHP()));
-        cashText.setText(String.format("  Cash: $%,d", getMoney()));
-        bankText.setText(String.format("Bank: $%,d", getBank()));
     }
 }
