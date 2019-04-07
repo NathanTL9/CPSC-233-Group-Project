@@ -118,9 +118,9 @@ public class ShipWarfareGUI extends Player {
         Random randomValue = new Random();
         int exitValue = 0;
         //Player volley
-        if (getGuns() > 0) {
+        if (super.getGuns() > 0) {
 
-            for (int j = 0; j < getGuns(); j++) {
+            for (int j = 0; j < super.getGuns(); j++) {
                 if (userAttacks == true) {
 
                     int hitOrMiss = randomValue.nextInt(2) + 1;
@@ -157,7 +157,7 @@ public class ShipWarfareGUI extends Player {
             exitValue = 1;
         }
 
-        if (getGuns() > 0) {
+        if (super.getGuns() > 0) {
             chanceOfEnemyRun = randomValue.nextInt(2) + 1;
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
@@ -167,11 +167,11 @@ public class ShipWarfareGUI extends Player {
                     logic.setNumOfLittyShips(logic.getNumOfLittyShips() - howMuchRun);
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
-                            runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
+                            runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, super.getName()));
                         }
 
                     } else {
-                        report.setText((String.format("Escaped %d of them %s!", howMuchRun, getName())));
+                        report.setText((String.format("Escaped %d of them %s!", howMuchRun, super.getName())));
                     }
 
                 }
@@ -181,8 +181,8 @@ public class ShipWarfareGUI extends Player {
         shipsRemaining.setText(String.format("%d ships remaining and they look angry!", logic.getNumOfLittyShips()));
         //Computer volley
         int takeGunChance = randomValue.nextInt(4) + 1;
-        if (takeGunChance == 1 && getGuns() > 0) {
-            setGuns(getGuns() - 1);
+        if (takeGunChance == 1 && super.getGuns() > 0) {
+            super.setGuns(super.getGuns() - 1);
             gunFrustration = true;
         } else {
             if (logic.getNumOfLittyShips() > 0) {
@@ -192,19 +192,19 @@ public class ShipWarfareGUI extends Player {
 
             }
         }
-        if (getHP() <= 0) {
+        if (super.getHP() <= 0) {
             exitValue = 2;
             //break;
         }
         if (gunFrustration == true) {
-            gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", getGuns()));
+            gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", super.getGuns()));
             playerShoots(getGuns() + 1);
 
         } else {
-            gunsLeftOrTaken.setText(String.format("We still have %d guns left", getGuns()));
+            gunsLeftOrTaken.setText(String.format("We still have %d guns left", super.getGuns()));
         }
 
-        HPLeft.setText(String.format("EEK, our current ship status is %d%% ", getHP()));
+        HPLeft.setText(String.format("EEK, our current ship status is %d%% ", super.getHP()));
         if (userAttacks == false) {
             userAttacks = true;
         }
@@ -213,7 +213,6 @@ public class ShipWarfareGUI extends Player {
         if (exitValue == 1) {
             wipe();
             calculateLoot = logic.calculateLoot();
-            setPlayer(logic.getPlayer());
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
             completeWipe();
@@ -227,7 +226,7 @@ public class ShipWarfareGUI extends Player {
             stage.show();
             return true;
         } else if (exitValue == 3) {
-            report.setText(String.format("We made it out at %d%% ship status!", getHP()));
+            report.setText(String.format("We made it out at %d%% ship status!", super.getHP()));
 
             continueButton.setVisible(true);
             completeWipe();
@@ -250,7 +249,7 @@ public class ShipWarfareGUI extends Player {
         shotsFired.setToX(endX);
         shotsFired.setToY(endY);
         shotsFired.setDuration(Duration.seconds(0.5));
-        if (getGuns() > 0) {
+        if (super.getGuns() > 0) {
             shotsFired.setCycleCount(amountOfShots);
         } else {
             shotsFired.setCycleCount(0);
