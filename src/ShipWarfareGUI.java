@@ -398,7 +398,7 @@ public class ShipWarfareGUI extends Player {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (checkIfDone != 4) {
+                    if (winOrLose(primaryStage)==false) {
                         report.setVisible(true);
                         title.setVisible(true);
                         shipsRemaining.setVisible(true);
@@ -490,7 +490,16 @@ public class ShipWarfareGUI extends Player {
                                 gunsLeftOrTaken.setVisible(true);
 
                                 if (!winOrLose(primaryStage)) {
-                                    usAgainstEnemyDivisor.setVisible(false);
+                                    usAgainstEnemyDivisor.setVisible(true);
+                                    shipsRemaining.setVisible(true);
+                                    gunsLeftOrTaken.setVisible(true);
+                                    ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
+                                    logic.setPlayer(getPlayer());
+                                    System.out.println(logic.getReportMessage());
+
+                                    shipsRemaining.setText(logic.getShipsRemainingMessage());
+                                    gunsLeftOrTaken.setText(logic.getGunsLeftOrTakenMessage());
+
                                 }
 
                             }

@@ -243,10 +243,9 @@ public class ShipWarfareGUILogic extends Player {
             this.setGuns(getGuns() - 1);
             gunFrustration = true;
         } else {
-            if (numOfLittyShips > 0) {
+            if (getNumOfLittyShips() > 0) {
                 int HPTaken = randomValue.nextInt(10);
                 this.setHP(getHP() - (HPTaken));
-
 
             }
         }
