@@ -89,7 +89,7 @@ public class TravelGUI extends Player{
             if(peasantShipScene && getAttackingShips()){
                 ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
                 try {
-                    //ship.initializeShip(stage);
+                    ship.initializeShip(stage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
