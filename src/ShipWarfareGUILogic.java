@@ -17,7 +17,7 @@ public class ShipWarfareGUILogic extends Player {
     private int startingLittyShips=0;
 
 
-    private int counter1;
+    private int counter;
 
     public ShipWarfareGUILogic(Player player) {
         Player playerDummy = new Player(player);
@@ -31,9 +31,9 @@ public class ShipWarfareGUILogic extends Player {
      * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
      */
     public void setNumOfLittyShips(int numOfLittyShips) {
-        counter1++;
+        counter++;
         this.numOfLittyShips = numOfLittyShips;
-        if (counter1 == 1) {
+        if (counter == 1) {
             startingLittyShips = numOfLittyShips;
         }
     }
@@ -88,6 +88,7 @@ public class ShipWarfareGUILogic extends Player {
     }
 
     public int calculateLoot(){
+
         Random randomValue = new Random();
         int calculateLoot;
         calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;

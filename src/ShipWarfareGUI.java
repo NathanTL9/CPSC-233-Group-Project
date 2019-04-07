@@ -76,24 +76,24 @@ public class ShipWarfareGUI extends Player {
      * Sets most of the labels invisible except for the "fight or run" label
      */
     public void wipe() {
+        wipewithTitle(title);
+
+
+    }
+
+    public void wipewithTitle(Label title) {
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
         shipsRemaining.setVisible(false);
         HPLeft.setVisible(false);
         gunsLeftOrTaken.setVisible(false);
-
-
     }
 
     /**
      * Sets most of the  labels invisible including the fight or run label
      */
     public void completeWipe() {
-        title.setVisible(false);
-        runAwayOrLeft.setVisible(false);
-        shipsRemaining.setVisible(false);
-        HPLeft.setVisible(false);
-        gunsLeftOrTaken.setVisible(false);
+        wipe();
         report.setVisible(false);
     }
 
@@ -118,7 +118,6 @@ public class ShipWarfareGUI extends Player {
         Random randomValue = new Random();
         int exitValue = 0;
         //Player volley
-        //while (exitValue == 0) {
         if (getGuns() > 0) {
 
             for (int j = 0; j < getGuns(); j++) {
@@ -126,19 +125,10 @@ public class ShipWarfareGUI extends Player {
 
                     int hitOrMiss = randomValue.nextInt(2) + 1;
                     if (hitOrMiss == 2) {
-                        //numOfLittyShips--;
                         logic.setNumOfLittyShips(logic.getNumOfLittyShips()-1);
-
-                        /*if (numOfLittyShips <= 0) {
-                            exitValue = 1;
-                            //break;
-                        }
-                        hitCounter++;
-                        */
 
                         if (logic.getNumOfLittyShips() <= 0) {
                             exitValue = 1;
-                            //break;
                         }
                         hitCounter++;
 
@@ -150,8 +140,6 @@ public class ShipWarfareGUI extends Player {
                     }
 
 
-                } else {
-                    //continue;
                 }
             }
             if (userAttacks == true) {
@@ -163,16 +151,10 @@ public class ShipWarfareGUI extends Player {
         }
 
 
-        /*
-        if (numOfLittyShips <= 0) {
-            exitValue = 1;
-            //break;
-        }
-        */
+
 
         if (logic.getNumOfLittyShips() <= 0) {
             exitValue = 1;
-            //break;
         }
 
         if (getGuns() > 0) {
@@ -186,8 +168,6 @@ public class ShipWarfareGUI extends Player {
                     if (userAttacks == true) {
                         if (howMuchRun > 0) {
                             runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, getName()));
-
-                            //runAwayOrLeft.setVisible(true);
                         }
 
                     } else {
@@ -206,7 +186,7 @@ public class ShipWarfareGUI extends Player {
             gunFrustration = true;
         } else {
             if (logic.getNumOfLittyShips() > 0) {
-                int HPTaken = randomValue.nextInt(10);
+                int HPTaken = randomValue.nextInt(10) + 1;
                 setHP(getHP() - (HPTaken));
 
 
@@ -233,6 +213,7 @@ public class ShipWarfareGUI extends Player {
         if (exitValue == 1) {
             wipe();
             calculateLoot = logic.calculateLoot();
+            setPlayer(logic.getPlayer());
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
             completeWipe();
@@ -545,11 +526,7 @@ public class ShipWarfareGUI extends Player {
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
-                report.setVisible(false);
-                runAwayOrLeft.setVisible(false);
-                shipsRemaining.setVisible(false);
-                HPLeft.setVisible(false);
-                gunsLeftOrTaken.setVisible(false);
+                wipewithTitle(report);
                 fightButton.setVisible(false);
                 runButton.setVisible(false);
 
