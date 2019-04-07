@@ -69,16 +69,16 @@ public class ShipWarfareGUILogic extends Player {
         int numOfShipsAttacking = 0;
         Random randomValue = new Random();
 
-        if (getMoney() <= 100000) {
+        if (super.getMoney() <= 100000) {
             //Minimum one ship will attack, maximum 20
             numOfShipsAttacking = randomValue.nextInt(20) + 1;
-        } else if (getMoney() <= 200000) {
+        } else if (super.getMoney() <= 200000) {
             //Minimum 30 Ships will attack, maximum 70
             numOfShipsAttacking = randomValue.nextInt(40) + 31;
-        } else if (getMoney() <= 500000) {
+        } else if (super.getMoney() <= 500000) {
             //Minimum 50 ships will attack, maximum 140
             numOfShipsAttacking = randomValue.nextInt(90) + 51;
-        } else if (getMoney() >= 1000000) {
+        } else if (super.getMoney() >= 1000000) {
             //Minimum 100 ships will attack, maximum 300 ships
             numOfShipsAttacking = randomValue.nextInt(200) + 101;
         }
@@ -92,7 +92,7 @@ public class ShipWarfareGUILogic extends Player {
         Random randomValue = new Random();
         int calculateLoot;
         calculateLoot = (startingLittyShips * 100) + randomValue.nextInt(startingLittyShips) * 200;
-        setMoney(getMoney() + calculateLoot);
+        super.setMoney(super.getMoney() + calculateLoot);
         return calculateLoot;
 
     }
