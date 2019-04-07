@@ -9,8 +9,10 @@ public class ShipWarfareText extends Player {
 
     private boolean userAttacks = true;
     private int howMuchRun = 0;
+
     /**
      * Class Constructor that takes in a type player as a parameter
+     *
      * @param player object of the class Player
      */
     public ShipWarfareText(Player player) {
@@ -21,6 +23,7 @@ public class ShipWarfareText extends Player {
 
     /**
      * This fleet is easy to defeat as a maximum of 15 ships can run away each volley, they can not tank hits
+     *
      * @throws Exception in case of errors due to the delay
      */
     public void peasantFleetAttack() throws Exception {
@@ -49,22 +52,18 @@ public class ShipWarfareText extends Player {
                     System.out.println("Couldn't run away!");
                     if (destroyPeasantShipsOrEscape())
                         break;
-                }else {
+                } else {
                     System.out.println("Phew! Got away safely");
                     delayForSeconds(2);
                     break;
                 }
-            }else{
+            } else {
                 System.out.println("Invalid response, please try again");
-            }
-
             }
 
         }
 
-
-
-
+    }
 
 
     /**
@@ -77,9 +76,9 @@ public class ShipWarfareText extends Player {
     }
 
 
-
     /**
      * delays for a specific amount of seconds, takes an integer as an argument
+     *
      * @param num the seconds to delay
      * @throws Exception in case of errors due to the delay
      */
@@ -88,9 +87,9 @@ public class ShipWarfareText extends Player {
     }
 
 
-
     /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
+     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
@@ -112,7 +111,7 @@ public class ShipWarfareText extends Player {
                     if (userAttacks == true) {
                         int hitOrMiss = randomValue.nextInt(2) + 1;
                         if (hitOrMiss == 2) {
-                            logic.setNumOfShips(logic.getNumOfShips()-1);
+                            logic.setNumOfShips(logic.getNumOfShips() - 1);
                             if (logic.getNumOfShips() <= 0) {
                                 exitValue = 1;
                                 break;
@@ -129,8 +128,7 @@ public class ShipWarfareText extends Player {
                         continue;
                     }
                 }
-            }
-            else{
+            } else {
                 System.out.printf("%s! We don't have any GUNS!!!!\n", getName());
                 delayForSeconds(1);
 
@@ -173,7 +171,7 @@ public class ShipWarfareText extends Player {
             if (getHP() > 0) {
                 String userResponse = displayQuery(userInput);
                 if (userResponse.equalsIgnoreCase("r")) {
-                    userAttacks=false;
+                    userAttacks = false;
                     if (logic.runFromShips() == false) {
                         System.out.println("Couldn't run away");
                     } else {
@@ -181,9 +179,7 @@ public class ShipWarfareText extends Player {
                         break;
                     }
                 }
-                else if(userResponse.equalsIgnoreCase("f")){
 
-                }
             } else {
                 exitValue = 2;
                 break;
@@ -203,8 +199,7 @@ public class ShipWarfareText extends Player {
         } else if (exitValue == 2) {
             gameOver();
             return true;
-        }
-        else if (exitValue == 3) {
+        } else if (exitValue == 3) {
             System.out.printf("We made it out at %d%% ship status!\n", getHP());
             delayForSeconds(2);
             return true;
@@ -216,6 +211,7 @@ public class ShipWarfareText extends Player {
 
     /**
      * Ask the user to input either "f" or "r"
+     *
      * @param userInput scanner object which is used to ask for user input
      * @return user input which is the users response
      * @throws Exception in case the delay afects this piece of code
@@ -230,9 +226,10 @@ public class ShipWarfareText extends Player {
         System.out.printf("Shall we continue to fight? Enter \"f\" to fight, and \"r\" to run (We have %d gun(s) left)\n", getGuns());
 
         String response = userInput.nextLine();
-        while(!(response.equalsIgnoreCase("f") || response.equalsIgnoreCase("r")))
+        while (!(response.equalsIgnoreCase("f") || response.equalsIgnoreCase("r"))) {
             System.out.println("Invalid response, try again");
-            response=userInput.nextLine();
+            response = userInput.nextLine();
+        }
         return response;
     }
 

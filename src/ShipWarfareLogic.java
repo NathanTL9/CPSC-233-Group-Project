@@ -46,13 +46,12 @@ public class ShipWarfareLogic extends Player {
      */
     public boolean runFromShips() {
         Random randomValue = new Random();
-        int runSuccessChance = randomValue.nextInt(10) + 1;
+        int runSuccessChance = randomValue.nextInt(5) + 1;
         if (runSuccessChance == 2) {
             return true;
-        } else if (runSuccessChance == 1) {
+        } else {
             return false;
         }
-        return false;
     }
 
     /**
@@ -96,9 +95,6 @@ public class ShipWarfareLogic extends Player {
         return calculateLoot;
 
     }
-
-
-
 
 
 
