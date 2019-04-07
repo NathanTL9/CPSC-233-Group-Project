@@ -2,6 +2,7 @@ package gui;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import logic.Player;
 
 /**
 * 2019-03-10

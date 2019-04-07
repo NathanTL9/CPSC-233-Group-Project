@@ -2,13 +2,12 @@ package text;
 
 import logic.Player;
 
-public class WarehouseText extends Player {
-
-    public WarehouseText(Player player) {
+public class LoanSharkText extends Player {
+    public LoanSharkText(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
 
-    public void changeWarehouse() {
+    public void loanMoney() {
     }
 }

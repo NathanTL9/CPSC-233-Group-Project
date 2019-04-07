@@ -61,7 +61,7 @@ public class TaipanShopText extends Player {
      * this method is evoked if the user wants to use get a loan or pay a loan off.
      */
     public void loan(){
-        loanSharkText loan = new loanSharkText(getPlayer());
+        LoanSharkText loan = new LoanSharkText(getPlayer());
         loan.loanMoney();
         setPlayer(loan.getPlayer());
     }

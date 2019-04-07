@@ -3,7 +3,7 @@ package logic;
 import java.io.*;
 /**
  * 2019-03-10 (Edited on 2019-03-19)
- * Authors: 
+ * Authors: Harkamal Randhawa
  * FileSaving Class allows the user to save the current status of the game and to continue from where they left off.
  */
 

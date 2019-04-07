@@ -13,8 +13,6 @@ import java.util.concurrent.TimeUnit;
  * ShipWarfareText class, Based on logic class for ShipWarfare, text-based version which allwos for ship warfare
  */
 
-
-
 public class ShipWarfareText extends Player {
 
     ShipWarfareLogic logic = new ShipWarfareLogic(getPlayer());
