@@ -9,7 +9,7 @@ import java.util.Random;
  */
 
 
-public class ShipWarfareGUILogic extends Player {
+public class ShipWarfareLogic extends Player {
 
 
 
@@ -19,7 +19,7 @@ public class ShipWarfareGUILogic extends Player {
 
     private int counter;
 
-    public ShipWarfareGUILogic(Player player) {
+    public ShipWarfareLogic(Player player) {
         Player playerDummy = new Player(player);
         this.setPlayer(playerDummy);
     }
@@ -87,6 +87,10 @@ public class ShipWarfareGUILogic extends Player {
 
     }
 
+    /**
+     * Calculates the loot for defeating a fleet
+     * @return the loot for defeating the fleet
+     */
     public int calculateLoot(){
 
         Random randomValue = new Random();

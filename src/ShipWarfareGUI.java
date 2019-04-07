@@ -27,7 +27,7 @@ import java.util.Random;
 
 public class ShipWarfareGUI extends Player {
 
-    ShipWarfareGUILogic logic = new ShipWarfareGUILogic(getPlayer());
+    ShipWarfareLogic logic = new ShipWarfareLogic(getPlayer());
 
     private ShipWarfareGUI ship;
     private Circle cannon;
@@ -76,12 +76,12 @@ public class ShipWarfareGUI extends Player {
      * Sets most of the labels invisible except for the "fight or run" label
      */
     public void wipe() {
-        wipewithTitle(title);
+        wipeWithTitle(title);
 
 
     }
 
-    public void wipewithTitle(Label title) {
+    public void wipeWithTitle(Label title) {
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
         shipsRemaining.setVisible(false);
@@ -210,6 +210,7 @@ public class ShipWarfareGUI extends Player {
         }
 
 
+        //The user defeats the enemy fleet
         if (exitValue == 1) {
             wipe();
             calculateLoot = logic.calculateLoot();
@@ -221,6 +222,7 @@ public class ShipWarfareGUI extends Player {
             runButton.setVisible(false);
             continueButton.setDefaultButton(true);
             return true;
+
         } else if (exitValue == 2) {
             GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
             gameEndGUI.initializeGameEndGUI(stage);
@@ -244,7 +246,6 @@ public class ShipWarfareGUI extends Player {
      * Player attacks enemy ships in an animation
      */
     public void playerShoots(int amountOfShots) {
-        userAttacks = true;
         shotsFired.setFromX(0);
         shotsFired.setFromY(0);
         shotsFired.setToX(endX);
@@ -477,19 +478,21 @@ public class ShipWarfareGUI extends Player {
 
         //Flee
         runButton.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
             /**
              * Run Button, engages in run logic and graphical interface
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
+                userAttacks = false;
+
                 report.setVisible(true);
                 title.setVisible(true);
                 shipsRemaining.setVisible(true);
                 gunsLeftOrTaken.setVisible(true);
 
                 title.setText("Ayy captain we will try to run!");
-                report.setText("Epic");
                 counter++;
 
                 if (logic.runFromShips(userAttacks) == false) {
@@ -500,10 +503,10 @@ public class ShipWarfareGUI extends Player {
                         e.printStackTrace();
                     }
                     if (winOrLose == true) {
-                        report.setVisible(true);
-                        title.setVisible(true);
-                        shipsRemaining.setVisible(true);
-                        gunsLeftOrTaken.setVisible(true);
+                        report.setVisible(false);
+                        title.setVisible(false);
+                        shipsRemaining.setVisible(false);
+                        gunsLeftOrTaken.setVisible(false);
 
                     }
                 } else {
@@ -519,14 +522,15 @@ public class ShipWarfareGUI extends Player {
 
         //Fight
         fightButton.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             /**
              * Fight Button, engages in fight logic and graphical interface
              * @param event, once button is clicked, executes graphical information
              */
             public void handle(ActionEvent event) {
-                wipewithTitle(report);
+                userAttacks = true;
+
+                wipeWithTitle(report);
                 fightButton.setVisible(false);
                 runButton.setVisible(false);
 
