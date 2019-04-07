@@ -187,7 +187,7 @@ public class ShipWarfareGUI extends Player {
         } else {
             if (logic.getNumOfLittyShips() > 0) {
                 int HPTaken = randomValue.nextInt(10) + 1;
-                setHP(getHP() - (HPTaken));
+                super.setHP(super.getHP() - (HPTaken));
 
 
             }
