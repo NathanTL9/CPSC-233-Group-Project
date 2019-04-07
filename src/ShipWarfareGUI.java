@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.FileInputStream;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
@@ -42,15 +43,10 @@ public class ShipWarfareGUI extends Player {
     private Label shipsRemaining;
     private Label report;
 
-    private boolean winOrLose= false;
+    private boolean winOrLose = false;
 
 
-    private int counter1;
-    private int timeCounter;
-
-    private int numOfLittyShips = 0;
     private boolean userAttacks = true;
-    private int startingLittyShips = 0;
     private int howMuchRun = 0;
     private int counter = 0;
     private String pirateName = "Liu Yen";
@@ -73,8 +69,6 @@ public class ShipWarfareGUI extends Player {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
-
-
 
 
     /**
@@ -103,16 +97,12 @@ public class ShipWarfareGUI extends Player {
     }
 
 
-
-
     /**
      * The user faces off against the litty ships and either prevails, dies, or runs away
      *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
     public boolean destroyLittyShipsOrEscape(Stage stage) throws Exception {
-        ShipWarfareGUILogic logic = new ShipWarfareGUILogic (getPlayer());
-
         cannon.setLayoutX(beginningX);
         cannon.setLayoutY(beginningY);
         int calculateLoot = 0;
@@ -120,9 +110,6 @@ public class ShipWarfareGUI extends Player {
         int hitCounter = 0;
         int missCounter = 0;
         boolean gunFrustration = false;
-
-
-
 
 
         runAwayOrLeft.setText("No ships ran away");
@@ -151,7 +138,6 @@ public class ShipWarfareGUI extends Player {
                     }
 
 
-
                 } else {
                     //continue;
                 }
@@ -174,7 +160,6 @@ public class ShipWarfareGUI extends Player {
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
                 if (howMuchRun != 0 && howMuchRun < numOfLittyShips) {
-
 
 
                     setNumOfLittyShips(numOfLittyShips - howMuchRun);
@@ -213,7 +198,7 @@ public class ShipWarfareGUI extends Player {
         }
         if (gunFrustration == true) {
             gunsLeftOrTaken.setText(String.format("Dang it! We only have %d guns left", getGuns()));
-            playerShoots(getGuns()+1);
+            playerShoots(getGuns() + 1);
 
         } else {
             gunsLeftOrTaken.setText(String.format("We still have %d guns left", getGuns()));
@@ -258,16 +243,15 @@ public class ShipWarfareGUI extends Player {
      * Player attacks enemy ships in an animation
      */
     public void playerShoots(int amountOfShots) {
-        userAttacks=true;
+        userAttacks = true;
         shotsFired.setFromX(0);
         shotsFired.setFromY(0);
         shotsFired.setToX(endX);
         shotsFired.setToY(endY);
         shotsFired.setDuration(Duration.seconds(0.5));
-        if(getGuns()>0) {
+        if (getGuns() > 0) {
             shotsFired.setCycleCount(amountOfShots);
-        }
-        else{
+        } else {
             shotsFired.setCycleCount(0);
             shotsFired.stop();
             cannon.setVisible(false);
@@ -280,7 +264,7 @@ public class ShipWarfareGUI extends Player {
      * Ships attack player ship back in an animation
      */
 
-    public void shipsRetaliate(){
+    public void shipsRetaliate() {
         cannon.setVisible(true);
         enemyShots.setFromX(270);
         enemyShots.setFromY(0);
@@ -317,6 +301,7 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * Generaties ships and deploys logic for the shipwarfare
+     *
      * @param primaryStage sets up the stage to whcih the GUI may be based around
      * @throws Exception in case of interruptions withing the graphical interface
      */
@@ -332,7 +317,6 @@ public class ShipWarfareGUI extends Player {
         usAgainstEnemyDivisor = new HBox();
         cannon = new Circle();
         this.cannon = cannon;
-
 
 
         cannon.setVisible(false);
@@ -401,7 +385,7 @@ public class ShipWarfareGUI extends Player {
             ourShip = new Image(new FileInputStream("src/images/ourShip.png"));
             enemyShip = new Image(new FileInputStream("src/images/enemyShip.png"));
 
-        }catch(Exception e){
+        } catch (Exception e) {
             ourShip = new Image(new FileInputStream("images/ourShip.png"));
             enemyShip = new Image(new FileInputStream("images/enemyShip.png"));
         }
@@ -509,11 +493,11 @@ public class ShipWarfareGUI extends Player {
                 if (runFromShips(userAttacks) == false) {
                     report.setText(("Couldn't run away"));
                     try {
-                        winOrLose= destroyLittyShipsOrEscape(primaryStage);
+                        winOrLose = destroyLittyShipsOrEscape(primaryStage);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(winOrLose==true){
+                    if (winOrLose == true) {
                         report.setVisible(true);
                         title.setVisible(true);
                         shipsRemaining.setVisible(true);
@@ -549,7 +533,7 @@ public class ShipWarfareGUI extends Player {
                 runButton.setVisible(false);
 
                 try {
-                    winOrLose= destroyLittyShipsOrEscape(primaryStage);
+                    winOrLose = destroyLittyShipsOrEscape(primaryStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -575,10 +559,9 @@ public class ShipWarfareGUI extends Player {
                      */
                     public void handle(ActionEvent event) {
                         shotsFired.stop();
-                        if(!winOrLose) {
+                        if (!winOrLose) {
                             shipsRetaliate();
-                        }
-                        else{
+                        } else {
                             report.setVisible(true);
                             continueButton.setVisible(true);
                             usAgainstEnemyDivisor.setVisible(false);
@@ -603,7 +586,7 @@ public class ShipWarfareGUI extends Player {
                                 HPLeft.setVisible(true);
                                 gunsLeftOrTaken.setVisible(true);
 
-                                if(winOrLose==true){
+                                if (winOrLose == true) {
                                     usAgainstEnemyDivisor.setVisible(false);
                                 }
 
