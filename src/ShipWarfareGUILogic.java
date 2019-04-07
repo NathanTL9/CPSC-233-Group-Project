@@ -37,7 +37,7 @@ public class ShipWarfareGUILogic extends Player {
 
 
     /**
-     * this.setter method that takes in an integer as an argument
+     * setter method that takes in an integer as an argument
      *
      * @param numOfLittyShips the number of ships to be used in the peasant fleet attack
      */
@@ -47,7 +47,6 @@ public class ShipWarfareGUILogic extends Player {
         if (counter1 == 1) {
             startingLittyShips = numOfLittyShips;
         }
-
     }
 
     public int getNumOfLittyShips(){
@@ -162,8 +161,9 @@ public class ShipWarfareGUILogic extends Player {
      *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
-    public int destroyLittyShipsOrEscape() {
+    public int destroyLittyShipsOrEscape(int tempLittyShips) {
 
+        this.numOfLittyShips = tempLittyShips;
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
         int hitCounter = 0;
