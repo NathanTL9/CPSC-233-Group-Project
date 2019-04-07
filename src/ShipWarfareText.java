@@ -2,6 +2,13 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 2019-04-07
+ * Author: Haris Muhammad
+ * ShipWarfareText class, Based on logic class for ShipWarfare, text-based version which allwos for ship warfare
+ */
+
+
 
 public class ShipWarfareText extends Player {
 
@@ -60,25 +67,19 @@ public class ShipWarfareText extends Player {
             } else {
                 System.out.println("Invalid response, please try again");
             }
-
         }
-
     }
 
 
     /**
      * Asks user if they would like to fight or run against ships
      */
-
     public void fightOrRunMessage() {
         System.out.printf("What do you want to do? Enter \"f\" to fight, and \"r\" to run (we have %d guns)\n", getGuns());
-
     }
-
 
     /**
      * delays for a specific amount of seconds, takes an integer as an argument
-     *
      * @param num the seconds to delay
      * @throws Exception in case of errors due to the delay
      */
@@ -89,11 +90,9 @@ public class ShipWarfareText extends Player {
 
     /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
-     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
-
     public boolean destroyPeasantShipsOrEscape() throws Exception {
         int calculateLoot = 0;
         int chanceOfEnemyRun = 0;
@@ -211,7 +210,6 @@ public class ShipWarfareText extends Player {
 
     /**
      * Ask the user to input either "f" or "r"
-     *
      * @param userInput scanner object which is used to ask for user input
      * @return user input which is the users response
      * @throws Exception in case the delay afects this piece of code
@@ -231,12 +229,6 @@ public class ShipWarfareText extends Player {
             response = userInput.nextLine();
         }
         return response;
-    }
-
-    public static void main(String[] args) throws Exception {
-        Player littyBoi = new Player();
-        ShipWarfareText test = new ShipWarfareText(littyBoi);
-        test.peasantFleetAttack();
     }
 
 }

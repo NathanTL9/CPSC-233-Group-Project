@@ -63,7 +63,6 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-     *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
     public ShipWarfareGUI(Player player) {
@@ -73,7 +72,7 @@ public class ShipWarfareGUI extends Player {
 
 
     /**
-     * Sets most of the labels invisible except for the "fight or run" label
+     * Sets most of the labels invisible
      */
     public void wipe() {
         wipeWithTitle(title);
@@ -100,7 +99,6 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * The user faces off against the  ships and either prevails, dies, or runs away
-     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
     public boolean destroyShipsOrEscape(Stage stage) throws Exception {
@@ -257,7 +255,6 @@ public class ShipWarfareGUI extends Player {
     /**
      * Ships attack player ship back in an animation
      */
-
     public void shipsRetaliate() {
         cannon.setVisible(true);
         enemyShots.setFromX(270);
@@ -272,7 +269,6 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * Sets most buttons to being invisble and switches to TaipanShop scene
-     *
      * @param stage stage the user incorporates when they utilize the GUI
      */
     public void setVisibilitiesAndTransition(Stage stage) {
@@ -295,7 +291,6 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * Generaties ships and deploys logic for the shipwarfare
-     *
      * @param primaryStage sets up the stage to whcih the GUI may be based around
      * @throws Exception in case of interruptions withing the graphical interface
      */

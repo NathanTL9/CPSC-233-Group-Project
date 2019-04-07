@@ -1,20 +1,23 @@
 import java.util.Random;
 
 /**
- * 2019-03-10 (Edited on 2019-04-1)
+ * 2019-03-10 (Edited on 2019-04-07)
  * Author: Haris Muhammad
- * ShipWarfareGUILogic class, logic for ships which the user can attack or run from
+ * ShipWarfareLogic class, logic for ships which the user can attack or run from
  */
 
 
 public class ShipWarfareLogic extends Player {
 
-
-
     private int numOfShips = 0;
-    private int startingShips=0;
+    private int startingShips = 0;
+    private int counter = 0;
 
-    private int counter;
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
 
     public ShipWarfareLogic(Player player) {
         Player playerDummy = new Player(player);
@@ -35,7 +38,12 @@ public class ShipWarfareLogic extends Player {
         }
     }
 
-    public int getNumOfShips(){
+    /**
+     * get the number of ships attacking
+     *
+     * @return the number of ships attacking
+     */
+    public int getNumOfShips() {
         return numOfShips;
     }
 
@@ -79,14 +87,14 @@ public class ShipWarfareLogic extends Player {
         }
 
         return numOfShipsAttacking;
-
     }
 
     /**
      * Calculates the loot for defeating a fleet
+     *
      * @return the loot for defeating the fleet
      */
-    public int calculateLoot(){
+    public int calculateLoot() {
 
         Random randomValue = new Random();
         int calculateLoot;
@@ -95,7 +103,4 @@ public class ShipWarfareLogic extends Player {
         return calculateLoot;
 
     }
-
-
-
 }
