@@ -22,7 +22,6 @@ public class ShipWarfareText extends Player {
 
     /**
      * Class Constructor that takes in a type player as a parameter
-     *
      * @param player object of the class Player
      */
     public ShipWarfareText(Player player) {
@@ -33,7 +32,6 @@ public class ShipWarfareText extends Player {
 
     /**
      * This fleet is easy to defeat as a maximum of 15 ships can run away each volley, they can not tank hits
-     *
      * @throws Exception in case of errors due to the delay
      */
     public void peasantFleetAttack() throws Exception {
@@ -58,10 +56,11 @@ public class ShipWarfareText extends Player {
             } else if (response.equalsIgnoreCase("r")) {
                 userAttacks = false;
                 boolean runSuccess = logic.runFromShips();
-                if (runSuccess == false) {
+                if(runSuccess == false){
                     System.out.println("Couldn't run away!");
-                    if (destroyPeasantShipsOrEscape())
-                        break;
+                }
+                if (runSuccess == false && destroyPeasantShipsOrEscape()) {
+                    break;
                 } else {
                     System.out.println("Phew! Got away safely");
                     delayForSeconds(2);
@@ -107,34 +106,7 @@ public class ShipWarfareText extends Player {
 
         //Player volley
         while (exitValue == 0) {
-            if (getGuns() > 0) {
-
-                for (int j = 0; j < getGuns(); j++) {
-                    if (userAttacks == true) {
-                        int hitOrMiss = randomValue.nextInt(2) + 1;
-                        if (hitOrMiss == 2) {
-                            logic.setNumOfShips(logic.getNumOfShips() - 1);
-                            if (logic.getNumOfShips() <= 0) {
-                                exitValue = 1;
-                                break;
-                            }
-                            System.out.println("Got eem");
-                            delayForSeconds(1);
-                        } else {
-                            System.out.printf("ARRG! We missed %s\n", getName());
-                            delayForSeconds(1);
-                        }
-
-
-                    } else {
-                        continue;
-                    }
-                }
-            } else {
-                System.out.printf("%s! We don't have any GUNS!!!!\n", getName());
-                delayForSeconds(1);
-
-            }
+            exitValue = hitEnemy(randomValue, exitValue);
 
 
             if (logic.getNumOfShips() <= 0) {
@@ -145,16 +117,7 @@ public class ShipWarfareText extends Player {
                 chanceOfEnemyRun = randomValue.nextInt(2) + 1;
                 if (chanceOfEnemyRun == 2) {
                     howMuchRun = randomValue.nextInt(15) + 1;
-                    if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
-
-
-                        logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
-                        if (userAttacks == true) {
-                            System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
-                        } else {
-                            System.out.printf("Escaped %d of them!\n", howMuchRun);
-                        }
-                    }
+                    shipsRun();
                 }
             }
 
@@ -172,15 +135,9 @@ public class ShipWarfareText extends Player {
             }
             if (getHP() > 0) {
                 String userResponse = displayQuery(userInput);
-                if (userResponse.equalsIgnoreCase("r")) {
-                    userAttacks = false;
-                    if (logic.runFromShips() == false) {
-                        System.out.println("Couldn't run away");
-                    } else {
-                        exitValue = 3;
-                        break;
-                    }
-                }
+                TryRunning tryRunning = new TryRunning(exitValue, userResponse).invoke();
+                if (tryRunning.is()) break;
+                exitValue = tryRunning.getExitValue();
 
             } else {
                 exitValue = 2;
@@ -211,6 +168,35 @@ public class ShipWarfareText extends Player {
 
     }
 
+    public int hitEnemy(Random randomValue, int exitValue) throws Exception {
+        if (getGuns() > 0) {
+
+            for (int j = 0; j < getGuns(); j++) {
+                UserKills userKills = new UserKills(randomValue).invoke();
+                if (userKills.is()) break;
+                exitValue = userKills.getExitValue();
+            }
+        } else {
+            System.out.printf("%s! We don't have any GUNS!!!!\n", getName());
+            delayForSeconds(1);
+
+        }
+        return exitValue;
+    }
+
+    public void shipsRun() {
+        if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
+
+
+            logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
+            if (userAttacks == true) {
+                System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
+            } else {
+                System.out.printf("Escaped %d of them!\n", howMuchRun);
+            }
+        }
+    }
+
     /**
      * Ask the user to input either "f" or "r"
      * @param userInput scanner object which is used to ask for user input
@@ -234,4 +220,84 @@ public class ShipWarfareText extends Player {
         return response;
     }
 
+    public class UserKills {
+        private boolean myResult;
+        private Random randomValue;
+        private int exitValue;
+
+        public UserKills(Random randomValue) {
+            this.randomValue = randomValue;
+        }
+
+        boolean is() {
+            return myResult;
+        }
+
+        public int getExitValue() {
+            return exitValue;
+        }
+
+        public UserKills invoke() throws Exception {
+            if (userAttacks == true) {
+                int hitOrMiss = randomValue.nextInt(2) + 1;
+                if (hitOrMiss == 2) {
+                    logic.setNumOfShips(logic.getNumOfShips() - 1);
+                    if (logic.getNumOfShips() <= 0) {
+                        exitValue = 1;
+                        myResult = true;
+                        return this;
+                    }
+                    System.out.println("Got eem");
+                    delayForSeconds(1);
+                } else {
+                    System.out.printf("ARRG! We missed %s\n", getName());
+                    delayForSeconds(1);
+                }
+
+
+            }
+            myResult = false;
+            return this;
+        }
+    }
+
+    private class TryRunning {
+        private boolean myResult;
+        private int exitValue;
+        private String userResponse;
+
+        public TryRunning(int exitValue, String userResponse) {
+            this.exitValue = exitValue;
+            this.userResponse = userResponse;
+        }
+
+        boolean is() {
+            return myResult;
+        }
+
+        public int getExitValue() {
+            return exitValue;
+        }
+
+        public TryRunning invoke() {
+            if (userResponse.equalsIgnoreCase("r")) {
+                userAttacks = false;
+                if (logic.runFromShips() == false) {
+                    System.out.println("Couldn't run away");
+                } else {
+                    exitValue = 3;
+                    myResult = true;
+                    return this;
+                }
+            }
+            myResult = false;
+            return this;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        ShipWarfareText test = new ShipWarfareText(new Player());
+        test.peasantFleetAttack();
+
+    }
 }

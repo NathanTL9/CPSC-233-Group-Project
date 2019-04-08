@@ -125,26 +125,10 @@ public class ShipWarfareGUI extends Player {
         if (super.getGuns() > 0) {
 
             for (int j = 0; j < super.getGuns(); j++) {
-                if (userAttacks == true) {
-
-                    int hitOrMiss = randomValue.nextInt(2) + 1;
-                    if (hitOrMiss == 2) {
-                        logic.setNumOfShips(logic.getNumOfShips()-1);
-
-                        if (logic.getNumOfShips() <= 0) {
-                            exitValue = 1;
-                        }
-                        hitCounter++;
-
-
-
-                    } else {
-                        missCounter++;
-
-                    }
-
-
-                }
+                PlayerAttacks playerAttacks = new PlayerAttacks(hitCounter, missCounter, randomValue, exitValue).invoke();
+                hitCounter = playerAttacks.getHitCounter();
+                missCounter = playerAttacks.getMissCounter();
+                exitValue = playerAttacks.getExitValue();
             }
             if (userAttacks == true) {
                 report.setText(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
@@ -165,20 +149,7 @@ public class ShipWarfareGUI extends Player {
             chanceOfEnemyRun = randomValue.nextInt(2) + 1;
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
-                if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
-
-
-                    logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
-                    if (userAttacks == true) {
-                        if (howMuchRun > 0) {
-                            runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, super.getName()));
-                        }
-
-                    } else {
-                        report.setText((String.format("Escaped %d of them %s!", howMuchRun, super.getName())));
-                    }
-
-                }
+                shipsRunning();
             }
         }
 
@@ -236,6 +207,23 @@ public class ShipWarfareGUI extends Player {
 
         return false;
 
+    }
+
+    public void shipsRunning() {
+        if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
+
+
+            logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
+            if (userAttacks == true) {
+                if (howMuchRun > 0) {
+                    runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, super.getName()));
+                }
+
+            } else {
+                report.setText((String.format("Escaped %d of them %s!", howMuchRun, super.getName())));
+            }
+
+        }
     }
 
     /**
@@ -596,6 +584,56 @@ public class ShipWarfareGUI extends Player {
             }
         });
 
+    }
+
+    public class PlayerAttacks {
+        private int hitCounter;
+        private int missCounter;
+        private Random randomValue;
+        private int exitValue;
+
+        public PlayerAttacks(int hitCounter, int missCounter, Random randomValue, int exitValue) {
+            this.hitCounter = hitCounter;
+            this.missCounter = missCounter;
+            this.randomValue = randomValue;
+            this.exitValue = exitValue;
+        }
+
+        public int getHitCounter() {
+            return hitCounter;
+        }
+
+        public int getMissCounter() {
+            return missCounter;
+        }
+
+        public int getExitValue() {
+            return exitValue;
+        }
+
+        public PlayerAttacks invoke() {
+            if (userAttacks == true) {
+
+                int hitOrMiss = randomValue.nextInt(2) + 1;
+                if (hitOrMiss == 2) {
+                    logic.setNumOfShips(logic.getNumOfShips()-1);
+
+                    if (logic.getNumOfShips() <= 0) {
+                        exitValue = 1;
+                    }
+                    hitCounter++;
+
+
+
+                } else {
+                    missCounter++;
+
+                }
+
+
+            }
+            return this;
+        }
     }
 }
 
