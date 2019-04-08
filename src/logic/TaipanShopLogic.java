@@ -29,7 +29,7 @@ public class TaipanShopLogic extends Player {
         setSilkPrice((rand.nextInt(201) + 60) * 10);
         setArmsPrice((rand.nextInt(21) + 6) * 10);
         setGeneralPrice((rand.nextInt(17) + 4));
-        
+
         // there is a 10% chance that the price of an item is increased/decreased beyond its regular range.
         if (value < 8) {
             if (value < 2) {
