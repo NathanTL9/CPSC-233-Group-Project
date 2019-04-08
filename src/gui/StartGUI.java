@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import logic.Player;
 import logic.FileSaving;
+import logic.StartLogic;
 
 /**
  * 2019-03-10
@@ -193,26 +194,23 @@ public class StartGUI extends Player {
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                StartLogic startLogic = new StartLogic(getPlayer());
                 if (Start.getSelectedToggle() == cashChoice) {
-                    setMoney(400);
-                    setDebt(5000);
-                    setGuns(0);
+                    startLogic.money_and_debt();
                 }
                 if (Start.getSelectedToggle() == gunChoice) {
-                    setGuns(5);
+                    startLogic.guns();
                 }
 
                 String response = nameField.getText();
                 // purely for testing purposes.
                 if (response.equalsIgnoreCase("Vikram")) {
-                    setMoney(999999999);
-                    setBank(999999999);
-                    setGuns(999);
-                    setHP(99999999);
+                    startLogic.cheat();
                     setCargoSpace(Integer.MAX_VALUE);
                 }
                 setFirm(response);
 
+                setPlayer(startLogic.getPlayer());
                 TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                 shop.initializeShop(stage);
                 stage.show();
