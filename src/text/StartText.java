@@ -1,7 +1,7 @@
 package text;
 
 import logic.Player;
-
+import logic.StartLogic;
 import java.util.Scanner;
 
 public class StartText extends Player {
@@ -21,21 +21,16 @@ public class StartText extends Player {
         setName(userInput.nextLine());
         System.out.println("Do you want to start . . .\n\t1) With cash (and a debt)\n\t\t\t>> or <<\n\t" + "2) With five guns and no cash (But no debt!)?\n ");
         int input = userInput.nextInt();
+        StartLogic startLogic = new StartLogic(getPlayer());
         if (input == 1) {
-            setMoney(400);
-            setDebt(5000);
-
+        startLogic.money_and_debt();
         }
         if (input == 2) {
-            setGuns(5);
+        startLogic.guns();
         }
         // purely for testing purposes.
         if (getName().equalsIgnoreCase("Vikram")) {
-            setMoney(999999999);
-            setBank(999999999);
-            setGuns(999);
-            setHP(99999999);
-            setCargoSpace(99999999);
+            startLogic.cheat();
         }
     }
 }
