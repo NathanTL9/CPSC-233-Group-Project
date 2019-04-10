@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -9,10 +10,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import logic.Player;
+import logic.WarehouseLogic;
 
 /**
  * 2019-03-19
- * Authors:Siddhant, Vikram, Harkamal, Haris, Nathan
+ * Authors:Siddhant and Harkamal
  * WarehouseGUI allows the user to store goods in a warehouse in order to have more hold on the ship
  */
 
@@ -90,13 +92,7 @@ public class WarehouseGUI extends Player {
         textField = new TextField();
 
         //Creating the box for the warehouse GUI
-        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
-        hBox.setAlignment(javafx.geometry.Pos.CENTER);
-        hBox.setPrefHeight(100.0);
-        hBox.setPrefWidth(200.0);
-        hBox.setSpacing(10.0);
-
-        vBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        settingBorderFormat(hBox, vBox);
         vBox.setPrefHeight(200.0);
         vBox.setPrefWidth(100.0);
 
@@ -137,20 +133,14 @@ public class WarehouseGUI extends Player {
 
 
         //Takes you to the HK warehouse
-        borderPane.setAlignment(title, javafx.geometry.Pos.CENTER);
+        borderPane.setAlignment(title, Pos.CENTER);
         title.setText("Hong Kong Warehouse");
         title.setFont(new Font(24.0));
         title.setPadding(new Insets(10.0, 0.0, 0.0, 0.0));
         borderPane.setTop(title);
 
         // Making the BOX again
-        borderPane.setAlignment(hBox0, javafx.geometry.Pos.CENTER);
-        hBox0.setAlignment(javafx.geometry.Pos.CENTER);
-        hBox0.setPrefHeight(100.0);
-        hBox0.setPrefWidth(200.0);
-        hBox0.setSpacing(10.0);
-
-        vBox0.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        settingBorderFormat(hBox0, vBox0);
         vBox0.setSpacing(10.0);
 
         playerLabel.setText("Player:");
@@ -171,10 +161,10 @@ public class WarehouseGUI extends Player {
 
         playerOpium.setText("Opium:");
 
-        vBox1.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        vBox1.setAlignment(Pos.CENTER_LEFT);
         vBox1.setSpacing(10.0);
 
-        houseLabel.setAlignment(javafx.geometry.Pos.TOP_CENTER);
+        houseLabel.setAlignment(Pos.TOP_CENTER);
         houseLabel.setText("Warehouse:");
         houseLabel.setFont(new Font(18.0));
 
@@ -231,85 +221,46 @@ public class WarehouseGUI extends Player {
             taipanShopGUI.initializeShop(stage);
             stage.show();
         });
+
         //Runs when the withdraw button is selected. and removes the amount of the selected good
         withdrawButton.setOnAction(event -> {
-            try {
-                int withdraw = Integer.parseInt(textField.getText());
-
-                if(withdraw <= 0){
-                    title.setText("Please enter a valid value");
-                }
-                //Transfers general amount
-                else if(Goods.getSelectedToggle() == generalRadio && withdraw <= getwGeneral()){
-                    setGeneralHeld(getPlayer().getGeneralHeld()+withdraw);
-                    setwGeneral(getPlayer().getwGeneral()-withdraw);
-                }
-                //Transfers Arms amount
-                else if(Goods.getSelectedToggle() == armsRadio && withdraw <= getwArms()){
-                    setArmsHeld(getPlayer().getArmsHeld()+withdraw);
-                    setwArms(getPlayer().getwArms()-withdraw);
-                }
-                //Transfers Silk Amount
-                else if(Goods.getSelectedToggle() == silkRadio && withdraw <= getwSilk()){
-                    setSilkHeld(getPlayer().getSilkHeld()+withdraw);
-                    setwSilk(getPlayer().getwSilk()-withdraw);
-                }
-                //Transfers Opium amount
-                else if(Goods.getSelectedToggle() == opiumRadio && withdraw <= getwOpium()) {
-                    setOpiumHeld(getPlayer().getOpiumHeld() + withdraw);
-                    setwOpium(getPlayer().getwOpium() - withdraw);
-                }
-                // Ensures a valid value is entered
-                else{
-                    title.setText("Please enter a valid value");
-                }
-                updateLabels();
+            WarehouseLogic warehouseLogic = new WarehouseLogic(getPlayer());
+            if(Goods.getSelectedToggle() == generalRadio){
+                title.setText(warehouseLogic.withdraw(textField.getText(),1));
             }
-            catch (Exception e) {
-                title.setText("Please enter a valid value");
+            else if(Goods.getSelectedToggle() == armsRadio){
+                title.setText(warehouseLogic.withdraw(textField.getText(),2));
             }
+            else if(Goods.getSelectedToggle() == silkRadio){
+                title.setText(warehouseLogic.withdraw(textField.getText(),3));
+            }
+            else if(Goods.getSelectedToggle() == opiumRadio){
+                title.setText(warehouseLogic.withdraw(textField.getText(),4));
+            }
+            setPlayer(warehouseLogic.getPlayer());
+            updateLabels();
         });
+
         //Button to add a user entered amount to the warehouse
         depositButton.setOnAction(event -> {
-            try {
-                int deposit = Integer.parseInt(textField.getText());
-
-                if(deposit <= 0){
-                    title.setText("Please enter a valid value");
-                }
-                //Transfers general amount
-                else if(Goods.getSelectedToggle() == generalRadio && deposit <= getGeneralHeld()){
-                    setGeneralHeld(getPlayer().getGeneralHeld()-deposit);
-                    setwGeneral(getPlayer().getwGeneral()+deposit);
-                }
-                //Transfers Arms  amount
-                else if(Goods.getSelectedToggle() == armsRadio && deposit <= getArmsHeld()){
-                    setArmsHeld(getPlayer().getArmsHeld()-deposit);
-                    setwArms(getPlayer().getwArms()+deposit);
-                }
-                //Transfers Silk amount
-                else if(Goods.getSelectedToggle() == silkRadio && deposit <= getSilkHeld()){
-                    setSilkHeld(getPlayer().getSilkHeld()-deposit);
-                    setwSilk(getPlayer().getwSilk()+deposit);
-                }
-                //Transfers Opium amount
-                else if(Goods.getSelectedToggle() == opiumRadio && deposit <= getOpiumHeld()){
-                    setOpiumHeld(getPlayer().getOpiumHeld()-deposit);
-                    setwOpium(getPlayer().getwOpium()+deposit);
-                }
-                //Checks if the correct value is entered
-                else{
-                    title.setText("Please enter a valid value");
-                }
-                updateLabels();
+            WarehouseLogic warehouseLogic = new WarehouseLogic(getPlayer());
+            if(Goods.getSelectedToggle() == generalRadio){
+                title.setText(warehouseLogic.deposit(textField.getText(),1));
             }
-            catch (Exception e) {
-                title.setText("Please enter a valid value");
+            else if(Goods.getSelectedToggle() == armsRadio){
+                title.setText(warehouseLogic.deposit(textField.getText(),2));
             }
+            else if(Goods.getSelectedToggle() == silkRadio){
+                title.setText(warehouseLogic.deposit(textField.getText(),3));
+            }
+            else if(Goods.getSelectedToggle() == opiumRadio){
+                title.setText(warehouseLogic.deposit(textField.getText(),4));
+            }
+            setPlayer(warehouseLogic.getPlayer());
+            updateLabels();
         });
 
-
-        //Create the sceene and box of the desired size
+        //Create the scene and box of the desired size
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");
 
@@ -317,6 +268,15 @@ public class WarehouseGUI extends Player {
         stage.setResizable(false);
         stage.setScene(root);
         return stage;
+    }
+
+    public void settingBorderFormat(HBox hBox, VBox vBox) {
+        borderPane.setAlignment(hBox, javafx.geometry.Pos.CENTER);
+        hBox.setAlignment(javafx.geometry.Pos.CENTER);
+        hBox.setPrefHeight(100.0);
+        hBox.setPrefWidth(200.0);
+        hBox.setSpacing(10.0);
+        vBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
     }
 
     /**
