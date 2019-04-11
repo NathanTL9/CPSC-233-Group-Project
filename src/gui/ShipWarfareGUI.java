@@ -16,10 +16,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.FileInputStream;
 import java.util.Random;
+import java.util.Scanner;
 
-//Importing the logic classes required for this class
 import logic.Player;
 import logic.ShipWarfareLogic;
 
@@ -69,6 +70,7 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
     public ShipWarfareGUI(Player player) {
@@ -86,6 +88,11 @@ public class ShipWarfareGUI extends Player {
 
     }
 
+    /**
+     * Wipe many of the labels including title
+     *
+     * @param title for GUI
+     */
     public void wipeWithTitle(Label title) {
         title.setVisible(false);
         runAwayOrLeft.setVisible(false);
@@ -102,9 +109,58 @@ public class ShipWarfareGUI extends Player {
         report.setVisible(false);
     }
 
+    /**
+     * Attacks the enemy fleet and sees how much shots miss and how much shots hit
+     *
+     * @param exitValue   to distingusih if the player won, lost, or ran
+     * @param hitCounter  to see how much of the shots hit the ships
+     * @param missCounter to see how much of the shots missed the ships
+     * @param random      to utilize the random object
+     * @return an array of values
+     */
+    public int[] successfulHitOrNot(int exitValue, int hitCounter, int missCounter, Random random) {
+        int hitOrMiss = random.nextInt(2) + 1;
+
+        if (userAttacks && hitOrMiss == 2) {
+            if (logic.getNumOfShips() <= 0) {
+                exitValue = 1;
+            }
+            hitCounter++;
+            logic.setNumOfShips(logic.getNumOfShips() - 1);
+
+
+        } else {
+            missCounter++;
+        }
+
+        return new int[]{exitValue, hitCounter, missCounter};
+
+    }
+
+    /**
+     * Reports how many ships escape or run
+     */
+    public void howMuchEscapeOrRun() {
+        if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
+
+            logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
+            if (userAttacks == true) {
+                if (howMuchRun > 0) {
+                    runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, super.getName()));
+                }
+
+            } else {
+                report.setText((String.format("Escaped %d of them %s!", howMuchRun, super.getName())));
+            }
+
+        }
+
+    }
+
 
     /**
      * The user faces off against the  ships and either prevails, dies, or runs away
+     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      */
     public boolean destroyShipsOrEscape(Stage stage) throws Exception {
@@ -125,10 +181,10 @@ public class ShipWarfareGUI extends Player {
         if (super.getGuns() > 0) {
 
             for (int j = 0; j < super.getGuns(); j++) {
-                PlayerAttacks playerAttacks = new PlayerAttacks(hitCounter, missCounter, randomValue, exitValue).invoke();
-                hitCounter = playerAttacks.getHitCounter();
-                missCounter = playerAttacks.getMissCounter();
-                exitValue = playerAttacks.getExitValue();
+                int array[] = successfulHitOrNot(exitValue, hitCounter, missCounter, randomValue);
+                exitValue = array[0];
+                hitCounter = array[1];
+                missCounter = array[2];
             }
             if (userAttacks == true) {
                 report.setText(String.format("Report: Ships hit: %d, Shots missed: %d", hitCounter, missCounter));
@@ -139,8 +195,6 @@ public class ShipWarfareGUI extends Player {
         }
 
 
-
-
         if (logic.getNumOfShips() <= 0) {
             exitValue = 1;
         }
@@ -149,7 +203,8 @@ public class ShipWarfareGUI extends Player {
             chanceOfEnemyRun = randomValue.nextInt(2) + 1;
             if (chanceOfEnemyRun == 2) {
                 howMuchRun = randomValue.nextInt(15) + 1;
-                shipsRunning();
+                howMuchEscapeOrRun();
+
             }
         }
 
@@ -209,23 +264,6 @@ public class ShipWarfareGUI extends Player {
 
     }
 
-    public void shipsRunning() {
-        if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
-
-
-            logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
-            if (userAttacks == true) {
-                if (howMuchRun > 0) {
-                    runAwayOrLeft.setText(String.format("Cowards! %d ships ran away %s! ", howMuchRun, super.getName()));
-                }
-
-            } else {
-                report.setText((String.format("Escaped %d of them %s!", howMuchRun, super.getName())));
-            }
-
-        }
-    }
-
     /**
      * Player attacks enemy ships in an animation
      */
@@ -263,6 +301,7 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * Sets most buttons to being invisble and switches to TaipanShop scene
+     *
      * @param stage stage the user incorporates when they utilize the GUI
      */
     public void setVisibilitiesAndTransition(Stage stage) {
@@ -285,6 +324,7 @@ public class ShipWarfareGUI extends Player {
 
     /**
      * Generaties ships and deploys logic for the shipwarfare
+     *
      * @param primaryStage sets up the stage to whcih the GUI may be based around
      * @throws Exception in case of interruptions withing the graphical interface
      */
@@ -580,60 +620,8 @@ public class ShipWarfareGUI extends Player {
 
                 });
 
-
             }
         });
 
     }
-
-    public class PlayerAttacks {
-        private int hitCounter;
-        private int missCounter;
-        private Random randomValue;
-        private int exitValue;
-
-        public PlayerAttacks(int hitCounter, int missCounter, Random randomValue, int exitValue) {
-            this.hitCounter = hitCounter;
-            this.missCounter = missCounter;
-            this.randomValue = randomValue;
-            this.exitValue = exitValue;
-        }
-
-        public int getHitCounter() {
-            return hitCounter;
-        }
-
-        public int getMissCounter() {
-            return missCounter;
-        }
-
-        public int getExitValue() {
-            return exitValue;
-        }
-
-        public PlayerAttacks invoke() {
-            if (userAttacks == true) {
-
-                int hitOrMiss = randomValue.nextInt(2) + 1;
-                if (hitOrMiss == 2) {
-                    logic.setNumOfShips(logic.getNumOfShips()-1);
-
-                    if (logic.getNumOfShips() <= 0) {
-                        exitValue = 1;
-                    }
-                    hitCounter++;
-
-
-
-                } else {
-                    missCounter++;
-
-                }
-
-
-            }
-            return this;
-        }
-    }
 }
-

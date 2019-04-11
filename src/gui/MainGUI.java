@@ -16,14 +16,17 @@ public class MainGUI extends Application {
     /**
      * Updates main class with player data and starts the game.
      * The game will only run as long as the player has not retired or has been destroyed.
-     *
      * @param args Just the console for the player to look at.
      */
     public static void main(String[] args) {
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception {
+    /**
+     * Starts the game as a whole, combines all of the other necessary classes
+     * @param primaryStage Creates new stage for scene to be utilized
+     */
+    public void start(Stage primaryStage){
         StartGUI start = new StartGUI(new Player());
         start.initializeStart(primaryStage);
         primaryStage.show();
