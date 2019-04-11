@@ -169,13 +169,6 @@ public class LoanSharkGUI extends Player {
         //primaryStage.show();
         return primaryStage;
     }
-
-
-    public void start(Stage primaryStage) {
-        LoanSharkGUI loan = new LoanSharkGUI(getPlayer());
-        loan.initializeLoanShark(primaryStage);
-        primaryStage.show();
-    }
 }
 
 
