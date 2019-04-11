@@ -9,7 +9,7 @@ Then, run MainGUI.java.
 
 If you are using the command line, extract "TaipanClone-master.zip", and open the "TaipanClone-master" folder. Open your terminal and change its directory to the "src" folder within "TaipanClone-master" folder.
 
-Then, type in "javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar gui/*.java text/*java logic/*.java tests/*.java", this compiles all the necessary files. Now, run MainGUI.java using "java MainGUI".
+Then, type in "javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java", this compiles all the necessary files. Now, run MainGUI.java using "java MainGUI".
 
 To run the test file PlayerTest.java, type in "javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar gui/*.java text/*java logic/*.java tests/*.java", this compiles all the necessary files. Now, run PlayerTest.java using "java PlayerTest".
 
