@@ -1,7 +1,9 @@
 package text;
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
 import logic.Player;
 import logic.ShipWarfareLogic;
 
@@ -10,7 +12,6 @@ import logic.ShipWarfareLogic;
  * Author: Haris Muhammad
  * ShipWarfareText class, Based on logic class for ShipWarfare, text-based version which allwos for ship warfare
  */
-
 
 
 public class ShipWarfareText extends Player {
@@ -83,6 +84,7 @@ public class ShipWarfareText extends Player {
 
     /**
      * delays for a specific amount of seconds, takes an integer as an argument
+     *
      * @param num the seconds to delay
      * @throws Exception in case of errors due to the delay
      */
@@ -92,7 +94,48 @@ public class ShipWarfareText extends Player {
 
 
     /**
+     * Ships either land a hit or do not
+     * @param random random object is used
+     * @param exitValue exit in order to know if user wins, loses, or flees
+     * @throws Exception in case error is caused due to the delay
+     */
+    public void attackOrNot(Random random, int exitValue) throws Exception {
+        if (userAttacks == true) {
+            int hitOrMiss = random.nextInt(2) + 1;
+            if (hitOrMiss == 2) {
+                logic.setNumOfShips(logic.getNumOfShips() - 1);
+                if (logic.getNumOfShips() <= 0) {
+                    exitValue = 1;
+                }
+                System.out.println("Got eem");
+                delayForSeconds(1);
+            } else {
+                System.out.printf("ARRG! We missed %s\n", getName());
+                delayForSeconds(1);
+            }
+
+
+        }
+    }
+
+    /**
+     * Ships either run away or we escape
+     */
+    public void shipsRunOrWeEscape(){
+        if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
+            logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
+            if (userAttacks == true) {
+                System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
+            } else {
+                System.out.printf("Escaped %d of them!\n", howMuchRun);
+            }
+        }
+    }
+
+
+    /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
+     *
      * @return true if the user wins, loses, or flees, it returns false otherwise
      * @throws Exception in case of errors due to the delay
      */
@@ -109,25 +152,10 @@ public class ShipWarfareText extends Player {
         while (exitValue == 0) {
             if (getGuns() > 0) {
                 for (int j = 0; j < getGuns(); j++) {
-                    if (userAttacks == true) {
-                        int hitOrMiss = randomValue.nextInt(2) + 1;
-                        if (hitOrMiss == 2) {
-                            logic.setNumOfShips(logic.getNumOfShips() - 1);
-                            if (logic.getNumOfShips() <= 0) {
-                                exitValue = 1;
-                                break;
-                            }
-                            System.out.println("Got eem");
-                            delayForSeconds(1);
-                        } else {
-                            System.out.printf("ARRG! We missed %s\n", getName());
-                            delayForSeconds(1);
-                        }
-
-
-                    } else {
-                        continue;
-                    }
+                    attackOrNot(randomValue,exitValue);
+                }
+                if (exitValue == 1) {
+                    break;
                 }
             } else {
                 System.out.printf("%s! We don't have any GUNS!!!!\n", getName());
@@ -144,16 +172,7 @@ public class ShipWarfareText extends Player {
                 chanceOfEnemyRun = randomValue.nextInt(2) + 1;
                 if (chanceOfEnemyRun == 2) {
                     howMuchRun = randomValue.nextInt(15) + 1;
-                    if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
-
-
-                        logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
-                        if (userAttacks == true) {
-                            System.out.printf("Ahhh, %d ships ran away %s!\n", howMuchRun, getName());
-                        } else {
-                            System.out.printf("Escaped %d of them!\n", howMuchRun);
-                        }
-                    }
+                    shipsRunOrWeEscape();
                 }
             }
 
@@ -212,6 +231,7 @@ public class ShipWarfareText extends Player {
 
     /**
      * Ask the user to input either "f" or "r"
+     *
      * @param userInput scanner object which is used to ask for user input
      * @return user input which is the users response
      * @throws Exception in case the delay afects this piece of code

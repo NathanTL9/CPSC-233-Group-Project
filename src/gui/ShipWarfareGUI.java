@@ -19,7 +19,6 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.util.Random;
-import java.util.Scanner;
 
 import logic.Player;
 import logic.ShipWarfareLogic;
