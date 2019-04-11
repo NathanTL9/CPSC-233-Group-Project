@@ -1,6 +1,7 @@
-package logic; /**
+package logic;
+
+/**
  * TaipanShopLogic deals with the computations necessary for the shop such as randomizing prices.
- *
  * Author: Vikram Bawa
  */
 import java.util.Random;

@@ -18,7 +18,6 @@ import logic.Player;
 import java.util.Random;
 
 public class TravelGUI extends Player {
-    private TaipanShopGUI shop;
     private Label firm = new Label();
     private Label wItemsText = new Label();
     private Label wItemSpaceText = new Label();
