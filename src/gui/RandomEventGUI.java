@@ -8,8 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import logic.Player;
-
-import java.util.Random;
+import logic.RandomEventLogic;
 
 /**
  * 2019-03-19
@@ -132,33 +131,20 @@ public class RandomEventGUI extends Player {
         * 2: Paying Liu Yuen
         * 3: Repairing the Ship
         */
-        Random rand = new Random();
-        int randGenNum = rand.nextInt(3) + 1;
-        while(true){
-            //Buy Guns
-            if (randGenNum == 1) {
-                itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
-                sellingItemLabel.setText("A vender is selling a gun for $" + itemPrice + " for a gun?");
-                break;
-            }
-            //Liu Yuen
-            if (randGenNum == 2) {
-                itemPrice = (int) ((getPlayer().getMoney() * 0.1) + 10);
-                sellingItemLabel.setText("Liu Yuen asks $" + itemPrice + " in donation to the temple of Tin Hau, the Sea Goddess");
-                setAttackingShips(true);
-                break;
-            }
-            //Ship Repair
-            if (randGenNum == 3 && getHP() < 100) {
-                itemPrice = (int) ((100 - getPlayer().getHP()) * 10 + 10);
-                sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived,\n would be willing to repair your ship for $" + itemPrice);
-                break;
-            }
-            else {
-                randGenNum = 2;
-            }
+        RandomEventLogic randomEventLogic = new RandomEventLogic(getPlayer());
+        int[] randEvent = randomEventLogic.randEvent();
+        eventNumber = randEvent[0];
+        itemPrice = randEvent[1];
+
+        if(eventNumber == 1){
+            sellingItemLabel.setText("A vender is selling a gun for $" + itemPrice + " for a gun?");
         }
-        eventNumber = randGenNum;
+        if(eventNumber == 2){
+            sellingItemLabel.setText("Liu Yuen asks $" + itemPrice + " in donation to the temple of Tin Hau, the Sea Goddess");
+        }
+        if(eventNumber == 3){
+            sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived,\n would be willing to repair your ship for $" + itemPrice);
+        }
 
         if((eventNumber == 1 && getCargoSpace() < 10)){
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
@@ -229,4 +215,6 @@ public class RandomEventGUI extends Player {
         stage.setScene(root);
         return stage;
     }
+
+
 }
