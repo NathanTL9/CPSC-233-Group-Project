@@ -1,7 +1,5 @@
 package text;
 
-import gui.RandomEventGUI;
-import gui.TaipanShopGUI;
 import logic.Player;
 import logic.TravelLogic;
 
@@ -10,6 +8,11 @@ import java.util.Scanner;
 
 public class TravelText extends Player {
 
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
     public TravelText(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
@@ -54,14 +57,25 @@ public class TravelText extends Player {
         }
     }
 
+    /**
+     * The traveling method, it changes the location of the player and increments their interest and debt everytime the player travels
+     * Also allows for the player to be attacked by enemy ships and to be hit by random encounters.
+     * @param keyboard The Scanner object which allows for the program to respond to the user
+     * @param hasTraveled Checks whether the user has traveled or not
+     */
     public void traveling(Scanner keyboard, boolean hasTraveled) {
         String response;
         int tempInt;
         while (true) {
             System.out.println("\n" + getName() + ", do you wish to go to:\n");
-            System.out.println("1) Hong Kong, 2) Shanghai, 3) Nagasaki,\n4) Saigon, 5) Manila, 6) Singapore, or 7) Batavia?");
+            System.out.println("1) Hong Kong, 2) Shanghai, 3) Nagasaki,\n4) Saigon, 5) Manila, 6) Singapore, or 7) Batavia? or (Q)uit");
 
             response = keyboard.nextLine();
+            //Sends the player back to shop if they want to quit
+            if(response.equalsIgnoreCase("Q")){
+                TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
+                taipanShopText.shop();
+            }
             //Just in case the player types something that was not intended. It will refresh the question and ask it again
             try {
                 tempInt = Integer.parseInt(response);
@@ -69,6 +83,7 @@ public class TravelText extends Player {
                 if (tempInt != getLocation()) {
                     randomEventSea(tempInt);
 
+                    //Checks the seaAtlas to see if the player can go to their location
                     TravelLogic travelLogic = new TravelLogic(getPlayer());
                     travelLogic.seaAtlas(tempInt);
                     setPlayer(travelLogic.getPlayer());
@@ -82,14 +97,17 @@ public class TravelText extends Player {
             } catch (Exception e) {
                 System.out.print("\nSorry, " + getName() + " could you say that again?");
             }
+            //If they've traveled then it randomly selects whether the player should go to the shop or a random event
             if (hasTraveled) {
 
                 Random rand = new Random();
                 int randGenNum = rand.nextInt(3) + 1;
+                //Chance of going to shop
                 if(randGenNum >= 2) {
                     TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
                     taipanShopText.shop();
                 }
+                //Chance of reaching a random event
                 else {
                     RandomEventText randomEventText = new RandomEventText(getPlayer());
                     randomEventText.randomEvent();

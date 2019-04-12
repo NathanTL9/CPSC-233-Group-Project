@@ -4,6 +4,12 @@ import java.util.Random;
 
 public class TravelLogic extends Player {
 
+
+    /**
+     * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
+     *
+     * @param player is a Player object that will be copied and the player instance variable is set to the copy.
+     */
     public TravelLogic(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
@@ -56,6 +62,7 @@ public class TravelLogic extends Player {
      *
      * @param locationOfTravel is used to see where the player is going to travel, just in case their location is changed
      *                         by a typhoon.
+     * @return returns the string which is to be said to the player
      **/
     public String disaster(int locationOfTravel) {
         //Tells player that there is a storm approaching.

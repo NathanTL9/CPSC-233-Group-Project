@@ -10,7 +10,6 @@ public class TaipanShopLogic extends Player {
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-     *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
     public TaipanShopLogic(Player player) {
@@ -19,7 +18,8 @@ public class TaipanShopLogic extends Player {
     }
 
     /**
-     * this method is when the shop is accessed, randomizing the prices of all the items.
+     * This method is used when the shop is accessed, randomizing the prices of all the items.
+     * @return Returns the string which will be said to the player when they open the shop
      */
     public String updatePrices() {
         String s = "\t" + getName() + ", the price of ";
@@ -72,7 +72,6 @@ public class TaipanShopLogic extends Player {
 
     /**
      * returns the user's condition based upon their current HP.
-     *
      * @return shipStatus -- a representation of their ship's health in words.
      */
     public String shipStatusString(){
@@ -96,7 +95,6 @@ public class TaipanShopLogic extends Player {
 
     /**
      * converts the user's location (an integer) to a String, and returns it.
-     *
      * @return location -- the user's location as a string; the actual name of the location.
      */
     public String getStringLocation(){

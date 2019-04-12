@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 public class WarehouseText extends Player {
 
+    /**
+     * Class Constructor that takes in a type player as a parameter
+     *
+     * @param player object of the class Player
+     */
     public WarehouseText(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);

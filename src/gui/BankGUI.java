@@ -12,18 +12,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import logic.BankLogic;
 import logic.Player;
 
+/**
+ * 2019-03-10
+ * Authors: Siddhant Dewani
+ * BankGUI allows the user to store cash and gain interest off of the cash
+ */
 public class BankGUI extends Player {
-    /**
-     * 2019-03-10
-     * Authors: Siddhant Dewani
-     * BankGUI allows the user to store cash and gain interest off of the cash
-     */
 
     /**
      * Class Constructor that takes in a type player as a parameter
-     *
      * @param player object of the class Player
      */
     public BankGUI(Player player) {
@@ -33,16 +33,14 @@ public class BankGUI extends Player {
 
     /**
      * Initializes the GUI for the Bank in our game.
-     *
-     * @param primaryStage
-     * @return
+     * @param primaryStage the stage in which everything in this class is shown
+     * @return Returns the stage in which can be used by other stages
      */
-    public Stage initializeBank(Stage primaryStage) {
+    public void initializeBank(Stage primaryStage) {
         primaryStage.setTitle("Bank");
 
         /**
          * Creating all the layouts, labels, buttons, and a textfield.
-         *
          */
         BorderPane brdr1 = new BorderPane();
         HBox hbx1 = new HBox(30);
@@ -63,7 +61,6 @@ public class BankGUI extends Player {
 
         /**
          * Adds the buttons so that they are at the bottom of the screen.
-         *
          */
         hbx1.setAlignment(Pos.CENTER);
         hbx1.getChildren().add(b1);
@@ -83,7 +80,6 @@ public class BankGUI extends Player {
 
         /**
          * Adds the labels to the top of the screen.
-         *
          */
         vbx1.setAlignment(Pos.CENTER);
         vbx1.getChildren().add(l1);
@@ -95,7 +91,6 @@ public class BankGUI extends Player {
 
         /**
          * Adds function to button 1 which, when clicked, withdraws money from your bank to your person but, will not let you overdraw.
-         *
          */
         b1.setOnAction(new EventHandler<ActionEvent>() {
                @Override
@@ -135,22 +130,25 @@ public class BankGUI extends Player {
 
         /**
          * Sets the window size to a width of 600 and height of 480 and displays the screen.
-         *
          */
         Scene scene = new Scene(brdr1, 600, 480);
         scene.getStylesheets().add("styleguide.css");
         primaryStage.setScene(scene);
-        return primaryStage;
     }
 
+    /**
+     * The deposit button within the scene above. Runs the deposit logic class when run
+     * @param txtField1,l5,l2,l4 assigned from the original element inside of the JavaFX scene
+     */
     private void deposits(TextField txtField1, Label l5, Label l2, Label l4) {
         try {
             int deposit = Integer.parseInt(txtField1.getText());
             if (deposit < 0) {
                 l5.setText("Nice try! You can not enter negative numbers.");
             } else if (deposit <= getMoney()) {
-                setBank(deposit + getBank());
-                setMoney(getMoney() - deposit);
+                BankLogic bankLogic = new BankLogic(getPlayer());
+                bankLogic.depositing(deposit);
+                setPlayer(bankLogic.getPlayer());
             } else {
                 l5.setText("Sorry, you can not deposit that much.");
             }
@@ -162,14 +160,19 @@ public class BankGUI extends Player {
         }
     }
 
+    /**
+     * The withdraw button within the scene above. Runs the withdraw logic class when run
+     * @param txtField1,l5,l2,l4 assigned from the original element inside of the JavaFX scene
+     */
     private void withdraw(TextField txtField1, Label l5, Label l2, Label l4) {
         try {
             int withdraw = Integer.parseInt(txtField1.getText());
             if (withdraw < 0) {
                 l5.setText("Come on " + getName() + ", are you trying to fool me?\nNo negative numbers please!");
             } else if (withdraw <= getBank()) {
-                setMoney(withdraw + getMoney());
-                setBank(getBank() - withdraw);
+                BankLogic bankLogic = new BankLogic(getPlayer());
+                bankLogic.withdrawing(withdraw);
+                setPlayer(bankLogic.getPlayer());
             } else {
                 l5.setText("Sorry, you can not withdraw that much.");
             }
@@ -178,16 +181,5 @@ public class BankGUI extends Player {
         } catch (Exception e) {
             l5.setText("Please enter a valid response.");
         }
-    }
-
-    /**
-     * sets scene and runs stage
-     *
-     * @param primaryStage the stage in which the scene may be run and switched to
-     */
-    public void start(Stage primaryStage) {
-        BankGUI bank = new BankGUI(getPlayer());
-        bank.initializeBank(primaryStage);
-        primaryStage.show();
     }
 }

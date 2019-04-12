@@ -13,9 +13,9 @@ public class WarehouseLogic extends Player {
     }
 
     /**
-    * Method that tranfers your cargo from your ship to your warehouse.
+    * Method that transfers your cargo from your ship to your warehouse.
     * Has error handling to prevent incorrect inputs
-    *
+    * @return returns the string which is to be said to the player
     */
     public String deposit(String str, int goodsNum) {
         try {
@@ -60,7 +60,7 @@ public class WarehouseLogic extends Player {
     /**
     * Method that transfers cargo from your warehouse onto your ship.
     * Has error handling to prevent incorrect inputs
-    *
+    * @return returns the string which is to be said to the player
     */
     public String withdraw(String str, int goodsNum) {
         try {

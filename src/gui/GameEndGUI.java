@@ -25,6 +25,11 @@ public class GameEndGUI extends Player {
     private Label netWorth;
     private BorderPane borderPane;
 
+    /**
+     * Class Constructor that takes in a type player as a parameter
+     *
+     * @param player object of the class Player
+     */
     public GameEndGUI(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
@@ -36,7 +41,7 @@ public class GameEndGUI extends Player {
      * @param stage sets the stage to which we will execute the scene of the GameEndGUI class
      * @return stage so that another class can switch to the stage
      */
-    public Stage initializeGameEndGUI(Stage stage) {
+    public void initializeGameEndGUI(Stage stage) {
 
         //Creating all the nodes
         title = new Label();
@@ -83,10 +88,11 @@ public class GameEndGUI extends Player {
         vBox.getChildren().add(netWorth);
         title.setText(gameEndLogic.endGameText());
 
+        String[] strings = gameEndLogic.endGameStats(netWorthInt);
         //Updating the endgame stats of the player
-        firmName.setText("Firm Name: " + getName());
-        gunsHeld.setText("Guns Held: " + getGuns());
-        netWorth.setText("Net Worth: " + netWorthInt);
+        firmName.setText(strings[0]);
+        gunsHeld.setText(strings[1]);
+        netWorth.setText(strings[2]);
 
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");
@@ -94,18 +100,7 @@ public class GameEndGUI extends Player {
         stage.setTitle("End Game Stats");
         stage.setResizable(false);
         stage.setScene(root);
-
-        return stage;
     }
 
-    /**
-     * sets scene and runs stage
-     *
-     * @param primaryStage the stage in which the scene may be run and switched to
-     */
-    public void start(Stage primaryStage) {
-        GameEndGUI gameEndGUI = new GameEndGUI(getPlayer());
-        gameEndGUI.initializeGameEndGUI(primaryStage);
-        primaryStage.show();
-    }
+
 }

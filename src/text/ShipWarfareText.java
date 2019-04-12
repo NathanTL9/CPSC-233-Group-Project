@@ -158,9 +158,11 @@ public class ShipWarfareText extends Player {
             }
 
         } else {
+            GameEndText gameEndText = new GameEndText(getPlayer());
+            gameEndText.gameEnd();
+            setPlayer(gameEndText.getPlayer());
             exitValue = 2;
         }
-
         return exitValue;
     }
 

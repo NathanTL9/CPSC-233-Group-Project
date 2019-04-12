@@ -1,7 +1,5 @@
 package gui;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import logic.LoanSharkLogic;
 import logic.Player;
 
 /**
@@ -42,7 +41,7 @@ public class LoanSharkGUI extends Player {
      *
      * @param primaryStage the stage upon which the GUI will be imposed
      */
-    public Stage initializeLoanShark(Stage primaryStage) {
+    public void initializeLoanShark(Stage primaryStage) {
         primaryStage.setTitle("Loan Shark");
 
         //Declaring each Layout
@@ -92,73 +91,20 @@ public class LoanSharkGUI extends Player {
         brdr1.setTop(vbx1);
 
         // Set the event handler when the deposit button is clicked
-        b1.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               try {
-
-                                   int loanAsk = Integer.parseInt(txtField1.getText());
-                                   if (loanAsk <= 2 * (getMoney() - getDebt()) && loanAsk >= 0) {
-                                       setDebt(getDebt() + loanAsk);
-                                       setMoney(getMoney() + loanAsk);
-                                       l4.setText("Cash: " + getMoney());
-                                   } else if (loanAsk < 0) {
-                                       l5.setText("Sorry you cannot enter negative numbers");
-                                   }
-                                   else{
-                                       l5.setText("Sorry you cannot get the loan requested");
-                                   }
-
-
-                                   l2.setText("Debt: " + getDebt());
-                               } catch (Exception e) {
-                                   l5.setText("Please enter a valid value");
-                               }
-
-                           }
-                       }
-
-        );
+        b1.setOnAction(event -> {
+            depositButton(l2, l4, l5, txtField1);
+        });
 
         // Set the event handler when the withdraw button is clicked
-        b2.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               try {
+        b2.setOnAction(event -> {
+            withdrawButton(l2, l4, l5, txtField1);
+        });
 
-
-                                   int returnAsk = Integer.parseInt(txtField1.getText());
-                                   if (returnAsk > getDebt()) {
-                                       l5.setText("You do not need to return that much.");
-                                   }
-                                   else if (returnAsk <= getDebt() && returnAsk >= 0 && getMoney() >= returnAsk) {
-                                       setDebt(getDebt() - returnAsk);
-                                       setMoney(getMoney() - returnAsk);
-                                       l4.setText("Cash: " + getMoney());
-                                   }
-                                   else if(getMoney() < returnAsk)  {
-                                       l5.setText("Look " + getName() + ", you are being cheap!");
-                                   }
-                                   else  {
-                                       l5.setText("Sorry, you can not return a negative amount!");
-                                   }
-                                   l2.setText("Debt: " + getDebt());
-                               }
-                               catch (Exception e) {
-                                   l5.setText("Please enter a valid value");
-                               }
-                           }
-                       }
-        );
-
-        b3.setOnAction(new EventHandler<ActionEvent>() {
-                           @Override
-                           public void handle(ActionEvent event) {
-                               TaipanShopGUI shopGUI = new TaipanShopGUI(getPlayer());
-                               shopGUI.initializeShop(primaryStage);
-                               primaryStage.show();
-                           }
-                       }
+        b3.setOnAction(event -> {
+            TaipanShopGUI shopGUI = new TaipanShopGUI(getPlayer());
+            shopGUI.initializeShop(primaryStage);
+            primaryStage.show();
+        }
         );
 
 
@@ -166,8 +112,71 @@ public class LoanSharkGUI extends Player {
         Scene scene = new Scene(brdr1, 600, 480);
         scene.getStylesheets().add("styleguide.css");
         primaryStage.setScene(scene);
-        //primaryStage.show();
-        return primaryStage;
+        primaryStage.show();
+    }
+
+    /**
+     * The withdraw button within the scene above. Runs the withdraw logic class when run
+     * @param txtField1,l2,l4,l5 assigned from the original element inside of the JavaFX scene
+     */
+    public void withdrawButton(Label l2, Label l4, Label l5, TextField txtField1) {
+        try {
+            int returnAsk = Integer.parseInt(txtField1.getText());
+            //If the player enters a invalid number
+            if (returnAsk > getDebt()) {
+                l5.setText("You do not need to return that much.");
+            }
+            //If the player enters a valid number
+            else if (returnAsk <= getDebt() && returnAsk >= 0 && getMoney() >= returnAsk) {
+                LoanSharkLogic loanSharkLogic = new LoanSharkLogic(getPlayer());
+                loanSharkLogic.changeLoan(getDebt() - returnAsk, getMoney() - returnAsk);
+                setPlayer(loanSharkLogic.getPlayer());
+                l4.setText("Cash: " + getMoney());
+            }
+            //If the player enters a invalid number
+            else if(getMoney() < returnAsk)  {
+                l5.setText("Look " + getName() + ", you are being cheap!");
+            }
+            //If the player enters a negative number
+            else  {
+                l5.setText("Sorry, you can not return a negative amount!");
+            }
+            l2.setText("Debt: " + getDebt());
+        }
+        //Only runs if the user gives an invalid input
+        catch (Exception e) {
+            l5.setText("Please enter a valid value");
+        }
+    }
+
+    /**
+     * The deposit button within the scene above. Runs the deposit logic class when run
+     * @param txtField1,l5,l2,l4 assigned from the original element inside of the JavaFX scene
+     */
+    public void depositButton(Label l2, Label l4, Label l5, TextField txtField1) {
+        try {
+            int loanAsk = Integer.parseInt(txtField1.getText());
+            //If the player enters a valid number
+            if (loanAsk <= 2 * (getMoney() - getDebt()) && loanAsk >= 0) {
+                LoanSharkLogic loanSharkLogic = new LoanSharkLogic(getPlayer());
+                loanSharkLogic.changeLoan(getDebt() + loanAsk, getMoney() + loanAsk);
+                setPlayer(loanSharkLogic.getPlayer());
+                l4.setText("Cash: " + getMoney());
+            }
+            //If the player enters a negative number
+            else if (loanAsk < 0) {
+                l5.setText("Sorry you cannot enter negative numbers");
+            }
+            //If the player enters a invalid number
+            else{
+                l5.setText("Sorry you cannot get the loan requested");
+            }
+            l2.setText("Debt: " + getDebt());
+        }
+        //Only runs if the user gives an invalid input
+        catch (Exception e) {
+            l5.setText("Please enter a valid value");
+        }
     }
 }
 

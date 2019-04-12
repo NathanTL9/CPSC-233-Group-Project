@@ -57,7 +57,7 @@ public class TravelGUI extends Player {
      * @param stage sets the stage to which we will execute the scene of the TravelGUI class
      * @return stage so that another class can switch to the stage
      */
-    public Stage initializeTravel(Stage stage) {
+    public void initializeTravel(Stage stage) {
 
 
         //Creating the continue and quit buttons
@@ -105,10 +105,14 @@ public class TravelGUI extends Player {
         stage.setTitle("Travel");
         stage.setResizable(false);
         stage.setScene(root);
-        return stage;
     }
 
+    /**
+     * Runs if the continue button is pressed. Used to leave the Travel Screen
+     * @param stage the stage in which the JavaFX class is brought into
+     */
     public void continueButton(Stage stage) {
+        //If there are ships attacking, move to the ShipWarfare method
         if(peasantShipScene && getAttackingShips()){
             ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
             try {
@@ -118,14 +122,17 @@ public class TravelGUI extends Player {
             }
             stage.show();
         }
+        //If nothing is happening either create a random event or force the player into the shop
         else if(shopScene){
             Random rand = new Random();
             int randGenNum = rand.nextInt(3) + 1;
+            //Forces the player into the shop
             if(randGenNum >= 2) {
                 TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
                 shop.initializeShop(stage);
                 stage.show();
             }
+            //Creates a random event for the player
             else {
                 RandomEventGUI randomEventGUI = new RandomEventGUI(getPlayer());
                 randomEventGUI.initializeRandomEventGUI(stage);
@@ -134,7 +141,12 @@ public class TravelGUI extends Player {
         }
     }
 
+    /**
+     * Runs if the numberInput is given and input and the Player has pressed Enter or Z
+     * @param event the input which will be processed and given a proper response afterwars
+     */
     public void numberInput(KeyEvent event) {
+        //Run the player has pressed Enter or Z
         if(event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)) {
             int response;
             try {
@@ -149,11 +161,16 @@ public class TravelGUI extends Player {
                 traveling(event, response, hasTraveled);
             }
         }
+        //Run if the player cargo is too much
         else if (getCargoSpace() < (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
             textOut.setText("   "+getName() + " the cargo is too heavy! We can't set sail!");
         }
     }
 
+    /**
+     * Runs if the numberInput is given and input and the Player has pressed Enter or Z
+     * @param event the input which will be processed and given a proper response afterwards
+     */
     public void traveling(KeyEvent event, int response, boolean hasTraveled) {
         //Just in case the player types something that was not intended. It will refresh the question and ask it again
         try {
@@ -181,6 +198,10 @@ public class TravelGUI extends Player {
         }
     }
 
+    /**
+     * Takes the User's response to the location they want to travel to and returns a output
+     * @param response Based on the number either asks for the player's input again or stops.
+     */
     public void responseTravel(int response) {
         if(response == getLocation()){
             textOut.setText("\tYou're already here " + getName() + "\n");
@@ -188,7 +209,6 @@ public class TravelGUI extends Player {
         else{
             textOut.setText("\t" + getName() + "; Sorry but could you say that again?");
         }
-
         textOut.setText(textOut.getText() + "\n\n\t\t1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n\t\t5) Manila, 6) Singapore, or 7) Batavia?");
     }
 
@@ -259,6 +279,5 @@ public class TravelGUI extends Player {
 
         }
     }
-
 
 }

@@ -13,14 +13,6 @@ import logic.TaipanShopLogic;
  * Author: Vikram Bawa
  */
 public class TaipanShopText extends Player {
-    /**
-     * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
-     */
-    public void retire(){
-        setRetire(true);
-        System.out.println("You win!");
-        System.exit(0);
-    }
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
@@ -30,6 +22,15 @@ public class TaipanShopText extends Player {
     public TaipanShopText(Player player){
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
+    }
+
+    /**
+     * This method is evoked if the user is eligible to win, and chooses to end the game (by winning).
+     */
+    public void retire(){
+        setRetire(true);
+        System.out.println("You win!");
+        System.exit(0);
     }
 
     /**
@@ -133,6 +134,12 @@ public class TaipanShopText extends Player {
 
     }
 
+    /**
+     * Actually runs the shop program so that the user can both buy and sell things.
+     * @param notDone,caseNum both parameters govern the inner logic of the class and whether it allows for the player to run the shop
+     * @param optionText Text which is printed along with the rest of the shop
+     * @param input The scanner object that allows the program to respond to they user's inputs
+     */
     public void runShop(boolean notDone, int caseNum, String optionText, Scanner input) {
         // as long as the user does not enter a valid input, the code will run in a loop forever.
         while(notDone){
@@ -171,6 +178,11 @@ public class TaipanShopText extends Player {
         }
     }
 
+    /**
+     * For all the buying inside the text-based shop
+     * @param input Takes the input Scanner and uses it to respond the user's inputs
+     * @param notDone2 Boolean which rules each while loop, if it turns false then the while loops stop
+     */
     public void buying(Scanner input, boolean notDone2) {
         String response;
         while (notDone2) {
@@ -235,6 +247,11 @@ public class TaipanShopText extends Player {
         }
     }
 
+    /**
+     * For all the selling inside the text-based shop
+     * @param input Takes the input Scanner and uses it to respond the user's inputs
+     * @param notDone2 Boolean which rules each while loop, if it turns false then the while loops stop
+     */
     public void selling(Scanner input, boolean notDone2) {
         String response;
         while (notDone2) {

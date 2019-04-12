@@ -48,11 +48,11 @@ public class RandomEventGUI extends Player {
     }
 
     /**
-     * Initializes randomEvent on the given stage as a parameter.
+     * Sets up the graphical part of RandomEventGUI and includes all logic for the class
      *
-     * @param stage
+     * @param stage sets the stage to which we will execute the scene of the RandomEventGUI class
      */
-    public Stage initializeRandomEventGUI(Stage stage) {
+    public void initializeRandomEventGUI(Stage stage) {
         //Creating the nodes within the event screen
         hBox = new HBox();
         yesButton = new Button();
@@ -146,11 +146,13 @@ public class RandomEventGUI extends Player {
             sellingItemLabel.setText("Mc Henry from the Hong Kong shipyard has arrived,\n would be willing to repair your ship for $" + itemPrice);
         }
 
+        //Only runs if the player doesn't have enough space and is given a gun
         if((eventNumber == 1 && getCargoSpace() < 10)){
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
             stage.show();
         }
+        //Only runs if the player has 100 or greater HP and they got the ship repair man
         if((eventNumber == 3 && getPlayer().getHP() >= 100)){
             TaipanShopGUI taipanShopGUI = new TaipanShopGUI(getPlayer());
             taipanShopGUI.initializeShop(stage);
@@ -210,10 +212,9 @@ public class RandomEventGUI extends Player {
         Scene root = new Scene(borderPane, 600, 480);
         root.getStylesheets().add("styleguide.css");
 
-        stage.setTitle("Travel");
+        stage.setTitle("Random Event");
         stage.setResizable(false);
         stage.setScene(root);
-        return stage;
     }
 
 

@@ -16,7 +16,6 @@ public class ShipWarfareLogic extends Player {
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-     *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
 

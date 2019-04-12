@@ -1,7 +1,5 @@
 package gui;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -18,7 +16,6 @@ import logic.StartLogic;
  * 2019-03-10
  * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
  * StartGUI class, Initializes and displays the start menu for Taipan
- *
  */
 
 
@@ -61,12 +58,10 @@ public class StartGUI extends Player {
     }
 
     /**
-     * Initializes the Start GUI the game.
-     *
-     * @param stage object of type Stage
-     * @return returns the stage of GUI
+     * Sets up the graphical part of StartGUI and includes all logic for the class
+     * @param stage sets the stage to which we will execute the scene of the StartGUI class
      */
-    public Stage initializeStart(Stage stage) {
+    public void initializeStart(Stage stage) {
 
         /**
          * Creates an HBox at the center of the borderpane with a width of 200, height of 100 and spacing of 10.
@@ -234,6 +229,5 @@ public class StartGUI extends Player {
         stage.setScene(root);
         stage.setHeight(510);
         stage.setWidth(600);
-        return stage;
     }
 }

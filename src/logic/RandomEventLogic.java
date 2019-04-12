@@ -6,7 +6,6 @@ public class RandomEventLogic extends Player{
 
     /**
      * constructor; only runs when a Player object is provided. The constructor is fully encapsulated.
-     *
      * @param player is a Player object that will be copied and the player instance variable is set to the copy.
      */
     public RandomEventLogic(Player player) {
@@ -15,9 +14,9 @@ public class RandomEventLogic extends Player{
     }
 
     /**
-    * Method that generates a random number and based on that number, a random event happens.
-    *
-    */
+     * Method that generates a random number and based on that number, a random event happens.
+     * @return randGenNum and itemPrice, randGen number is the number which dictates the event, the item price is how much it will cost
+     */
     public int[] randEvent() {
         Random rand = new Random();
         int itemPrice;
@@ -39,6 +38,7 @@ public class RandomEventLogic extends Player{
                 itemPrice = (int) ((100 - getPlayer().getHP()) * 10 + 10);
                 break;
             }
+            //Forces random event to be gun related if nothing else is avaliable
             else {
                 randGenNum = 2;
             }

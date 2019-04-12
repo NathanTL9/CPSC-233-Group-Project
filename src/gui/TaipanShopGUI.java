@@ -237,9 +237,9 @@ public class TaipanShopGUI extends Player {
     }
 
     /**
-     * Initializes the shop on the given stage as a parameter.
+     * Sets up the graphical part of TaipanGUI and includes all logic for the class
      *
-     * @param stage
+     * @param stage sets the stage to which we will execute the scene of the TaipanGUI class
      */
     public void initializeShop(Stage stage) {
         FileSaving saving = new FileSaving();
@@ -549,6 +549,12 @@ public class TaipanShopGUI extends Player {
     }
 
 
+    /**
+     * The anchor pane shown to the user, used to display the current stats of the player
+     * @param flowPane,firm,wItemsText,wItemSpaceText,locationText, gunsText, inventoryText, inventoryHeldText, shipStatusText, cashText, bankText assigned from the original element inside of the JavaFX scene
+     * @param textOut the output so that the player can see all of the text given
+     * @return The AnchorPane with all the elements already declared
+     */
     public AnchorPane declareStage(FlowPane flowPane,Label firm, Label wItemsText, Label wItemSpaceText, Label locationText, Label gunsText, Label inventoryText, Label inventoryHeldText, Label shipStatusText, Label cashText, Label bankText, Label textOut) {
         //Declaring all the elements required for the information on screen
         Rectangle dialogueRectangle = new Rectangle();
@@ -723,7 +729,8 @@ public class TaipanShopGUI extends Player {
     }
 
     /**
-     * updates the text associated with the user's inventory.
+     * Updates the current stage shown to the player with all the brand new information
+     * @param firm,wItemsText,wItemSpaceText,locationText, gunsText, inventoryText, inventoryHeldText, shipStatusText, cashText, bankText assigned from the original element inside of the JavaFX scene
      */
     public void updateStage(Label firm, Label wItemsText, Label wItemSpaceText, Label locationText, Label gunsText, Label inventoryText, Label inventoryHeldText, Label shipStatusText, Label cashText, Label bankText) {
         TaipanShopLogic logic = new TaipanShopLogic(super.getPlayer());
@@ -733,9 +740,12 @@ public class TaipanShopGUI extends Player {
         wItemSpaceText.setText(String.format("\n\t\tIn use:\n\t\t %d \n\t\tVacant:\n\t\t %d", itemsInWarehouse, (10000 - itemsInWarehouse)));
         locationText.setText(String.format("Location\n%s", logic.getStringLocation()));
         int itemsInInventory = getCargoSpace() - getSilkHeld() - getOpiumHeld() - getGeneralHeld() - getArmsHeld() - 10 * getGuns();
+        //If the inventory is too full
         if (itemsInInventory < 0) {
             inventoryText.setText("   Overloaded\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General");
-        } else {
+        }
+        //If the inventory isn't too full
+        else {
             inventoryText.setText(String.format("   Hold %d\n\t  Opium\n\t  Silk\n\t  Arms\n\t  General", itemsInInventory));
         }
         gunsText.setText(String.format("Guns %d\n\n\n\n ", getGuns()));

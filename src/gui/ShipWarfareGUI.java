@@ -1,8 +1,6 @@
 package gui;
 
 import javafx.animation.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,8 +27,6 @@ import logic.ShipWarfareLogic;
  * Author: Haris Muhammad
  * ShipWarfareGUI class, Generates and utilizes ships which the user can attack or run from
  */
-
-
 public class ShipWarfareGUI extends Player {
 
     ShipWarfareLogic logic = new ShipWarfareLogic(getPlayer());

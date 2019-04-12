@@ -7,11 +7,21 @@ import logic.RandomEventLogic;
 import java.util.Scanner;
 
 public class RandomEventText extends Player {
+
+    /**
+     * Class Constructor that takes in a type player as a parameter
+     *
+     * @param player object of the class Player
+     */
     public RandomEventText(Player player) {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
 
+    /**
+     * Picks a random number and based off that number the player is put into a random event
+     * The random event can be anything from ship repair to paying bribes to the enemy fleet
+     */
     public void randomEvent(){
         /*Pick a random number dictating the events that could happen.
          * 1: New gun for player
@@ -33,16 +43,18 @@ public class RandomEventText extends Player {
             System.out.println("\nMc Henry from the Hong Kong shipyard has arrived,\nwould be willing to repair your ship for $" + itemPrice);
         }
 
+        //Only runs if the player doesn't have enough space and is given a gun
         if((eventNumber == 1 && getCargoSpace() < 10)){
             TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
             taipanShopText.shop();
         }
+        //Only runs if the player has 100 or greater HP and they got the ship repair man
         if((eventNumber == 3 && getPlayer().getHP() >= 100)){
             TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
             taipanShopText.shop();
         }
 
-
+        //Runs for as long as the player doesn't decide if they want to pay
         while(true){
             System.out.println("Would you like to pay? (Y)es or (N)o");
             Scanner keyboard = new Scanner(System.in);
@@ -80,6 +92,7 @@ public class RandomEventText extends Player {
             else {
                 System.out.println("Sorry you don't have enough money");
             }
+            //If the player decides to leave then it will send them back to TaipanShop
             if(input.equalsIgnoreCase("N")){
                 System.out.println("Aye aye Taipan, we'll send them off!\n");
                 TaipanShopText taipanShopText = new TaipanShopText(getPlayer());

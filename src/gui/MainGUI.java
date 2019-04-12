@@ -8,9 +8,7 @@ import logic.Player;
 * 2019-03-10
 * Authors: Harkamal, Vikram, Haris, Siddhant, Nathan
 * MainGUI class, Initializes the entire game and runs the game for user to play
-*
 */
-
 public class MainGUI extends Application {
 
     /**
