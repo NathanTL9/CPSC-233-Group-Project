@@ -24,7 +24,7 @@ public class TaipanShopLogic extends Player {
     public String updatePrices() {
         String s = "\t" + getName() + ", the price of ";
         String a = "";
-        double value = 0 * Math.random();
+        double value = 80 * Math.random();
         Random rand = new Random();
         setOpiumPrice((rand.nextInt(201) + 60) * 100);
         setSilkPrice((rand.nextInt(201) + 60) * 10);
