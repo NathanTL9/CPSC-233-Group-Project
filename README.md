@@ -10,26 +10,40 @@ Then, run MainGUI.java.
 # To play the game
 If you are using the command line, extract "TaipanClone-master.zip", and open the "TaipanClone-master" folder. Open your terminal and change its directory to the "src" folder within "TaipanClone-master" folder.
 
-Then, type in 
+Then, if you are using Linux, type in 
 ```
 "javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java"
+```
+Otherwise, if you are using Windows, type in
+```
+"javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar;jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java"
 ```
 This compiles all the necessary files. Now, to play the GUI version run MainGUI.java using 
 ```
 java gui.MainGUI
 ```
-To play the command-line version run
+To play the text-based version run MainText.java using
 ```
-java gui.MainText
+java text.MainText
 ```
 
 # To run the test file PlayerTest.java, type in 
+For Linux:
 ```
 javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java
 ```
-This compiles all the necessary files. Now, run PlayerTest.java using 
+For Windows:
+```
+javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar;jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java
+```
+This compiles all the necessary files. Now, run PlayerTest.java by typing in
+For Linux:
 ```
 java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest
+```
+For Windows:
+```
+java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest
 ```
 Additional information:
 
