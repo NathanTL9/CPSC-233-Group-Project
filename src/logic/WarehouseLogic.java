@@ -12,6 +12,11 @@ public class WarehouseLogic extends Player {
         setPlayer(playerDummy);
     }
 
+    /**
+    * Method that tranfers your cargo from your ship to your warehouse.
+    * Has error handling to prevent incorrect inputs
+    *
+    */
     public String deposit(String str, int goodsNum) {
         try {
             int deposit = Integer.parseInt(str);
@@ -52,6 +57,11 @@ public class WarehouseLogic extends Player {
         }
     }
 
+    /**
+    * Method that transfers cargo from your warehouse onto your ship.
+    * Has error handling to prevent incorrect inputs
+    *
+    */
     public String withdraw(String str, int goodsNum) {
         try {
             int withdraw = Integer.parseInt(str);
