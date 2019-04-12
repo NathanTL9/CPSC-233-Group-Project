@@ -239,7 +239,7 @@ public class ShipWarfareGUI extends Player {
         if (exitValue == 1) {
             wipe();
             calculateLoot = logic.calculateLoot();
-            super.setMoney(logic.getMoney());
+            setMoney(calculateLoot+ getPlayer().getMoney());
             report.setText(String.format("Our firm has earned $%,d in loot! ", calculateLoot));
             continueButton.setVisible(true);
             completeWipe();
