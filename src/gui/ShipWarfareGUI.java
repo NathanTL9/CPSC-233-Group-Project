@@ -476,151 +476,143 @@ public class ShipWarfareGUI extends Player {
         primaryStage.setTitle("Ship Warfare");
         primaryStage.setScene(scene);
         primaryStage.show();
-        continueButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            /**
-             * Continue Button, engages in run logic and graphical interface
-             * @param event, once button is clicked, executes graphical information
-             */
-            public void handle(ActionEvent event) {
-                shotsFired.stop();
+        /**
+         * Continue Button, engages in run logic and graphical interface
+         * @param event, once button is clicked, executes graphical information
+         */
+        continueButton.setOnAction(event -> {
+             shotsFired.stop();
 
-                /**
-                 * Switches to Taipan Shop scene
-                 */
+             /**
+              * Switches to Taipan Shop scene
+              */
 
-                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                shop.initializeShop(primaryStage);
-                primaryStage.show();
+             TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+             shop.initializeShop(primaryStage);
+             primaryStage.show();
 
-            }
-        });
+         });
 
         //Flee
-        runButton.setOnAction(new EventHandler<ActionEvent>() {
+        /**
+         * Run Button, engages in run logic and graphical interface
+         * @param event, once button is clicked, executes graphical information
+         */
+        runButton.setOnAction(event -> {
+            userAttacks = false;
 
-            @Override
-            /**
-             * Run Button, engages in run logic and graphical interface
-             * @param event, once button is clicked, executes graphical information
-             */
-            public void handle(ActionEvent event) {
-                userAttacks = false;
+            report.setVisible(true);
+            title.setVisible(true);
+            shipsRemaining.setVisible(true);
+            gunsLeftOrTaken.setVisible(true);
 
-                report.setVisible(true);
-                title.setVisible(true);
-                shipsRemaining.setVisible(true);
-                gunsLeftOrTaken.setVisible(true);
+            title.setText("Ayy captain we will try to run!");
+            counter++;
 
-                title.setText("Ayy captain we will try to run!");
-                counter++;
-
-                if (logic.runFromShips() == false) {
-                    report.setText(("Couldn't run away"));
-                    try {
-                        winOrLose = destroyShipsOrEscape(primaryStage);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (winOrLose == true) {
-                        report.setVisible(false);
-                        title.setVisible(false);
-                        shipsRemaining.setVisible(false);
-                        gunsLeftOrTaken.setVisible(false);
-
-                    }
-                } else {
-
-                    report.setText("Phew! Got away safely");
-                    setVisibilitiesAndTransition(primaryStage);
-
-
-                }
-
-            }
-        });
-
-        //Fight
-        fightButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            /**
-             * Fight Button, engages in fight logic and graphical interface
-             * @param event, once button is clicked, executes graphical information
-             */
-            public void handle(ActionEvent event) {
-                userAttacks = true;
-
-                wipeWithTitle(report);
-                fightButton.setVisible(false);
-                runButton.setVisible(false);
-
+            if (logic.runFromShips() == false) {
+                report.setText(("Couldn't run away"));
                 try {
                     winOrLose = destroyShipsOrEscape(primaryStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                counter++;
-
-                cannon.setVisible(true);
-                cannon.setLayoutX(beginningX);
-                cannon.setLayoutY(beginningY);
-
-                if (counter >= 1) {
+                if (winOrLose == true) {
+                    report.setVisible(false);
                     title.setVisible(false);
+                    shipsRemaining.setVisible(false);
+                    gunsLeftOrTaken.setVisible(false);
 
                 }
+            } else {
 
-                playerShoots(getGuns());
+                report.setText("Phew! Got away safely");
+                setVisibilitiesAndTransition(primaryStage);
 
-                shotsFired.setOnFinished(new EventHandler<ActionEvent>() {
-                    @Override
-                    /**
-                     * When the user is completed their volley this information will be accessed
-                     * @param event, once the shots fired transition is completed, execute graphical information
-                     */
-                    public void handle(ActionEvent event) {
-                        shotsFired.stop();
-                        if (!winOrLose) {
-                            shipsRetaliate();
-                        } else {
-                            report.setVisible(true);
-                            continueButton.setVisible(true);
-                            usAgainstEnemyDivisor.setVisible(false);
-                            cannon.setVisible(false);
-                            shotsFired.stop();
-
-                        }
-                        enemyShots.setOnFinished(new EventHandler<ActionEvent>() {
-                            @Override
-                            /**
-                             * When the user is completed their volley, this information will be accessed
-                             * @param event, once the enemy shots transition is completed, execute graphical information
-                             */
-                            public void handle(ActionEvent event) {
-                                fightButton.setVisible(true);
-                                runButton.setVisible(true);
-                                report.setVisible(true);
-                                cannon.setVisible(false);
-                                runAwayOrLeft.setVisible(true);
-                                gunsLeftOrTaken.setVisible(true);
-                                shipsRemaining.setVisible(true);
-                                HPLeft.setVisible(true);
-                                gunsLeftOrTaken.setVisible(true);
-
-                                if (winOrLose == true) {
-                                    usAgainstEnemyDivisor.setVisible(false);
-                                }
-
-                            }
-                        });
-
-                    }
-
-                });
 
             }
+
         });
 
+        //Fight
+        /**
+         * Fight Button, engages in fight logic and graphical interface
+         * @param event, once button is clicked, executes graphical information
+         */
+        fightButton.setOnAction(event -> {
+            userAttacks = true;
+
+            wipeWithTitle(report);
+            fightButton.setVisible(false);
+            runButton.setVisible(false);
+
+            try {
+                winOrLose = destroyShipsOrEscape(primaryStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            counter++;
+
+            cannon.setVisible(true);
+            cannon.setLayoutX(beginningX);
+            cannon.setLayoutY(beginningY);
+
+            if (counter >= 1) {
+                title.setVisible(false);
+
+            }
+
+            playerShoots(getGuns());
+
+            /**
+             * When the user is completed their volley this information will be accessed
+             * @param event, once the shots fired transition is completed, execute graphical information
+             */
+            shootingAnimation(usAgainstEnemyDivisor, cannon);
+
+        });
+
+    }
+
+    /**
+     * Shows the animation of ships being destroyed and our ship being hit
+     * @param usAgainstEnemyDivisor divisor for us against enemy
+     * @param cannon circle node for displaying cannon fire
+     */
+    public void shootingAnimation(HBox usAgainstEnemyDivisor, Circle cannon) {
+        shotsFired.setOnFinished(event1 -> {
+            shotsFired.stop();
+            if (!winOrLose) {
+                shipsRetaliate();
+            } else {
+                report.setVisible(true);
+                continueButton.setVisible(true);
+                usAgainstEnemyDivisor.setVisible(false);
+                cannon.setVisible(false);
+                shotsFired.stop();
+
+            }
+            /**
+             * When the user is completed their volley, this information will be accessed
+             * @param event, once the enemy shots transition is completed, execute graphical information
+             */
+            enemyShots.setOnFinished(event11 -> {
+                fightButton.setVisible(true);
+                runButton.setVisible(true);
+                report.setVisible(true);
+                cannon.setVisible(false);
+                runAwayOrLeft.setVisible(true);
+                gunsLeftOrTaken.setVisible(true);
+                shipsRemaining.setVisible(true);
+                HPLeft.setVisible(true);
+                gunsLeftOrTaken.setVisible(true);
+
+                if (winOrLose == true) {
+                    usAgainstEnemyDivisor.setVisible(false);
+                }
+
+            });
+
+        });
     }
 }
