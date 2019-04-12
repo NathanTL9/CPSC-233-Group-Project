@@ -27,21 +27,19 @@ To play the text-based version run MainText.java using
 java text.MainText
 ```
 
-# To run the test file PlayerTest.java, type in 
-For Linux:
+# To run the test file PlayerTest.java for Linux type in:
 ```
 javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java
 ```
-For Windows:
+This compiles all the necessary files. Now, run PlayerTest.java by typing in
+```
+java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest
+```
+# To run the test file PlayerTest.java for Windows, type in:
 ```
 javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar;jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java
 ```
 This compiles all the necessary files. Now, run PlayerTest.java by typing in
-For Linux:
-```
-java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest
-```
-For Windows:
 ```
 java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest
 ```
