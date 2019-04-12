@@ -9,10 +9,27 @@ Then, run MainGUI.java.
 
 If you are using the command line, extract "TaipanClone-master.zip", and open the "TaipanClone-master" folder. Open your terminal and change its directory to the "src" folder within "TaipanClone-master" folder.
 
-Then, type in "javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java", this compiles all the necessary files. Now, run MainGUI.java using "java gui.MainGUI".
+Then, type in 
+```
+"javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java"
+```
+This compiles all the necessary files. Now, to play the GUI version run MainGUI.java using 
+```
+java gui.MainGUI
+```
+To play the command-line version run
+```
+java gui.MainText
+```
 
-To run the test file PlayerTest.java, type in "javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java", this compiles all the necessary files. Now, run PlayerTest.java using "java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest".
-
+To run the test file PlayerTest.java, type in 
+```
+javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar:jfxrt.jar gui/*.java text/*.java logic/*.java tests/*.java
+```
+This compiles all the necessary files. Now, run PlayerTest.java using 
+```
+java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore tests.PlayerTest
+```
 Additional information:
 
 You lose if your HP reaches 0. You can win if you "retire" in Hong Kong while having a net worth of over $1 million.
