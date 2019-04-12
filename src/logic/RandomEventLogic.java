@@ -14,6 +14,10 @@ public class RandomEventLogic extends Player{
         setPlayer(playerDummy);
     }
 
+    /**
+    * Method that generates a random number and based on that number, a random event happens.
+    *
+    */
     public int[] randEvent() {
         Random rand = new Random();
         int itemPrice;
