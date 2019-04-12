@@ -9,11 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import logic.Player;
+import logic.TravelLogic;
 
 import java.util.Random;
 
@@ -79,82 +81,14 @@ public class TravelGUI extends Player {
 
         //Continues on to either shop or shipwarfare
         continueButton.setOnAction(event -> {
-            if(peasantShipScene && getAttackingShips()){
-                ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
-                try {
-                    ship.initializeShip(stage);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                stage.show();
-            }
-            else if(shopScene){
-                Random rand = new Random();
-                int randGenNum = rand.nextInt(3) + 1;
-                if(randGenNum >= 2) {
-                    TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
-                    shop.initializeShop(stage);
-                    stage.show();
-                }
-                else {
-                    RandomEventGUI randomEventGUI = new RandomEventGUI(getPlayer());
-                    randomEventGUI.initializeRandomEventGUI(stage);
-                    stage.show();
-                }
-            }
+            continueButton(stage);
         });
 
         //Text input for where the player needs to go inside of the game world
         numberInput.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         //numberInput.setText("Enter preferred location.");
         numberInput.setOnKeyPressed(event -> {
-            if(event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)) {
-                int response;
-                try {
-                    response = Integer.parseInt(numberInput.getText().replace(" ", ""));
-                }
-                catch (Exception e){
-                    response = 0;
-                }
-                boolean hasTraveled = false;
-                //Only lets the player leave the port if their inventory is greater than or equal to the sum of the items in the inventory.
-                if(getCargoSpace() >= (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
-                    //Just in case the player types something that was not intended. It will refresh the question and ask it again
-                    try {
-                        //Makes sure you can't travel to your own location.
-                        if (response != getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
-                            hasTraveled = seaAtlas(response);
-                            randomEventSea(response);
-                            setBank((int) (getBank() * 1.01));
-                            setDebt((int) (getDebt() * 1.01));
-                            setIsPriceChanged(2);
-                            stormScene = false;
-
-                        } else{
-                            if(response == getLocation()){
-                                textOut.setText("\tYou're already here " + getName() + "\n");
-                            }
-                            else{
-                                textOut.setText("\t" + getName() + "; Sorry but could you say that again?");
-                            }
-
-                            textOut.setText(textOut.getText() + "\n\n\t\t1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n\t\t5) Manila, 6) Singapore, or 7) Batavia?");
-                        }
-                    } catch (Exception e) {
-                        textOut.setText("\tSorry, " + getName() + " could you say that again?");
-                    }
-                    if (hasTraveled) {
-                        continueButton.setVisible(true);
-                        continueButton.setDefaultButton(true);
-                        quitButton.setVisible(false);
-                        numberInput.setVisible(false);
-                        shopScene = true;
-                    }
-                }
-            }
-            else if (getCargoSpace() < (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
-                textOut.setText("   "+getName() + " the cargo is too heavy! We can't set sail!");
-            }
+            numberInput(event);
         });
 
         firm.setAlignment(Pos.CENTER);
@@ -172,6 +106,90 @@ public class TravelGUI extends Player {
         stage.setResizable(false);
         stage.setScene(root);
         return stage;
+    }
+
+    public void continueButton(Stage stage) {
+        if(peasantShipScene && getAttackingShips()){
+            ShipWarfareGUI ship = new ShipWarfareGUI(getPlayer());
+            try {
+                ship.initializeShip(stage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            stage.show();
+        }
+        else if(shopScene){
+            Random rand = new Random();
+            int randGenNum = rand.nextInt(3) + 1;
+            if(randGenNum >= 2) {
+                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+                shop.initializeShop(stage);
+                stage.show();
+            }
+            else {
+                RandomEventGUI randomEventGUI = new RandomEventGUI(getPlayer());
+                randomEventGUI.initializeRandomEventGUI(stage);
+                stage.show();
+            }
+        }
+    }
+
+    public void numberInput(KeyEvent event) {
+        if(event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)) {
+            int response;
+            try {
+                response = Integer.parseInt(numberInput.getText().replace(" ", ""));
+            }
+            catch (Exception e){
+                response = 0;
+            }
+            boolean hasTraveled = false;
+            //Only lets the player leave the port if their inventory is greater than or equal to the sum of the items in the inventory.
+            if(getCargoSpace() >= (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
+                traveling(event, response, hasTraveled);
+            }
+        }
+        else if (getCargoSpace() < (getOpiumHeld()+ (getGuns()*10)+getSilkHeld() + getArmsHeld() + getGeneralHeld())){
+            textOut.setText("   "+getName() + " the cargo is too heavy! We can't set sail!");
+        }
+    }
+
+    public void traveling(KeyEvent event, int response, boolean hasTraveled) {
+        //Just in case the player types something that was not intended. It will refresh the question and ask it again
+        try {
+            //Makes sure you can't travel to your own location.
+            if (response != getLocation() && response > 0  && 8 > response && event.getCode().equals(KeyCode.ENTER)||event.getCode().equals(KeyCode.Z)){
+                hasTraveled = seaAtlas(response);
+                randomEventSea(response);
+                setBank((int) (getBank() * 1.01));
+                setDebt((int) (getDebt() * 1.01));
+                setIsPriceChanged(2);
+                stormScene = false;
+
+            } else{
+                responseTravel(response);
+            }
+        } catch (Exception e) {
+            textOut.setText("\tSorry, " + getName() + " could you say that again?");
+        }
+        if (hasTraveled) {
+            continueButton.setVisible(true);
+            continueButton.setDefaultButton(true);
+            quitButton.setVisible(false);
+            numberInput.setVisible(false);
+            shopScene = true;
+        }
+    }
+
+    public void responseTravel(int response) {
+        if(response == getLocation()){
+            textOut.setText("\tYou're already here " + getName() + "\n");
+        }
+        else{
+            textOut.setText("\t" + getName() + "; Sorry but could you say that again?");
+        }
+
+        textOut.setText(textOut.getText() + "\n\n\t\t1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon,\n\t\t5) Manila, 6) Singapore, or 7) Batavia?");
     }
 
     /**
@@ -233,36 +251,14 @@ public class TravelGUI extends Player {
             textOut.setText("\tWe see a ship on the horizon " + getName() + "; Prepare for combat!");
             peasantShipScene = true;
         }else if (randGenNum == 2) {
-            disaster(locationOfTravel);
+            textOut.setText("\tStorm " + getName() + "! ");
+            TravelLogic travelLogic = new TravelLogic(getPlayer());
+            textOut.setText(textOut.getText()+"\n\t" + travelLogic.disaster(locationOfTravel));
+            setPlayer(travelLogic.getPlayer());
             textOut.setText(textOut.getText() + "\n    " + "We made it!");
+
         }
     }
 
-    /**
-     * Based on random chance either throws the player character off course, or continues them on their way to their
-     * destination.
-     *
-     * @param locationOfTravel is used to see where the player is going to travel, just in case their location is changed
-     *                         by a typhoon.
-     **/
-    private void disaster(int locationOfTravel) {
-        //Tells player that there is a storm approaching.
-        textOut.setText("\tStorm " + getName() + "! ");
-        Random rand = new Random();
-        int randGenNum = rand.nextInt(5) + 1;
 
-        //If the player lands within this range, nothing happens to them
-        //Else they randomly get thrown into a location they weren't planning on going to(Anything but location of Travel).
-        if (randGenNum <= 2) {
-            textOut.setText(textOut.getText() + "\n\tWe got through the storm " + getName() + "!");
-        }else {
-            while (randGenNum == locationOfTravel) {
-                randGenNum = rand.nextInt(7) + 1;
-                if (randGenNum != locationOfTravel) {
-                    textOut.setText(textOut.getText() + "\n\tWe've been blown off course!");
-                    seaAtlas(randGenNum);
-                }
-            }
-        }
-    }
 }

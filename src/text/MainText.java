@@ -11,4 +11,9 @@ public class MainText extends Player {
         Player playerDummy = new Player(player);
         setPlayer(playerDummy);
     }
+
+    public static void main(String[] args) {
+        StartText startText = new StartText(new Player());
+        startText.start();
+    }
 }

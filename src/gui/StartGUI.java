@@ -191,44 +191,38 @@ public class StartGUI extends Player {
          * scenario 2 gives the player 5 guns.
          *
          */
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                StartLogic startLogic = new StartLogic(getPlayer());
-                if (Start.getSelectedToggle() == cashChoice) {
-                    startLogic.money_and_debt();
-                }
-                if (Start.getSelectedToggle() == gunChoice) {
-                    startLogic.guns();
-                }
+        startButton.setOnAction(event -> {
+            StartLogic startLogic = new StartLogic(getPlayer());
+            if (Start.getSelectedToggle() == cashChoice) {
+                startLogic.money_and_debt();
+            }
+            if (Start.getSelectedToggle() == gunChoice) {
+                startLogic.guns();
+            }
 
-                String response = nameField.getText();
-                // purely for testing purposes.
-                if (response.equalsIgnoreCase("Vikram")) {
-                    startLogic.cheat();
-                    setCargoSpace(Integer.MAX_VALUE);
-                }
-                setFirm(response);
+            String response = nameField.getText();
+            // purely for testing purposes.
+            if (response.equalsIgnoreCase("Vikram")) {
+                startLogic.cheat();
+                setCargoSpace(Integer.MAX_VALUE);
+            }
+            setFirm(response);
 
-                setPlayer(startLogic.getPlayer());
-                TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+            setPlayer(startLogic.getPlayer());
+            TaipanShopGUI shop = new TaipanShopGUI(getPlayer());
+            shop.initializeShop(stage);
+            stage.show();
+        });
+
+        continueButton.setOnAction(event -> {
+            FileSaving saving = new FileSaving();
+            if(saving.loadFile() != null){
+                TaipanShopGUI shop = new TaipanShopGUI(saving.loadFile());
                 shop.initializeShop(stage);
                 stage.show();
             }
-        });
-
-        continueButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                FileSaving saving = new FileSaving();
-                if(saving.loadFile() != null){
-                    TaipanShopGUI shop = new TaipanShopGUI(saving.loadFile());
-                    shop.initializeShop(stage);
-                    stage.show();
-                }
-                else{
-                    authors.setText("There are no previous saves!");
-                }
+            else{
+                authors.setText("There are no previous saves!");
             }
         });
 

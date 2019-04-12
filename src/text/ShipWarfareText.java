@@ -234,6 +234,7 @@ public class ShipWarfareText extends Player {
             System.out.printf("\nGot eem\nVictory!\nIt appears we have defeated the enemy fleet and made it out at %d%% ship status\n", getHP());
             delayForSeconds(1);
             calculateLoot = logic.calculateLoot();
+            setMoney(calculateLoot+ getPlayer().getMoney());
             System.out.printf("We got $%,d!", calculateLoot);
             delayForSeconds(2);
             return true;

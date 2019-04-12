@@ -96,12 +96,9 @@ public class ShipWarfareLogic extends Player {
      * @return the loot for defeating the fleet
      */
     public int calculateLoot() {
-
         Random randomValue = new Random();
         int calculateLoot;
         calculateLoot = (startingShips * 100) + randomValue.nextInt(startingShips) * 200;
-        super.setMoney(super.getMoney() + calculateLoot);
         return calculateLoot;
-
     }
 }

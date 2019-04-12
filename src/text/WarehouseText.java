@@ -106,10 +106,10 @@ public class WarehouseText extends Player {
             Scanner keyboard = new Scanner(System.in);
             String input = keyboard.next();
             if (input.equalsIgnoreCase("D")) {
-                this.removeAmount();
+                this.addAmount();
                 this.showWarehouse();
             } else if (input.equalsIgnoreCase("W")) {
-                this.addAmount();
+                this.removeAmount();
                 this.showWarehouse();
             }
             else{
