@@ -274,9 +274,4 @@ public class ShipWarfareText extends Player {
         return response;
     }
 
-    public static void main(String[] args) throws Exception {
-        ShipWarfareText test = new ShipWarfareText(new Player());
-        test.peasantFleetAttack();
-    }
-
 }
