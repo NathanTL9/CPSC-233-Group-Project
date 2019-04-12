@@ -98,8 +98,8 @@ public class ShipWarfareText extends Player {
      *
      * @param random    random object is used
      * @param exitValue exit in order to know if user wins, loses, or flees
-     * @throws Exception in case error is caused due to the delay
      * @return exitValue
+     * @throws Exception in case error is caused due to the delay
      */
     public int attackOrNot(Random random, int exitValue) throws Exception {
         if (userAttacks == true) {
@@ -118,7 +118,7 @@ public class ShipWarfareText extends Player {
 
 
         }
-        exitValue=0;
+        exitValue = 0;
         return exitValue;
     }
 
@@ -136,6 +136,33 @@ public class ShipWarfareText extends Player {
         }
     }
 
+
+    /**
+     * The user attempts to flee
+     *
+     * @param userInput takes the user input
+     * @param exitValue to determine if the ship fled successfully or not
+     * @return value tod etermine if ship ran successfully
+     * @throws Exception in case an error occurs due to the delay
+     */
+    public int tryToRun(Scanner userInput, int exitValue) throws Exception {
+        if (getHP() > 0) {
+            String userResponse = displayQuery(userInput);
+            if (userResponse.equalsIgnoreCase("r")) {
+                userAttacks = false;
+                if (logic.runFromShips() == false) {
+                    System.out.println("Couldn't run away");
+                } else {
+                    exitValue = 3;
+                }
+            }
+
+        } else {
+            exitValue = 2;
+        }
+
+        return exitValue;
+    }
 
     /**
      * The user faces off against the peasant ships and either prevails, dies, or runs away
@@ -194,20 +221,8 @@ public class ShipWarfareText extends Player {
             } else {
                 setHP(getHP() - (1 + randomValue.nextInt(10)));
             }
-            if (getHP() > 0) {
-                String userResponse = displayQuery(userInput);
-                if (userResponse.equalsIgnoreCase("r")) {
-                    userAttacks = false;
-                    if (logic.runFromShips() == false) {
-                        System.out.println("Couldn't run away");
-                    } else {
-                        exitValue = 3;
-                        break;
-                    }
-                }
-
-            } else {
-                exitValue = 2;
+            exitValue = tryToRun(userInput, exitValue);
+            if (exitValue == 1 || exitValue == 2) {
                 break;
             }
 
