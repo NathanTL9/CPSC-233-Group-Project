@@ -95,17 +95,19 @@ public class ShipWarfareText extends Player {
 
     /**
      * Ships either land a hit or do not
-     * @param random random object is used
+     *
+     * @param random    random object is used
      * @param exitValue exit in order to know if user wins, loses, or flees
      * @throws Exception in case error is caused due to the delay
+     * @return exitValue
      */
-    public void attackOrNot(Random random, int exitValue) throws Exception {
+    public int attackOrNot(Random random, int exitValue) throws Exception {
         if (userAttacks == true) {
             int hitOrMiss = random.nextInt(2) + 1;
             if (hitOrMiss == 2) {
                 logic.setNumOfShips(logic.getNumOfShips() - 1);
                 if (logic.getNumOfShips() <= 0) {
-                    exitValue = 1;
+                    return exitValue = 1;
                 }
                 System.out.println("Got eem");
                 delayForSeconds(1);
@@ -116,12 +118,14 @@ public class ShipWarfareText extends Player {
 
 
         }
+        exitValue=0;
+        return exitValue;
     }
 
     /**
      * Ships either run away or we escape
      */
-    public void shipsRunOrWeEscape(){
+    public void shipsRunOrWeEscape() {
         if (howMuchRun != 0 && howMuchRun < logic.getNumOfShips()) {
             logic.setNumOfShips(logic.getNumOfShips() - howMuchRun);
             if (userAttacks == true) {
@@ -152,11 +156,13 @@ public class ShipWarfareText extends Player {
         while (exitValue == 0) {
             if (getGuns() > 0) {
                 for (int j = 0; j < getGuns(); j++) {
-                    attackOrNot(randomValue,exitValue);
+                    attackOrNot(randomValue, exitValue);
+
                 }
                 if (exitValue == 1) {
                     break;
                 }
+
             } else {
                 System.out.printf("%s! We don't have any GUNS!!!!\n", getName());
                 delayForSeconds(1);
@@ -251,6 +257,11 @@ public class ShipWarfareText extends Player {
             response = userInput.nextLine();
         }
         return response;
+    }
+
+    public static void main(String[] args) throws Exception {
+        ShipWarfareText test = new ShipWarfareText(new Player());
+        test.peasantFleetAttack();
     }
 
 }
