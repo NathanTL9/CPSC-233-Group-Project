@@ -26,10 +26,11 @@ public class LoanSharkText extends Player {
         System.out.println("Would you like you get a (l)oan or (p)ay a debt?");
 
         Scanner keyboard = new Scanner(System.in);
+        String response = keyboard.nextLine();
         //Pay off loan
-        if (keyboard.nextLine().equalsIgnoreCase("p")) {
-            System.out.println("How much of your debt would you like to pay?");
+        if (response.equalsIgnoreCase("p")) {
             try {
+                System.out.println("How much of your debt would you like to pay?");
                 int returnAsk = Integer.parseInt(keyboard.nextLine());
                 //If the player enters a invalid number
                 if (returnAsk > getDebt()) {
@@ -56,9 +57,9 @@ public class LoanSharkText extends Player {
             }
         }
         //Ask for Loan
-        else if (keyboard.nextLine().equalsIgnoreCase("l")) {
-            System.out.println("How big of a loan would you like?");
+        if (response.equalsIgnoreCase("l")) {
             try {
+                System.out.println("How big of a loan would you like?");
                 int loanAsk = Integer.parseInt(keyboard.nextLine());
                 //If the player enters a valid number
                 if (loanAsk <= 2 * (getMoney() - getDebt()) && loanAsk >= 0) {

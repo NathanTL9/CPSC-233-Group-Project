@@ -36,10 +36,10 @@ public class StartLogic extends Player {
      * sets the player's money, bank, guns, hp, ad cargo space to max values.
      */
     public void cheat() {
-        setMoney(999999999);
-        setBank(999999999);
-        setGuns(999);
-        setHP(99999999);
-        setCargoSpace(99999999);
+        setMoney(1000000);
+        setBank(1000000);
+        setGuns(1000000);
+        setHP(1000000);
+        setCargoSpace(100000000);
     }
 }

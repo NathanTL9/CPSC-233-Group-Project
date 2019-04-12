@@ -54,6 +54,9 @@ public class TravelText extends Player {
             traveling(keyboard, hasTraveled);
         } else {
             System.out.println(getName() + " the cargo is too heavy! We can't set sail!");
+            TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
+            taipanShopText.shop();
+            setPlayer(taipanShopText.getPlayer());
         }
     }
 
@@ -68,14 +71,14 @@ public class TravelText extends Player {
         int tempInt;
         while (true) {
             System.out.println("\n" + getName() + ", do you wish to go to:\n");
-            System.out.println("1) Hong Kong, 2) Shanghai, 3) Nagasaki,\n4) Saigon, 5) Manila, 6) Singapore, or 7) Batavia? or (Q)uit");
+            System.out.println("1) Hong Kong, 2) Shanghai, 3) Nagasaki,\n4) Saigon, 5) Manila, 6) Singapore, or 7) Batavia?");
 
             response = keyboard.nextLine();
             //Sends the player back to shop if they want to quit
-            if(response.equalsIgnoreCase("Q")){
-                TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
-                taipanShopText.shop();
-            }
+            //if(response.equalsIgnoreCase("Q")){
+            //    TaipanShopText taipanShopText = new TaipanShopText(getPlayer());
+            //    taipanShopText.shop();
+            //}
             //Just in case the player types something that was not intended. It will refresh the question and ask it again
             try {
                 tempInt = Integer.parseInt(response);

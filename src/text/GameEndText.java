@@ -20,17 +20,15 @@ public class GameEndText extends Player {
      */
     public void gameEnd(){
         //Calculating the netWorth of the Player
-        GameEndLogic gameEndLogic = new GameEndLogic();
+        GameEndLogic gameEndLogic = new GameEndLogic(getPlayer());
         int netWorthInt = gameEndLogic.getNetWorth();
-
-        //Adding the labels to the character's stats to the VBox which will show up on the screen
-        System.out.println(gameEndLogic.endGameText());
 
         String[] strings = gameEndLogic.endGameStats(netWorthInt);
         //Updating the endgame stats of the player
         System.out.println(strings[0]);
         System.out.println(strings[1]);
         System.out.println(strings[2]);
+        System.exit(0);
     }
 
 }

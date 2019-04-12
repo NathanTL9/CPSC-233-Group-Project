@@ -2,6 +2,17 @@ package logic;
 
 public class GameEndLogic extends Player{
 
+
+    /**
+     * Class Constructor that takes in a type player as a parameter
+     *
+     * @param player object of the class Player
+     */
+    public GameEndLogic(Player player) {
+        Player playerDummy = new Player(player);
+        setPlayer(playerDummy);
+    }
+
     /**
      * Calculates the networth of the player by the end of the game.
      * Calculation is based off the total guns and items bought throughout the game

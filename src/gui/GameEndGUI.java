@@ -79,7 +79,7 @@ public class GameEndGUI extends Player {
         borderPane.setCenter(vBox);
 
         //Calculating the netWorth of the Player
-        GameEndLogic gameEndLogic = new GameEndLogic();
+        GameEndLogic gameEndLogic = new GameEndLogic(getPlayer());
         netWorthInt = gameEndLogic.getNetWorth();
 
         //Adding the labels to the character's stats to the VBox which will show up on the screen

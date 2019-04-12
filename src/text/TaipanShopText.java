@@ -30,13 +30,16 @@ public class TaipanShopText extends Player {
     public void retire(){
         setRetire(true);
         System.out.println("You win!");
-        System.exit(0);
+        GameEndText gameEndText = new GameEndText(getPlayer());
+        gameEndText.gameEnd();
+        setPlayer(gameEndText.getPlayer());
     }
 
     /**
      * this method is evoked if the user has decided to travel elsewhere.
      */
     public void travel(){
+        setIsPriceChanged(1);
         TravelText travel = new TravelText(getPlayer());
         travel.travelTo();
         setPlayer(travel.getPlayer());
@@ -105,13 +108,13 @@ public class TaipanShopText extends Player {
         setPlayer(logic.getPlayer());
 
         boolean notDone = true;
-        int caseNum;
-        String optionText;
+        int caseNum = 1;
+        String optionText = "";
 
         // first case is triggered if the user is at location one, and has less than $1 million net worth
         if (getLocation() == 1 && getBank()+getMoney()-getDebt() < 1000000) {
             caseNum = 1;
-            optionText = " Visit Bank, Transfer Cargo, Get Loans,";
+            optionText = " (V)isit Bank, (T)ransfer Cargo, (G)et Loans,";
         } // the second case is triggered if the user is at a location other than location one.
         else if(getLocation() != 1) {
             caseNum = 2;
@@ -120,7 +123,7 @@ public class TaipanShopText extends Player {
         // worth that is greater than or equal to $1 million and is at location one.
         else{
             caseNum = 3;
-            optionText = " Visit Bank, Transfer Cargo, Get Loans, Retire,";
+            optionText = " (V)isit Bank, (T)ransfer Cargo, (G)et Loans, (R)etire,";
         }
 
         Scanner input = new Scanner(System.in);
@@ -144,7 +147,7 @@ public class TaipanShopText extends Player {
         // as long as the user does not enter a valid input, the code will run in a loop forever.
         while(notDone){
             printShop();
-            System.out.printf("\nShall I Buy, Sell,%s or Quit Trading?\n", optionText);
+            System.out.printf("\nShall I (B)uy, (S)ell,%s or (Q)uit Trading?\n", optionText);
             String response = input.next();
             if (response.equalsIgnoreCase("B")) {
                 boolean notDone2 = true;
@@ -167,7 +170,7 @@ public class TaipanShopText extends Player {
                 loan();
             } // if the user wishes to quit trading, they may do so. Doing this breaks them out of the loop.
             else if (response.equalsIgnoreCase("Q") ) {
-                System.out.println("1");
+                setIsPriceChanged(1);
                 travel();
                 notDone = false;
             } // if the user wishes to retire and win the game, they may do so. Doing this breaks them out of the loop.
