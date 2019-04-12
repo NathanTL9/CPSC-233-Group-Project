@@ -115,7 +115,6 @@ public class TaipanShopGUI extends Player {
                 loanButton.setVisible(false);
                 armsButton.setVisible(false);
                 quitButton.setVisible(true);
-                //quitButton.setDefaultButton(true);
                 opiumButton.setVisible(false);
                 silkButton.setVisible(false);
                 numberInput.setVisible(false);
@@ -129,7 +128,6 @@ public class TaipanShopGUI extends Player {
                 cargoButton.setVisible(true);
                 loanButton.setVisible(true);
                 quitButton.setVisible(true);
-                //quitButton.setDefaultButton(true);
                 opiumButton.setVisible(false);
                 silkButton.setVisible(false);
                 numberInput.setVisible(false);
@@ -144,7 +142,6 @@ public class TaipanShopGUI extends Player {
                 loanButton.setVisible(true);
                 numberInput.setVisible(false);
                 quitButton.setVisible(true);
-                //quitButton.setDefaultButton(true);
                 opiumButton.setVisible(false);
                 silkButton.setVisible(false);
                 generalButton.setVisible(false);
